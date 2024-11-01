@@ -28,6 +28,15 @@
     "obsidian"
   ];
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    package = (import (fetchTarball "channel:nixos-unstable") {}).neovim-unwrapped;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -60,7 +69,7 @@
     waybar
 
     # neovim
-    (import (fetchTarball "channel:nixos-unstable") {}).neovim
+    # (import (fetchTarball "channel:nixos-unstable") {}).neovim
     maven
 
     # ollama

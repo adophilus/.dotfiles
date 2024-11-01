@@ -15,18 +15,19 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vivaldi"
-    "postman"
-    "spotify"
-    "google-chrome"
-    "zoom"
-    "code"
-    "vscode"
-    # "vscode-fhs"
-    "discord"
-    "obsidian"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "vivaldi"
+      "postman"
+      "spotify"
+      "google-chrome"
+      "zoom"
+      "code"
+      "vscode"
+      # "vscode-fhs"
+      "discord"
+      "obsidian"
+    ];
 
   programs.neovim = {
     enable = true;
@@ -34,7 +35,8 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = (import (fetchTarball "channel:nixos-unstable") {}).neovim-unwrapped;
+    package =
+      (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -51,6 +53,10 @@
     gtypist
     zathura
     scrcpy
+
+    # Nix stuff
+    nixfmt-classic
+    manix
 
     biome
     sbt
@@ -72,9 +78,14 @@
     # (import (fetchTarball "channel:nixos-unstable") {}).neovim
     maven
 
+    # AI stuff
     # ollama
-    (import (fetchTarball "channel:nixos-unstable") {}).ollama
+    (import (fetchTarball "channel:nixos-unstable") { }).ollama
+    (import (fetchTarball "channel:nixos-unstable") { }).aider-chat
 
+    # Tmux stuff
+    # tmux
+    (import (fetchTarball "channel:nixos-unstable") { }).tmux
     tmuxinator
 
     sshfs
@@ -143,10 +154,17 @@
     # dunst
     swaynotificationcenter
     libnotify
-    webp-pixbuf-loader gtk-layer-shell gtk3 gtksourceview3 gobject-introspection upower yad ydotool
+    webp-pixbuf-loader
+    gtk-layer-shell
+    gtk3
+    gtksourceview3
+    gobject-introspection
+    upower
+    yad
+    ydotool
     libdbusmenu-gtk3
     gtk3
-    (import (fetchTarball "channel:nixos-23.11") {}).fcitx5
+    (import (fetchTarball "channel:nixos-23.11") { }).fcitx5
     # fcitx5
     nchat
     ntfs3g
@@ -173,7 +191,7 @@
     mdbook
     openjdk
     hyprpaper
-    hyprlock 
+    hyprlock
     spotifywm
     webcord
     air
@@ -183,7 +201,7 @@
     wl-clipboard
 
     # bun
-    (import (fetchTarball "channel:nixos-unstable") {}).bun
+    (import (fetchTarball "channel:nixos-unstable") { }).bun
 
     anyrun
     gitoxide
@@ -198,7 +216,6 @@
     lazygit
     gitui
     zellij
-    tmux
     fish
     gjs
     wayshot
@@ -251,9 +268,7 @@
   #
   #  /etc/profiles/per-user/adophilus/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

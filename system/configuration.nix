@@ -7,18 +7,14 @@
 let
   nixosStable = import (fetchTarball "channel:nixos-23.11") {
     config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "vivaldi"
-      ];
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vivaldi" ];
     };
   };
-in
 
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+in {
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -27,7 +23,7 @@ in
   services.power-profiles-daemon.enable = false;
 
   services.thermald.enable = true;
-  
+
   services.tlp = {
     settings = {
       CPU_BOOST_ON_AC = 1;
@@ -43,40 +39,37 @@ in
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager = {
-    enable = true;  # Easiest to use and most distros use this by default.
-    dispatcherScripts = [ {
+    enable = true; # Easiest to use and most distros use this by default.
+    dispatcherScripts = [{
       source = pkgs.writeText "add-gateway-alias" ''
         #!/usr/bin/env ${pkgs.bash}/bin/bash
 
         INTERFACE=$1
         EVENT=$2
-        
+
         if [ "$EVENT" == "up" ]; then
           # Get the gateway IP address
           GATEWAY=$(ip route | grep default | grep $INTERFACE | awk '{print $3}')
-        
+
           if [ -n "$GATEWAY" ]; then
             # Check if the alias already exists and remove it
             sudo sed -i '/gateway.lan/d' /etc/hosts
-        
+
             # Add the new alias to /etc/host
             echo "$GATEWAY gateway.lan" | sudo tee -a /etc/hosts
           fi
         fi
-        
+
         if [ "$EVENT" == "down" ]; then
           # Remove the alias when the interface goes down
           sudo sed -i '/gateway.lan/d' /etc/hosts
         fi
       '';
       type = "basic";
-      }
-    ];
+    }];
   };
 
-
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.1 ibank.lan
     127.0.0.1 podfi.lan
     127.0.0.1 tverza.lan
@@ -174,8 +167,8 @@ in
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-	Experimental = true;
-	ControllerMode = "bredr";
+        Experimental = true;
+        ControllerMode = "bredr";
       };
     };
   };
@@ -189,7 +182,7 @@ in
   };
 
   # programs.appimage.binfmt = true;
-  
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -241,18 +234,19 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vivaldi"
-    "postman"
-    "spotify"
-    "google-chrome"
-    "zoom"
-    "code"
-    "vscode"
-    # "vscode-fhs"
-    "discord"
-    "obsidian"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "vivaldi"
+      "postman"
+      "spotify"
+      "google-chrome"
+      "zoom"
+      "code"
+      "vscode"
+      # "vscode-fhs"
+      "discord"
+      "obsidian"
+    ];
 
   programs.fish.enable = true;
   programs.wireshark = {
@@ -319,15 +313,10 @@ in
   networking.firewall.enable = true;
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    glibc
-    gcc.cc.lib
-  ];
-
+  programs.nix-ld.libraries = with pkgs; [ glibc gcc.cc.lib ];
 
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;
-
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

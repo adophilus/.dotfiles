@@ -35,8 +35,8 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package =
-      (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
+    # package =
+    #   (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -45,78 +45,52 @@
     nyancat
     zapzap
     tree
-
     xorg.xf86videointel
     intel-media-driver
-
     blender
     gtypist
     zathura
     scrcpy
-
-    # Nix stuff
     nixfmt-classic
     manix
-
     biome
     sbt
-
     # wireshark
     stunnel
     socat
-
     # xdg-desktop-portal-wlr
     wget
-
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
     # xdg-desktop-portal-wlr
     # xdg-desktop-portal-gtk
     waybar
-
-    # neovim
-    # (import (fetchTarball "channel:nixos-unstable") {}).neovim
     maven
-
-    # AI stuff
-    # ollama
-    (import (fetchTarball "channel:nixos-unstable") { }).ollama
-    (import (fetchTarball "channel:nixos-unstable") { }).aider-chat
-
-    # Tmux stuff
-    # tmux
-    (import (fetchTarball "channel:nixos-unstable") { }).tmux
+    ollama
+    aider-chat
+    # (import (fetchTarball "channel:nixos-unstable") { }).ollama
+    # (import (fetchTarball "channel:nixos-unstable") { }).aider-chat
+    tmux
     tmuxinator
-
     sshfs
-
     vim
-
     deno
-
     appimage-run
-
     google-cloud-sdk
-
     rust-analyzer
     cargo-watch
     cargo
     rustc
-
     acpi
-
     postman
     bruno
-
     jq
     kubo
     inetutils
     gnumake
     beekeeper-studio
-
     tor
     tor-browser
-
     turso-cli
     sqld
     sqlite
@@ -135,7 +109,6 @@
     obs-studio
     libsForQt5.qt5ct
     qt6.full
-    # openshot-qt
     shotcut
     wayvnc
     python311Packages.pyftpdlib
@@ -171,8 +144,6 @@
     mpv
     vlc
     # libvlc
-    nodePackages.pnpm
-    nodePackages.yarn
     d2
     android-tools
     hypridle
@@ -200,8 +171,10 @@
     slurp
     wl-clipboard
 
-    # bun
-    (import (fetchTarball "channel:nixos-unstable") { }).bun
+    nodejs
+    bun
+    nodePackages.pnpm
+    nodePackages.yarn
 
     anyrun
     gitoxide
@@ -209,7 +182,6 @@
     podman-tui
     podman-compose
     go
-    nodejs
     python3
     ripgrep
     bottom
@@ -224,8 +196,6 @@
     starship
     vivaldi
     vivaldi-ffmpeg-codecs
-    # nixosStable.vivaldi
-    # nixosStable.vivaldi-ffmpeg-codecs
     discord
     git
     git-lfs
@@ -268,7 +238,7 @@
   #
   #  /etc/profiles/per-user/adophilus/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "nvim"; };
+  # home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

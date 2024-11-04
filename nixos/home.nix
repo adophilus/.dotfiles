@@ -29,16 +29,6 @@
       "obsidian"
     ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    # package =
-    #   (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
-  };
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -47,7 +37,7 @@
     tree
     xorg.xf86videointel
     intel-media-driver
-    blender
+    # blender
     gtypist
     zathura
     scrcpy
@@ -110,18 +100,21 @@
     libsForQt5.qt5ct
     qt6.full
     shotcut
-    wayvnc
+    # wayvnc
     python311Packages.pyftpdlib
     poetry
     python311Packages.pip
     ffmpeg
+
+    # PHP
     php
-    php82Packages.composer
-    php82Packages.phpstan
+    # php82Packages.composer
+    # php82Packages.phpstan
     php82Extensions.mbstring
     php82Extensions.iconv
+
     gimp
-    mailhog
+    # mailhog
     deluge
     wireplumber
     # dunst
@@ -242,4 +235,26 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    # vimdiffAlias = true;
+    # package =
+    #   (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Adophilus";
+    userEmail = "uchenna19of@gmail.com";
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true; # enable Hyprland
+    extraConfig = builtins.readFile ./hyprland/hyprland.conf;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  };
 }

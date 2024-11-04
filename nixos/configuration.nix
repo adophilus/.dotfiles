@@ -183,11 +183,12 @@ in {
 
   # programs.appimage.binfmt = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    # nvidiaPatches = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   # package = hyprland.packages."${pkgs.system}".hyprland;
+  #   # xwayland.enable = true;
+  #   # nvidiaPatches = true;
+  # };
 
   services.mysql = {
     enable = true;
@@ -289,26 +290,28 @@ in {
 
   # List services that you want to enable:
 
-  services.tor = {
-    enable = true;
-    openFirewall = false;
-    relay = {
-      enable = false;
-      role = "relay";
-    };
-    settings = {
-      UseBridges = true;
-      ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
-      Bridge = "obfs4 IP:ORPort [fingerprint]";
-    };
-  };
+  # services.tor = {
+  #   enable = true;
+  #   openFirewall = false;
+  #   relay = {
+  #     enable = false;
+  #     role = "relay";
+  #   };
+  #   settings = {
+  #     UseBridges = true;
+  #     ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+  #     Bridge = "obfs4 IP:ORPort [fingerprint]";
+  #   };
+  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
-  networking.firewall.allowedUDPPorts = [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
+  networking.firewall.allowedTCPPorts =
+    [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
+  networking.firewall.allowedUDPPorts =
+    [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 

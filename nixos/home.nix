@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, pkgs-unstable, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -31,7 +31,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = with pkgs-unstable; [
     nyancat
     zapzap
     tree
@@ -41,17 +41,21 @@
     gtypist
     zathura
     scrcpy
+
+    # Nix
     nixfmt-classic
     manix
-    biome
+
+    # Scala
     sbt
+
     # wireshark
     stunnel
     socat
     # xdg-desktop-portal-wlr
     wget
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
+    # xdg-desktop-portal
+    # xdg-desktop-portal-hyprland
     # xdg-desktop-portal-wlr
     # xdg-desktop-portal-gtk
     waybar
@@ -64,7 +68,6 @@
     tmuxinator
     sshfs
     vim
-    deno
     appimage-run
     google-cloud-sdk
     rust-analyzer
@@ -79,8 +82,6 @@
     inetutils
     gnumake
     beekeeper-studio
-    tor
-    tor-browser
     turso-cli
     sqld
     sqlite
@@ -95,12 +96,13 @@
     libva-utils
     vaapiVdpau
     curlFull
-    firefox
     obs-studio
     libsForQt5.qt5ct
     qt6.full
     shotcut
+
     # wayvnc
+    pkgs.wayvnc
     python311Packages.pyftpdlib
     poetry
     python311Packages.pip
@@ -130,8 +132,8 @@
     ydotool
     libdbusmenu-gtk3
     gtk3
-    (import (fetchTarball "channel:nixos-23.11") { }).fcitx5
-    # fcitx5
+    # (import (fetchTarball "channel:nixos-23.11") { }).fcitx5
+    fcitx5
     nchat
     ntfs3g
     mpv
@@ -139,31 +141,47 @@
     # libvlc
     d2
     android-tools
-    hypridle
-    hyprcursor
     nwg-look
     swappy
-    hyprpicker
     obsidian
     grim
     vscode
     # vscode-fhs
     gh
     flyctl
+
+    # Browser
+    tor
+    tor-browser
+    vivaldi
+    vivaldi-ffmpeg-codecs
     firefox
     google-chrome
+
     mdbook
     openjdk
-    hyprpaper
-    hyprlock
     spotifywm
     webcord
     air
     ags
+
+    # Clipboard
     cliphist
     slurp
+
+    # Wayland
     wl-clipboard
 
+    # Hyprland
+    hypridle
+    hyprcursor
+    hyprpaper
+    hyprlock
+    hyprpicker
+
+    # Nodejs
+    biome
+    deno
     nodejs
     bun
     nodePackages.pnpm
@@ -187,10 +205,8 @@
     foot
     kitty
     starship
-    vivaldi
-    vivaldi-ffmpeg-codecs
     discord
-    git
+    # git
     git-lfs
     fuzzel
     brightnessctl
@@ -242,8 +258,7 @@
     viAlias = true;
     vimAlias = true;
     # vimdiffAlias = true;
-    # package =
-    #   (import (fetchTarball "channel:nixos-unstable") { }).neovim-unwrapped;
+    package = pkgs-unstable.neovim-unwrapped;
   };
 
   programs.git = {
@@ -255,6 +270,12 @@
   wayland.windowManager.hyprland = {
     enable = true; # enable Hyprland
     extraConfig = builtins.readFile ./hyprland/hyprland.conf;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package =
+      inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # plugins = [
+    #   inputs.hypr-dynamic-cursors.packages.${pkgs-unstable.system}.hypr-dynamic-cursors
+    # ];
   };
 }

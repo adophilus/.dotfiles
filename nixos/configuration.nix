@@ -2,16 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, ond
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
-
-let
-  nixosStable = import (fetchTarball "channel:nixos-23.11") {
-    config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vivaldi" ];
-    };
-  };
-
-in {
+{ config, lib, pkgs, inputs, pkgs-unstable, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -111,7 +102,7 @@ in {
     settings.PasswordAuthentication = true;
   };
 
-  # services.logind.extraConfig = pkgs.lib.mkForce ''
+  # services.logind.extraConfig = pkgs-unstable.lib.mkForce ''
   #   HandleLidSwitch=hibernate
   #   HandleLidSwitchExternalPower=hibernate
   # '';
@@ -137,9 +128,11 @@ in {
   #   };
   # };
 
+  # services.greetd.enable = true;
+
   # hardware.pulseaudio = {
   #   enable = true;
-  #   package = pkgs.pulseaudioFull;
+  #   package = pkgs-unstable.pulseaudioFull;
   #   extraConfig = "
   #     load-module module-switch-on-connect
   #   ";
@@ -147,7 +140,7 @@ in {
 
   # hardware.opengl = {
   #   enable = true;
-  #   extraPackages = with pkgs; [
+  #   extraPackages = with pkgs-unstable; [
   #     # ... # your Open GL, Vulkan and VAAPI drivers
   #     # vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
   #     # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
@@ -178,21 +171,25 @@ in {
     after = [ "network.target" "sound.target" "bluetooth.target" ];
     bindsTo = [ "bluetooth.target" ];
     wantedBy = [ "bluetooth.target" ];
-    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+    serviceConfig.ExecStart = "${pkgs-unstable.bluez}/bin/mpris-proxy";
   };
 
   # programs.appimage.binfmt = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   # package = hyprland.packages."${pkgs.system}".hyprland;
-  #   # xwayland.enable = true;
-  #   # nvidiaPatches = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    # package =
+    #   inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage =
+    #   inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # package = hyprland.packages."${pkgs-unstable.system}".hyprland;
+    # xwayland.enable = true;
+    # nvidiaPatches = true;
+  };
 
   services.mysql = {
     enable = true;
-    package = pkgs.mariadb;
+    package = pkgs-unstable.mariadb;
   };
 
   environment.sessionVariables = {
@@ -252,7 +249,7 @@ in {
   programs.fish.enable = true;
   programs.wireshark = {
     enable = true;
-    package = pkgs.wireshark;
+    package = pkgs-unstable.wireshark;
   };
 
   virtualisation = {
@@ -270,12 +267,12 @@ in {
   users.users.adophilus = {
     isNormalUser = true;
     extraGroups = [ "wheel" "wireshark" ];
-    shell = pkgs.fish;
+    shell = pkgs-unstable.fish;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs-unstable; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
   # ];
@@ -299,7 +296,7 @@ in {
   #   };
   #   settings = {
   #     UseBridges = true;
-  #     ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+  #     ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
   #     Bridge = "obfs4 IP:ORPort [fingerprint]";
   #   };
   # };
@@ -316,7 +313,7 @@ in {
   networking.firewall.enable = true;
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ glibc gcc.cc.lib ];
+  programs.nix-ld.libraries = with pkgs-unstable; [ glibc gcc.cc.lib ];
 
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;

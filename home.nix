@@ -265,17 +265,6 @@
     enable = true;
     userName = "Adophilus";
     userEmail = "uchenna19of@gmail.com";
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true; # enable Hyprland
-    extraConfig = builtins.readFile ./hyprland/hyprland.conf;
-    package =
-      inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs-unstable.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    # plugins = [
-    #   inputs.hypr-dynamic-cursors.packages.${pkgs-unstable.system}.hypr-dynamic-cursors
-    # ];
+    package = pkgs-unstable.git;
   };
 }

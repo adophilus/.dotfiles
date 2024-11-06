@@ -52,7 +52,7 @@
     # wireshark
     stunnel
     socat
-    # xdg-desktop-portal-wlr
+    xdg-desktop-portal-wlr
     wget
     # xdg-desktop-portal
     # xdg-desktop-portal-hyprland
@@ -153,8 +153,8 @@
     # Browser
     tor
     tor-browser
-    vivaldi
-    vivaldi-ffmpeg-codecs
+    pkgs.vivaldi
+    pkgs.vivaldi-ffmpeg-codecs
     firefox
     google-chrome
 
@@ -199,7 +199,7 @@
     lazygit
     gitui
     zellij
-    fish
+    # fish
     gjs
     wayshot
     foot
@@ -267,4 +267,15 @@
     userEmail = "uchenna19of@gmail.com";
     package = pkgs-unstable.git;
   };
+
+  programs.fish = {
+    enable = true;
+    shellInit = builtins.readFile ./fish/config.fish;
+  };
+  
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   extraConfig = builtins.readFile ./hypr/hyprland.conf;
+  # };
 }

@@ -93,9 +93,9 @@
     '';
   };
 
-  programs.nix-index.enable = true;
-  programs.nix-index.enableBashIntegration = true;
-  programs.nix-index.enableFishIntegration = true;
+  # programs.nix-index.enable = true;
+  # programs.nix-index.enableBashIntegration = true;
+  # programs.nix-index.enableFishIntegration = true;
 
   services.openssh = {
     enable = true;
@@ -119,16 +119,22 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+  # Configure keymap in X11
+  # services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
+
   # services.displayManager = {
   #   sddm = {
   #     enable = true;
-  #     wayland.enable = true;
+  #     # wayland.enable = true;
   #   };
   # };
-
-  # services.greetd.enable = true;
 
   # hardware.pulseaudio = {
   #   enable = true;
@@ -178,13 +184,23 @@
 
   programs.hyprland = {
     enable = true;
-    package =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
     # nvidiaPatches = true;
   };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd Hyprland'';
+      };
+    };
+  };
+
+  # programs.xwayland.enable = true;
 
   services.mysql = {
     enable = true;
@@ -207,10 +223,6 @@
   # };
   # programs.gamemode.enable = true;
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -228,9 +240,6 @@
     jack.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "vivaldi"
@@ -245,7 +254,7 @@
       "obsidian"
     ];
 
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
   programs.wireshark = {
     enable = true;
     package = pkgs-unstable.wireshark;

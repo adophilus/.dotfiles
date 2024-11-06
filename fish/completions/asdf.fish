@@ -1,0 +1,1 @@
+/home/adophilus/.asdf/completions/asdf.fish

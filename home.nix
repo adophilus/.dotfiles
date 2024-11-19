@@ -21,7 +21,6 @@
       "postman"
       "spotify"
       "google-chrome"
-      "zoom"
       "code"
       "vscode"
       # "vscode-fhs"
@@ -32,14 +31,25 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs-unstable; [
-    nyancat
+    # Social media
     zapzap
+
     tree
+
+    # Video drivers
     xorg.xf86videointel
     intel-media-driver
+    libva
+    libva-utils
+    vaapiVdpau
+
     # blender
     gtypist
+
+    # PDF readers
     zathura
+
+    # ADB tools
     scrcpy
 
     # Nix
@@ -49,60 +59,77 @@
     # Scala
     sbt
 
+    # Networking
     # wireshark
     stunnel
     socat
-    xdg-desktop-portal-wlr
     wget
+    inetutils
+    curlFull
+
+    # xdg-desktop-portal-wlr
     # xdg-desktop-portal
     # xdg-desktop-portal-hyprland
     # xdg-desktop-portal-wlr
     # xdg-desktop-portal-gtk
-    waybar
+
+    # Java
     maven
+
+    # lua
+    lua
+    lua51Packages.luarocks
+
+    waybar
+
+    # AI
     ollama
     aider-chat
-    # (import (fetchTarball "channel:nixos-unstable") { }).ollama
-    # (import (fetchTarball "channel:nixos-unstable") { }).aider-chat
+
+    # tmux
     tmux
     tmuxinator
-    sshfs
+
+    neovide
     vim
+    sshfs
+
     appimage-run
+    
+    # google
     google-cloud-sdk
-    rust-analyzer
-    cargo-watch
+
+    # rust
     cargo
     rustc
+
     acpi
+
+    # openapi
     postman
     bruno
-    jq
-    kubo
-    inetutils
-    gnumake
-    beekeeper-studio
+
+    # sqlite
     turso-cli
     sqld
     sqlite
-    neovide
+
+    kubo
+    jq
+    gnumake
+    beekeeper-studio
     fzf
     lua-language-server
     direnv
     openssl
     solc
-    zoom-us
-    libva
-    libva-utils
-    vaapiVdpau
-    curlFull
-    obs-studio
     libsForQt5.qt5ct
     qt6.full
-    shotcut
 
     # wayvnc
     pkgs.wayvnc
+
+    # python
     python311Packages.pyftpdlib
     poetry
     python311Packages.pip
@@ -115,9 +142,15 @@
     php82Extensions.mbstring
     php82Extensions.iconv
 
+    # graphics apps
     gimp
-    # mailhog
+    obs-studio
+    shotcut
+
+    # torrent
     deluge
+
+    # mailhog
     wireplumber
     # dunst
     swaynotificationcenter
@@ -134,27 +167,32 @@
     gtk3
     # (import (fetchTarball "channel:nixos-23.11") { }).fcitx5
     fcitx5
-    nchat
-    ntfs3g
+
+    # video players
     mpv
     vlc
     # libvlc
     d2
+
+    # android
     android-tools
     nwg-look
     swappy
+
     obsidian
     grim
+
+    # code editor
     vscode
     # vscode-fhs
     gh
     flyctl
 
     # Browser
-    tor
+    # tor
     tor-browser
-    pkgs.vivaldi
-    pkgs.vivaldi-ffmpeg-codecs
+    vivaldi
+    vivaldi-ffmpeg-codecs
     firefox
     google-chrome
 
@@ -199,20 +237,22 @@
     lazygit
     gitui
     zellij
-    # fish
     gjs
     wayshot
     foot
     kitty
     starship
     discord
-    # git
     git-lfs
     fuzzel
     brightnessctl
     wofi
+
+    # archive
     zip
     unzip
+
+    # zig
     zig
   ];
 
@@ -272,7 +312,7 @@
     enable = true;
     shellInit = builtins.readFile ./fish/config.fish;
   };
-  
+
   # wayland.windowManager.hyprland = {
   #   enable = true;
   #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

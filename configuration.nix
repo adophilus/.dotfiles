@@ -295,28 +295,28 @@
 
   # List services that you want to enable:
 
-  # services.tor = {
-  #   enable = true;
-  #   openFirewall = false;
-  #   relay = {
-  #     enable = false;
-  #     role = "relay";
-  #   };
-  #   settings = {
-  #     UseBridges = true;
-  #     ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-  #     Bridge = "obfs4 IP:ORPort [fingerprint]";
-  #   };
-  # };
+  services.tor = {
+    enable = true;
+    openFirewall = false;
+    relay = {
+      enable = false;
+      # role = "relay";
+    };
+    settings = {
+      UseBridges = true;
+      ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
+      Bridge = "obfs4 IP:ORPort [fingerprint]";
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts =
-    [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
+    [ 2121 3000 5000 8000 8080 8081 8100 ];
   networking.firewall.allowedUDPPorts =
-    [ 2121 3000 5000 8000 8080 8081 8082 8100 ];
+    [ 2121 3000 5000 8000 8080 8081 8100 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
@@ -325,6 +325,8 @@
 
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;
+
+boot.tmp.cleanOnBoot = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

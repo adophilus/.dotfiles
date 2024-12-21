@@ -130,10 +130,12 @@
     pkgs.wayvnc
 
     # python
+    python3
     python311Packages.pyftpdlib
     poetry
     python311Packages.pip
     ffmpeg
+    mitmproxy
 
     # PHP
     php
@@ -150,7 +152,6 @@
     # torrent
     deluge
 
-    # mailhog
     wireplumber
     # dunst
     swaynotificationcenter
@@ -217,6 +218,10 @@
     hyprlock
     hyprpicker
 
+    # Containers
+    podman-tui
+    podman-compose
+
     # Nodejs
     biome
     deno
@@ -225,13 +230,12 @@
     nodePackages.pnpm
     nodePackages.yarn
 
+    # Go
+    go
+
     anyrun
     gitoxide
     dive
-    podman-tui
-    podman-compose
-    go
-    python3
     ripgrep
     bottom
     lazygit
@@ -247,6 +251,9 @@
     fuzzel
     brightnessctl
     wofi
+
+    # Documentation
+    tldr
 
     # archive
     zip

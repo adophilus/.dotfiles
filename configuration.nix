@@ -159,7 +159,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.command-not-found.enable = false;
+  # programs.command-not-found.enable = false;
 
   hardware.bluetooth = {
     enable = true;
@@ -254,7 +254,7 @@
       "obsidian"
     ];
 
-  # programs.fish.enable = true;
+  programs.fish.enable = true;
   programs.wireshark = {
     enable = true;
     package = pkgs-unstable.wireshark;

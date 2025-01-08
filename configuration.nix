@@ -61,9 +61,8 @@
   };
 
   networking.extraHosts = ''
-    127.0.0.1 ibank.lan
-    127.0.0.1 podfi.lan
-    127.0.0.1 tverza.lan
+    127.0.0.1 localhost.lan
+    127.0.0.1 bank.lan
   '';
 
   # Set your time zone.
@@ -266,15 +265,19 @@
 
     podman = {
       enable = true;
-      dockerCompat = true;
+      # dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
+    };
+
+    docker = {
+      enable = true;
     };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.adophilus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "wireshark" ];
+    extraGroups = [ "wheel" "wireshark" "docker" ];
     shell = pkgs-unstable.fish;
   };
 

@@ -37,7 +37,7 @@
     tree
 
     # Video drivers
-    xorg.xf86videointel
+    # xorg.xf86videointel
     intel-media-driver
     libva
     libva-utils
@@ -232,6 +232,8 @@
 
     # Go
     go
+
+    openshot-qt
 
     anyrun
     gitoxide

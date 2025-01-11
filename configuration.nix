@@ -62,7 +62,7 @@
 
   networking.extraHosts = ''
     127.0.0.1 localhost.lan
-    127.0.0.1 bank.lan
+    127.0.0.1 nft-ai-generator.lan
   '';
 
   # Set your time zone.

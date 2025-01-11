@@ -278,6 +278,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/waybar" = ./.config/waybar;
   };
 
   # Home Manager can also manage your environment variables through

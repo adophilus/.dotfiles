@@ -1,0 +1,33 @@
+keybinds {
+    unbind "Ctrl h"
+    unbind "Alt h"
+    unbind "Alt l"
+    unbind "Ctrl q"
+
+    shared_except "locked" {
+        bind "Alt h" {
+            MoveFocusOrTab "Left"; 
+        }
+
+        bind "Alt l" {
+            MoveFocusOrTab "Right"; 
+        }
+
+        bind "Alt r" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
+                floating true;
+                ignore_case true;
+            }
+        }
+
+        bind "Alt /" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
+                "LOAD_ZELLIJ_BINDINGS" "false";
+                "buy eggs" "5x";
+                "learn rust" "5h";
+                "clean up code" "tomorrow";
+                floating true;
+            }
+        }
+    }
+}

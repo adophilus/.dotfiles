@@ -14,6 +14,10 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    end4dots = {
+      url = "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
+      flake = false;
+    };
     hyprland.url = "github:hyprwm/Hyprland";
 
     # hypr-dynamic-cursors = {
@@ -23,7 +27,7 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       zenith = nixpkgs.lib.nixosSystem rec {
@@ -45,14 +49,12 @@
             # TODO replace ryan with your own username
             home-manager.users.adophilus = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs;
+              inherit inputs end4dots;
               pkgs-unstable = import nixpkgs-unstable {
                 inherit system;
                 config.allowUnfree = true;
               };
-            }; # this is the important part
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+            };
           }
         ];
       };

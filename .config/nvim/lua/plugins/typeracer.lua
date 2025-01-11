@@ -1,0 +1,3 @@
+return {
+  "norcalli/typeracer.nvim"
+}

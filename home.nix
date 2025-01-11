@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, pkgs-unstable, ... }:
+{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -35,6 +35,8 @@
     zapzap
 
     tree
+
+    fish
 
     # Video drivers
     # xorg.xf86videointel
@@ -278,7 +280,29 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/waybar" = ./.config/waybar;
+
+    ".config/bottom".source = ./.config/bottom;
+    ".config/nvim".source = ./.config/nvim;
+    ".config/fish".source = ./.config/fish;
+    ".config/kitty".source = ./.config/kitty;
+    ".config/tmux".source = ./.config/tmux;
+    ".config/tmuxinator".source = ./.config/tmuxinator;
+    ".config/waybar".source = ./.config/waybar;
+    ".config/zellij".source = ./.config/zellij;
+
+    ".config/ags".source = "${end4dots}/.config/ags";
+    ".config/anyrun".source = "${end4dots}/.config/anyrun";
+    # ".config/fontconfig".source = "${end4dots}/.config/fontconfig";
+    ".config/foot".source = "${end4dots}/.config/foot";
+    ".config/fuzzel".source = "${end4dots}/.config/fuzzel";
+    ".config/mpv".source = "${end4dots}/.config/mpv";
+    ".config/qt5ct".source = "${end4dots}/.config/qt5ct";
+    ".config/wlogout".source = "${end4dots}/.config/wlogout";
+    ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
+    ".config/chrome-flags.conf".source = "${end4dots}/.config/chrome-flags.conf";
+    ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
+    ".config/starship.conf".source = "${end4dots}/.config/starship.conf";
+    ".config/thorium-flags.conf".source = "${end4dots}/.config/thorium-flags.conf";
   };
 
   # Home Manager can also manage your environment variables through
@@ -318,10 +342,10 @@
     package = pkgs-unstable.git;
   };
 
-  programs.fish = {
-    enable = true;
-    shellInit = builtins.readFile ./fish/config.fish;
-  };
+  # programs.fish = {
+  #   enable = true;
+  #   # shellInit = builtins.readFile ./fish/config.fish;
+  # };
 
   # wayland.windowManager.hyprland = {
   #   enable = true;

@@ -33,6 +33,23 @@
         "type": "github"
       }
     },
+    "end4dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736511172,
+        "narHash": "sha256-uuTVAkYYzzT3UVaUTtxD0vrdqx5grKPzXNW5rXqhO6E=",
+        "owner": "end-4",
+        "repo": "dots-hyprland",
+        "rev": "510aa4096d814691c67805e5431cc40ec9e9d8a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "end-4",
+        "repo": "dots-hyprland",
+        "rev": "510aa4096d814691c67805e5431cc40ec9e9d8a1",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -402,6 +419,7 @@
     },
     "root": {
       "inputs": {
+        "end4dots": "end4dots",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",

@@ -1,0 +1,1116 @@
+[2024-11-07 02:08:00.641]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-07 02:08:00.655]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-07 02:08:00.703]	 Installing "tmux-power"
+[2024-11-07 02:08:00.703]	 Installing "tmux-copycat"
+[2024-11-07 02:08:00.703]	 Installing "tmux-cpu"
+[2024-11-07 02:08:02.349]	   "tmux-power" download success
+[2024-11-07 02:08:02.451]	   "tmux-cpu" download success
+[2024-11-07 02:08:02.956]	   "tmux-copycat" download success
+[2024-11-07 02:08:02.992]	 Done.
+
+[2024-11-07 14:13:33.195]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-07 14:13:33.214]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-07 14:13:33.278]	 Already installed "tmux-cpu"
+[2024-11-07 14:13:33.278]	 Already installed "tmux-copycat"
+[2024-11-07 14:13:33.278]	 Already installed "tmux-power"
+[2024-11-07 14:13:33.295]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-07 14:13:33.324]	 Updating all plugins!
+[2024-11-07 14:13:33.325]	 
+[2024-11-07 14:13:34.565]	   "tmux-cpu" update success
+[2024-11-07 14:13:34.565]	   "tmux-power" update success
+[2024-11-07 14:13:34.568]	     | Already up to date.
+[2024-11-07 14:13:34.568]	     | Already up to date.
+[2024-11-07 14:13:34.585]	   "tmux-copycat" update success
+[2024-11-07 14:13:34.589]	     | Already up to date.
+[2024-11-07 14:13:34.605]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-07 14:13:34.672]	 Done.
+
+[2024-11-08 16:52:46.327]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-08 16:52:46.343]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-08 16:52:46.411]	 Already installed "tmux-power"
+[2024-11-08 16:52:46.411]	 Already installed "tmux-copycat"
+[2024-11-08 16:52:46.416]	 Already installed "tmux-cpu"
+[2024-11-08 16:52:46.462]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-08 16:52:46.495]	 Updating all plugins!
+[2024-11-08 16:52:46.495]	 
+[2024-11-08 16:52:47.829]	   "tmux-cpu" update success
+[2024-11-08 16:52:47.829]	   "tmux-copycat" update success
+[2024-11-08 16:52:47.829]	   "tmux-power" update success
+[2024-11-08 16:52:47.832]	     | Already up to date.
+[2024-11-08 16:52:47.832]	     | Already up to date.
+[2024-11-08 16:52:47.832]	     | Already up to date.
+[2024-11-08 16:52:47.847]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-08 16:52:47.910]	 Done.
+
+[2024-11-08 17:37:33.709]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-08 17:37:33.748]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-08 17:37:33.884]	 Already installed "tmux-copycat"
+[2024-11-08 17:37:33.892]	 Already installed "tmux-cpu"
+[2024-11-08 17:37:33.900]	 Already installed "tmux-power"
+[2024-11-08 17:37:33.938]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-08 17:37:34.001]	 Updating all plugins!
+[2024-11-08 17:37:34.001]	 
+[2024-11-08 17:37:35.412]	   "tmux-copycat" update success
+[2024-11-08 17:37:35.412]	   "tmux-cpu" update success
+[2024-11-08 17:37:35.412]	   "tmux-power" update success
+[2024-11-08 17:37:35.417]	     | Already up to date.
+[2024-11-08 17:37:35.417]	     | Already up to date.
+[2024-11-08 17:37:35.418]	     | Already up to date.
+[2024-11-08 17:37:35.446]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-08 17:37:35.614]	 Done.
+
+[2024-11-09 13:38:01.072]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-09 13:38:01.101]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-09 13:38:01.177]	 Already installed "tmux-copycat"
+[2024-11-09 13:38:01.177]	 Already installed "tmux-power"
+[2024-11-09 13:38:01.185]	 Already installed "tmux-cpu"
+[2024-11-09 13:38:01.227]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-09 13:38:01.256]	 Updating all plugins!
+[2024-11-09 13:38:01.257]	 
+[2024-11-09 13:38:02.591]	   "tmux-power" update success
+[2024-11-09 13:38:02.591]	   "tmux-cpu" update success
+[2024-11-09 13:38:02.591]	   "tmux-copycat" update success
+[2024-11-09 13:38:02.594]	     | Already up to date.
+[2024-11-09 13:38:02.594]	     | Already up to date.
+[2024-11-09 13:38:02.594]	     | Already up to date.
+[2024-11-09 13:38:02.610]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-09 13:38:02.680]	 Done.
+
+[2024-11-09 23:10:33.568]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-09 23:10:33.590]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-09 23:10:33.643]	 Already installed "tmux-cpu"
+[2024-11-09 23:10:33.644]	 Already installed "tmux-copycat"
+[2024-11-09 23:10:33.644]	 Already installed "tmux-power"
+[2024-11-09 23:10:33.660]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-09 23:10:33.687]	 Updating all plugins!
+[2024-11-09 23:10:33.687]	 
+[2024-11-09 23:10:34.795]	   "tmux-copycat" update success
+[2024-11-09 23:10:34.795]	   "tmux-power" update success
+[2024-11-09 23:10:34.795]	   "tmux-cpu" update success
+[2024-11-09 23:10:34.798]	     | Already up to date.
+[2024-11-09 23:10:34.798]	     | Already up to date.
+[2024-11-09 23:10:34.798]	     | Already up to date.
+[2024-11-09 23:10:34.814]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-09 23:10:34.881]	 Done.
+
+[2024-11-10 00:38:21.645]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-10 00:38:21.660]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-10 00:38:21.734]	 Already installed "tmux-cpu"
+[2024-11-10 00:38:21.734]	 Already installed "tmux-power"
+[2024-11-10 00:38:21.737]	 Already installed "tmux-copycat"
+[2024-11-10 00:38:21.752]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-10 00:38:21.782]	 Updating all plugins!
+[2024-11-10 00:38:21.782]	 
+[2024-11-10 00:38:22.976]	   "tmux-copycat" update success
+[2024-11-10 00:38:22.976]	   "tmux-power" update success
+[2024-11-10 00:38:22.976]	   "tmux-cpu" update success
+[2024-11-10 00:38:22.981]	     | Already up to date.
+[2024-11-10 00:38:22.981]	     | Already up to date.
+[2024-11-10 00:38:22.981]	     | Already up to date.
+[2024-11-10 00:38:22.997]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-10 00:38:23.068]	 Done.
+
+[2024-11-10 15:04:04.806]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-10 15:04:04.855]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-10 15:04:11.354]	 Already installed "tmux-power"
+[2024-11-10 15:04:11.354]	 Already installed "tmux-copycat"
+[2024-11-10 15:04:11.355]	 Already installed "tmux-cpu"
+[2024-11-10 15:04:11.395]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-10 15:04:12.606]	 Updating all plugins!
+[2024-11-10 15:04:12.606]	 
+[2024-11-10 15:04:24.725]	   "tmux-power" update fail
+[2024-11-10 15:04:24.725]	   "tmux-cpu" update fail
+[2024-11-10 15:04:24.727]	   "tmux-copycat" update fail
+[2024-11-10 15:04:24.737]	     | Your configuration specifies to merge with the ref 'refs/heads/master'
+[2024-11-10 15:04:24.737]	     | from the remote, but no such ref was fetched.
+[2024-11-10 15:04:24.739]	     | Your configuration specifies to merge with the ref 'refs/heads/master'
+[2024-11-10 15:04:24.739]	     | from the remote, but no such ref was fetched.
+[2024-11-10 15:04:24.739]	     | Your configuration specifies to merge with the ref 'refs/heads/master'
+[2024-11-10 15:04:24.739]	     | from the remote, but no such ref was fetched.
+[2024-11-10 15:04:24.763]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-10 15:04:27.48[2024-11-10 15:41:20.010]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-10 15:41:20.045]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-10 15:41:20.110]	 Already installed "tmux-power"
+[2024-11-10 15:41:20.111]	 Already installed "tmux-copycat"
+[2024-11-10 15:41:20.115]	 Already installed "tmux-cpu"
+[2024-11-10 15:41:20.162]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-10 15:41:20.199]	 Updating all plugins!
+[2024-11-10 15:41:20.199]	 
+[2024-11-10 15:41:21.647]	   "tmux-cpu" update success
+[2024-11-10 15:41:21.647]	   "tmux-copycat" update success
+[2024-11-10 15:41:21.647]	   "tmux-power" update success
+[2024-11-10 15:41:21.656]	     | Already up to date.
+[2024-11-10 15:41:21.656]	     | Already up to date.
+[2024-11-10 15:41:21.656]	     | Already up to date.
+[2024-11-10 15:41:21.695]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-10 15:41:21.783]	 Done.
+
+[2024-11-10 19:54:17.068]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-10 19:54:17.084]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-10 19:54:19.518]	 Already installed "tmux-copycat"
+[2024-11-10 19:54:19.519]	 Already installed "tmux-power"
+[2024-11-10 19:54:19.519]	 Already installed "tmux-cpu"
+[2024-11-10 19:54:19.547]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-10 19:54:19.580]	 Updating all plugins!
+[2024-11-10 19:54:19.581]	 
+[2024-11-10 19:54:21.987]	   "tmux-copycat" update success
+[2024-11-10 19:54:21.994]	     | Already up to date.
+[2024-11-10 19:54:23.433]	   "tmux-cpu" update success
+[2024-11-10 19:54:23.436]	     | Already up to date.
+[2024-11-10 19:54:24.148]	   "tmux-power" update success
+[2024-11-10 19:54:24.153]	     | Already up to date.
+[2024-11-10 19:54:24.178]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-10 19:54:24.245]	 Done.
+
+[2024-11-11 09:46:24.163]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-11 09:46:24.179]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-11 09:46:24.227]	 Already installed "tmux-cpu"
+[2024-11-11 09:46:24.227]	 Already installed "tmux-copycat"
+[2024-11-11 09:46:24.227]	 Already installed "tmux-power"
+[2024-11-11 09:46:24.242]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-11 09:46:24.268]	 Updating all plugins!
+[2024-11-11 09:46:24.268]	 
+[2024-11-11 09:46:25.374]	   "tmux-power" update success
+[2024-11-11 09:46:25.374]	   "tmux-cpu" update success
+[2024-11-11 09:46:25.377]	     | Already up to date.
+[2024-11-11 09:46:25.377]	     | Already up to date.
+[2024-11-11 09:46:25.388]	   "tmux-copycat" update success
+[2024-11-11 09:46:25.391]	     | Already up to date.
+[2024-11-11 09:46:25.408]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-11 09:46:25.470]	 Done.
+
+[2024-11-11 14:45:54.668]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-11 14:45:54.686]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-11 14:45:54.745]	 Already installed "tmux-cpu"
+[2024-11-11 14:45:54.745]	 Already installed "tmux-copycat"
+[2024-11-11 14:45:54.745]	 Already installed "tmux-power"
+[2024-11-11 14:45:54.764]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-11 14:45:54.790]	 Updating all plugins!
+[2024-11-11 14:45:54.790]	 
+[2024-11-11 14:45:56.223]	   "tmux-cpu" update success
+[2024-11-11 14:45:56.229]	     | Already up to date.
+[2024-11-11 14:45:56.281]	   "tmux-copycat" update success
+[2024-11-11 14:45:56.286]	     | Already up to date.
+[2024-11-11 14:46:00.547]	   "tmux-power" update success
+[2024-11-11 14:46:00.552]	     | Already up to date.
+[2024-11-11 14:46:00.569]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-11 14:46:00.644]	 Done.
+
+[2024-11-12 13:23:20.744]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-12 13:23:20.773]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-12 13:23:20.834]	 Already installed "tmux-cpu"
+[2024-11-12 13:23:20.834]	 Already installed "tmux-copycat"
+[2024-11-12 13:23:20.834]	 Already installed "tmux-power"
+[2024-11-12 13:23:20.852]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-12 13:23:20.881]	 Updating all plugins!
+[2024-11-12 13:23:20.881]	 
+[2024-11-12 13:23:22.042]	   "tmux-power" update success
+[2024-11-12 13:23:22.043]	   "tmux-cpu" update success
+[2024-11-12 13:23:22.047]	     | Already up to date.
+[2024-11-12 13:23:22.047]	     | Already up to date.
+[2024-11-12 13:23:26.385]	   "tmux-copycat" update success
+[2024-11-12 13:23:26.391]	     | Already up to date.
+[2024-11-12 13:23:26.426]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-12 13:23:26.516]	 Done.
+
+[2024-11-12 14:44:27.199]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-12 14:44:27.214]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-12 14:44:27.266]	 Already installed "tmux-copycat"
+[2024-11-12 14:44:27.267]	 Already installed "tmux-cpu"
+[2024-11-12 14:44:27.267]	 Already installed "tmux-power"
+[2024-11-12 14:44:27.282]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-12 14:44:27.309]	 Updating all plugins!
+[2024-11-12 14:44:27.309]	 
+[2024-11-12 14:44:28.417]	   "tmux-copycat" update success
+[2024-11-12 14:44:28.422]	     | Already up to date.
+[2024-11-12 14:44:28.430]	   "tmux-power" update success
+[2024-11-12 14:44:28.435]	   "tmux-cpu" update success
+[2024-11-12 14:44:28.436]	     | Already up to date.
+[2024-11-12 14:44:28.440]	     | Already up to date.
+[2024-11-12 14:44:28.461]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-12 14:44:28.557]	 Done.
+
+[2024-11-13 15:03:21.384]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-13 15:03:21.413]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-13 15:03:21.481]	 Already installed "tmux-copycat"
+[2024-11-13 15:03:21.481]	 Already installed "tmux-power"
+[2024-11-13 15:03:21.481]	 Already installed "tmux-cpu"
+[2024-11-13 15:03:21.521]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-13 15:03:21.556]	 Updating all plugins!
+[2024-11-13 15:03:21.556]	 
+[2024-11-13 15:03:22.991]	   "tmux-power" update success
+[2024-11-13 15:03:22.995]	     | Already up to date.
+[2024-11-13 15:03:22.996]	   "tmux-copycat" update success
+[2024-11-13 15:03:23.002]	     | Already up to date.
+[2024-11-13 15:03:27.866]	   "tmux-cpu" update success
+[2024-11-13 15:03:27.871]	     | Already up to date.
+[2024-11-13 15:03:27.893]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-13 15:03:27.978]	 Done.
+
+[2024-11-13 19:11:43.382]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-13 19:11:43.413]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-13 19:11:43.616]	 Already installed "tmux-power"
+[2024-11-13 19:11:43.620]	 Already installed "tmux-copycat"
+[2024-11-13 19:11:43.620]	 Already installed "tmux-cpu"
+[2024-11-13 19:11:43.654]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-13 19:11:43.789]	 Updating all plugins!
+[2024-11-13 19:11:43.789]	 
+[2024-11-13 19:11:45.091]	   "tmux-copycat" update success
+[2024-11-13 19:11:45.095]	     | Already up to date.
+[2024-11-13 19:11:45.145]	   "tmux-power" update success
+[2024-11-13 19:11:45.149]	     | Already up to date.
+[2024-11-13 19:11:51.251]	   "tmux-cpu" update success
+[2024-11-13 19:11:51.259]	     | Already up to date.
+[2024-11-13 19:11:51.308]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-13 19:11:51.525]	 Done.
+
+[2024-11-14 00:03:30.175]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-14 00:03:30.195]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-14 00:03:30.249]	 Already installed "tmux-power"
+[2024-11-14 00:03:30.249]	 Already installed "tmux-copycat"
+[2024-11-14 00:03:30.249]	 Already installed "tmux-cpu"
+[2024-11-14 00:03:30.264]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-14 00:03:30.290]	 Updating all plugins!
+[2024-11-14 00:03:30.290]	 
+[2024-11-14 00:03:31.433]	   "tmux-power" update success
+[2024-11-14 00:03:31.433]	   "tmux-cpu" update success
+[2024-11-14 00:03:31.433]	   "tmux-copycat" update success
+[2024-11-14 00:03:31.440]	     | Already up to date.
+[2024-11-14 00:03:31.441]	     | Already up to date.
+[2024-11-14 00:03:31.441]	     | Already up to date.
+[2024-11-14 00:03:31.461]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-14 00:03:31.530]	 Done.
+
+[2024-11-14 07:25:55.257]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-14 07:25:55.274]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-14 07:25:55.329]	 Already installed "tmux-power"
+[2024-11-14 07:25:55.329]	 Already installed "tmux-cpu"
+[2024-11-14 07:25:55.330]	 Already installed "tmux-copycat"
+[2024-11-14 07:25:55.346]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-14 07:25:55.373]	 Updating all plugins!
+[2024-11-14 07:25:55.373]	 
+[2024-11-14 07:25:56.394]	   "tmux-copycat" update success
+[2024-11-14 07:25:56.395]	   "tmux-power" update success
+[2024-11-14 07:25:56.399]	     | Already up to date.
+[2024-11-14 07:25:56.400]	     | Already up to date.
+[2024-11-14 07:25:56.423]	   "tmux-cpu" update success
+[2024-11-14 07:25:56.427]	     | Already up to date.
+[2024-11-14 07:25:56.448]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-14 07:25:56.536]	 Done.
+
+[2024-11-14 21:00:22.989]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-14 21:00:23.044]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-14 21:00:23.103]	 Already installed "tmux-copycat"
+[2024-11-14 21:00:23.106]	 Already installed "tmux-power"
+[2024-11-14 21:00:23.107]	 Already installed "tmux-cpu"
+[2024-11-14 21:00:23.123]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-14 21:00:23.160]	 Updating all plugins!
+[2024-11-14 21:00:23.160]	 
+[2024-11-14 21:00:24.530]	   "tmux-power" update success
+[2024-11-14 21:00:24.530]	   "tmux-cpu" update success
+[2024-11-14 21:00:24.531]	   "tmux-copycat" update success
+[2024-11-14 21:00:24.537]	     | Already up to date.
+[2024-11-14 21:00:24.537]	     | Already up to date.
+[2024-11-14 21:00:24.538]	     | Already up to date.
+[2024-11-14 21:00:24.571]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-14 21:00:24.669]	 Done.
+
+[2024-11-14 22:22:54.861]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-14 22:22:54.879]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-14 22:22:54.934]	 Already installed "tmux-cpu"
+[2024-11-14 22:22:54.935]	 Already installed "tmux-power"
+[2024-11-14 22:22:54.935]	 Already installed "tmux-copycat"
+[2024-11-14 22:22:54.952]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-14 22:22:54.980]	 Updating all plugins!
+[2024-11-14 22:22:54.980]	 
+[2024-11-14 22:22:56.012]	   "tmux-copycat" update success
+[2024-11-14 22:22:56.012]	   "tmux-cpu" update success
+[2024-11-14 22:22:56.015]	     | Already up to date.
+[2024-11-14 22:22:56.015]	     | Already up to date.
+[2024-11-14 22:22:56.018]	   "tmux-power" update success
+[2024-11-14 22:22:56.021]	     | Already up to date.
+[2024-11-14 22:22:56.040]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-14 22:22:56.116]	 Done.
+
+[2024-11-15 08:05:00.842]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-15 08:05:00.860]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-15 08:05:00.915]	 Already installed "tmux-cpu"
+[2024-11-15 08:05:00.915]	 Already installed "tmux-power"
+[2024-11-15 08:05:00.915]	 Already installed "tmux-copycat"
+[2024-11-15 08:05:00.931]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-15 08:05:00.958]	 Updating all plugins!
+[2024-11-15 08:05:00.958]	 
+[2024-11-15 08:05:02.112]	   "tmux-cpu" update success
+[2024-11-15 08:05:02.113]	   "tmux-copycat" update success
+[2024-11-15 08:05:02.115]	   "tmux-power" update success
+[2024-11-15 08:05:02.117]	     | Already up to date.
+[2024-11-15 08:05:02.117]	     | Already up to date.
+[2024-11-15 08:05:02.119]	     | Already up to date.
+[2024-11-15 08:05:02.135]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-15 08:05:02.211]	 Done.
+
+[2024-11-15 08:51:51.467]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-15 08:51:51.495]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-15 08:51:51.571]	 Already installed "tmux-cpu"
+[2024-11-15 08:51:51.572]	 Already installed "tmux-copycat"
+[2024-11-15 08:51:51.572]	 Already installed "tmux-power"
+[2024-11-15 08:51:51.589]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-15 08:51:51.616]	 Updating all plugins!
+[2024-11-15 08:51:51.616]	 
+[2024-11-15 08:51:52.666]	   "tmux-cpu" update success
+[2024-11-15 08:51:52.671]	     | Already up to date.
+[2024-11-15 08:51:52.686]	   "tmux-power" update success
+[2024-11-15 08:51:52.686]	   "tmux-copycat" update success
+[2024-11-15 08:51:52.692]	     | Already up to date.
+[2024-11-15 08:51:52.692]	     | Already up to date.
+[2024-11-15 08:51:52.717]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-15 08:51:52.821]	 Done.
+
+[2024-11-15 15:35:50.992]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-15 15:35:51.018]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-15 15:35:51.111]	 Already installed "tmux-cpu"
+[2024-11-15 15:35:51.111]	 Already installed "tmux-copycat"
+[2024-11-15 15:35:51.111]	 Already installed "tmux-power"
+[2024-11-15 15:35:51.138]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-15 15:35:51.190]	 Updating all plugins!
+[2024-11-15 15:35:51.190]	 
+[2024-11-15 15:35:52.355]	   "tmux-power" update success
+[2024-11-15 15:35:52.355]	   "tmux-cpu" update success
+[2024-11-15 15:35:52.355]	   "tmux-copycat" update success
+[2024-11-15 15:35:52.360]	     | Already up to date.
+[2024-11-15 15:35:52.361]	     | Already up to date.
+[2024-11-15 15:35:52.362]	     | Already up to date.
+[2024-11-15 15:35:52.389]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-15 15:35:52.513]	 Done.
+
+[2024-11-16 09:44:15.544]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-16 09:44:15.572]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-16 09:44:15.695]	 Already installed "tmux-cpu"
+[2024-11-16 09:44:15.695]	 Already installed "tmux-copycat"
+[2024-11-16 09:44:15.695]	 Already installed "tmux-power"
+[2024-11-16 09:44:15.722]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-16 09:44:15.758]	 Updating all plugins!
+[2024-11-16 09:44:15.758]	 
+[2024-11-16 09:44:18.137]	   "tmux-copycat" update success
+[2024-11-16 09:44:18.137]	   "tmux-cpu" update success
+[2024-11-16 09:44:18.142]	     | Already up to date.
+[2024-11-16 09:44:18.142]	     | Already up to date.
+[2024-11-16 09:44:18.703]	   "tmux-power" update success
+[2024-11-16 09:44:18.709]	     | Already up to date.
+[2024-11-16 09:44:18.737]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-16 09:44:18.845]	 Done.
+
+[2024-11-16 20:41:05.507]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-16 20:41:05.539]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-16 20:41:05.630]	 Already installed "tmux-cpu"
+[2024-11-16 20:41:05.631]	 Already installed "tmux-power"
+[2024-11-16 20:41:05.635]	 Already installed "tmux-copycat"
+[2024-11-16 20:41:05.672]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-16 20:41:05.715]	 Updating all plugins!
+[2024-11-16 20:41:05.715]	 
+[2024-11-16 20:41:06.970]	   "tmux-power" update success
+[2024-11-16 20:41:06.970]	   "tmux-cpu" update success
+[2024-11-16 20:41:06.970]	   "tmux-copycat" update success
+[2024-11-16 20:41:06.975]	     | Already up to date.
+[2024-11-16 20:41:06.975]	     | Already up to date.
+[2024-11-16 20:41:06.975]	     | Already up to date.
+[2024-11-16 20:41:06.991]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-16 20:41:07.077]	 Done.
+
+[2024-11-17 00:30:42.644]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-17 00:30:42.668]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-17 00:30:42.733]	 Already installed "tmux-power"
+[2024-11-17 00:30:42.735]	 Already installed "tmux-copycat"
+[2024-11-17 00:30:42.736]	 Already installed "tmux-cpu"
+[2024-11-17 00:30:42.785]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-17 00:30:42.820]	 Updating all plugins!
+[2024-11-17 00:30:42.820]	 
+[2024-11-17 00:30:44.012]	   "tmux-cpu" update success
+[2024-11-17 00:30:44.012]	   "tmux-power" update success
+[2024-11-17 00:30:44.017]	     | Already up to date.
+[2024-11-17 00:30:44.017]	     | Already up to date.
+[2024-11-17 00:30:48.150]	   "tmux-copycat" update success
+[2024-11-17 00:30:48.154]	     | Already up to date.
+[2024-11-17 00:30:48.171]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-17 00:30:48.260]	 Done.
+
+[2024-11-17 23:42:11.601]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-17 23:42:11.616]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-17 23:42:11.676]	 Already installed "tmux-copycat"
+[2024-11-17 23:42:11.676]	 Already installed "tmux-cpu"
+[2024-11-17 23:42:11.677]	 Already installed "tmux-power"
+[2024-11-17 23:42:11.693]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-17 23:42:11.725]	 Updating all plugins!
+[2024-11-17 23:42:11.726]	 
+[2024-11-17 23:42:12.853]	   "tmux-cpu" update success
+[2024-11-17 23:42:12.857]	     | Already up to date.
+[2024-11-17 23:42:12.886]	   "tmux-power" update success
+[2024-11-17 23:42:12.891]	     | Already up to date.
+[2024-11-17 23:42:20.561]	   "tmux-copycat" update success
+[2024-11-17 23:42:20.564]	     | Already up to date.
+[2024-11-17 23:42:20.585]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-17 23:42:20.662]	 Done.
+
+[2024-11-18 07:18:43.074]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-18 07:18:43.104]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-18 07:18:43.178]	 Already installed "tmux-copycat"
+[2024-11-18 07:18:43.178]	 Already installed "tmux-cpu"
+[2024-11-18 07:18:43.179]	 Already installed "tmux-power"
+[2024-11-18 07:18:43.205]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-18 07:18:43.258]	 Updating all plugins!
+[2024-11-18 07:18:43.259]	 
+[2024-11-18 07:18:44.359]	   "tmux-copycat" update success
+[2024-11-18 07:18:44.366]	     | Already up to date.
+[2024-11-18 07:18:44.372]	   "tmux-power" update success
+[2024-11-18 07:18:44.381]	     | Already up to date.
+[2024-11-18 07:18:44.446]	   "tmux-cpu" update success
+[2024-11-18 07:18:44.455]	     | Already up to date.
+[2024-11-18 07:18:44.501]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-18 07:18:44.640]	 Done.
+
+[2024-11-18 11:41:23.744]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-18 11:41:23.773]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-18 11:41:23.838]	 Already installed "tmux-cpu"
+[2024-11-18 11:41:23.843]	 Already installed "tmux-power"
+[2024-11-18 11:41:23.844]	 Already installed "tmux-copycat"
+[2024-11-18 11:41:23.861]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-18 11:41:23.894]	 Updating all plugins!
+[2024-11-18 11:41:23.894]	 
+[2024-11-18 11:41:25.090]	   "tmux-cpu" update success
+[2024-11-18 11:41:25.090]	   "tmux-copycat" update success
+[2024-11-18 11:41:25.094]	     | Already up to date.
+[2024-11-18 11:41:25.095]	     | Already up to date.
+[2024-11-18 11:41:25.259]	   "tmux-power" update success
+[2024-11-18 11:41:25.262]	     | Already up to date.
+[2024-11-18 11:41:25.279]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-18 11:41:25.358]	 Done.
+
+[2024-11-19 12:29:00.562]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-19 12:29:00.587]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-19 12:29:00.665]	 Already installed "tmux-power"
+[2024-11-19 12:29:00.665]	 Already installed "tmux-copycat"
+[2024-11-19 12:29:00.665]	 Already installed "tmux-cpu"
+[2024-11-19 12:29:00.691]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-19 12:29:00.730]	 Updating all plugins!
+[2024-11-19 12:29:00.730]	 
+[2024-11-19 12:29:01.910]	   "tmux-power" update success
+[2024-11-19 12:29:01.911]	   "tmux-cpu" update success
+[2024-11-19 12:29:01.916]	     | Already up to date.
+[2024-11-19 12:29:01.916]	     | Already up to date.
+[2024-11-19 12:29:01.923]	   "tmux-copycat" update success
+[2024-11-19 12:29:01.929]	     | Already up to date.
+[2024-11-19 12:29:01.954]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-19 12:29:02.055]	 Done.
+
+[2024-11-19 19:59:51.913]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-19 19:59:51.963]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-19 19:59:52.157]	 Already installed "tmux-cpu"
+[2024-11-19 19:59:52.160]	 Already installed "tmux-copycat"
+[2024-11-19 19:59:52.160]	 Already installed "tmux-power"
+[2024-11-19 19:59:52.195]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-19 19:59:52.302]	 Updating all plugins!
+[2024-11-19 19:59:52.302]	 
+[2024-11-19 19:59:54.187]	   "tmux-power" update success
+[2024-11-19 19:59:54.189]	   "tmux-copycat" update success
+[2024-11-19 19:59:54.192]	   "tmux-cpu" update success
+[2024-11-19 19:59:54.201]	     | Already up to date.
+[2024-11-19 19:59:54.201]	     | Already up to date.
+[2024-11-19 19:59:54.203]	     | Already up to date.
+[2024-11-19 19:59:54.239]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-19 19:59:54.499]	 Done.
+
+[2024-11-19 23:14:08.230]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-19 23:14:08.252]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-19 23:14:08.336]	 Already installed "tmux-copycat"
+[2024-11-19 23:14:08.336]	 Already installed "tmux-cpu"
+[2024-11-19 23:14:08.339]	 Already installed "tmux-power"
+[2024-11-19 23:14:08.363]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-19 23:14:08.392]	 Updating all plugins!
+[2024-11-19 23:14:08.392]	 
+[2024-11-19 23:14:09.613]	   "tmux-copycat" update success
+[2024-11-19 23:14:09.613]	   "tmux-power" update success
+[2024-11-19 23:14:09.614]	   "tmux-cpu" update success
+[2024-11-19 23:14:09.617]	     | Already up to date.
+[2024-11-19 23:14:09.618]	     | Already up to date.
+[2024-11-19 23:14:09.618]	     | Already up to date.
+[2024-11-19 23:14:09.634]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-19 23:14:09.705]	 Done.
+
+[2024-11-20 00:04:35.652]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-20 00:04:35.666]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-20 00:04:35.714]	 Already installed "tmux-copycat"
+[2024-11-20 00:04:35.714]	 Already installed "tmux-cpu"
+[2024-11-20 00:04:35.714]	 Already installed "tmux-power"
+[2024-11-20 00:04:35.729]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-20 00:04:35.755]	 Updating all plugins!
+[2024-11-20 00:04:35.755]	 
+[2024-11-20 00:04:36.791]	   "tmux-power" update success
+[2024-11-20 00:04:36.794]	     | Already up to date.
+[2024-11-20 00:04:36.800]	   "tmux-cpu" update success
+[2024-11-20 00:04:36.804]	     | Already up to date.
+[2024-11-20 00:04:36.806]	   "tmux-copycat" update success
+[2024-11-20 00:04:36.809]	     | Already up to date.
+[2024-11-20 00:04:36.825]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-20 00:04:36.887]	 Done.
+
+[2024-11-22 10:23:50.638]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-22 10:23:50.660]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-22 10:23:50.729]	 Already installed "tmux-copycat"
+[2024-11-22 10:23:50.729]	 Already installed "tmux-power"
+[2024-11-22 10:23:50.729]	 Already installed "tmux-cpu"
+[2024-11-22 10:23:50.751]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-22 10:23:50.786]	 Updating all plugins!
+[2024-11-22 10:23:50.786]	 
+[2024-11-22 10:23:51.883]	   "tmux-copycat" update success
+[2024-11-22 10:23:51.883]	   "tmux-cpu" update success
+[2024-11-22 10:23:51.883]	   "tmux-power" update success
+[2024-11-22 10:23:51.887]	     | Already up to date.
+[2024-11-22 10:23:51.887]	     | Already up to date.
+[2024-11-22 10:23:51.888]	     | Already up to date.
+[2024-11-22 10:23:51.908]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-22 10:23:52.002]	 Done.
+
+[2024-11-23 09:43:14.516]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-23 09:43:14.532]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-23 09:43:14.588]	 Already installed "tmux-copycat"
+[2024-11-23 09:43:14.589]	 Already installed "tmux-power"
+[2024-11-23 09:43:14.589]	 Already installed "tmux-cpu"
+[2024-11-23 09:43:14.609]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-23 09:43:14.644]	 Updating all plugins!
+[2024-11-23 09:43:14.644]	 
+[2024-11-23 09:43:15.756]	   "tmux-cpu" update success
+[2024-11-23 09:43:15.756]	   "tmux-copycat" update success
+[2024-11-23 09:43:15.756]	   "tmux-power" update success
+[2024-11-23 09:43:15.760]	     | Already up to date.
+[2024-11-23 09:43:15.760]	     | Already up to date.
+[2024-11-23 09:43:15.761]	     | Already up to date.
+[2024-11-23 09:43:15.776]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-23 09:43:15.850]	 Done.
+
+[2024-11-25 08:39:56.425]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-25 08:39:56.446]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-25 08:39:56.527]	 Already installed "tmux-power"
+[2024-11-25 08:39:56.527]	 Already installed "tmux-cpu"
+[2024-11-25 08:39:56.529]	 Already installed "tmux-copycat"
+[2024-11-25 08:39:56.552]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-25 08:39:56.592]	 Updating all plugins!
+[2024-11-25 08:39:56.592]	 
+[2024-11-25 08:39:57.793]	   "tmux-power" update success
+[2024-11-25 08:39:57.793]	   "tmux-copycat" update success
+[2024-11-25 08:39:57.793]	   "tmux-cpu" update success
+[2024-11-25 08:39:57.797]	     | Already up to date.
+[2024-11-25 08:39:57.797]	     | Already up to date.
+[2024-11-25 08:39:57.798]	     | Already up to date.
+[2024-11-25 08:39:57.816]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-25 08:39:57.890]	 Done.
+
+[2024-11-26 08:34:26.311]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-26 08:34:26.326]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-26 08:34:26.386]	 Already installed "tmux-power"
+[2024-11-26 08:34:26.386]	 Already installed "tmux-copycat"
+[2024-11-26 08:34:26.386]	 Already installed "tmux-cpu"
+[2024-11-26 08:34:26.402]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-26 08:34:26.430]	 Updating all plugins!
+[2024-11-26 08:34:26.430]	 
+[2024-11-26 08:34:27.598]	   "tmux-power" update success
+[2024-11-26 08:34:27.598]	   "tmux-cpu" update success
+[2024-11-26 08:34:27.599]	   "tmux-copycat" update success
+[2024-11-26 08:34:27.603]	     | Already up to date.
+[2024-11-26 08:34:27.603]	     | Already up to date.
+[2024-11-26 08:34:27.604]	     | Already up to date.
+[2024-11-26 08:34:27.621]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-26 08:34:27.695]	 Done.
+
+[2024-11-29 10:16:06.255]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-29 10:16:06.281]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-29 10:16:06.338]	 Already installed "tmux-power"
+[2024-11-29 10:16:06.339]	 Already installed "tmux-copycat"
+[2024-11-29 10:16:06.339]	 Already installed "tmux-cpu"
+[2024-11-29 10:16:06.354]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-29 10:16:06.386]	 Updating all plugins!
+[2024-11-29 10:16:06.386]	 
+[2024-11-29 10:16:07.601]	   "tmux-copycat" update success
+[2024-11-29 10:16:07.601]	   "tmux-cpu" update success
+[2024-11-29 10:16:07.601]	   "tmux-power" update success
+[2024-11-29 10:16:07.605]	     | Already up to date.
+[2024-11-29 10:16:07.605]	     | Already up to date.
+[2024-11-29 10:16:07.605]	     | Already up to date.
+[2024-11-29 10:16:07.629]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-29 10:16:07.733]	 Done.
+
+[2024-11-30 20:28:08.700]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-30 20:28:08.718]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-30 20:28:08.771]	 Already installed "tmux-cpu"
+[2024-11-30 20:28:08.772]	 Already installed "tmux-copycat"
+[2024-11-30 20:28:08.772]	 Already installed "tmux-power"
+[2024-11-30 20:28:08.788]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-30 20:28:08.815]	 Updating all plugins!
+[2024-11-30 20:28:08.815]	 
+[2024-11-30 20:28:09.803]	   "tmux-power" update success
+[2024-11-30 20:28:09.806]	     | Already up to date.
+[2024-11-30 20:28:09.808]	   "tmux-copycat" update success
+[2024-11-30 20:28:09.811]	     | Already up to date.
+[2024-11-30 20:28:09.817]	   "tmux-cpu" update success
+[2024-11-30 20:28:09.821]	     | Already up to date.
+[2024-11-30 20:28:09.837]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-30 20:28:09.903]	 Done.
+
+[2024-11-30 23:53:50.573]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-11-30 23:53:50.600]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-11-30 23:53:50.750]	 Already installed "tmux-copycat"
+[2024-11-30 23:53:50.750]	 Already installed "tmux-cpu"
+[2024-11-30 23:53:50.750]	 Already installed "tmux-power"
+[2024-11-30 23:53:50.775]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-11-30 23:53:50.817]	 Updating all plugins!
+[2024-11-30 23:53:50.817]	 
+[2024-11-30 23:53:51.899]	   "tmux-cpu" update success
+[2024-11-30 23:53:51.907]	     | Already up to date.
+[2024-11-30 23:53:51.923]	   "tmux-copycat" update success
+[2024-11-30 23:53:51.923]	   "tmux-power" update success
+[2024-11-30 23:53:51.928]	     | Already up to date.
+[2024-11-30 23:53:51.928]	     | Already up to date.
+[2024-11-30 23:53:51.954]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-11-30 23:53:52.084]	 Done.
+
+[2024-12-01 00:42:46.837]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-01 00:42:46.856]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-01 00:42:46.912]	 Already installed "tmux-copycat"
+[2024-12-01 00:42:46.912]	 Already installed "tmux-power"
+[2024-12-01 00:42:46.912]	 Already installed "tmux-cpu"
+[2024-12-01 00:42:46.930]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-01 00:42:46.964]	 Updating all plugins!
+[2024-12-01 00:42:46.964]	 
+[2024-12-01 00:42:48.017]	   "tmux-copycat" update success
+[2024-12-01 00:42:48.017]	   "tmux-cpu" update success
+[2024-12-01 00:42:48.021]	     | Already up to date.
+[2024-12-01 00:42:48.022]	     | Already up to date.
+[2024-12-01 00:42:48.036]	   "tmux-power" update success
+[2024-12-01 00:42:48.040]	     | Already up to date.
+[2024-12-01 00:42:48.058]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-01 00:42:48.128]	 Done.
+
+[2024-12-03 22:19:05.550]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-03 22:19:05.569]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-03 22:19:05.680]	 Already installed "tmux-power"
+[2024-12-03 22:19:05.681]	 Already installed "tmux-copycat"
+[2024-12-03 22:19:05.681]	 Already installed "tmux-cpu"
+[2024-12-03 22:19:05.720]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-03 22:19:05.752]	 Updating all plugins!
+[2024-12-03 22:19:05.752]	 
+[2024-12-03 22:19:06.962]	   "tmux-copycat" update success
+[2024-12-03 22:19:06.962]	   "tmux-cpu" update success
+[2024-12-03 22:19:06.966]	     | Already up to date.
+[2024-12-03 22:19:06.966]	     | Already up to date.
+[2024-12-03 22:19:06.966]	   "tmux-power" update success
+[2024-12-03 22:19:06.970]	     | Already up to date.
+[2024-12-03 22:19:06.990]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-03 22:19:07.066]	 Done.
+
+[2024-12-05 17:30:08.338]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-05 17:30:08.366]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-05 17:30:08.449]	 Already installed "tmux-cpu"
+[2024-12-05 17:30:08.451]	 Already installed "tmux-copycat"
+[2024-12-05 17:30:08.451]	 Already installed "tmux-power"
+[2024-12-05 17:30:08.473]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-05 17:30:08.509]	 Updating all plugins!
+[2024-12-05 17:30:08.509]	 
+[2024-12-05 17:30:09.955]	   "tmux-cpu" update success
+[2024-12-05 17:30:09.960]	     | Already up to date.
+[2024-12-05 17:30:10.642]	   "tmux-power" update success
+[2024-12-05 17:30:10.646]	     | Already up to date.
+[2024-12-05 17:30:11.016]	   "tmux-copycat" update success
+[2024-12-05 17:30:11.021]	     | Already up to date.
+[2024-12-05 17:30:11.045]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-05 17:30:11.146]	 Done.
+
+[2024-12-07 08:53:18.046]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-07 08:53:18.068]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-07 08:53:18.143]	 Already installed "tmux-power"
+[2024-12-07 08:53:18.144]	 Already installed "tmux-copycat"
+[2024-12-07 08:53:18.144]	 Already installed "tmux-cpu"
+[2024-12-07 08:53:18.163]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-07 08:53:18.198]	 Updating all plugins!
+[2024-12-07 08:53:18.198]	 
+[2024-12-07 08:53:19.200]	   "tmux-copycat" update success
+[2024-12-07 08:53:19.203]	     | Already up to date.
+[2024-12-07 08:53:19.257]	   "tmux-power" update success
+[2024-12-07 08:53:19.261]	     | Already up to date.
+[2024-12-07 08:53:19.285]	   "tmux-cpu" update success
+[2024-12-07 08:53:19.289]	     | Already up to date.
+[2024-12-07 08:53:19.306]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-07 08:53:19.381]	 Done.
+
+[2024-12-07 22:20:37.039]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-07 22:20:37.082]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-07 22:20:37.160]	 Already installed "tmux-power"
+[2024-12-07 22:20:37.160]	 Already installed "tmux-copycat"
+[2024-12-07 22:20:37.161]	 Already installed "tmux-cpu"
+[2024-12-07 22:20:37.203]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-07 22:20:37.233]	 Updating all plugins!
+[2024-12-07 22:20:37.233]	 
+[2024-12-07 22:20:38.559]	   "tmux-power" update success
+[2024-12-07 22:20:38.559]	   "tmux-copycat" update success
+[2024-12-07 22:20:38.559]	   "tmux-cpu" update success
+[2024-12-07 22:20:38.562]	     | Already up to date.
+[2024-12-07 22:20:38.562]	     | Already up to date.
+[2024-12-07 22:20:38.562]	     | Already up to date.
+[2024-12-07 22:20:38.578]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-07 22:20:38.644]	 Done.
+
+[2024-12-09 12:35:14.099]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-09 12:35:14.114]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-09 12:35:14.165]	 Already installed "tmux-power"
+[2024-12-09 12:35:14.165]	 Already installed "tmux-copycat"
+[2024-12-09 12:35:14.165]	 Already installed "tmux-cpu"
+[2024-12-09 12:35:14.180]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-09 12:35:14.205]	 Updating all plugins!
+[2024-12-09 12:35:14.205]	 
+[2024-12-09 12:35:15.381]	   "tmux-copycat" update success
+[2024-12-09 12:35:15.381]	   "tmux-power" update success
+[2024-12-09 12:35:15.381]	   "tmux-cpu" update success
+[2024-12-09 12:35:15.384]	     | Already up to date.
+[2024-12-09 12:35:15.384]	     | Already up to date.
+[2024-12-09 12:35:15.384]	     | Already up to date.
+[2024-12-09 12:35:15.400]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-09 12:35:15.464]	 Done.
+
+[2024-12-15 08:34:48.665]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-15 08:34:48.680]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-15 08:34:48.737]	 Already installed "tmux-copycat"
+[2024-12-15 08:34:48.737]	 Already installed "tmux-power"
+[2024-12-15 08:34:48.738]	 Already installed "tmux-cpu"
+[2024-12-15 08:34:48.758]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-15 08:34:48.785]	 Updating all plugins!
+[2024-12-15 08:34:48.785]	 
+[2024-12-15 08:34:49.958]	   "tmux-cpu" update success
+[2024-12-15 08:34:49.961]	   "tmux-copycat" update success
+[2024-12-15 08:34:49.963]	     | Already up to date.
+[2024-12-15 08:34:49.966]	     | Already up to date.
+[2024-12-15 08:34:49.972]	   "tmux-power" update success
+[2024-12-15 08:34:49.977]	     | Already up to date.
+[2024-12-15 08:34:49.993]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-15 08:34:50.065]	 Done.
+
+[2024-12-20 00:02:54.238]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-20 00:02:54.254]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-20 00:02:54.307]	 Already installed "tmux-power"
+[2024-12-20 00:02:54.307]	 Already installed "tmux-copycat"
+[2024-12-20 00:02:54.307]	 Already installed "tmux-cpu"
+[2024-12-20 00:02:54.322]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-20 00:02:54.348]	 Updating all plugins!
+[2024-12-20 00:02:54.348]	 
+[2024-12-20 00:02:55.387]	   "tmux-copycat" update success
+[2024-12-20 00:02:55.387]	   "tmux-cpu" update success
+[2024-12-20 00:02:55.390]	     | Already up to date.
+[2024-12-20 00:02:55.390]	     | Already up to date.
+[2024-12-20 00:02:55.693]	   "tmux-power" update success
+[2024-12-20 00:02:55.699]	     | From https://github.com/wfxr/tmux-power
+[2024-12-20 00:02:55.699]	     |    16bbde8..30f831e  master     -> origin/master
+[2024-12-20 00:02:55.699]	     | Updating 16bbde8..30f831e
+[2024-12-20 00:02:55.699]	     | Fast-forward
+[2024-12-20 00:02:55.699]	     |  README.md       |  3 +++
+[2024-12-20 00:02:55.699]	     |  tmux-power.tmux | 21 +++++++++++++++++++--
+[2024-12-20 00:02:55.699]	     |  2 files changed, 22 insertions(+), 2 deletions(-)
+[2024-12-20 00:02:55.719]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-20 00:02:55.794]	 Done.
+
+[2024-12-20 18:09:00.728]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-20 18:09:00.748]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-20 18:09:00.820]	 Already installed "tmux-cpu"
+[2024-12-20 18:09:00.821]	 Already installed "tmux-power"
+[2024-12-20 18:09:00.826]	 Already installed "tmux-copycat"
+[2024-12-20 18:09:00.844]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-20 18:09:00.872]	 Updating all plugins!
+[2024-12-20 18:09:00.872]	 
+[2024-12-20 18:09:02.137]	   "tmux-power" update success
+[2024-12-20 18:09:02.138]	   "tmux-copycat" update success
+[2024-12-20 18:09:02.138]	   "tmux-cpu" update success
+[2024-12-20 18:09:02.142]	     | Already up to date.
+[2024-12-20 18:09:02.142]	     | Already up to date.
+[2024-12-20 18:09:02.142]	     | Already up to date.
+[2024-12-20 18:09:02.168]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-20 18:09:02.274]	 Done.
+
+[2024-12-21 15:43:23.716]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-21 15:43:23.734]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-21 15:43:23.794]	 Already installed "tmux-power"
+[2024-12-21 15:43:23.794]	 Already installed "tmux-cpu"
+[2024-12-21 15:43:23.794]	 Already installed "tmux-copycat"
+[2024-12-21 15:43:23.812]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-21 15:43:23.839]	 Updating all plugins!
+[2024-12-21 15:43:23.839]	 
+[2024-12-21 15:43:24.913]	   "tmux-copycat" update success
+[2024-12-21 15:43:24.913]	   "tmux-power" update success
+[2024-12-21 15:43:24.913]	   "tmux-cpu" update success
+[2024-12-21 15:43:24.916]	     | Already up to date.
+[2024-12-21 15:43:24.916]	     | Already up to date.
+[2024-12-21 15:43:24.916]	     | Already up to date.
+[2024-12-21 15:43:24.932]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-21 15:43:24.999]	 Done.
+
+[2024-12-22 10:47:47.142]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-22 10:47:47.164]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-22 10:47:47.231]	 Already installed "tmux-copycat"
+[2024-12-22 10:47:47.231]	 Already installed "tmux-power"
+[2024-12-22 10:47:47.231]	 Already installed "tmux-cpu"
+[2024-12-22 10:47:47.249]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-22 10:47:47.280]	 Updating all plugins!
+[2024-12-22 10:47:47.280]	 
+[2024-12-22 10:47:48.331]	   "tmux-cpu" update success
+[2024-12-22 10:47:48.336]	     | Already up to date.
+[2024-12-22 10:47:48.340]	   "tmux-copycat" update success
+[2024-12-22 10:47:48.340]	   "tmux-power" update success
+[2024-12-22 10:47:48.344]	     | Already up to date.
+[2024-12-22 10:47:48.346]	     | Already up to date.
+[2024-12-22 10:47:48.366]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-22 10:47:48.466]	 Done.
+
+[2024-12-23 11:14:47.967]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-23 11:14:47.988]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-23 11:14:48.053]	 Already installed "tmux-cpu"
+[2024-12-23 11:14:48.053]	 Already installed "tmux-copycat"
+[2024-12-23 11:14:48.053]	 Already installed "tmux-power"
+[2024-12-23 11:14:48.072]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-23 11:14:48.103]	 Updating all plugins!
+[2024-12-23 11:14:48.103]	 
+[2024-12-23 11:14:49.271]	   "tmux-copycat" update success
+[2024-12-23 11:14:49.271]	   "tmux-power" update success
+[2024-12-23 11:14:49.276]	     | Already up to date.
+[2024-12-23 11:14:49.276]	     | Already up to date.
+[2024-12-23 11:14:49.281]	   "tmux-cpu" update success
+[2024-12-23 11:14:49.284]	     | Already up to date.
+[2024-12-23 11:14:49.311]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-23 11:14:49.403]	 Done.
+
+[2024-12-23 11:54:13.277]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-23 11:54:13.294]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-23 11:54:13.354]	 Already installed "tmux-power"
+[2024-12-23 11:54:13.354]	 Already installed "tmux-copycat"
+[2024-12-23 11:54:13.354]	 Already installed "tmux-cpu"
+[2024-12-23 11:54:13.374]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-23 11:54:13.403]	 Updating all plugins!
+[2024-12-23 11:54:13.404]	 
+[2024-12-23 11:54:14.492]	   "tmux-cpu" update success
+[2024-12-23 11:54:14.496]	     | Already up to date.
+[2024-12-23 11:54:14.501]	   "tmux-power" update success
+[2024-12-23 11:54:14.505]	     | Already up to date.
+[2024-12-23 11:54:14.510]	   "tmux-copycat" update success
+[2024-12-23 11:54:14.514]	     | Already up to date.
+[2024-12-23 11:54:14.532]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-23 11:54:14.618]	 Done.
+
+[2024-12-24 02:24:33.922]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-24 02:24:33.948]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-24 02:24:34.038]	 Already installed "tmux-power"
+[2024-12-24 02:24:34.038]	 Already installed "tmux-cpu"
+[2024-12-24 02:24:34.039]	 Already installed "tmux-copycat"
+[2024-12-24 02:24:34.064]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-24 02:24:34.093]	 Updating all plugins!
+[2024-12-24 02:24:34.093]	 
+[2024-12-24 02:24:35.392]	   "tmux-copycat" update success
+[2024-12-24 02:24:35.392]	   "tmux-power" update success
+[2024-12-24 02:24:35.392]	   "tmux-cpu" update success
+[2024-12-24 02:24:35.397]	     | Already up to date.
+[2024-12-24 02:24:35.397]	     | Already up to date.
+[2024-12-24 02:24:35.397]	     | Already up to date.
+[2024-12-24 02:24:35.422]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-24 02:24:35.500]	 Done.
+
+[2024-12-26 12:05:05.930]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-26 12:05:05.954]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-26 12:05:06.043]	 Already installed "tmux-power"
+[2024-12-26 12:05:06.043]	 Already installed "tmux-copycat"
+[2024-12-26 12:05:06.045]	 Already installed "tmux-cpu"
+[2024-12-26 12:05:06.066]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-26 12:05:06.102]	 Updating all plugins!
+[2024-12-26 12:05:06.102]	 
+[2024-12-26 12:05:07.348]	   "tmux-power" update success
+[2024-12-26 12:05:07.356]	   "tmux-copycat" update success
+[2024-12-26 12:05:07.359]	     | Already up to date.
+[2024-12-26 12:05:07.362]	     | Already up to date.
+[2024-12-26 12:05:07.414]	   "tmux-cpu" update success
+[2024-12-26 12:05:07.422]	     | Already up to date.
+[2024-12-26 12:05:07.453]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-26 12:05:07.583]	 Done.
+
+[2024-12-26 12:19:51.463]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-26 12:19:51.503]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-26 12:19:51.671]	 Already installed "tmux-power"
+[2024-12-26 12:19:51.671]	 Already installed "tmux-cpu"
+[2024-12-26 12:19:51.671]	 Already installed "tmux-copycat"
+[2024-12-26 12:19:51.717]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-26 12:19:51.774]	 Updating all plugins!
+[2024-12-26 12:19:51.775]	 
+[2024-12-26 12:19:53.556]	   "tmux-power" update success
+[2024-12-26 12:19:53.557]	   "tmux-cpu" update success
+[2024-12-26 12:19:53.561]	     | Already up to date.
+[2024-12-26 12:19:53.561]	     | Already up to date.
+[2024-12-26 12:19:53.580]	   "tmux-copycat" update success
+[2024-12-26 12:19:53.585]	     | Already up to date.
+[2024-12-26 12:19:53.617]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-26 12:19:53.744]	 Done.
+
+[2024-12-28 13:04:37.734]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-28 13:04:37.754]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-28 13:04:37.808]	 Already installed "tmux-copycat"
+[2024-12-28 13:04:37.808]	 Already installed "tmux-cpu"
+[2024-12-28 13:04:37.808]	 Already installed "tmux-power"
+[2024-12-28 13:04:37.826]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-28 13:04:37.852]	 Updating all plugins!
+[2024-12-28 13:04:37.852]	 
+[2024-12-28 13:04:38.876]	   "tmux-copycat" update success
+[2024-12-28 13:04:38.876]	   "tmux-cpu" update success
+[2024-12-28 13:04:38.891]	     | Already up to date.
+[2024-12-28 13:04:38.891]	     | Already up to date.
+[2024-12-28 13:04:39.285]	   "tmux-power" update success
+[2024-12-28 13:04:39.294]	     | From https://github.com/wfxr/tmux-power
+[2024-12-28 13:04:39.294]	     |    30f831e..b0f43a7  master     -> origin/master
+[2024-12-28 13:04:39.294]	     | Updating 30f831e..b0f43a7
+[2024-12-28 13:04:39.294]	     | Fast-forward
+[2024-12-28 13:04:39.294]	     |  tmux-power.tmux | 2 +-
+[2024-12-28 13:04:39.294]	     |  1 file changed, 1 insertion(+), 1 deletion(-)
+[2024-12-28 13:04:39.329]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-28 13:04:39.490]	 Done.
+
+[2024-12-29 00:53:00.261]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-29 00:53:00.278]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-29 00:53:00.352]	 Already installed "tmux-cpu"
+[2024-12-29 00:53:00.352]	 Already installed "tmux-power"
+[2024-12-29 00:53:00.354]	 Already installed "tmux-copycat"
+[2024-12-29 00:53:00.371]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-29 00:53:00.413]	 Updating all plugins!
+[2024-12-29 00:53:00.413]	 
+[2024-12-29 00:53:01.471]	   "tmux-cpu" update success
+[2024-12-29 00:53:01.476]	     | Already up to date.
+[2024-12-29 00:53:01.484]	   "tmux-power" update success
+[2024-12-29 00:53:01.487]	     | Already up to date.
+[2024-12-29 00:53:01.632]	   "tmux-copycat" update success
+[2024-12-29 00:53:01.636]	     | Already up to date.
+[2024-12-29 00:53:01.654]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-29 00:53:01.732]	 Done.
+
+[2024-12-29 15:37:58.197]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-29 15:37:58.253]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-29 15:37:58.429]	 Already installed "tmux-copycat"
+[2024-12-29 15:37:58.430]	 Already installed "tmux-power"
+[2024-12-29 15:37:58.430]	 Already installed "tmux-cpu"
+[2024-12-29 15:37:58.481]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-29 15:37:58.561]	 Updating all plugins!
+[2024-12-29 15:37:58.561]	 
+[2024-12-29 15:37:59.747]	   "tmux-cpu" update success
+[2024-12-29 15:37:59.753]	     | Already up to date.
+[2024-12-29 15:37:59.779]	   "tmux-copycat" update success
+[2024-12-29 15:37:59.784]	     | Already up to date.
+[2024-12-29 15:38:00.125]	   "tmux-power" update success
+[2024-12-29 15:38:00.137]	     | From https://github.com/wfxr/tmux-power
+[2024-12-29 15:38:00.137]	     |    b0f43a7..e68f9e6  master     -> origin/master
+[2024-12-29 15:38:00.137]	     | Updating b0f43a7..e68f9e6
+[2024-12-29 15:38:00.137]	     | Fast-forward
+[2024-12-29 15:38:00.137]	     |  README.md       | 53 ++++++++++++++++++++-----------------
+[2024-12-29 15:38:00.137]	     |  tmux-power.tmux | 81 +++++++++++++++++++++++----------------------------------
+[2024-12-29 15:38:00.137]	     |  2 files changed, 62 insertions(+), 72 deletions(-)
+[2024-12-29 15:38:00.184]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-29 15:38:00.389]	 Done.
+
+[2024-12-31 21:03:15.235]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2024-12-31 21:03:15.267]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-12-31 21:03:15.371]	 Already installed "tmux-cpu"
+[2024-12-31 21:03:15.373]	 Already installed "tmux-copycat"
+[2024-12-31 21:03:15.380]	 Already installed "tmux-power"
+[2024-12-31 21:03:15.427]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-12-31 21:03:15.460]	 Updating all plugins!
+[2024-12-31 21:03:15.460]	 
+[2024-12-31 21:03:16.766]	   "tmux-power" update success
+[2024-12-31 21:03:16.766]	   "tmux-cpu" update success
+[2024-12-31 21:03:16.766]	   "tmux-copycat" update success
+[2024-12-31 21:03:16.770]	     | Already up to date.
+[2024-12-31 21:03:16.770]	     | Already up to date.
+[2024-12-31 21:03:16.770]	     | Already up to date.
+[2024-12-31 21:03:16.786]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-12-31 21:03:16.860]	 Done.
+
+[2025-01-03 13:00:29.841]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2025-01-03 13:00:29.876]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-01-03 13:00:29.996]	 Already installed "tmux-copycat"
+[2025-01-03 13:00:30.000]	 Already installed "tmux-cpu"
+[2025-01-03 13:00:30.001]	 Already installed "tmux-power"
+[2025-01-03 13:00:30.048]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-01-03 13:00:30.107]	 Updating all plugins!
+[2025-01-03 13:00:30.108]	 
+[2025-01-03 13:00:31.181]	   "tmux-copycat" update success
+[2025-01-03 13:00:31.181]	   "tmux-cpu" update success
+[2025-01-03 13:00:31.187]	     | Already up to date.
+[2025-01-03 13:00:31.187]	     | Already up to date.
+[2025-01-03 13:00:31.190]	   "tmux-power" update success
+[2025-01-03 13:00:31.194]	     | Already up to date.
+[2025-01-03 13:00:31.213]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-01-03 13:00:31.292]	 Done.
+
+[2025-01-04 11:32:08.936]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2025-01-04 11:32:08.958]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-01-04 11:32:09.022]	 Already installed "tmux-copycat"
+[2025-01-04 11:32:09.023]	 Already installed "tmux-power"
+[2025-01-04 11:32:09.024]	 Already installed "tmux-cpu"
+[2025-01-04 11:32:09.042]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-01-04 11:32:09.073]	 Updating all plugins!
+[2025-01-04 11:32:09.073]	 
+[2025-01-04 11:32:10.306]	   "tmux-copycat" update success
+[2025-01-04 11:32:10.306]	   "tmux-power" update success
+[2025-01-04 11:32:10.306]	   "tmux-cpu" update success
+[2025-01-04 11:32:10.314]	     | Already up to date.
+[2025-01-04 11:32:10.314]	     | Already up to date.
+[2025-01-04 11:32:10.314]	     | Already up to date.
+[2025-01-04 11:32:10.340]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-01-04 11:32:10.412]	 Done.
+
+[2025-01-05 09:14:29.283]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2025-01-05 09:14:29.301]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-01-05 09:14:29.357]	 Already installed "tmux-copycat"
+[2025-01-05 09:14:29.357]	 Already installed "tmux-power"
+[2025-01-05 09:14:29.357]	 Already installed "tmux-cpu"
+[2025-01-05 09:14:29.372]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-01-05 09:14:29.399]	 Updating all plugins!
+[2025-01-05 09:14:29.399]	 
+[2025-01-05 09:14:30.446]	   "tmux-copycat" update success
+[2025-01-05 09:14:30.447]	   "tmux-power" update success
+[2025-01-05 09:14:30.450]	     | Already up to date.
+[2025-01-05 09:14:30.450]	     | Already up to date.
+[2025-01-05 09:14:30.538]	   "tmux-cpu" update success
+[2025-01-05 09:14:30.543]	     | Already up to date.
+[2025-01-05 09:14:30.560]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-01-05 09:14:30.634]	 Done.
+
+[2025-01-06 09:14:28.805]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2025-01-06 09:14:28.828]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-01-06 09:14:28.939]	 Already installed "tmux-power"
+[2025-01-06 09:14:28.940]	 Already installed "tmux-copycat"
+[2025-01-06 09:14:28.943]	 Already installed "tmux-cpu"
+[2025-01-06 09:14:28.978]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-01-06 09:14:29.024]	 Updating all plugins!
+[2025-01-06 09:14:29.024]	 
+[2025-01-06 09:14:30.141]	   "tmux-copycat" update success
+[2025-01-06 09:14:30.146]	   "tmux-cpu" update success
+[2025-01-06 09:14:30.151]	     | Already up to date.
+[2025-01-06 09:14:30.153]	     | Already up to date.
+[2025-01-06 09:14:30.198]	   "tmux-power" update success
+[2025-01-06 09:14:30.206]	     | Already up to date.
+[2025-01-06 09:14:30.237]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-01-06 09:14:30.348]	 Done.
+
+[2025-01-08 13:12:43.689]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-cpu wfxr/tmux-power
+[2025-01-08 13:12:43.711]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-01-08 13:12:43.768]	 Already installed "tmux-cpu"
+[2025-01-08 13:12:43.770]	 Already installed "tmux-power"
+[2025-01-08 13:12:43.776]	 Already installed "tmux-copycat"
+[2025-01-08 13:12:43.792]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-01-08 13:12:43.817]	 Updating all plugins!
+[2025-01-08 13:12:43.817]	 
+[2025-01-08 13:12:44.953]	   "tmux-copycat" update success
+[2025-01-08 13:12:44.953]	   "tmux-cpu" update success
+[2025-01-08 13:12:44.956]	     | Already up to date.
+[2025-01-08 13:12:44.956]	     | Already up to date.
+[2025-01-08 13:12:44.957]	   "tmux-power" update success
+[2025-01-08 13:12:44.960]	     | Already up to date.
+[2025-01-08 13:12:44.976]	 Invoking /home/adophilus/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-01-08 13:12:45.044]	 Done.
+

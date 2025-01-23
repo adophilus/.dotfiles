@@ -8,6 +8,7 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.purescript" },
   -- { import = "astrocommunity.pack.typescript-deno" },
   -- { import = "astrocommunity.pack.typescript-all-in-one" },
   -- import/override with your plugins folder

@@ -36,7 +36,7 @@
 
     tree
 
-    fish
+    osu-lazer
 
     # Video drivers
     # xorg.xf86videointel
@@ -248,7 +248,10 @@
     gjs
     wayshot
     foot
+
     kitty
+    ghostty
+
     starship
     discord
     git-lfs
@@ -283,9 +286,9 @@
 
     ".config/bottom".source = ./.config/bottom;
     ".config/nvim".source = ./.config/nvim;
-    ".config/fish".source = ./.config/fish;
+    # ".config/fish".source = ./.config/fish;
     ".config/kitty".source = ./.config/kitty;
-    ".config/tmux".source = ./.config/tmux;
+    # ".config/tmux".source = ./.config/tmux;
     ".config/tmuxinator".source = ./.config/tmuxinator;
     ".config/waybar".source = ./.config/waybar;
     ".config/zellij".source = ./.config/zellij;
@@ -301,7 +304,7 @@
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
     ".config/chrome-flags.conf".source = "${end4dots}/.config/chrome-flags.conf";
     ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
-    ".config/starship.conf".source = "${end4dots}/.config/starship.conf";
+    ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
     ".config/thorium-flags.conf".source = "${end4dots}/.config/thorium-flags.conf";
   };
 
@@ -321,7 +324,7 @@
   #
   #  /etc/profiles/per-user/adophilus/etc/profile.d/hm-session-vars.sh
   #
-  # home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -331,8 +334,8 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    # vimdiffAlias = true;
-    package = pkgs-unstable.neovim-unwrapped;
+    vimdiffAlias = true;
+    package = pkgs.neovim-unwrapped;
   };
 
   programs.git = {
@@ -342,10 +345,10 @@
     package = pkgs-unstable.git;
   };
 
-  # programs.fish = {
-  #   enable = true;
-  #   # shellInit = builtins.readFile ./fish/config.fish;
-  # };
+  programs.fish = {
+    enable = true;
+    shellInit = builtins.readFile ./.config/fish/config.fish;
+  };
 
   # wayland.windowManager.hyprland = {
   #   enable = true;

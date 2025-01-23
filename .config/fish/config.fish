@@ -15,9 +15,9 @@ fish_add_path -g "$TOOLSPATH"
 direnv hook fish | source
 starship init fish | source
 
-alias pdx "~/.local/bin/tools/plandex"
+# alias pdx "~/.local/bin/tools/plandex"
 
-source ~/.asdf/asdf.fish
+# source ~/.asdf/asdf.fish
 # fish_add_path -a /home/adophilus/.foundry/bin
 
-fish_add_path -a /home/adophilus/.foundry/bin
+# fish_add_path -a /home/adophilus/.foundry/bin

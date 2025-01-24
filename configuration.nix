@@ -251,6 +251,7 @@
       # "vscode-fhs"
       "discord"
       "obsidian"
+      "osu-lazer"
     ];
 
   programs.fish.enable = true;

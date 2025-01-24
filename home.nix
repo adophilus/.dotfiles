@@ -26,6 +26,7 @@
       # "vscode-fhs"
       "discord"
       "obsidian"
+      "osu-lazer"
     ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -217,7 +218,7 @@
     hypridle
     hyprcursor
     hyprpaper
-    hyprlock
+    pkgs.hyprlock
     hyprpicker
 
     # Containers
@@ -292,6 +293,7 @@
     ".config/tmuxinator".source = ./.config/tmuxinator;
     ".config/waybar".source = ./.config/waybar;
     ".config/zellij".source = ./.config/zellij;
+    ".config/ghostty".source = ./.config/ghostty;
 
     ".config/ags".source = "${end4dots}/.config/ags";
     ".config/anyrun".source = "${end4dots}/.config/anyrun";
@@ -324,7 +326,7 @@
   #
   #  /etc/profiles/per-user/adophilus/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "nvim"; };
+  # home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

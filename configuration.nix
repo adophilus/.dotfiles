@@ -24,6 +24,28 @@
     };
   };
 
+  services.i2pd = {
+    enable = true;
+    address = "127.0.0.1";
+    proto = {
+      http.enable = true;
+      socksProxy.enable = true;
+      httpProxy.enable = true;
+      sam.enable = true;
+      i2cp = {
+        enable = true;
+        address = "127.0.0.1";
+        port = 7654;
+      };
+    };
+  };
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
   networking.hostName = "zenith";
   networking.usePredictableInterfaceNames = true;
 
@@ -255,6 +277,7 @@
     ];
 
   programs.fish.enable = true;
+
   programs.wireshark = {
     enable = true;
     package = pkgs-unstable.wireshark;
@@ -265,27 +288,28 @@
 
     podman = {
       enable = true;
-      # dockerCompat = true;
+      dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
 
-    docker = {
-      enable = true;
-    };
+    # docker = {
+    #   enable = true;
+    # };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.adophilus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "wireshark" "docker" ];
+    # extraGroups = [ "wheel" "wireshark" "docker" ];
+    extraGroups = [ "wheel" "wireshark" ];
     shell = pkgs-unstable.fish;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # environment.systemPackages = with pkgs-unstable; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
+  #   # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   # wget
   # ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -329,7 +353,7 @@
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;
 
-boot.tmp.cleanOnBoot = true;
+  boot.tmp.cleanOnBoot = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -35,6 +35,8 @@
     # Social media
     zapzap
 
+    inputs.zen-browser.packages."${system}".default
+
     tree
 
     osu-lazer
@@ -199,6 +201,11 @@
     vivaldi-ffmpeg-codecs
     firefox
     google-chrome
+    mullvad-browser
+
+    # Password management
+    gopass
+    # gnupg
 
     mdbook
     openjdk
@@ -206,6 +213,8 @@
     webcord
     air
     ags
+
+    arduino-ide
 
     # Clipboard
     cliphist
@@ -262,6 +271,7 @@
 
     # Documentation
     tldr
+    zeal
 
     # archive
     zip

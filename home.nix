@@ -56,13 +56,14 @@
 
     # ADB tools
     scrcpy
+    adbfs-rootless
 
     # Nix
     nixfmt-classic
     manix
 
-    # Scala
-    sbt
+    # Timers
+    termdown
 
     # Networking
     # wireshark
@@ -79,6 +80,7 @@
     # xdg-desktop-portal-gtk
 
     # Java
+    openjdk
     maven
 
     # lua
@@ -91,14 +93,18 @@
     ollama
     aider-chat
 
-    # tmux
+    # Tmux
     tmux
     tmuxinator
 
+    # Vim
     neovide
     vim
+
     sshfs
 
+    # Interop
+    anyrun
     appimage-run
     
     # google
@@ -149,12 +155,12 @@
     php82Extensions.mbstring
     php82Extensions.iconv
 
-    # graphics apps
+    # Graphics apps
     gimp
     obs-studio
     shotcut
 
-    # torrent
+    # Torrent
     deluge
 
     wireplumber
@@ -174,16 +180,16 @@
     # (import (fetchTarball "channel:nixos-23.11") { }).fcitx5
     fcitx5
 
-    # video players
+    # Video players
     mpv
     vlc
     # libvlc
     d2
 
-    # android
+    # Android
     android-tools
     nwg-look
-    swappy
+    # swappy
 
     obsidian
     grim
@@ -195,7 +201,6 @@
     flyctl
 
     # Browser
-    # tor
     tor-browser
     vivaldi
     vivaldi-ffmpeg-codecs
@@ -208,12 +213,10 @@
     # gnupg
 
     mdbook
-    openjdk
     spotifywm
-    webcord
-    air
     ags
 
+    # Arduino
     arduino-ide
 
     # Clipboard
@@ -231,6 +234,7 @@
     hyprpicker
 
     # Containers
+    dive
     podman-tui
     podman-compose
 
@@ -244,27 +248,33 @@
 
     # Go
     go
+    air
 
-    openshot-qt
-
-    anyrun
-    gitoxide
-    dive
     ripgrep
     bottom
-    lazygit
-    gitui
-    zellij
     gjs
     wayshot
     foot
 
+    # Terminal
     kitty
     ghostty
-
     starship
+    zellij
+
+    # Discord
+    webcord
     discord
+
+    # Git
+    gitoxide
     git-lfs
+    gitui
+    lazygit
+
+    # Video editing
+    openshot-qt
+
     fuzzel
     brightnessctl
     wofi

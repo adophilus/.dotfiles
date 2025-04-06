@@ -234,6 +234,8 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
+  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+
   # hardware = {
   #   graphics = {
   #     enable = true;

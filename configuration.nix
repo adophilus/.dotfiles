@@ -24,21 +24,21 @@
     };
   };
 
-  services.i2pd = {
-    enable = true;
-    address = "127.0.0.1";
-    proto = {
-      http.enable = true;
-      socksProxy.enable = true;
-      httpProxy.enable = true;
-      sam.enable = true;
-      i2cp = {
-        enable = true;
-        address = "127.0.0.1";
-        port = 7654;
-      };
-    };
-  };
+  # services.i2pd = {
+  #   enable = true;
+  #   address = "127.0.0.1";
+  #   proto = {
+  #     http.enable = true;
+  #     socksProxy.enable = true;
+  #     httpProxy.enable = true;
+  #     sam.enable = true;
+  #     i2cp = {
+  #       enable = true;
+  #       address = "127.0.0.1";
+  #       port = 7654;
+  #     };
+  #   };
+  # };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -146,7 +146,6 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -216,7 +215,8 @@
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd Hyprland'';
+        command =
+          "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
       };
     };
   };
@@ -234,7 +234,10 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+  hardware.graphics.extraPackages = with pkgs; [
+    vaapiIntel
+    intel-media-driver
+  ];
 
   # hardware = {
   #   graphics = {
@@ -324,28 +327,26 @@
 
   # List services that you want to enable:
 
-  services.tor = {
-    enable = true;
-    openFirewall = false;
-    relay = {
-      enable = false;
-      # role = "relay";
-    };
-    settings = {
-      UseBridges = true;
-      ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-      Bridge = "obfs4 IP:ORPort [fingerprint]";
-    };
-  };
+  # services.tor = {
+  #   enable = true;
+  #   openFirewall = false;
+  #   relay = {
+  #     enable = false;
+  #     # role = "relay";
+  #   };
+  #   settings = {
+  #     UseBridges = true;
+  #     ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
+  #     Bridge = "obfs4 IP:ORPort [fingerprint]";
+  #   };
+  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts =
-    [ 2121 3000 5000 8000 8080 8081 8100 ];
-  networking.firewall.allowedUDPPorts =
-    [ 2121 3000 5000 8000 8080 8081 8100 ];
+  networking.firewall.allowedTCPPorts = [ 2121 3000 5000 8000 8080 8081 8100 ];
+  networking.firewall.allowedUDPPorts = [ 2121 3000 5000 8000 8080 8081 8100 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
@@ -385,4 +386,3 @@
     allowReboot = false;
   };
 }
-

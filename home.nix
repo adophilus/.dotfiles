@@ -15,27 +15,29 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "vivaldi"
-      "postman"
-      "spotify"
-      "google-chrome"
-      "code"
-      "vscode"
-      # "vscode-fhs"
-      "discord"
-      "obsidian"
-      "osu-lazer"
-    ];
+  nixpkgs.config = {
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "vivaldi"
+        "postman"
+        "spotify"
+        "google-chrome"
+        "code"
+        "vscode"
+        # "vscode-fhs"
+        "discord"
+        "obsidian"
+        "osu-lazer"
+      ];
+
+    # permittedInsecurePackages = [ "beekeeper-studio-5.1.5" ];
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs-unstable; [
     # Social media
     zapzap
-
-    inputs.zen-browser.packages."${system}".default
 
     tree
 
@@ -106,7 +108,7 @@
     # Interop
     anyrun
     appimage-run
-    
+
     # google
     google-cloud-sdk
 
@@ -128,7 +130,7 @@
     kubo
     jq
     gnumake
-    beekeeper-studio
+    # beekeeper-studio
     fzf
     lua-language-server
     direnv
@@ -201,7 +203,7 @@
     flyctl
 
     # Browser
-    tor-browser
+    # tor-browser
     vivaldi
     vivaldi-ffmpeg-codecs
     firefox
@@ -237,6 +239,8 @@
     dive
     podman-tui
     podman-compose
+
+    httpie-desktop
 
     # Nodejs
     biome
@@ -324,10 +328,12 @@
     ".config/qt5ct".source = "${end4dots}/.config/qt5ct";
     ".config/wlogout".source = "${end4dots}/.config/wlogout";
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
-    ".config/chrome-flags.conf".source = "${end4dots}/.config/chrome-flags.conf";
+    ".config/chrome-flags.conf".source =
+      "${end4dots}/.config/chrome-flags.conf";
     ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
     ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
-    ".config/thorium-flags.conf".source = "${end4dots}/.config/thorium-flags.conf";
+    ".config/thorium-flags.conf".source =
+      "${end4dots}/.config/thorium-flags.conf";
   };
 
   # Home Manager can also manage your environment variables through

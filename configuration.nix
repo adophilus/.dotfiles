@@ -24,21 +24,21 @@
     };
   };
 
-  # services.i2pd = {
-  #   enable = true;
-  #   address = "127.0.0.1";
-  #   proto = {
-  #     http.enable = true;
-  #     socksProxy.enable = true;
-  #     httpProxy.enable = true;
-  #     sam.enable = true;
-  #     i2cp = {
-  #       enable = true;
-  #       address = "127.0.0.1";
-  #       port = 7654;
-  #     };
-  #   };
-  # };
+  services.i2pd = {
+    enable = true;
+    address = "127.0.0.1";
+    proto = {
+      http.enable = true;
+      socksProxy.enable = true;
+      httpProxy.enable = true;
+      sam.enable = true;
+      i2cp = {
+        enable = true;
+        address = "127.0.0.1";
+        port = 7654;
+      };
+    };
+  };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -204,7 +204,7 @@
 
   programs.hyprland = {
     enable = true;
-    # portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
@@ -327,19 +327,28 @@
 
   # List services that you want to enable:
 
-  # services.tor = {
-  #   enable = true;
-  #   openFirewall = false;
-  #   relay = {
-  #     enable = false;
-  #     # role = "relay";
-  #   };
-  #   settings = {
-  #     UseBridges = true;
-  #     ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-  #     Bridge = "obfs4 IP:ORPort [fingerprint]";
-  #   };
-  # };
+  services.tor = {
+    enable = true;
+    client.dns.enable = true;
+    settings.DNSPort = [{
+      addr = "127.0.0.1";
+      port = 53;
+    }];
+    # resolved = {
+    #   enable = true; # For caching DNS requests.
+    #   fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
+    # };
+    openFirewall = false;
+    relay = {
+      enable = false;
+      # role = "relay";
+    };
+    settings = {
+      UseBridges = true;
+      ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
+      Bridge = "obfs4 IP:ORPort [fingerprint]";
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

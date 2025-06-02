@@ -6,7 +6,7 @@ return {
   config = function()
     require("copilot").setup({
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         hide_during_completion = true,
         debounce = 75,
@@ -19,7 +19,7 @@ return {
           dismiss = "<C-]>",
         },
       },
-      -- filetypes = {
+      filetypes = {
       --   yaml = true,
       --   markdown = true,
       --   help = true,
@@ -28,8 +28,8 @@ return {
       --   hgcommit = true,
       --   svn = true,
       --   cvs = true,
-      --   ["."] = false,
-      -- },
+        ["."] = false,
+      },
     })
   end,
 }

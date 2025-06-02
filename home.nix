@@ -38,6 +38,7 @@
   home.packages = with pkgs-unstable; [
     # Social media
     zapzap
+    nchat
 
     tree
 
@@ -191,7 +192,6 @@
     # Android
     android-tools
     nwg-look
-    # swappy
 
     obsidian
     grim
@@ -203,7 +203,7 @@
     flyctl
 
     # Browser
-    # tor-browser
+    tor-browser
     vivaldi
     vivaldi-ffmpeg-codecs
     firefox
@@ -224,6 +224,8 @@
     # Clipboard
     cliphist
     slurp
+    tesseract
+    swappy
 
     # Wayland
     wl-clipboard

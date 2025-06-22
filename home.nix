@@ -166,7 +166,7 @@
     # Torrent
     deluge
 
-    wireplumber
+    # wireplumber
     # dunst
     swaynotificationcenter
     libnotify
@@ -198,6 +198,7 @@
 
     # code editor
     vscode
+    code-cursor
     # vscode-fhs
     gh
     flyctl

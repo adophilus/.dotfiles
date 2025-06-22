@@ -177,7 +177,12 @@
   #   ];
   # };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys =
+      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
 
   # programs.command-not-found.enable = false;
 
@@ -204,11 +209,22 @@
 
   programs.hyprland = {
     enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    # package =
+    #   inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
     # nvidiaPatches = true;
+  };
+
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = [ "hyprland" "gtk" ];
   };
 
   services.greetd = {
@@ -216,7 +232,9 @@
     settings = {
       default_session = {
         command =
-          "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+          "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
+        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
+        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd '${inputs.nixgl}/bin/nixGL Hyprland'";
       };
     };
   };
@@ -234,19 +252,21 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  hardware.graphics.extraPackages = with pkgs; [
-    vaapiIntel
-    intel-media-driver
-  ];
+  hardware = {
+    graphics = {
+      enable = true;
+      # driSupport = true;
+      # driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiIntel
+        intel-media-driver
+        libva-vdpau-driver
+        libvdpau-va-gl
+      ];
+    };
+    # nvidia.modsetting.enable = true;
+  };
 
-  # hardware = {
-  #   graphics = {
-  #     enable = true;
-  #     # driSupport = true;
-  #     # driSupport32Bit = true;
-  #   };
-  #   # nvidia.modsetting.enable = true;
-  # };
   # programs.gamemode.enable = true;
 
   # Enable CUPS to print documents.

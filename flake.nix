@@ -16,10 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     end4dots = {
-      url = "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
+      url =
+        "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
       flake = false;
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    nixgl.url = "github:guibou/nixGL";
 
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";

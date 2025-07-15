@@ -150,6 +150,7 @@
     python311Packages.pip
     ffmpeg
     mitmproxy
+    uv
 
     # PHP
     php
@@ -334,7 +335,7 @@
     ".config/chrome-flags.conf".source =
       "${end4dots}/.config/chrome-flags.conf";
     ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
-    ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
+    # ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
     ".config/thorium-flags.conf".source =
       "${end4dots}/.config/thorium-flags.conf";
   };

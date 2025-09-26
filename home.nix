@@ -76,12 +76,6 @@
     inetutils
     curlFull
 
-    # xdg-desktop-portal-wlr
-    # xdg-desktop-portal
-    # xdg-desktop-portal-hyprland
-    # xdg-desktop-portal-wlr
-    # xdg-desktop-portal-gtk
-
     # Java
     openjdk
     maven
@@ -137,8 +131,8 @@
     direnv
     openssl
     solc
-    libsForQt5.qt5ct
-    qt6.full
+    # libsForQt5.qt5ct
+    # qt6.full
 
     # wayvnc
     pkgs.wayvnc
@@ -217,7 +211,7 @@
     # gnupg
 
     mdbook
-    spotifywm
+    # spotifywm
     ags
 
     # Arduino
@@ -271,7 +265,6 @@
     zellij
 
     # Discord
-    webcord
     discord
 
     # Git
@@ -281,7 +274,7 @@
     lazygit
 
     # Video editing
-    openshot-qt
+    # openshot-qt
 
     fuzzel
     brightnessctl

@@ -134,14 +134,15 @@
     # libsForQt5.qt5ct
     # qt6.full
 
-    # wayvnc
-    pkgs.wayvnc
+    # VNC
+    wayvnc
+    realvnc-vnc-viewer
 
     # python
-    python3
-    python311Packages.pyftpdlib
+    python310
+    python310Packages.pyftpdlib
+    python310Packages.pip
     poetry
-    python311Packages.pip
     ffmpeg
     mitmproxy
     uv

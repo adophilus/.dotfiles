@@ -345,28 +345,28 @@
 
   # List services that you want to enable:
 
-  # services.tor = {
-  #   enable = true;
-  #   client.dns.enable = true;
-  #   settings.DNSPort = [{
-  #     addr = "127.0.0.1";
-  #     port = 53;
-  #   }];
-  #   # resolved = {
-  #   #   enable = true; # For caching DNS requests.
-  #   #   fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
-  #   # };
-  #   openFirewall = false;
-  #   relay = {
-  #     enable = false;
-  #     # role = "relay";
-  #   };
-  #   settings = {
-  #     UseBridges = true;
-  #     ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-  #     Bridge = "obfs4 IP:ORPort [fingerprint]";
-  #   };
-  # };
+  services.tor = {
+    enable = true;
+    client.dns.enable = true;
+    settings.DNSPort = [{
+      addr = "127.0.0.1";
+      port = 53;
+    }];
+    resolved = {
+      enable = true; # For caching DNS requests.
+      fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
+    };
+    openFirewall = false;
+    relay = {
+      enable = false;
+      # role = "relay";
+    };
+    settings = {
+      UseBridges = true;
+      ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
+      Bridge = "obfs4 IP:ORPort [fingerprint]";
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

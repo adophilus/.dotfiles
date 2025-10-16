@@ -308,7 +308,7 @@
     # '';
 
     ".config/bottom".source = ./.config/bottom;
-    ".config/nvim".source = ./.config/nvim;
+    # ".config/nvim".source = ./.config/nvim;
     # ".config/fish".source = ./.config/fish;
     ".config/kitty".source = ./.config/kitty;
     # ".config/tmux".source = ./.config/tmux;

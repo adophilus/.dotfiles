@@ -195,6 +195,8 @@
     # code editor
     vscode
     code-cursor
+    windsurf
+
     # vscode-fhs
     gh
     flyctl

@@ -176,10 +176,17 @@
   # };
 
   nix.settings = {
+    auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys =
-      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    substituters = [
+      "https://nix-community.cachix.org"
+      "https://cache.nixos.org/"
+      "https://hyprland.cachix.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
   };
 
   # programs.command-not-found.enable = false;
@@ -237,12 +244,42 @@
     };
   };
 
+  # Enable ananicy
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-cpp;
+    settings = { apply_nice = true; };
+  };
+
+  # Earlyoom killer
+  systemd.oomd.enable = false;
+  services.earlyoom.enable = true;
+
+  # Make nixos boot slightly faster by turning these off during boot
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services.systemd-udev-settle.enable = false;
+
   # programs.xwayland.enable = true;
 
   services.mysql = {
     enable = true;
     package = pkgs-unstable.mariadb;
   };
+
+  services.udisks2.enable = true;
+
+  # services.udiskie = {
+  #   enable = true;
+  #   settings = {
+  #     # workaround for
+  #     # https://github.com/nix-community/home-manager/issues/632
+  #     program_options = {
+  #       # replace with your favorite file manager
+  #       file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+  #     };
+  #   };
+  # };
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -352,10 +389,10 @@
       addr = "127.0.0.1";
       port = 53;
     }];
-    resolved = {
-      enable = true; # For caching DNS requests.
-      fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
-    };
+    # resolved = {
+    #   enable = true; # For caching DNS requests.
+    #   fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
+    # };
     openFirewall = false;
     relay = {
       enable = false;

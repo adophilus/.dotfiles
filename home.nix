@@ -201,6 +201,9 @@
     gh
     flyctl
 
+    # Drives
+    udiskie
+
     # Browser
     tor-browser
     vivaldi
@@ -214,8 +217,11 @@
     # gnupg
 
     mdbook
-    # spotifywm
     ags
+
+    # Music
+    pkgs.spotifywm
+    spotdl
 
     # Arduino
     arduino-ide

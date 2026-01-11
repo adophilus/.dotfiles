@@ -1,6 +1,6 @@
 return {
   "kiddos/gemini.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     hints = {
       insert_result_key = "<C-y>",

@@ -206,7 +206,8 @@
     description = "Mpris proxy";
     after = [ "network.target" "sound.target" "bluetooth.target" ];
     bindsTo = [ "bluetooth.target" ];
-    wantedBy = [ "bluetooth.target" ];
+    # wantedBy = [ "bluetooth.target" ];
+    wantedBy = [ "default.target" ];
     serviceConfig.ExecStart = "${pkgs-unstable.bluez}/bin/mpris-proxy";
   };
 
@@ -214,9 +215,10 @@
 
   programs.hyprland = {
     enable = true;
-    # portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    withUWSM = true;
     # package =
     #   inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = pkgs.xdg-desktop-portal-hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
     # nvidiaPatches = true;
@@ -236,8 +238,8 @@
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
+        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
+        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd '${inputs.nixgl}/bin/nixGL Hyprland'";
       };
@@ -283,8 +285,16 @@
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     LIBVA_DRIVER_NAME = "iHD";
+
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+
+    XDG_SESSION_TYPE = "wayland";
+
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   hardware = {

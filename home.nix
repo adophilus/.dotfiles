@@ -38,7 +38,11 @@
   home.packages = with pkgs-unstable; [
     # Social media
     zapzap
+    telegram-desktop
     nchat
+
+    pavucontrol
+    qpwgraph
 
     tree
 
@@ -194,6 +198,7 @@
 
     # code editor
     vscode
+    zed-editor-fhs
     code-cursor
     windsurf
 
@@ -221,7 +226,7 @@
 
     # Music
     pkgs.spotifywm
-    spotdl
+    # spotdl
 
     # Arduino
     arduino-ide
@@ -239,6 +244,7 @@
     hypridle
     hyprcursor
     hyprpaper
+    hyprsome
     pkgs.hyprlock
     hyprpicker
 
@@ -288,6 +294,7 @@
     fuzzel
     brightnessctl
     wofi
+    rofi
 
     # Documentation
     tldr
@@ -321,7 +328,7 @@
     ".config/kitty".source = ./.config/kitty;
     # ".config/tmux".source = ./.config/tmux;
     ".config/tmuxinator".source = ./.config/tmuxinator;
-    ".config/waybar".source = ./.config/waybar;
+    # ".config/waybar".source = ./.config/waybar;
     ".config/zellij".source = ./.config/zellij;
     ".config/ghostty".source = ./.config/ghostty;
 
@@ -386,7 +393,7 @@
 
   # wayland.windowManager.hyprland = {
   #   enable = true;
-  #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   extraConfig = builtins.readFile ./hypr/hyprland.conf;
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   # extraConfig = builtins.readFile ./hypr/hyprland.conf;
   # };
 }

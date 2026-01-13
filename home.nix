@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, ... }:
+{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, wifitui, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -167,7 +167,7 @@
 
     # Networking
     blueman
-    inputs.wifitui
+    wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Torrent
     deluge

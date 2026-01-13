@@ -53,7 +53,8 @@
     intel-media-driver
     libva
     libva-utils
-    vaapiVdpau
+    # vaapiVdpau
+    libva-vdpau-driver
 
     # blender
     gtypist
@@ -66,7 +67,7 @@
     adbfs-rootless
 
     # Nix
-    nixfmt-classic
+    nixfmt
     manix
 
     # Timers
@@ -162,6 +163,11 @@
     gimp
     obs-studio
     shotcut
+    imagemagick
+
+    # Networking
+    blueman
+    inputs.wifitui
 
     # Torrent
     deluge
@@ -239,6 +245,8 @@
 
     # Wayland
     wl-clipboard
+    waypaper
+    wlogout
 
     # Hyprland
     hypridle
@@ -247,6 +255,8 @@
     hyprsome
     pkgs.hyprlock
     hyprpicker
+    hyprsunset
+    hyprshade
 
     # Containers
     dive
@@ -278,6 +288,12 @@
     ghostty
     starship
     zellij
+
+    # File manager
+    yazi
+
+    # Calculator
+    libqalculate
 
     # Discord
     discord
@@ -339,7 +355,7 @@
     ".config/fuzzel".source = "${end4dots}/.config/fuzzel";
     ".config/mpv".source = "${end4dots}/.config/mpv";
     ".config/qt5ct".source = "${end4dots}/.config/qt5ct";
-    ".config/wlogout".source = "${end4dots}/.config/wlogout";
+    # ".config/wlogout".source = "${end4dots}/.config/wlogout";
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
     ".config/chrome-flags.conf".source =
       "${end4dots}/.config/chrome-flags.conf";
@@ -393,7 +409,14 @@
 
   # wayland.windowManager.hyprland = {
   #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   systemd = {
+  #     enable = true;
+  #     variables = [ "--all" ];
+  #   };
+  #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   #   # extraConfig = builtins.readFile ./hypr/hyprland.conf;
   # };
+
+  services.swayosd.enable = true;
+  services.hypridle.enable = true;
 }

@@ -238,7 +238,9 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
+        command =
+          "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'uwsm start default'";
+        # command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd '${inputs.nixgl}/bin/nixGL Hyprland'";
@@ -303,7 +305,8 @@
       # driSupport = true;
       # driSupport32Bit = true;
       extraPackages = with pkgs; [
-        vaapiIntel
+        # vaapiIntel
+        intel-vaapi-driver
         intel-media-driver
         libva-vdpau-driver
         libvdpau-va-gl
@@ -408,11 +411,11 @@
       enable = false;
       # role = "relay";
     };
-    settings = {
-      UseBridges = true;
-      ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-      Bridge = "obfs4 IP:ORPort [fingerprint]";
-    };
+    # settings = {
+    #   UseBridges = true;
+    #   ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
+    #   Bridge = "obfs4 IP:ORPort [fingerprint]";
+    # };
   };
 
   # Enable the OpenSSH daemon.

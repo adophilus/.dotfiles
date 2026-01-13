@@ -2,13 +2,13 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
@@ -20,6 +20,7 @@
         "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
       flake = false;
     };
+    wifitui.url = "github:shazow/wifitui";
     hyprland.url = "github:hyprwm/Hyprland";
     nixgl.url = "github:guibou/nixGL";
 
@@ -30,7 +31,7 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, wifitui, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       zenith = nixpkgs.lib.nixosSystem rec {
@@ -52,7 +53,7 @@
             # TODO replace ryan with your own username
             home-manager.users.adophilus = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs end4dots;
+              inherit inputs end4dots wifitui;
               pkgs-unstable = import nixpkgs-unstable {
                 inherit system;
                 config.allowUnfree = true;

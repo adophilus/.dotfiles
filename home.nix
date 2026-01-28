@@ -159,6 +159,10 @@
     php82Extensions.mbstring
     php82Extensions.iconv
 
+    # Crypto
+    monero-gui
+    electrum
+
     # Graphics apps
     gimp
     obs-studio
@@ -202,11 +206,12 @@
     obsidian
     grim
 
-    # code editor
+    # Code editors
     vscode
     zed-editor-fhs
     code-cursor
     windsurf
+    antigravity-fhs
 
     # vscode-fhs
     gh

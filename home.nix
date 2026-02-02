@@ -1,6 +1,6 @@
-{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, wifitui, ... }:
+{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, wifitui, voxtype, ... }: {
+  imports = [ voxtype.homeManagerModules.default ];
 
-{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "adophilus";
@@ -37,9 +37,9 @@
   # environment.
   home.packages = with pkgs-unstable; [
     # Social media
-    zapzap
-    telegram-desktop
-    nchat
+    # zapzap
+    # telegram-desktop
+    # nchat
 
     pavucontrol
     qpwgraph
@@ -55,6 +55,8 @@
     libva-utils
     # vaapiVdpau
     libva-vdpau-driver
+
+    # pulseaudioFull
 
     # blender
     gtypist
@@ -420,6 +422,52 @@
   #   };
   #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   #   # extraConfig = builtins.readFile ./hypr/hyprland.conf;
+  # };
+
+  # programs.voxtype = {
+  #   enable = true;
+  #   # 'vulkan' is the safest bet for graphics acceleration on NixOS
+  #   package = voxtype.packages.${pkgs.system}.vulkan;
+  #
+  #   # This downloads the AI model automatically
+  #   # model.name = "base.en";
+  #   # model.name = "large-v3";
+  #   # model.name = "tiny";
+  #   model.path =
+  #     # "/home/adophilus/.local/share/voxtype/models/ggml-large-v3.bin";
+  #     "/home/adophilus/.local/share/voxtype/models/ggml-small.en.bin";
+  #
+  #   # service.enable = true; # Starts the background listener
+  #
+  #   settings = {
+  #     hotkey = {
+  #       enabled = false; # Use compositor keybindings
+  #       # key = "SCROLLLOCK";
+  #     };
+  #
+  #     whisper = { language = "en"; };
+  #     output = {
+  #       # mode = "type"; # It will "type" the words into your active window
+  #       mode = "clipboard";
+  #       notification = {
+  #         on_recording_start = false; # Notify when PTT activates
+  #         on_recording_stop = false; # Notify when transcribing
+  #         on_transcription = true; # Show transcribed text
+  #       };
+  #     };
+  #
+  #     audio = {
+  #       # Audio input device ("default" uses system default)
+  #       # List devices with: pactl list sources short
+  #       device = "default";
+  #
+  #       # Sample rate in Hz (whisper expects 16000)
+  #       sample_rate = 16000;
+  #
+  #       # Maximum recording duration in seconds (safety limit)
+  #       max_duration_secs = 60;
+  #     };
+  #   };
   # };
 
   services.swayosd.enable = true;

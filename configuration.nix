@@ -169,9 +169,9 @@
   # hardware.pulseaudio = {
   #   enable = true;
   #   package = pkgs-unstable.pulseaudioFull;
-  #   extraConfig = "
-  #     load-module module-switch-on-connect
-  #   ";
+  #   # extraConfig = "
+  #   #   load-module module-switch-on-connect
+  #   # ";
   # };
 
   # hardware.opengl = {
@@ -336,7 +336,6 @@
 
   # Enable sound.
   # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

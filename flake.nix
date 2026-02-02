@@ -29,39 +29,42 @@
     #   inputs.hyprland.follows =
     #     "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     # };
+    # voxtype.url = "github:peteonrails/voxtype";
+    voxtype.url = "path:/home/adophilus/.projects/tools/hyprland/peteonrails/voxtype";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, wifitui, ... }: {
-    nixosConfigurations = {
-      # TODO please change the hostname to your own
-      zenith = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          pkgs-unstable = import nixpkgs-unstable { inherit system; };
-        }; # this is the important part
-        modules = [
-          ./configuration.nix
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, wifitui
+    , voxtype, ... }: {
+      nixosConfigurations = {
+        # TODO please change the hostname to your own
+        zenith = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs voxtype;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
+          modules = [
+            ./configuration.nix
 
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            # make home-manager as a module of nixos
+            # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
 
-            # TODO replace ryan with your own username
-            home-manager.users.adophilus = import ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit inputs end4dots wifitui;
-              pkgs-unstable = import nixpkgs-unstable {
-                inherit system;
-                config.allowUnfree = true;
+              # TODO replace ryan with your own username
+              home-manager.users.adophilus = import ./home.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs end4dots wifitui voxtype;
+                pkgs-unstable = import nixpkgs-unstable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
     };
-  };
 }

@@ -24,23 +24,32 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nixgl.url = "github:guibou/nixGL";
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows =
     #     "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     # };
     # voxtype.url = "github:peteonrails/voxtype";
-    voxtype.url = "path:/home/adophilus/.projects/tools/hyprland/peteonrails/voxtype";
+    # voxtype.url = "path:/home/adophilus/.projects/tools/hyprland/peteonrails/voxtype";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, wifitui
-    , voxtype, ... }: {
+    , ... }: {
       nixosConfigurations = {
         # TODO please change the hostname to your own
         zenith = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs voxtype;
+            inherit inputs;
             pkgs-unstable = import nixpkgs-unstable { inherit system; };
           };
           modules = [
@@ -56,7 +65,7 @@
               # TODO replace ryan with your own username
               home-manager.users.adophilus = import ./home.nix;
               home-manager.extraSpecialArgs = {
-                inherit inputs end4dots wifitui voxtype;
+                inherit inputs end4dots wifitui;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;
                   config.allowUnfree = true;

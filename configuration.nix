@@ -5,6 +5,8 @@
 { config, lib, pkgs, inputs, pkgs-unstable, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./modules/wireproxy.nix
+    # ./modules/wireguard.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -408,6 +410,11 @@
 
   # List services that you want to enable:
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   services.tor = {
     enable = true;
     client.dns.enable = true;
@@ -445,6 +452,13 @@
 
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "1.1.1.1" "1.0.0.1" ];
+    dnsovertls = "true";
+  };
 
   boot.tmp.cleanOnBoot = true;
 

@@ -50,7 +50,7 @@
 
     tree
 
-    osu-lazer
+    # osu-lazer
 
     # Video drivers
     # xorg.xf86videointel
@@ -63,7 +63,7 @@
     # pulseaudioFull
 
     # blender
-    gtypist
+    # gtypist
 
     # PDF readers
     zathura
@@ -94,19 +94,20 @@
     # lua
     lua
     lua51Packages.luarocks
+    lua-language-server
 
     waybar
 
     # AI
     ollama
-    aider-chat
+    # aider-chat
 
     # Tmux
     tmux
     tmuxinator
 
     # Vim
-    neovide
+    # neovide
     vim
 
     sshfs
@@ -124,30 +125,32 @@
 
     acpi
 
-    # openapi
-    postman
-    bruno
+    # API clients
+    # postman
+    # bruno
+    # httpie-desktop
 
     # sqlite
-    turso-cli
-    sqld
+    # turso-cli
+    # sqld
     sqlite
 
-    kubo
+    # IPFS
+    # kubo
+
     jq
     gnumake
     # beekeeper-studio
     fzf
-    lua-language-server
     direnv
     openssl
-    solc
+    # solc
     # libsForQt5.qt5ct
     # qt6.full
 
     # VNC
-    wayvnc
-    realvnc-vnc-viewer
+    # wayvnc
+    # realvnc-vnc-viewer
 
     # python
     python310
@@ -170,8 +173,9 @@
     electrum
 
     # Graphics apps
-    gimp
+    # gimp
     obs-studio
+    # openshot-qt
     shotcut
     imagemagick
 
@@ -180,7 +184,7 @@
     wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Torrent
-    deluge
+    # deluge
 
     # wireplumber
     # dunst
@@ -215,11 +219,12 @@
     # Code editors
     vscode
     zed-editor-fhs
-    code-cursor
-    windsurf
-    antigravity-fhs
-
+    # code-cursor
+    # windsurf
+    # antigravity-fhs
     # vscode-fhs
+
+    # Dev tools
     gh
     flyctl
 
@@ -246,7 +251,7 @@
     # spotdl
 
     # Arduino
-    arduino-ide
+    # arduino-ide
 
     # Clipboard
     cliphist
@@ -274,8 +279,6 @@
     podman-tui
     podman-compose
 
-    httpie-desktop
-
     # Nodejs
     biome
     deno
@@ -298,7 +301,7 @@
     kitty
     ghostty
     starship
-    zellij
+    # zellij
 
     # File manager
     yazi
@@ -314,9 +317,6 @@
     git-lfs
     gitui
     lazygit
-
-    # Video editing
-    # openshot-qt
 
     fuzzel
     brightnessctl
@@ -370,10 +370,10 @@
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
     ".config/chrome-flags.conf".source =
       "${end4dots}/.config/chrome-flags.conf";
-    ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
+    # ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
     # ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
-    ".config/thorium-flags.conf".source =
-      "${end4dots}/.config/thorium-flags.conf";
+    # ".config/thorium-flags.conf".source =
+    #   "${end4dots}/.config/thorium-flags.conf";
   };
 
   # Home Manager can also manage your environment variables through
@@ -411,16 +411,16 @@
 
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
 
-    profiles.default = rec {
-      # settings = {
-      #   "zen.workspaces.continue-where-left-off" = true;
-      #   "zen.workspaces.natural-scroll" = true;
-      #   "zen.view.compact.hide-tabbar" = true;
-      #   "zen.view.compact.hide-toolbar" = true;
-      #   "zen.view.compact.animate-sidebar" = false;
-      #   "zen.welcome-screen.seen" = true;
-      #   "zen.urlbar.behavior" = "float";
-      # };
+    profiles.default = {
+      settings = {
+        "zen.workspaces.continue-where-left-off" = true;
+        "zen.workspaces.natural-scroll" = true;
+        "zen.view.compact.hide-tabbar" = true;
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.view.compact.animate-sidebar" = false;
+        "zen.welcome-screen.seen" = true;
+        "zen.urlbar.behavior" = "float";
+      };
 
       # mods = [
       #   "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
@@ -523,6 +523,17 @@
   #     };
   #   };
   # };
+
+  xdg.desktopEntries.scrcpy = {
+    name = "scrcpy";
+    genericName = "Android Remote Control";
+    # This fixes your rendering issue and avoids the messy /bin/sh shell wrap
+    exec = "scrcpy --render-driver=opengles2";
+    icon = "scrcpy";
+    terminal = false;
+    categories = [ "Utility" "RemoteAccess" ];
+    settings = { StartupNotify = "false"; };
+  };
 
   services.swayosd.enable = true;
   services.hypridle.enable = true;

@@ -1,4 +1,14 @@
-{ config, pkgs, lib, inputs, pkgs-unstable, end4dots, wifitui, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  pkgs-unstable,
+  end4dots,
+  wifitui,
+  ...
+}:
+{
   imports = [
     # inputs.zen-browser.homeModules.beta
     inputs.zen-browser.homeModules.twilight
@@ -20,7 +30,8 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   nixpkgs.config = {
-    allowUnfreePredicate = pkg:
+    allowUnfreePredicate =
+      pkg:
       builtins.elem (lib.getName pkg) [
         "vivaldi"
         "postman"
@@ -50,6 +61,8 @@
 
     tree
 
+    activitywatch
+
     # osu-lazer
 
     # Video drivers
@@ -67,6 +80,20 @@
 
     # PDF readers
     zathura
+
+    # Email clients
+    thunderbird
+
+    # Finances
+    gnucash
+
+    just
+
+    posting
+
+    dos2unix
+
+    cloudflared
 
     # ADB tools
     scrcpy
@@ -107,7 +134,7 @@
     tmuxinator
 
     # Vim
-    # neovide
+    neovide
     vim
 
     sshfs
@@ -163,8 +190,7 @@
 
     # PHP
     php
-    # php82Packages.composer
-    # php82Packages.phpstan
+    php82Packages.composer
     php82Extensions.mbstring
     php82Extensions.iconv
 
@@ -184,7 +210,7 @@
     wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Torrent
-    # deluge
+    deluge
 
     # wireplumber
     # dunst
@@ -248,6 +274,7 @@
 
     # Music
     pkgs.spotifywm
+    pkgs.sayonara
     # spotdl
 
     # Arduino
@@ -291,11 +318,25 @@
     go
     air
 
-    ripgrep
+    # top variants
     bottom
+    btop
+
+    # Disk analysis
+    gdu
+
     gjs
     wayshot
     foot
+
+    # Networking
+    dig
+    unixtools.netstat
+
+    ltrace
+    ripgrep
+    tokei
+    torsocks
 
     # Terminal
     kitty
@@ -333,6 +374,14 @@
 
     # zig
     zig
+
+    penpot-desktop
+    figma-linux
+
+    rustscan
+
+    file
+    rclone
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -368,8 +417,7 @@
     ".config/qt5ct".source = "${end4dots}/.config/qt5ct";
     # ".config/wlogout".source = "${end4dots}/.config/wlogout";
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
-    ".config/chrome-flags.conf".source =
-      "${end4dots}/.config/chrome-flags.conf";
+    ".config/chrome-flags.conf".source = "${end4dots}/.config/chrome-flags.conf";
     # ".config/code-flags.conf".source = "${end4dots}/.config/code-flags.conf";
     # ".config/starship.toml".source = "${end4dots}/.config/starship.toml";
     # ".config/thorium-flags.conf".source =
@@ -531,8 +579,22 @@
     exec = "scrcpy --render-driver=opengles2";
     icon = "scrcpy";
     terminal = false;
-    categories = [ "Utility" "RemoteAccess" ];
-    settings = { StartupNotify = "false"; };
+    categories = [
+      "Utility"
+      "RemoteAccess"
+    ];
+    settings = {
+      StartupNotify = "false";
+    };
+  };
+
+  services.activitywatch = {
+    enable = true;
+    # Use the Wayland-native watcher instead of the default X11 ones
+    watchers = {
+      aw-watcher-window.package = pkgs-unstable.awatcher;
+      aw-watcher-afk.package = pkgs-unstable.awatcher;
+    };
   };
 
   services.swayosd.enable = true;

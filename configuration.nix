@@ -2,10 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, ond
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, pkgs-unstable, ... }: {
-  imports = [ # Include the results of the hardware scan.
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  pkgs-unstable,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/wireproxy.nix
+    # ./modules/wireproxy.nix
     # ./modules/wireguard.nix
   ];
 
@@ -14,12 +23,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Power management
-  services.system76-scheduler.settings.cfsProfiles.enable =
-    true; # Better scheduling for CPU cycles - thanks System76!!!
-  services.thermald.enable =
-    true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
-  services.power-profiles-daemon.enable =
-    false; # Disable GNOMEs power management
+  services.system76-scheduler.settings.cfsProfiles.enable = true; # Better scheduling for CPU cycles - thanks System76!!!
+  services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
+  services.power-profiles-daemon.enable = false; # Disable GNOMEs power management
   services.tlp = {
     enable = true; # Enable TLP (better than gnomes internal power manager)
     settings = {
@@ -67,39 +73,36 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager = {
     enable = true; # Easiest to use and most distros use this by default.
-    dispatcherScripts = [{
-      source = pkgs.writeText "add-gateway-alias" ''
-        #!/usr/bin/env ${pkgs.bash}/bin/bash
+    dispatcherScripts = [
+      {
+        source = pkgs.writeText "add-gateway-alias" ''
+          #!/usr/bin/env ${pkgs.bash}/bin/bash
 
-        INTERFACE=$1
-        EVENT=$2
+          INTERFACE=$1
+          EVENT=$2
 
-        if [ "$EVENT" == "up" ]; then
-          # Get the gateway IP address
-          GATEWAY=$(ip route | grep default | grep $INTERFACE | awk '{print $3}')
+          if [ "$EVENT" == "up" ]; then
+            # Get the gateway IP address
+            GATEWAY=$(ip route | grep default | grep $INTERFACE | awk '{print $3}')
 
-          if [ -n "$GATEWAY" ]; then
-            # Check if the alias already exists and remove it
-            sudo sed -i '/gateway.lan/d' /etc/hosts
+            if [ -n "$GATEWAY" ]; then
+              # Check if the alias already exists and remove it
+              sudo sed -i '/gateway.lan/d' /etc/hosts
 
-            # Add the new alias to /etc/host
-            echo "$GATEWAY gateway.lan" | sudo tee -a /etc/hosts
+              # Add the new alias to /etc/host
+              echo "$GATEWAY gateway.lan" | sudo tee -a /etc/hosts
+            fi
           fi
-        fi
 
-        if [ "$EVENT" == "down" ]; then
-          # Remove the alias when the interface goes down
-          sudo sed -i '/gateway.lan/d' /etc/hosts
-        fi
-      '';
-      type = "basic";
-    }];
+          if [ "$EVENT" == "down" ]; then
+            # Remove the alias when the interface goes down
+            sudo sed -i '/gateway.lan/d' /etc/hosts
+          fi
+        '';
+        type = "basic";
+      }
+    ];
   };
-
-  networking.extraHosts = ''
-    127.0.0.1 localhost.lan
-    127.0.0.1 nft-ai-generator.lan
-  '';
 
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
@@ -191,7 +194,10 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     substituters = [
       "https://nix-community.cachix.org"
       "https://cache.nixos.org/"
@@ -220,7 +226,11 @@
 
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
-    after = [ "network.target" "sound.target" "bluetooth.target" ];
+    after = [
+      "network.target"
+      "sound.target"
+      "bluetooth.target"
+    ];
     bindsTo = [ "bluetooth.target" ];
     # wantedBy = [ "bluetooth.target" ];
     wantedBy = [ "default.target" ];
@@ -247,15 +257,17 @@
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
-    config.common.default = [ "hyprland" "gtk" ];
+    config.common.default = [
+      "hyprland"
+      "gtk"
+    ];
   };
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'uwsm start default'";
+        command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'uwsm start default'";
         # command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
         # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
@@ -269,7 +281,9 @@
     enable = true;
     package = pkgs.ananicy-cpp;
     rulesProvider = pkgs.ananicy-cpp;
-    settings = { apply_nice = true; };
+    settings = {
+      apply_nice = true;
+    };
   };
 
   # Earlyoom killer
@@ -349,7 +363,8 @@
     jack.enable = true;
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "vivaldi"
       "postman"
@@ -358,6 +373,8 @@
       "zoom"
       "code"
       "vscode"
+      "steam"
+      "steam-unwrapped"
       # "vscode-fhs"
       "discord"
       "obsidian"
@@ -389,7 +406,10 @@
   users.users.adophilus = {
     isNormalUser = true;
     # extraGroups = [ "wheel" "wireshark" "docker" ];
-    extraGroups = [ "wheel" "wireshark" ];
+    extraGroups = [
+      "wheel"
+      "wireshark"
+    ];
     shell = pkgs-unstable.fish;
   };
 
@@ -418,10 +438,12 @@
   services.tor = {
     enable = true;
     client.dns.enable = true;
-    settings.DNSPort = [{
-      addr = "127.0.0.1";
-      port = 53;
-    }];
+    settings.DNSPort = [
+      {
+        addr = "127.0.0.1";
+        port = 53;
+      }
+    ];
     # resolved = {
     #   enable = true; # For caching DNS requests.
     #   fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
@@ -442,13 +464,75 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 2121 3000 5000 8000 8080 8081 8100 ];
-  networking.firewall.allowedUDPPorts = [ 2121 3000 5000 8000 8080 8081 8100 ];
+  networking.firewall.allowedTCPPorts = [
+    2121
+    3000
+    5000
+    8000
+    8080
+    8081
+    8100
+  ];
+  networking.firewall.allowedUDPPorts = [
+    2121
+    3000
+    5000
+    8000
+    8080
+    8081
+    8100
+  ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
+  # (Optional) Install Seahorse to manage your passwords via a GUI
+  programs.seahorse.enable = true;
+  programs.steam.enable = true;
+
+  # Ensure the keyring is unlocked on login (works for most display managers)
+  security.pam.services.login.enableGnomeKeyring = true;
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs-unstable; [ glibc gcc.cc.lib ];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+    # Essential for Biome/OpenCode
+    glibc
+    gcc.cc.lib
+
+    webkitgtk_4_1
+    gtk3
+    glib
+    zlib
+    nss
+    nspr
+    atk
+    at-spi2-atk
+    cups
+    dbus
+    expat
+    libdrm
+    libxkbcommon
+    mesa
+    pango
+    cairo
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXrandr
+    libgbm
+    libayatana-appindicator
+    libsoup_3
+    gdk-pixbuf
+  ];
 
   networking.nameservers = [ "8.8.8.8" ];
   networking.resolvconf.dnsExtensionMechanism = false;
@@ -456,7 +540,10 @@
     enable = true;
     dnssec = "true";
     domains = [ "~." ];
-    fallbackDns = [ "1.1.1.1" "1.0.0.1" ];
+    fallbackDns = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
     dnsovertls = "true";
   };
 

@@ -16,6 +16,7 @@
     ./hardware-configuration.nix
     # ./modules/wireproxy.nix
     # ./modules/wireguard.nix
+    ./modules/auto-suspend.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -562,7 +563,15 @@
     dnsovertls = "true";
   };
 
-  boot.tmp.cleanOnBoot = true;
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 50; # Compresses half your RAM to fit 2x the apps
+
+  boot = {
+    boot.kernelParams = [
+      "lru_gen.enabled=y"
+    ];
+    tmp.cleanOnBoot = true;
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

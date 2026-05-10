@@ -243,12 +243,12 @@
     grim
 
     # Code editors
-    vscode
-    zed-editor-fhs
-    # code-cursor
+    # vscode
+    # zed-editor-fhs
+    code-cursor-fhs
     # windsurf
     # antigravity-fhs
-    # vscode-fhs
+    vscode-fhs
 
     # Dev tools
     gh
@@ -267,6 +267,7 @@
 
     # Password management
     gopass
+    gopass-jsonapi
     # gnupg
 
     mdbook
@@ -320,6 +321,7 @@
 
     # top variants
     bottom
+    powertop
     btop
 
     # Disk analysis
@@ -332,6 +334,7 @@
     # Networking
     dig
     unixtools.netstat
+    unixtools.route
 
     ltrace
     ripgrep
@@ -457,7 +460,10 @@
   programs.zen-browser = {
     enable = true;
 
-    nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    nativeMessagingHosts = [
+      pkgs.firefoxpwa
+      pkgs-unstable.gopass-jsonapi
+    ];
 
     profiles.default = {
       settings = {

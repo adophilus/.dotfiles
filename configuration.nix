@@ -63,7 +63,12 @@
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    # pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-gnome3;
+    # extraConfig = ''
+    #   allow-loopback-pinentry
+    # '';
+    enableSSHSupport = true;
   };
 
   networking.hostName = "zenith";
@@ -318,6 +323,8 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+    MOZ_ENABLE_WAYLAND = "1";
     LIBVA_DRIVER_NAME = "iHD";
 
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
@@ -361,6 +368,14 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 1024;
+        "default.clock.min-quantum" = 512;
+        "default.clock.max-quantum" = 2048;
+      };
+    };
   };
 
   nixpkgs.config.allowUnfreePredicate =

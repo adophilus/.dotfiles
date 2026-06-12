@@ -15,9 +15,9 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gws.url = "github:googleworkspace/cli";
     end4dots = {
-      url =
-        "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
+      url = "github:end-4/dots-hyprland/510aa4096d814691c67805e5431cc40ec9e9d8a1";
       flake = false;
     };
     wifitui.url = "github:shazow/wifitui";
@@ -42,8 +42,17 @@
     # voxtype.url = "path:/home/adophilus/.projects/tools/hyprland/peteonrails/voxtype";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, end4dots, wifitui
-    , ... }: {
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      end4dots,
+      wifitui,
+      gws,
+      ...
+    }:
+    {
       nixosConfigurations = {
         # TODO please change the hostname to your own
         zenith = nixpkgs.lib.nixosSystem rec {
@@ -65,7 +74,12 @@
               # TODO replace ryan with your own username
               home-manager.users.adophilus = import ./home.nix;
               home-manager.extraSpecialArgs = {
-                inherit inputs end4dots wifitui;
+                inherit
+                  inputs
+                  end4dots
+                  wifitui
+                  gws
+                  ;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;
                   config.allowUnfree = true;

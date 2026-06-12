@@ -42,6 +42,32 @@
       PLATFORM_PROFILE_ON_BAT = "low-power";
       START_CHARGE_THRESH_BAT0 = 75;
       STOP_CHARGE_THRESH_BAT0 = 81;
+
+      # Enable aggressive PCIe power management on battery (Saves ~0.5W - 1W)
+      PCIE_ASPM_ON_BAT = "powersave";
+
+      # Put the SATA/NVMe drive links into low power states when unplugged
+      SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
+
+      # Turn off Wi-Fi power-hungry features on battery
+      WIFI_PWR_ON_BAT = "on";
+
+      # Enable USB Autosuspend (stops idle USB controllers from draining juice)
+      USB_AUTOSUSPEND = 1;
+      USB_EXCLUDE_AUDIO = 1; # Don't suspend USB audio devices to avoid crackle
+
+      # Power save for Intel onboard audio (1 = turn on power saving)
+      SOUND_POWER_SAVE_ON_AC = 0;
+      SOUND_POWER_SAVE_ON_BAT = 1;
+
+      # Turn off the audio controller completely after 1 second of inactivity
+      SOUND_POWER_SAVE_CONTROLLER_ON_BAT = "Y";
+
+      # EXPLICIT PERIPHERAL PROTECTION:
+      # This forces your mouse and keyboard to stay awake 100% of the time,
+      # preventing any wonkiness, lag, or dropped keystrokes.
+      # Don't stop specific usb devices (even when idle, e.g: keyboard)
+      USB_DENYLIST = "10c4:0005 03f0:2f4a";
     };
   };
 
@@ -60,6 +86,22 @@
   #     };
   #   };
   # };
+
+  hardware.cpu.x86.msr.enable = true;
+
+  services.undervolt = {
+    enable = false;
+
+    # Safe conservative baseline for Kaby Lake Refresh (i5-8250U)
+    # Shaves voltage from both Core and Cache simultaneously
+    coreOffset = -80; # CPU Core voltage reduction (mV)
+
+    gpuOffset = -40; # Integrated Intel UHD Graphics reduction (mV)
+    uncoreOffset = -40; # System Agent / Uncore reduction (mV)
+
+    # Optional Thermal Guard (Keeps max heat under control)
+    temp = 90; # Target max temperature in Celsius before throttling slightly
+  };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -480,26 +522,39 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    2121
-    3000
-    5000
-    8000
-    8080
-    8081
-    8100
-  ];
-  networking.firewall.allowedUDPPorts = [
-    2121
-    3000
-    5000
-    8000
-    8080
-    8081
-    8100
-  ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+
+    allowedTCPPorts = [
+      2121
+      3000
+      5000
+      8000
+      8080
+      8081
+      8100
+    ]
+    ++ [
+      7236
+      7250
+    ]; # Miracast / RTSP control ports
+
+    allowedUDPPorts = [
+      2121
+      3000
+      5000
+      8000
+      8080
+      8081
+      8100
+    ]
+    ++ [
+      7236
+      5353
+    ]; # Video streaming and mDNS/Discovery
+
+    trustedInterfaces = [ "p2p-wl+" ]; # Allows Wi-Fi Direct/P2P interfaces
+  };
   services.gnome.gnome-keyring.enable = true;
 
   # (Optional) Install Seahorse to manage your passwords via a GUI
@@ -567,7 +622,7 @@
   zramSwap.memoryPercent = 50; # Compresses half your RAM to fit 2x the apps
 
   boot = {
-    boot.kernelParams = [
+    kernelParams = [
       "lru_gen.enabled=y"
     ];
     tmp.cleanOnBoot = true;

@@ -457,6 +457,7 @@
     PLAYWRIGHT_BROWSERS_PATH = "${pkgs-unstable.playwright-driver.browsers}";
     PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "1";
     PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
+    STARSHIP_CONFIG = "${./.config/starship.toml}";
   };
 
   # Let Home Manager install and manage itself.
@@ -616,6 +617,71 @@
       aw-watcher-afk.package = pkgs-unstable.awatcher;
     };
   };
+
+  # Copy Hyprland config from nix store to ~/.config/hypr on each rebuild.
+  # The copy is writable so Hyprland and its tools can write to it if needed.
+  # Edit the source files in this repo, then rebuild to apply changes.
+  home.activation.copyHyprConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/hypr
+    run cp -r ${./.config/hypr} $HOME/.config/hypr
+    run chmod -R u+w $HOME/.config/hypr
+  '';
+
+  # Copy Waybar theme directories to ~/.config/waybar/.
+  # Active theme symlinks (config.jsonc, style.css) are managed by the
+  # waybar_swap_config.sh script — this only updates the theme files themselves.
+  home.activation.copyWaybarThemes = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run mkdir -p $HOME/.config/waybar
+    for theme in ${./.config/waybar}/*/; do
+      name=$(basename "$theme")
+      run rm -rf "$HOME/.config/waybar/$name"
+      run cp -r "$theme" "$HOME/.config/waybar/$name"
+      run chmod -R u+w "$HOME/.config/waybar/$name"
+    done
+    # Create default symlinks if none exist (so waybar can start on fresh install)
+    if [ ! -e "$HOME/.config/waybar/config.jsonc" ]; then
+      run ln -snf "$HOME/.config/waybar/horizontal_nerdy_modern/config.jsonc" "$HOME/.config/waybar/config.jsonc"
+    fi
+    if [ ! -e "$HOME/.config/waybar/style.css" ]; then
+      run ln -snf "$HOME/.config/waybar/horizontal_nerdy_modern/style.css" "$HOME/.config/waybar/style.css"
+    fi
+  '';
+
+  # Copy Rofi config from nix store to ~/.config/rofi/.
+  home.activation.copyRofiConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/rofi
+    run cp -r ${./.config/rofi} $HOME/.config/rofi
+    run chmod -R u+w $HOME/.config/rofi
+  '';
+
+  # Copy wlogout config + icons from nix store to ~/.config/wlogout/.
+  home.activation.copyWlogoutConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/wlogout
+    run cp -r ${./.config/wlogout} $HOME/.config/wlogout
+    run chmod -R u+w $HOME/.config/wlogout
+  '';
+
+  # Copy matugen templates from nix store to ~/.config/matugen/.
+  # Matugen generates theme files at runtime, so the target must be writable.
+  home.activation.copyMatugenConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/matugen
+    run cp -r ${./.config/matugen} $HOME/.config/matugen
+    run chmod -R u+w $HOME/.config/matugen
+  '';
+
+  # Copy mpv config from nix store to ~/.config/mpv/.
+  home.activation.copyMpvConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/mpv
+    run cp -r ${./.config/mpv} $HOME/.config/mpv
+    run chmod -R u+w $HOME/.config/mpv
+  '';
+
+  # Copy lazygit config from nix store to ~/.config/lazygit/.
+  home.activation.copyLazygitConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/lazygit
+    run cp -r ${./.config/lazygit} $HOME/.config/lazygit
+    run chmod -R u+w $HOME/.config/lazygit
+  '';
 
   services.swayosd.enable = true;
   services.hypridle.enable = true;

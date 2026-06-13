@@ -6,6 +6,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+.null-ls_*
 
 # Python cache
 __pycache__/

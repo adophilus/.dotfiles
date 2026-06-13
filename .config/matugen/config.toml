@@ -1,6 +1,33 @@
 [config]
 # ...
 
+# ── Quickshell color scheme (read by MatugenColors.qml) ──
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/qs_colors.json.template'
+output_path = '/tmp/qs_colors.json'
+
+# ── Qt5/Qt6 QSS styling (for native Qt apps) ──
+[templates.qt5_style]
+input_path = '~/.config/matugen/templates/qt-style.qss.template'
+output_path = '~/.config/qt5ct/qss/matugen-style.qss'
+
+[templates.qt6_style]
+input_path = '~/.config/matugen/templates/qt-style.qss.template'
+output_path = '~/.config/qt6ct/qss/matugen-style.qss'
+
+# ── Firefox userChrome theming ──
+[templates.firefox]
+input_path = '~/.config/matugen/templates/firefox.css'
+output_path = '~/.mozilla/firefox/xi26em3v.default/chrome/matugen.css'
+
+[templates.web_github]
+input_path = '~/.config/matugen/templates/websites/github.css.template'
+output_path = '~/.mozilla/firefox/xi26em3v.default/chrome/matugen-github.css'
+
+[templates.web_youtube]
+input_path = '~/.config/matugen/templates/websites/youtube.css.template'
+output_path = '~/.mozilla/firefox/xi26em3v.default/chrome/matugen-youtube.css'
+
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/matugen/generated/gtk-3.css'
@@ -26,13 +53,13 @@ post_hook = 'swaync-client -rs || true'
 
 [templates.swayosd]
 input_path = '~/.config/matugen/templates/swayosd-colors.css'
-output_path = '~/.config/matugen/generated/swayosd-colors.css'
-post_hook = '~/user_scripts/swayosd/restart_swayosd.sh'
+output_path = '~/.config/swayosd/style.css'
+post_hook = 'systemctl --user restart swayosd.service || true'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/matugen/generated/kitty-colors.conf'
-post_hook = 'ln -nfs $HOME/.config/matugen/generated/kitty-colors.conf $HOME/.config/kitty/kitty-colors.conf; pkill -SIGUSR1 kitty || true'
+output_path = '/tmp/kitty-matugen-colors.conf'
+post_hook = 'killall -USR1 .kitty-wrapped 2>/dev/null || true'
 
 [templates.neovim]
 input_path = '~/.config/matugen/templates/neovim/template.lua'
@@ -98,8 +125,8 @@ post_hook = 'killall -SIGUSR2 spotify; mkdir -p $HOME/.config/spicetify/Themes/C
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
-output_path = '~/.config/matugen/generated/cava-colors.ini'
-post_hook = 'mkdir -p $HOME/.config/cava/themes; ln -nfs $HOME/.config/matugen/generated/cava-colors.ini $HOME/.config/cava/themes/cava-colors.ini; pkill -USR1 cava || true'
+output_path = '~/.config/cava/colors'
+post_hook = 'cat ~/.config/cava/config_base ~/.config/cava/colors > ~/.config/cava/config 2>/dev/null; pkill -USR1 cava || true'
 
 [templates.alacritty]
 input_path = '~/.config/matugen/templates/alacritty.toml'

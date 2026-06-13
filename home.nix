@@ -465,6 +465,10 @@ in
     };
   };
 
-  services.swayosd.enable = true;
+  services.swayosd = {
+    enable = true;
+    topMargin = 0.9;
+    stylePath = "${config.home.homeDirectory}/.config/swayosd/style.css";
+  };
   # services.hypridle is managed in config/programs/hypridle/default.nix
 }

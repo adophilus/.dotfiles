@@ -311,15 +311,12 @@
     ];
   };
 
+  # tuigreet — minimal TUI greeter for greetd
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
         command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'uwsm start default'";
-        # command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
-        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
-        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd 'Hyprland'";
-        # "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet --cmd '${inputs.nixgl}/bin/nixGL Hyprland'";
       };
     };
   };

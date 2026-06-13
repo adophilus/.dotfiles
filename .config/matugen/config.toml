@@ -75,11 +75,6 @@ output_path = '~/.config/matugen/generated/zathura-colors'
 # [templates.starship]
 # input_path = '~/.config/matugen/templates/starship-colors.toml'
 # output_path = '~/.config/matugen/generated/starship-colors.toml'
-
-# [templates.tmux]
-# input_path = '~/.config/matugen/templates/tmux-colors.conf'
-# output_path = '~/.config/matugen/generated/tmux-colors.conf'
-
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.config/matugen/generated/pywalfox-colors.json'

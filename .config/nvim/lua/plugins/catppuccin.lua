@@ -1,5 +1,7 @@
 return {
   "catppuccin/nvim",
-  name = "catppuccin"
+  name = "catppuccin",
+  opts = {
+    term_colors = true,
+  },
 }
-

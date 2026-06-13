@@ -412,12 +412,8 @@
     # '';
 
     ".config/bottom".source = ./.config/bottom;
-    # ".config/nvim".source = ./.config/nvim;
-    # ".config/fish".source = ./.config/fish;
     ".config/kitty".source = ./.config/kitty;
-    # ".config/tmux".source = ./.config/tmux;
     ".config/tmuxinator".source = ./.config/tmuxinator;
-    # ".config/waybar".source = ./.config/waybar;
     ".config/zellij".source = ./.config/zellij;
     ".config/ghostty".source = ./.config/ghostty;
 
@@ -681,6 +677,22 @@
     run rm -rf $HOME/.config/lazygit
     run cp -r ${./.config/lazygit} $HOME/.config/lazygit
     run chmod -R u+w $HOME/.config/lazygit
+  '';
+
+  # Copy tmux config from nix store to ~/.config/tmux/.
+  # Only the config files — plugins are managed by TPM at runtime.
+  home.activation.copyTmuxConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/tmux
+    run cp -r ${./.config/tmux} $HOME/.config/tmux
+    run chmod -R u+w $HOME/.config/tmux
+  '';
+
+  # Copy Neovim config from nix store to ~/.config/nvim/.
+  # Writable so lazy.nvim can write lazy-lock.json on :Lazy update.
+  home.activation.copyNvimConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run rm -rf $HOME/.config/nvim
+    run cp -r ${./.config/nvim} $HOME/.config/nvim
+    run chmod -R u+w $HOME/.config/nvim
   '';
 
   services.swayosd.enable = true;

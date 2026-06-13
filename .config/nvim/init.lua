@@ -1,19 +1,24 @@
 if vim.g.neovide then
+  vim.opt.termguicolors = true
   vim.o.cursorline = false
   -- vim.o.guifont = "ProFont IIx Nerd Font Mono:h9"
-  vim.o.guifont = "Hurmit Nerd Font Mono:h9"
-  vim.g.neovide_transparency = 0.9
-  vim.g.neovide_floating_blur_amount_x = 2.0
-  vim.g.neovide_floating_blur_amount_y = 2.0
+  -- vim.o.guifont = "Hurmit Nerd Font Mono:h9"
+  -- vim.o.guifont = "GoogleSansCode Nerd Font"
+  vim.o.guifont = "SpaceMono Nerd Font"
+  -- vim.g.neovide_window_blurred = true
+  vim.g.neovide_transparency = 0.95
+  vim.g.neovide_normal_opacity = 0.95
+  -- vim.g.neovide_floating_blur_amount_x = 20.0
+  -- vim.g.neovide_floating_blur_amount_y = 20.0
   vim.g.neovide_scale_factor = 1
   vim.g.gui_font_default_size = 12
   vim.g.gui_font_size = vim.g.gui_font_default_size
   -- vim.g.gui_font_face = "ProFont IIx Nerd Font Mono"
-  vim.g.gui_font_face = "Hurmit Nerd Font Mono"
+  -- vim.g.gui_font_face = "Hurmit Nerd Font Mono"
+  -- vim.g.gui_font_face = "GoogleSansCode Nerd Font"
+  vim.g.gui_font_face = "SpaceMono Nerd Font"
 
-  RefreshGuiFont = function()
-    vim.opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_size)
-  end
+  RefreshGuiFont = function() vim.opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_size) end
 
   ResizeGuiFont = function(delta)
     vim.g.gui_font_size = vim.g.gui_font_size + delta
@@ -31,9 +36,9 @@ if vim.g.neovide then
 
   local opts = { noremap = true, silent = true }
 
-  vim.keymap.set({ 'n', 'i' }, "<C-\\>", function() ResizeGuiFont(1) end, opts)
-  vim.keymap.set({ 'n', 'i' }, "<C-_>", function() ResizeGuiFont(-1) end, opts)
-  vim.keymap.set({ 'n', 'i' }, "<C-BS>", function() ResetGuiFont() end, opts)
+  vim.keymap.set({ "n", "i" }, "<C-\\>", function() ResizeGuiFont(1) end, opts)
+  vim.keymap.set({ "n", "i" }, "<C-_>", function() ResizeGuiFont(-1) end, opts)
+  vim.keymap.set({ "n", "i" }, "<C-BS>", function() ResetGuiFont() end, opts)
 end
 
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution

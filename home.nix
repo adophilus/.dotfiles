@@ -332,6 +332,19 @@ in
 
     gnome-network-displays
 
+    # Quickshell desktop shell
+    quickshell
+    swww
+    gpu-screen-recorder
+    satty
+    zbar
+    pamixer
+    inotify-tools
+    playerctl
+    cava
+    mpvpaper
+    easyeffects
+
     usbutils
   ];
 

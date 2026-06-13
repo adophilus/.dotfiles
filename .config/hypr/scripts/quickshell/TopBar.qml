@@ -666,7 +666,7 @@ Variants {
                                 id: searchMouse
                                 anchors.fill: parent
                                 hoverEnabled: true
-                                onClicked: Quickshell.execDetached(["bash", "-c", "~/.config/hypr/scripts/qs_manager.sh toggle applauncher"])
+                                onClicked: Quickshell.execDetached(["bash", "-c", "pkill rofi; rofi -show drun -run-command 'uwsm app -- {cmd}'"])
                             }
                         }
 

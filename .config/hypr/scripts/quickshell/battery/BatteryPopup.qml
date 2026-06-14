@@ -1556,8 +1556,9 @@ Item {
                                 }
                             }
 
-                            // 3. POWER PROFILES DOCK
+                            // 3. POWER PROFILES DOCK (disabled — TLP manages power instead)
                             Rectangle {
+                                visible: false
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: window.s(54)
                                 radius: window.s(14)

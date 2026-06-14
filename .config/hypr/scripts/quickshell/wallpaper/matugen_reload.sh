@@ -29,16 +29,16 @@ fi
 # Rapidly toggles the global theme to force GTK3 and GTK4 apps to flush 
 # their caches and read the newly generated Matugen CSS.
 # ==============================================================================
-if command -v gsettings &> /dev/null; then
-    # GTK3 apps
-    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
-    sleep 0.05
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-    
-    # GTK4 / Libadwaita apps
-    gsettings set org.gnome.desktop.interface color-scheme 'default'
-    sleep 0.05
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# ==============================================================================
+# Obsidian — sync generated CSS to all vaults (hot-reloads automatically)
+# ==============================================================================
+OBSIDIAN_CSS="$HOME/.config/matugen/generated/obsidian-theme.css"
+if [ -f "$OBSIDIAN_CSS" ]; then
+    for vault_dir in "$HOME"/Documents/pensive "$HOME"/Documents/obsidian/personal "$HOME"/Documents/notes-saas; do
+        if [ -d "$vault_dir/.obsidian/snippets" ]; then
+            cp "$OBSIDIAN_CSS" "$vault_dir/.obsidian/snippets/matugen-theme.css"
+        fi
+    done
 fi
 
 wait

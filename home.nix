@@ -161,7 +161,6 @@ in
     imagemagick
 
     # Networking
-    blueman
     wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Torrent
@@ -179,7 +178,6 @@ in
     yad
     ydotool
     libdbusmenu-gtk3
-    fcitx5
 
     # Video players
     pkgs.mpv

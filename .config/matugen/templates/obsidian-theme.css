@@ -1,124 +1,273 @@
+/* ============================================================
+   Obsidian Matugen Theme — generated from wallpaper colors
+   ============================================================ */
 
 .theme-dark {
-	--accent-h:calc({{colors.primary.dark.hue}}/255*360);
-	--accent-s:calc({{colors.primary.dark.saturation}}/255*100%);
-	--accent-l:calc({{colors.primary.dark.lightness}}/255*100%);
+  /* --- Accent (HSL for Obsidian's dynamic accent system) --- */
+  --accent-h: calc({{colors.primary.dark.hue}}/255*360);
+  --accent-s: calc({{colors.primary.dark.saturation}}/255*100%);
+  --accent-l: calc({{colors.primary.dark.lightness}}/255*100%);
 
-  --text-normal:{{colors.on_surface.dark.hex}};
-  --text-muted:{{colors.on_surface_variant.dark.hex}};
-  --text-faint:{{colors.outline.dark.hex}};
+  /* --- Critical: Obsidian's 12-step base gray ramp --- */
+  --color-base-00: {{colors.surface_dim.dark.hex}};
+  --color-base-05: {{colors.surface.dark.hex}};
+  --color-base-10: {{colors.surface_container_lowest.dark.hex}};
+  --color-base-20: {{colors.surface_container_low.dark.hex}};
+  --color-base-25: {{colors.surface_container.dark.hex}};
+  --color-base-30: {{colors.surface_container_high.dark.hex}};
+  --color-base-35: {{colors.surface_container_highest.dark.hex}};
+  --color-base-40: {{colors.outline_variant.dark.hex}};
+  --color-base-50: {{colors.outline.dark.hex}};
+  --color-base-60: {{colors.on_surface_variant.dark.hex}};
+  --color-base-70: {{colors.on_surface.dark.hex}};
+  --color-base-100: {{colors.inverse_surface.dark.hex}};
 
-  --background-primary:{{colors.surface.dark.hex}}; /* editor and right ribbon */
-  --background-secondary:{{colors.surface_dim.dark.hex}}; /* left ribbon */ 
-  --background-modifier-hover:{{colors.secondary_container.dark.hex}};
-  --background-modifier-active-hover:{{colors.secondary.dark.hex}};
-  --background-modifier-message:{{colors.surface_dim.dark.hex}};
-  --background-modifier-form-field:{{colors.primary_container.dark.hex}};
+  /* --- Text --- */
+  --text-normal: {{colors.on_surface.dark.hex}};
+  --text-muted: {{colors.on_surface_variant.dark.hex}};
+  --text-faint: {{colors.outline.dark.hex}};
+  --text-accent: {{colors.primary.dark.hex}};
+  --text-on-accent: {{colors.on_primary.dark.hex}};
+  --text-on-accent-inverted: {{colors.primary.dark.hex}};
+  --text-success: {{colors.primary.dark.hex}};
+  --text-warning: {{colors.tertiary.dark.hex}};
+  --text-error: {{colors.error.dark.hex}};
 
-  --ribbon-background:{{colors.surface.dark.hex}};
-  --divider-color:{{colors.secondary_container.dark.hex}};
-  --scrollbar-thumb-bg:{{colors.on_secondary_container.dark.hex}};
-  --status-bar-border-color:{{colors.secondary_container.dark.hex}};
-  --status-bar-background:{{colors.surface.dark.hex}};
-  --titlebar-background:{{colors.surface.dark.hex}};
-  --titlebar-text-color:{{colors.on_surface.dark.hex}};
+  /* --- Backgrounds --- */
+  --background-primary: {{colors.surface.dark.hex}};
+  --background-primary-alt: {{colors.surface_container_low.dark.hex}};
+  --background-secondary: {{colors.surface_dim.dark.hex}};
+  --background-secondary-alt: {{colors.surface_container.dark.hex}};
+  --background-modifier-hover: {{colors.secondary_container.dark.hex}};
+  --background-modifier-active-hover: {{colors.secondary.dark.hex}};
+  --background-modifier-border: {{colors.outline_variant.dark.hex}};
+  --background-modifier-border-hover: {{colors.outline.dark.hex}};
+  --background-modifier-border-focus: {{colors.primary.dark.hex}};
+  --background-modifier-message: {{colors.surface_dim.dark.hex}};
+  --background-modifier-form-field: {{colors.primary_container.dark.hex}};
+  --background-modifier-success: {{colors.primary_container.dark.hex}};
+  --background-modifier-error: {{colors.error_container.dark.hex}};
+  --background-modifier-error-hover: {{colors.error.dark.hex}};
 
-  --nav-item-color:{{colors.on_surface_variant.dark.hex}};
-  --nav-item-color-active:{{colors.on_primary_container.dark.hex}};
-  --nav-item-background-active:{{colors.primary_container.dark.hex}};
-  --nav-item-color-hover:{{colors.on_secondary_container.dark.hex}};
-  --nav-item-background-hover:{{colors.secondary_container.dark.hex}};
+  /* --- Ribbon / Titlebar / Status --- */
+  --ribbon-background: {{colors.surface.dark.hex}};
+  --divider-color: {{colors.secondary_container.dark.hex}};
+  --scrollbar-thumb-bg: {{colors.on_secondary_container.dark.hex}};
+  --scrollbar-active-thumb-bg: {{colors.primary.dark.hex}};
+  --status-bar-border-color: {{colors.secondary_container.dark.hex}};
+  --status-bar-background: {{colors.surface.dark.hex}};
+  --titlebar-background: {{colors.surface.dark.hex}};
+  --titlebar-text-color: {{colors.on_surface.dark.hex}};
 
-  --tab-background-active:{{colors.primary_container.dark.hex}};
-  --tab-text-color-active:{{colors.on_primary_container.dark.hex}};
-  --tab-text-color:{{colors.on_surface_variant.dark.hex}};
+  /* --- Navigation / Tabs --- */
+  --nav-item-color: {{colors.on_surface_variant.dark.hex}};
+  --nav-item-color-active: {{colors.on_primary_container.dark.hex}};
+  --nav-item-color-hover: {{colors.on_secondary_container.dark.hex}};
+  --nav-item-background-active: {{colors.primary_container.dark.hex}};
+  --nav-item-background-hover: {{colors.secondary_container.dark.hex}};
+  --tab-background-active: {{colors.primary_container.dark.hex}};
+  --tab-text-color-active: {{colors.on_primary_container.dark.hex}};
+  --tab-text-color: {{colors.on_surface_variant.dark.hex}};
 
-  --icon-color:{{colors.on_surface.dark.hex}};
+  /* --- Interactive --- */
+  --interactive-normal: {{colors.surface_container_high.dark.hex}};
+  --interactive-hover: {{colors.surface_container_highest.dark.hex}};
+  --interactive-accent: {{colors.primary.dark.hex}};
+  --interactive-accent-hover: {{colors.primary_container.dark.hex}};
+  --icon-color: {{colors.on_surface.dark.hex}};
+  --icon-color-hover: {{colors.primary.dark.hex}};
+  --icon-color-active: {{colors.primary.dark.hex}};
+  --icon-color-focused: {{colors.on_surface_variant.dark.hex}};
 
-  --h1-color:{{colors.primary.dark.hex}};
+  /* --- Headings --- */
+  --h1-color: {{colors.primary.dark.hex}};
   --h2-color: color-mix(in srgb, {{colors.primary.dark.hex}}, {{colors.tertiary.dark.hex}});
-  --h3-color:{{colors.tertiary.dark.hex}};
+  --h3-color: {{colors.tertiary.dark.hex}};
   --h4-color: color-mix(in srgb, {{colors.primary.dark.hex}}, {{colors.secondary.dark.hex}});
-  --h5-color:{{colors.secondary.dark.hex}};
+  --h5-color: {{colors.secondary.dark.hex}};
   --h6-color: color-mix(in srgb, {{colors.tertiary.dark.hex}}, {{colors.secondary.dark.hex}});
 
+  /* --- Links / Tags --- */
+  --link-color: {{colors.primary.dark.hex}};
+  --link-color-hover: {{colors.on_primary_container.dark.hex}};
+  --link-decoration-color: {{colors.primary.dark.hex}};
+  --link-unresolved-color: {{colors.error.dark.hex}};
+  --tag-background: {{colors.primary_container.dark.hex}};
+  --tag-color: {{colors.on_primary_container.dark.hex}};
 
-  }
+  /* --- Code / Syntax --- */
+  --code-background: {{colors.surface_container.dark.hex}};
+  --code-normal: {{colors.on_surface.dark.hex}};
+  --code-comment: {{colors.on_surface_variant.dark.hex}};
+  --code-keyword: {{colors.primary.dark.hex}};
+  --code-tag: {{colors.primary.dark.hex}};
+  --code-functuation: {{colors.secondary.dark.hex}};
+  --code-value: {{colors.tertiary.dark.hex}};
+  --code-string: {{colors.tertiary.dark.hex}};
+  --code-operator: {{colors.on_surface_variant.dark.hex}};
+  --code-property: {{colors.secondary.dark.hex}};
 
+  /* --- Search / Highlight --- */
+  --search-bg: {{colors.primary_container.dark.hex}};
+  --search-border-color: {{colors.primary.dark.hex}};
+  --text-highlight-bg: {{colors.tertiary_container.dark.hex}};
+  --text-highlight-bg-active: {{colors.tertiary.dark.hex}};
+  --highlight-mix-blend-mode: screen;
 
-/* add parts not accessible without specific selector?*/
+  /* --- Checkboxes --- */
+  --checkbox-marker-color: {{colors.on_primary.dark.hex}};
+  --checkbox-color: {{colors.primary.dark.hex}};
+  --checkbox-color-hover: {{colors.primary_container.dark.hex}};
+  --checkbox-border-color: {{colors.outline.dark.hex}};
+  --checkbox-border-color-hover: {{colors.primary.dark.hex}};
+}
+
+/* --- Selectors not reachable via CSS variables --- */
 .theme-dark .sidebar-toggle-button.mod-left {
-  color:{{colors.on_surface.dark.hex}};
-  background:{{colors.surface.dark.hex}};
+  color: {{colors.on_surface.dark.hex}};
+  background: {{colors.surface.dark.hex}};
 }
 .theme-dark .sidebar-toggle-button.mod-right {
-  color:{{colors.on_surface.dark.hex}};
-  background:{{colors.surface.dark.hex}};
+  color: {{colors.on_surface.dark.hex}};
+  background: {{colors.surface.dark.hex}};
+}
+.theme-dark .workspace-tab-header-container {
+  background: {{colors.surface.dark.hex}};
 }
 
-.theme-dark .workspace-tab-header-container{
-  background:{{colors.surface.dark.hex}};
-}
+/* ============================================================
+   Light mode
+   ============================================================ */
 
-
-/* copy for light mode */
 .theme-light {
-	--accent-h:calc({{colors.primary.light.hue}}/255*360);
-	--accent-s:calc({{colors.primary.light.saturation}}/255*100%);
-	--accent-l:calc({{colors.primary.light.lightness}}/255*100%);
+  /* --- Accent --- */
+  --accent-h: calc({{colors.primary.light.hue}}/255*360);
+  --accent-s: calc({{colors.primary.light.saturation}}/255*100%);
+  --accent-l: calc({{colors.primary.light.lightness}}/255*100%);
 
-  --text-normal:{{colors.on_surface.light.hex}};
-  --text-muted:{{colors.on_surface_variant.light.hex}};
-  --text-faint:{{colors.outline.light.hex}};
+  /* --- Critical: Obsidian's 12-step base gray ramp --- */
+  --color-base-00: {{colors.surface_dim.light.hex}};
+  --color-base-05: {{colors.surface.light.hex}};
+  --color-base-10: {{colors.surface_container_lowest.light.hex}};
+  --color-base-20: {{colors.surface_container_low.light.hex}};
+  --color-base-25: {{colors.surface_container.light.hex}};
+  --color-base-30: {{colors.surface_container_high.light.hex}};
+  --color-base-35: {{colors.surface_container_highest.light.hex}};
+  --color-base-40: {{colors.outline_variant.light.hex}};
+  --color-base-50: {{colors.outline.light.hex}};
+  --color-base-60: {{colors.on_surface_variant.light.hex}};
+  --color-base-70: {{colors.on_surface.light.hex}};
+  --color-base-100: {{colors.inverse_surface.light.hex}};
 
-  --background-primary:{{colors.surface.light.hex}}; /* editor and right ribbon */
-  --background-secondary:{{colors.surface_dim.light.hex}}; /* left ribbon */ 
-  --background-modifier-hover:{{colors.secondary_container.light.hex}};
-  --background-modifier-active-hover:{{colors.secondary.light.hex}};
-  --background-modifier-message:{{colors.surface_dim.light.hex}};
-  --background-modifier-form-field:{{colors.primary_container.light.hex}};
+  /* --- Text --- */
+  --text-normal: {{colors.on_surface.light.hex}};
+  --text-muted: {{colors.on_surface_variant.light.hex}};
+  --text-faint: {{colors.outline.light.hex}};
+  --text-accent: {{colors.primary.light.hex}};
+  --text-on-accent: {{colors.on_primary.light.hex}};
+  --text-on-accent-inverted: {{colors.primary.light.hex}};
+  --text-success: {{colors.primary.light.hex}};
+  --text-warning: {{colors.tertiary.light.hex}};
+  --text-error: {{colors.error.light.hex}};
 
-  --ribbon-background:{{colors.surface.light.hex}};
-  --divider-color:{{colors.secondary_container.light.hex}};
-  --scrollbar-thumb-bg:{{colors.on_secondary_container.light.hex}};
-  --status-bar-border-color:{{colors.secondary_container.light.hex}};
-  --status-bar-background:{{colors.surface.light.hex}};
-  --titlebar-background:{{colors.surface.light.hex}};
-  --titlebar-text-color:{{colors.on_surface.light.hex}};
+  /* --- Backgrounds --- */
+  --background-primary: {{colors.surface.light.hex}};
+  --background-primary-alt: {{colors.surface_container_low.light.hex}};
+  --background-secondary: {{colors.surface_dim.light.hex}};
+  --background-secondary-alt: {{colors.surface_container.light.hex}};
+  --background-modifier-hover: {{colors.secondary_container.light.hex}};
+  --background-modifier-active-hover: {{colors.secondary.light.hex}};
+  --background-modifier-border: {{colors.outline_variant.light.hex}};
+  --background-modifier-border-hover: {{colors.outline.light.hex}};
+  --background-modifier-border-focus: {{colors.primary.light.hex}};
+  --background-modifier-message: {{colors.surface_dim.light.hex}};
+  --background-modifier-form-field: {{colors.primary_container.light.hex}};
+  --background-modifier-success: {{colors.primary_container.light.hex}};
+  --background-modifier-error: {{colors.error_container.light.hex}};
+  --background-modifier-error-hover: {{colors.error.light.hex}};
 
-  --nav-item-color:{{colors.on_surface_variant.light.hex}};
-  --nav-item-color-active:{{colors.on_primary_container.light.hex}};
-  --nav-item-background-active:{{colors.primary_container.light.hex}};
-  --nav-item-color-hover:{{colors.on_secondary_container.light.hex}};
-  --nav-item-background-hover:{{colors.secondary_container.light.hex}};
+  /* --- Ribbon / Titlebar / Status --- */
+  --ribbon-background: {{colors.surface.light.hex}};
+  --divider-color: {{colors.secondary_container.light.hex}};
+  --scrollbar-thumb-bg: {{colors.on_secondary_container.light.hex}};
+  --scrollbar-active-thumb-bg: {{colors.primary.light.hex}};
+  --status-bar-border-color: {{colors.secondary_container.light.hex}};
+  --status-bar-background: {{colors.surface.light.hex}};
+  --titlebar-background: {{colors.surface.light.hex}};
+  --titlebar-text-color: {{colors.on_surface.light.hex}};
 
-  --tab-background-active:{{colors.primary_container.light.hex}};
-  --tab-text-color-active:{{colors.on_primary_container.light.hex}};
-  --tab-text-color:{{colors.on_surface_variant.light.hex}};
+  /* --- Navigation / Tabs --- */
+  --nav-item-color: {{colors.on_surface_variant.light.hex}};
+  --nav-item-color-active: {{colors.on_primary_container.light.hex}};
+  --nav-item-color-hover: {{colors.on_secondary_container.light.hex}};
+  --nav-item-background-active: {{colors.primary_container.light.hex}};
+  --nav-item-background-hover: {{colors.secondary_container.light.hex}};
+  --tab-background-active: {{colors.primary_container.light.hex}};
+  --tab-text-color-active: {{colors.on_primary_container.light.hex}};
+  --tab-text-color: {{colors.on_surface_variant.light.hex}};
 
-  --icon-color:{{colors.on_surface.light.hex}};
+  /* --- Interactive --- */
+  --interactive-normal: {{colors.surface_container_high.light.hex}};
+  --interactive-hover: {{colors.surface_container_highest.light.hex}};
+  --interactive-accent: {{colors.primary.light.hex}};
+  --interactive-accent-hover: {{colors.primary_container.light.hex}};
+  --icon-color: {{colors.on_surface.light.hex}};
+  --icon-color-hover: {{colors.primary.light.hex}};
+  --icon-color-active: {{colors.primary.light.hex}};
+  --icon-color-focused: {{colors.on_surface_variant.light.hex}};
 
-  --h1-color:{{colors.primary.light.hex}};
+  /* --- Headings --- */
+  --h1-color: {{colors.primary.light.hex}};
   --h2-color: color-mix(in srgb, {{colors.primary.light.hex}}, {{colors.tertiary.light.hex}});
-  --h3-color:{{colors.tertiary.light.hex}};
+  --h3-color: {{colors.tertiary.light.hex}};
   --h4-color: color-mix(in srgb, {{colors.primary.light.hex}}, {{colors.secondary.light.hex}});
-  --h5-color:{{colors.secondary.light.hex}};
+  --h5-color: {{colors.secondary.light.hex}};
   --h6-color: color-mix(in srgb, {{colors.tertiary.light.hex}}, {{colors.secondary.light.hex}});
 
+  /* --- Links / Tags --- */
+  --link-color: {{colors.primary.light.hex}};
+  --link-color-hover: {{colors.on_primary_container.light.hex}};
+  --link-decoration-color: {{colors.primary.light.hex}};
+  --link-unresolved-color: {{colors.error.light.hex}};
+  --tag-background: {{colors.primary_container.light.hex}};
+  --tag-color: {{colors.on_primary_container.light.hex}};
 
-  }
+  /* --- Code / Syntax --- */
+  --code-background: {{colors.surface_container.light.hex}};
+  --code-normal: {{colors.on_surface.light.hex}};
+  --code-comment: {{colors.on_surface_variant.light.hex}};
+  --code-keyword: {{colors.primary.light.hex}};
+  --code-tag: {{colors.primary.light.hex}};
+  --code-functuation: {{colors.secondary.light.hex}};
+  --code-value: {{colors.tertiary.light.hex}};
+  --code-string: {{colors.tertiary.light.hex}};
+  --code-operator: {{colors.on_surface_variant.light.hex}};
+  --code-property: {{colors.secondary.light.hex}};
 
+  /* --- Search / Highlight --- */
+  --search-bg: {{colors.primary_container.light.hex}};
+  --search-border-color: {{colors.primary.light.hex}};
+  --text-highlight-bg: {{colors.tertiary_container.light.hex}};
+  --text-highlight-bg-active: {{colors.tertiary.light.hex}};
+  --highlight-mix-blend-mode: multiply;
 
-/* add parts not accessible without specific selector?*/
+  /* --- Checkboxes --- */
+  --checkbox-marker-color: {{colors.on_primary.light.hex}};
+  --checkbox-color: {{colors.primary.light.hex}};
+  --checkbox-color-hover: {{colors.primary_container.light.hex}};
+  --checkbox-border-color: {{colors.outline.light.hex}};
+  --checkbox-border-color-hover: {{colors.primary.light.hex}};
+}
+
+/* --- Light mode selectors --- */
 .theme-light .sidebar-toggle-button.mod-left {
-  color:{{colors.on_surface.light.hex}};
-  background:{{colors.surface.light.hex}};
+  color: {{colors.on_surface.light.hex}};
+  background: {{colors.surface.light.hex}};
 }
 .theme-light .sidebar-toggle-button.mod-right {
-  color:{{colors.on_surface.light.hex}};
-  background:{{colors.surface.light.hex}};
+  color: {{colors.on_surface.light.hex}};
+  background: {{colors.surface.light.hex}};
 }
-
-.theme-light .workspace-tab-header-container{
-  background:{{colors.surface.light.hex}};
+.theme-light .workspace-tab-header-container {
+  background: {{colors.surface.light.hex}};
 }

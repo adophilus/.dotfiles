@@ -416,6 +416,26 @@
         "default.clock.max-quantum" = 2048;
       };
     };
+    # ── Bluetooth: prefer AAC codec, prevent HSP/HFP fallback ──
+    wireplumber.extraConfig."50-bluetooth" = {
+      "monitor.bluez.properties" = {
+        "bluez5.codecs" = [ "aac" "sbc" "sbc_xq" ];
+        "bluez5.enable-sbc-xq" = true;
+        "bluez5.enable-hw-volume" = true;
+      };
+      "monitor.bluez.rules" = [
+        {
+          matches = [
+            { "device.name" = "~bluez_card.*"; }
+          ];
+          actions.update-props = {
+            "bluez5.auto-connect" = [ "a2dp_sink" "hfp_hf" ];
+            "bluez5.a2dp.aac.bitratemode" = 5;
+          };
+        }
+      ];
+      "wireplumber.settings"."bluetooth.autoswitch-to-headset-profile" = false;
+    };
   };
 
   nixpkgs.config.allowUnfreePredicate =

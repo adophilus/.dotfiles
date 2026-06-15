@@ -226,7 +226,7 @@ in
     cliphist
     slurp
     tesseract
-    swappy
+    grimblast
 
     # Wayland
     wl-clipboard

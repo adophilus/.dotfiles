@@ -5,6 +5,7 @@
 > - `SUPER+V` → QS clipboard widget (was rofi+cliphist) — changed; rofi version commented
 > - `SUPER+A` → QS volume widget (was unbound) — added
 > - `SUPER+W` → QS wallpaper widget (was browser) — changed; browser keybind removed
+> - `SUPER+N` → removed (was swaync panel) — neither network widget nor notif panel useful as keybind
 > - `SUPER+P` → Play/pause media (kept as-is, matches ilyamiro's intent)
 > - `SUPER+Q` → Close window (kept, rejected music widget — muscle memory)
 > - `XF86PowerOff` → Lock screen (was unbound) — added
@@ -23,9 +24,9 @@
 | `SUPER+O` | TTS Kokoro GPU | Launch Obsidian |
 | `SUPER+P` | Play/pause media | — |
 | `SUPER+S` | Screenshot selection → clipboard | toggle **calendar** widget |
-| `SUPER+D` | Smart float (90% + center) | toggle **applauncher** widget |
+| `SUPER+D` | Smart float ✓ (keep) | toggle **applauncher** widget |
 | `SUPER+F` | Fullscreen (mode 0) | Launch Firefox |
-| `SUPER+H` | Focus left (Vim) | toggle **guide** widget |
+| `SUPER+H` | Focus left (Vim) ✓ (keep) | toggle **guide** widget |
 | `SUPER+J` | Focus down (Vim) | — |
 | `SUPER+K` | Focus up (Vim) | — |
 | `SUPER+L` | Focus right (Vim) | Lock screen |
@@ -34,7 +35,7 @@
 | `SUPER+C` | ~~Unbound~~ → QS clipboard widget ✅ | toggle **clipboard** widget |
 | `SUPER+V` | ~~Rofi clipboard~~ → QS clipboard widget ✅ | toggle **volume** widget |
 | `SUPER+B` | Color picker (hyprpicker) | toggle **battery** widget |
-| `SUPER+N` | Toggle swaync panel | toggle **network** widget |
+| `SUPER+N` | ~~Swaync panel~~ → removed (free) | toggle **network** widget |
 | `SUPER+M` | Lock screen (Quickshell) | toggle **monitors** widget |
 | `SUPER+Return` | — | Launch terminal |
 | `SUPER+SPACE` | Rofi system menu | Play/pause media |
@@ -57,7 +58,7 @@
 | `SUPER+SHIFT+J` | Move window down | — |
 | `SUPER+SHIFT+K` | Move window up | — |
 | `SUPER+SHIFT+L` | Move window right | — |
-| `SUPER+SHIFT+S` | Annotate screenshot (swappy) | toggle **settings** widget |
+| `SUPER+SHIFT+S` | Screenshot annotate (satty) ✓ (keep) | toggle **settings** widget |
 | `SUPER+SHIFT+T` | OCR fullscreen (tesseract) | toggle **focustime** widget |
 | `SUPER+SHIFT+O` | TTS Kokoro CPU | — |
 | `SUPER+SHIFT+I` | STT Whisper CPU | — |

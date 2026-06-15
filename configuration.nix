@@ -416,7 +416,7 @@
         "default.clock.max-quantum" = 2048;
       };
     };
-    # ── Bluetooth: prefer AAC codec, prevent HSP/HFP fallback ──
+    # ── Bluetooth: prefer AAC codec ──
     wireplumber.extraConfig."50-bluetooth" = {
       "monitor.bluez.properties" = {
         "bluez5.codecs" = [ "aac" "sbc" "sbc_xq" ];
@@ -434,7 +434,6 @@
           };
         }
       ];
-      "wireplumber.settings"."bluetooth.autoswitch-to-headset-profile" = false;
     };
   };
 

@@ -43,6 +43,7 @@ in
         "code"
         "vscode"
         "discord"
+        "vesktop"
         "obsidian"
         "osu-lazer"
       ];
@@ -291,8 +292,8 @@ in
     # Calculator
     libqalculate
 
-    # Discord
-    discord
+    # Discord (Vesktop = Vencord Desktop, supports CSS themes)
+    vesktop
 
     # Git
     gitoxide

@@ -41,4 +41,14 @@ if [ -f "$OBSIDIAN_CSS" ]; then
     done
 fi
 
+# ==============================================================================
+# Discord (Vesktop/Vencord) — sync generated CSS (hot-reloads automatically)
+# ==============================================================================
+DISCORD_CSS="$HOME/.config/matugen/generated/discord-theme.css"
+VENCORD_THEMES_DIR="$HOME/.config/vesktop/themes"
+if [ -f "$DISCORD_CSS" ]; then
+    mkdir -p "$VENCORD_THEMES_DIR"
+    cp "$DISCORD_CSS" "$VENCORD_THEMES_DIR/midnight.theme.css"
+fi
+
 wait

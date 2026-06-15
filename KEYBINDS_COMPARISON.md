@@ -59,7 +59,7 @@
 | `SUPER+SHIFT+K` | Move window up | — |
 | `SUPER+SHIFT+L` | Move window right | — |
 | `SUPER+SHIFT+S` | Screenshot annotate (satty) ✓ (keep) | toggle **settings** widget |
-| `SUPER+SHIFT+T` | OCR fullscreen (tesseract) | toggle **focustime** widget |
+| `SUPER+SHIFT+T` | OCR fullscreen ✓ (keep) | toggle **focustime** widget |
 | `SUPER+SHIFT+O` | TTS Kokoro CPU | — |
 | `SUPER+SHIFT+I` | STT Whisper CPU | — |
 | `SUPER+SHIFT+Z` | Move to scratchpad | — |
@@ -80,27 +80,27 @@
 
 | Key | Yours | ilyamiro |
 |-----|-------|----------|
-| `SUPER+ALT+W` | Waybar config swap | — |
-| `SUPER+ALT+A` | Animation menu (rofi) | — |
+| `SUPER+ALT+W` | ~~Waybar config swap~~ → removed (free) | — |
+| `SUPER+ALT+A` | ~~Animation menu~~ → removed (free) | — |
 | `SUPER+ALT+S` | Shader menu (rofi) | — |
 | `SUPER+ALT+X` | Disable shaders | — |
-| `SUPER+ALT+V` | Vibrance shader | — |
-| `SUPER+ALT+D` | Hide all notifications | — |
-| `SUPER+ALT+.` | Toggle global visuals | — |
+| `SUPER+ALT+V` | ~~Vibrance shader~~ → removed (free) | — |
+| `SUPER+ALT+D` | ~~Hide notifications~~ → removed (free) | — |
+| `SUPER+ALT+.` | ~~Toggle visuals~~ → removed (free) | — |
 
 ## ALT (no SUPER)
 
 | Key | Yours | ilyamiro |
 |-----|-------|----------|
 | `ALT+1` | Wi-Fi manager (wifitui) | — |
-| `ALT+2` | Bluetooth manager (blueman) | — |
+| `ALT+2` | ~~Bluetooth manager~~ → removed (free) | — |
 | `ALT+3` | Audio mixer (pavucontrol) | — |
-| `ALT+4` | Wallpaper app (waypaper) | — |
+| `ALT+4` | ~~Wallpaper app~~ → removed (free) | — |
 | `ALT+6` | Passthrough mode toggle | — |
 | `ALT+7` | Screen off (DPMS) | — |
 | `ALT+8` | Screen on (DPMS) | — |
-| `ALT+9` | Start waybar | — |
-| `ALT+0` | Kill waybar | — |
+| `ALT+9` | ~~Start waybar~~ → removed (free) | — |
+| `ALT+0` | ~~Kill waybar~~ → removed (free) | — |
 | `ALT+R` | Reload Hyprland | — |
 | `ALT+H` | Hyprsunset slider (rofi) | — |
 | `ALT+V` | Volume slider (rofi) | — |

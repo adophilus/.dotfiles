@@ -103,7 +103,6 @@ in
     lua51Packages.luarocks
     lua-language-server
 
-    waybar
 
     # Tmux
     tmux

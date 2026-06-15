@@ -12,11 +12,6 @@ if pgrep -x "cava" > /dev/null; then
     killall -USR1 cava
 fi
 
-# Reload SwayNC CSS styling dynamically without killing the daemon
-if command -v swaync-client &> /dev/null; then
-    swaync-client -rs
-fi
-
 # Restarting swayosd.service is currently the ONLY way to reload its CSS.
 # WARNING: This is what causes the sound problems. Because swayosd-server 
 # forcefully reconnects to an audio server on boot, restarting it causes audio drops/pops.

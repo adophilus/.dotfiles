@@ -32,8 +32,8 @@
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          # Lock session
-          timeout = 720;
+          # Lock session (30 min)
+          timeout = 1800;
           on-timeout = "loginctl lock-session";
         }
         # Uncomment to enable suspend:

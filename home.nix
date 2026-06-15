@@ -332,6 +332,8 @@ in
 
     # Quickshell desktop shell
     quickshell
+    qt6.qtmultimedia
+    qt6.qtdeclarative
     swww
     gpu-screen-recorder
     satty

@@ -52,6 +52,11 @@
       gws,
       ...
     }:
+    let
+      system = "x86_64-linux";
+      # Build wstui from stable nixpkgs (has the deps we need)
+      wstui-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/wstui/default.nix { };
+    in
     {
       nixosConfigurations = {
         # TODO please change the hostname to your own
@@ -80,6 +85,7 @@
                   end4dots
                   wifitui
                   gws
+                  wstui-pkg
                   ;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;

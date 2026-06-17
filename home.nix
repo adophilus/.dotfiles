@@ -7,6 +7,7 @@
   end4dots,
   wifitui,
   gws,
+  wstui-pkg,
   ...
 }:
 
@@ -43,7 +44,7 @@ in
         "code"
         "vscode"
         "discord"
-        "vesktop"
+        "legcord"
         "obsidian"
         "osu-lazer"
       ];
@@ -291,8 +292,14 @@ in
     # Calculator
     libqalculate
 
-    # Discord (Vesktop = Vencord Desktop, supports CSS themes)
-    vesktop
+    # Discord (Legcord — lightweight moddable client)
+    legcord
+
+    # WhatsApp (native GTK4 client)
+    karere
+
+    # WhatsApp (terminal client with vim motions)
+    wstui-pkg
 
     # Git
     gitoxide

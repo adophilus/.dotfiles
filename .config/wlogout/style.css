@@ -1,0 +1,62 @@
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+#background {
+    background-color: rgba(18, 18, 28, 0.85);
+}
+
+button {
+    color: #cdd6f4;
+    background-color: rgba(30, 30, 46, 0.9);
+    border: 2px solid rgba(88, 91, 112, 0.5);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: top center;
+    padding: 60px 20px 15px 20px;
+    margin: 10px;
+    transition: all 0.2s ease;
+}
+
+button:focus,
+button:active {
+    background-color: rgba(49, 50, 68, 0.95);
+    border-color: #cba6f7;
+    color: #cba6f7;
+}
+
+button:hover {
+    background-color: rgba(49, 50, 68, 0.95);
+    border-color: #89b4fa;
+}
+
+#lock {
+    background-image: url("~/.config/wlogout/icons/lock_white.png");
+}
+
+#logout {
+    background-image: url("~/.config/wlogout/icons/logout_white.png");
+}
+
+#suspend {
+    background-image: url("~/.config/wlogout/icons/suspend_white.png");
+}
+
+#hibernate {
+    background-image: url("~/.config/wlogout/icons/hibernate_white.png");
+}
+
+#shutdown {
+    background-image: url("~/.config/wlogout/icons/shutdown_white.png");
+}
+
+#soft-reboot {
+    background-image: url("~/.config/wlogout/icons/soft-reboot_white.png");
+}
+
+#reboot {
+    background-image: url("~/.config/wlogout/icons/reboot_white.png");
+}

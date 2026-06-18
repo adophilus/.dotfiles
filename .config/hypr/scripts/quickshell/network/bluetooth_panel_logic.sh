@@ -38,10 +38,70 @@ get_audio_profile() {
     ')
     
     if [[ -z "$active" || "$active" == "off" ]]; then echo "None"; return; fi
-    if [[ "$active" == *"a2dp"* ]]; then echo "Hi-Fi (A2DP)"; return; fi
-    if [[ "$active" == *"headset"* || "$active" == *"hfp"* ]]; then echo "Headset (HFP)"; return; fi
     
-    echo "Connected"
+    # Friendly names for known profile patterns
+    case "$active" in
+        *a2dp-sink-sbc_xq*)  echo "Hi-Fi (SBC-XQ)";;
+        *a2dp-sink-sbc*)     echo "Hi-Fi (SBC)";;
+        *a2dp-sink*)         echo "Hi-Fi (AAC)";;
+        *headset-head-unit-cvsd*) echo "Headset (CVSD)";;
+        *headset-head-unit*) echo "Headset (mSBC)";;
+        *headset*|*hfp*)     echo "Headset (HFP)";;
+        *)                   echo "Connected";;
+    esac
+}
+
+get_available_profiles() {
+    # Returns only audio profiles (skips "off"), one per line: "internal_name|Display Name"
+    local mac="$1"
+    local cards_data="$2"
+    local mac_us="${mac//:/_}"
+    
+    echo "$cards_data" | awk -v mac="$mac_us" '
+        tolower($0) ~ "name:.*"tolower(mac) { found=1 }
+        found && /Profiles:/ { in_profiles=1; next }
+        in_profiles && /^\t\t/ {
+            line = $0
+            gsub(/^\t\t/, "", line)
+            split(line, parts, ":")
+            internal = parts[1]
+            gsub(/^ +| +$/, "", internal)
+            if (internal != "off") print internal
+        }
+        in_profiles && /Active Profile:/ { exit }
+        in_profiles && /^$/ { exit }
+    '
+}
+
+cycle_profile() {
+    local mac="$1"
+    local mac_us="${mac//:/_}"
+    local card_name="bluez_card.${mac_us}"
+    
+    local cards_data=$(timeout 0.5 pactl list cards 2>/dev/null)
+    local active=$(echo "$cards_data" | awk -v mac="$mac_us" '
+        tolower($0) ~ "name:.*"tolower(mac) { found=1 }
+        found && tolower($0) ~ "active profile:" { 
+            sub(/.*Active Profile: /, ""); gsub(/^ +| +$/,""); print; exit 
+        }
+        found && /^$/ { exit }
+    ')
+    
+    mapfile -t all_profiles < <(get_available_profiles "$mac" "$cards_data")
+    
+    if [ ${#all_profiles[@]} -eq 0 ]; then return; fi
+    
+    # Find current index, cycle to next
+    local current_idx=0
+    for i in "${!all_profiles[@]}"; do
+        if [[ "$active" == "${all_profiles[$i]}" ]]; then
+            current_idx=$i
+            break
+        fi
+    done
+    
+    local next_idx=$(( (current_idx + 1) % ${#all_profiles[@]} ))
+    pactl set-card-profile "$card_name" "${all_profiles[$next_idx]}"
 }
 
 get_status() {
@@ -95,27 +155,27 @@ get_status() {
 
             if [ -f "$CACHE_FILE" ]; then
                 source "$CACHE_FILE"
+                # Always fetch profile fresh (it can change at any time)
+                profile=$(get_audio_profile "$mac" "$cached_cards")
             else
                 info=$(bluetoothctl info "$mac")
                 icon_type=$(echo "$info" | awk -F': ' '/Icon:/ {print $2}')
                 icon=$(get_icon "$icon_type" "$name")
                 
-                # THE FIX: Pass the cached output instead of calling pactl again
                 profile=$(get_audio_profile "$mac" "$cached_cards")
                 
+                # Cache only name and icon (profile is fetched fresh every poll)
                 echo "CACHE_NAME=\"${name//\"/\\\"}\"" > "$CACHE_FILE"
                 echo "CACHE_ICON=\"${icon//\"/\\\"}\"" >> "$CACHE_FILE"
-                echo "CACHE_PROFILE=\"${profile//\"/\\\"}\"" >> "$CACHE_FILE"
                 
                 CACHE_NAME="${name//\"/\\\"}"
                 CACHE_ICON="${icon//\"/\\\"}"
-                CACHE_PROFILE="${profile//\"/\\\"}"
             fi
             
             bat=$(bluetoothctl info "$mac" | awk -F'[(|)]' '/Battery Percentage:/ {print $2}')
             [ -z "$bat" ] && bat="0"
 
-            connected_list_objs+=("{\"id\":\"$mac\",\"name\":\"$CACHE_NAME\",\"mac\":\"$mac\",\"icon\":\"$CACHE_ICON\",\"battery\":\"$bat\",\"profile\":\"$CACHE_PROFILE\"}")
+            connected_list_objs+=("{\"id\":\"$mac\",\"name\":\"$CACHE_NAME\",\"mac\":\"$mac\",\"icon\":\"$CACHE_ICON\",\"battery\":\"$bat\",\"profile\":\"$profile\"}")
         done
 
         if [ ${#connected_list_objs[@]} -gt 0 ]; then
@@ -188,4 +248,5 @@ case $cmd in
     --toggle) toggle_power ;;
     --connect) connect_dev "$2" ;;
     --disconnect) disconnect_dev "$2" ;;
+    --cycle-profile) cycle_profile "$2" ;;
 esac

@@ -524,8 +524,9 @@ Item {
                     if (obj.freq) nodes.push({ id: "freq_" + i, name: obj.freq, icon: "󰖧", action: "Band", isInfoNode: true, isActionable: false, parentIndex: cIndex });
                 } else {
                     nodes.push({ id: "bat_" + obj.mac, name: (obj.battery || "0") + "%", icon: "󰥉", action: "Battery", isInfoNode: true, isActionable: false, parentIndex: cIndex });
-                    if (obj.profile) {
-                        nodes.push({ id: "prof_" + obj.mac, name: obj.profile, icon: (obj.profile === "Hi-Fi (A2DP)" ? "󰓃" : "󰋎"), action: "Audio Profile", isInfoNode: true, isActionable: false, parentIndex: cIndex });
+                    if (obj.profile && obj.profile !== "None") {
+                        let profIcon = obj.profile.startsWith("Hi-Fi") ? "󰓃" : "󰋎";
+                        nodes.push({ id: "prof_" + obj.mac, name: obj.profile, icon: profIcon, action: "Audio Profile", isInfoNode: true, isActionable: true, cmdStr: "CYCLE_PROFILE:" + obj.mac, parentIndex: cIndex });
                     }
                     nodes.push({ id: "mac_" + obj.mac, name: obj.mac || "Unknown", icon: "󰒋", action: "MAC Address", isInfoNode: true, isActionable: false, parentIndex: cIndex });
                 }
@@ -2027,6 +2028,16 @@ Item {
                                             }
                                             floatCard.triggered = true;
                                             drainAnim.start();
+                                        } else if (isInfoNode && cmdStr && cmdStr.startsWith("CYCLE_PROFILE:")) {
+                                            let btMac = cmdStr.split(":").slice(1).join(":");
+                                            window.playSfx("switch.wav");
+                                            Quickshell.execDetached(["bash", window.scriptsDir + "/bluetooth_panel_logic.sh", "--cycle-profile", btMac]);
+                                            floatCard.triggered = true;
+                                            floatCard.flashOpacity = 0.6;
+                                            cardFlashAnim.start();
+                                            cardBumpAnim.start();
+                                            drainAnim.start();
+                                            btPoller.running = true;
                                         } else if (isInfoNode && cmdStr) {
                                             Quickshell.execDetached(["sh", "-c", cmdStr]);
                                             if (window.activeMode === "bt") btPoller.running = true;

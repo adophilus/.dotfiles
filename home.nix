@@ -55,7 +55,6 @@ in
     pavucontrol
     qpwgraph
     tree
-    activitywatch
 
     # Video drivers
     intel-media-driver
@@ -464,14 +463,6 @@ in
   };
 
   # ── Services ──────────────────────────────────────────────────────────
-  services.activitywatch = {
-    enable = true;
-    watchers = {
-      aw-watcher-window.package = pkgs-unstable.awatcher;
-      aw-watcher-afk.package = pkgs-unstable.awatcher;
-    };
-  };
-
   services.swayosd = {
     enable = true;
     topMargin = 0.9;

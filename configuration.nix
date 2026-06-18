@@ -156,26 +156,7 @@
   time.timeZone = "Africa/Lagos";
 
   # Enable cron service
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "* * * *      root   sleep 8 ; curl -s http://sync.afraid.org/u/RAgmoUBksWJ8UnoLL5p3oxKt/ >> /tmp/freedns_foodhut_mooo_com.log 2>/tmp/freedns_foodhut_mooo_com.err.log"
-    ];
-  };
-
   services.vnstat.enable = true;
-
-  services.postgresql = {
-    enable = true;
-    enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 10 ''
-      #...
-      #type database DBuser origin-address auth-method
-      local all       all     trust
-      # ipv4
-      host  all      all     127.0.0.1/8   trust
-    '';
-  };
 
   # programs.nix-index.enable = true;
   # programs.nix-index.enableBashIntegration = true;
@@ -339,12 +320,10 @@
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.services.systemd-udev-settle.enable = false;
 
-  # programs.xwayland.enable = true;
+  # No SIM card — disable mobile broadband management
+  systemd.services.ModemManager.enable = false;
 
-  services.mysql = {
-    enable = true;
-    package = pkgs-unstable.mariadb;
-  };
+  # programs.xwayland.enable = true;
 
   services.udisks2.enable = true;
 

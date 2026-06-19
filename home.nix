@@ -258,6 +258,9 @@ in
     go
     air
 
+    # Discord TUI client
+    discordo
+
     # System monitors
     bottom
     powertop

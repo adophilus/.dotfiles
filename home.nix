@@ -361,6 +361,12 @@ in
   # For configs managed by activation scripts (copy from nix store),
   # see config/programs/*/default.nix
   home.file = {
+    # Scripts
+    ".local/bin/ytd" = {
+      source = ./.local/bin/ytd;
+      executable = true;
+    };
+
     ".config/bottom".source = ./.config/bottom;
     ".config/kitty".source = ./.config/kitty;
     ".config/tmuxinator".source = ./.config/tmuxinator;

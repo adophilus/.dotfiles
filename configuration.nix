@@ -387,32 +387,58 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    extraConfig.pipewire."92-low-latency" = {
+
+    # Larger buffers tuned for stability under CPU load (video calls).
+    # 2048 @ 48kHz ≈ 43ms latency — imperceptible for calls, but much harder
+    # to underrun than the previous 1024/512 config when the CPU is busy
+    # decoding WebRTC video. Underruns = crackly audio for the remote party.
+    extraConfig.pipewire."10-clock" = {
       "context.properties" = {
         "default.clock.rate" = 48000;
-        "default.clock.quantum" = 1024;
-        "default.clock.min-quantum" = 512;
-        "default.clock.max-quantum" = 2048;
+        "default.clock.quantum" = 2048;
+        "default.clock.min-quantum" = 1024;
+        "default.clock.max-quantum" = 8192;
       };
     };
-    # ── Bluetooth: prefer AAC codec ──
-    wireplumber.extraConfig."50-bluetooth" = {
-      "monitor.bluez.properties" = {
-        "bluez5.codecs" = [ "aac" "sbc" "sbc_xq" ];
-        "bluez5.enable-sbc-xq" = true;
-        "bluez5.enable-hw-volume" = true;
+
+    wireplumber.extraConfig = {
+      # ── Bluetooth: prefer AAC codec ──
+      "50-bluetooth" = {
+        "monitor.bluez.properties" = {
+          "bluez5.codecs" = [ "aac" "sbc" "sbc_xq" ];
+          "bluez5.enable-sbc-xq" = true;
+          "bluez5.enable-hw-volume" = true;
+        };
+        "monitor.bluez.rules" = [
+          {
+            matches = [
+              { "device.name" = "~bluez_card.*"; }
+            ];
+            actions.update-props = {
+              "bluez5.auto-connect" = [ "a2dp_sink" "hfp_hf" ];
+              "bluez5.a2dp.aac.bitratemode" = 5;
+            };
+          }
+        ];
       };
-      "monitor.bluez.rules" = [
-        {
-          matches = [
-            { "device.name" = "~bluez_card.*"; }
-          ];
-          actions.update-props = {
-            "bluez5.auto-connect" = [ "a2dp_sink" "hfp_hf" ];
-            "bluez5.a2dp.aac.bitratemode" = 5;
-          };
-        }
-      ];
+
+      # ── ALSA: bigger period + headroom to prevent hardware-level underruns,
+      # and never suspend the device mid-call (resuming causes pops/clicks).
+      "51-alsa-headroom" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              { "node.name" = "~alsa_input\\..*"; }
+              { "node.name" = "~alsa_output\\..*"; }
+            ];
+            actions.update-props = {
+              "api.alsa.period-size" = 1024;
+              "api.alsa.headroom" = 8192;
+              "session.suspend-timeout-seconds" = 0;
+            };
+          }
+        ];
+      };
     };
   };
 

@@ -21,6 +21,21 @@ let
     (name: dirContents.${name} == "directory")
     (builtins.attrNames dirContents);
   moduleImports = map (name: programsDir + "/${name}") moduleDirs;
+
+  # Legcord with VA-API hardware video decode enabled.
+  # nixpkgs' legcord doesn't expose commandLineArgs (its Electron flags are
+  # hardcoded in installPhase), so we re-wrap via symlinkJoin to add the
+  # Chromium VA-API video decode feature. Electron 38 (≈ Chromium 142) still
+  # needs this explicitly; Chromium 143+ will enable it by default.
+  legcord-vapi = pkgs-unstable.symlinkJoin {
+    name = "legcord";
+    paths = [ pkgs-unstable.legcord ];
+    buildInputs = [ pkgs-unstable.makeWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/legcord" \
+        --add-flags "--enable-features=AcceleratedVideoDecodeLinuxGL"
+    '';
+  };
 in
 {
   imports = [
@@ -294,8 +309,8 @@ in
     # Calculator
     libqalculate
 
-    # Discord (Legcord — lightweight moddable client)
-    legcord
+    # Discord (Legcord — lightweight moddable client, wrapped with VA-API)
+    legcord-vapi
 
     # WhatsApp (native GTK4 client)
     karere
@@ -412,6 +427,16 @@ in
         "zen.view.compact.animate-sidebar" = false;
         "zen.welcome-screen.seen" = true;
         "zen.urlbar.behavior" = "float";
+
+        # ── Hardware video decode (VA-API) for calls/meet ──
+        # iGPU = Intel UHD 620 (Kaby Lake-R), iHD driver. Supports H.264,
+        # HEVC, VP8, VP9 decode in hardware (verified via `vainfo`).
+        # Without these, WebRTC video is software-decoded on the CPU.
+        "media.ffmpeg.vaapi.enabled" = true;            # master VA-API switch
+        "media.hardware-video-decoding.force-enabled" = true; # bypass blocklist
+        "media.ffmpeg.low-latency.enabled" = true;      # KEY for WebRTC VA-API
+        "gfx.webrender.all" = true;                     # HW WebRender required or VA-API is silently disabled
+        "media.av1.enabled" = false;                    # UHD 620 has no AV1 decode → would hit CPU
       };
 
       mods = [

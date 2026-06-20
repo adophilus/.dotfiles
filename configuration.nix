@@ -462,6 +462,7 @@
     extraGroups = [
       "wheel"
       "wireshark"
+      "networkmanager"
     ];
     shell = pkgs-unstable.fish;
   };

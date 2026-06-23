@@ -8,6 +8,7 @@
   wifitui,
   gws,
   wstui-pkg,
+  floci-pkg,
   ...
 }:
 
@@ -36,6 +37,19 @@ let
         --add-flags "--enable-features=AcceleratedVideoDecodeLinuxGL"
     '';
   };
+
+  # floci-ui: clone the repo and run the compose stack via podman-compose
+  floci-ui = pkgs.writeShellScriptBin "floci-ui" ''
+    set -e
+    DIR="''${FLOCI_UI_DIR:-$HOME/.local/share/floci-ui}"
+    [ -d "$DIR/.git" ] || git clone --depth 1 https://github.com/floci-io/floci-ui.git "$DIR"
+    cd "$DIR" || exit 1
+    if [ $# -eq 0 ]; then
+      exec podman-compose up
+    else
+      exec podman-compose "$@"
+    fi
+  '';
 in
 {
   imports = [
@@ -373,6 +387,10 @@ in
     easyeffects
 
     usbutils
+
+    # Floci — local cloud emulator for AWS/Azure
+    floci-pkg
+    floci-ui
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────

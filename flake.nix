@@ -57,6 +57,7 @@
       system = "x86_64-linux";
       # Build wstui from stable nixpkgs (has the deps we need)
       wstui-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/wstui/default.nix { };
+      floci-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/floci/default.nix { };
     in
     {
       nixosConfigurations = {
@@ -87,6 +88,7 @@
                   wifitui
                   gws
                   wstui-pkg
+                  floci-pkg
                   ;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;

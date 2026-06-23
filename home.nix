@@ -88,6 +88,9 @@ in
 
     just
     posting
+
+    # Notes
+    inputs.zennotes.packages.x86_64-linux.zennotes-desktop
     dos2unix
     cloudflared
 

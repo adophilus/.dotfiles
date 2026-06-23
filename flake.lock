@@ -615,6 +615,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -648,7 +664,8 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "wifitui": "wifitui",
-        "zen-browser": "zen-browser"
+        "zen-browser": "zen-browser",
+        "zennotes": "zennotes"
       }
     },
     "systems": {
@@ -791,6 +808,24 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    },
+    "zennotes": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1782152643,
+        "narHash": "sha256-Txo4K4YWnnc3MZBg4CFCb6cfIiQP4v8wkcaDZqfzj3Q=",
+        "owner": "ZenNotes",
+        "repo": "zennotes",
+        "rev": "ed4f27f6dc8d732b1e18d342e89a24813d797712",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ZenNotes",
+        "repo": "zennotes",
         "type": "github"
       }
     }

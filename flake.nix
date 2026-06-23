@@ -21,6 +21,7 @@
       flake = false;
     };
     wifitui.url = "github:shazow/wifitui";
+    zennotes.url = "github:ZenNotes/zennotes";
     hyprland.url = "github:hyprwm/Hyprland";
     nixgl.url = "github:guibou/nixGL";
 

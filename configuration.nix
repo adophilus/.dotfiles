@@ -27,49 +27,49 @@
   services.system76-scheduler.settings.cfsProfiles.enable = true; # Better scheduling for CPU cycles - thanks System76!!!
   services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
   services.power-profiles-daemon.enable = false; # Disable GNOMEs power management
-  services.tlp = {
-    enable = true; # Enable TLP (better than gnomes internal power manager)
-    settings = {
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
-      CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 0;
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "low-power";
-      START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 81;
-
-      # Enable aggressive PCIe power management on battery (Saves ~0.5W - 1W)
-      PCIE_ASPM_ON_BAT = "powersave";
-
-      # Put the SATA/NVMe drive links into low power states when unplugged
-      SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
-
-      # Turn off Wi-Fi power-hungry features on battery
-      WIFI_PWR_ON_BAT = "on";
-
-      # Enable USB Autosuspend (stops idle USB controllers from draining juice)
-      USB_AUTOSUSPEND = 1;
-      USB_EXCLUDE_AUDIO = 1; # Don't suspend USB audio devices to avoid crackle
-
-      # Power save for Intel onboard audio (1 = turn on power saving)
-      SOUND_POWER_SAVE_ON_AC = 0;
-      SOUND_POWER_SAVE_ON_BAT = 1;
-
-      # Turn off the audio controller completely after 1 second of inactivity
-      SOUND_POWER_SAVE_CONTROLLER_ON_BAT = "Y";
-
-      # EXPLICIT PERIPHERAL PROTECTION:
-      # This forces your mouse and keyboard to stay awake 100% of the time,
-      # preventing any wonkiness, lag, or dropped keystrokes.
-      # Don't stop specific usb devices (even when idle, e.g: keyboard)
-      USB_DENYLIST = "10c4:0005 03f0:2f4a";
-    };
-  };
+  # services.tlp = {
+  #   enable = true; # Enable TLP (better than gnomes internal power manager)
+  #   settings = {
+  #     CPU_BOOST_ON_AC = 1;
+  #     CPU_BOOST_ON_BAT = 0;
+  #     CPU_HWP_DYN_BOOST_ON_AC = 1;
+  #     CPU_HWP_DYN_BOOST_ON_BAT = 0;
+  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #     PLATFORM_PROFILE_ON_AC = "performance";
+  #     PLATFORM_PROFILE_ON_BAT = "low-power";
+  #     START_CHARGE_THRESH_BAT0 = 75;
+  #     STOP_CHARGE_THRESH_BAT0 = 81;
+  #
+  #     # Enable aggressive PCIe power management on battery (Saves ~0.5W - 1W)
+  #     PCIE_ASPM_ON_BAT = "powersave";
+  #
+  #     # Put the SATA/NVMe drive links into low power states when unplugged
+  #     SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
+  #
+  #     # Turn off Wi-Fi power-hungry features on battery
+  #     WIFI_PWR_ON_BAT = "on";
+  #
+  #     # Enable USB Autosuspend (stops idle USB controllers from draining juice)
+  #     USB_AUTOSUSPEND = 1;
+  #     USB_EXCLUDE_AUDIO = 1; # Don't suspend USB audio devices to avoid crackle
+  #
+  #     # Power save for Intel onboard audio (1 = turn on power saving)
+  #     SOUND_POWER_SAVE_ON_AC = 0;
+  #     SOUND_POWER_SAVE_ON_BAT = 1;
+  #
+  #     # Turn off the audio controller completely after 1 second of inactivity
+  #     SOUND_POWER_SAVE_CONTROLLER_ON_BAT = "Y";
+  #
+  #     # EXPLICIT PERIPHERAL PROTECTION:
+  #     # This forces your mouse and keyboard to stay awake 100% of the time,
+  #     # preventing any wonkiness, lag, or dropped keystrokes.
+  #     # Don't stop specific usb devices (even when idle, e.g: keyboard)
+  #     USB_DENYLIST = "10c4:0005 03f0:2f4a";
+  #   };
+  # };
 
   # services.i2pd = {
   #   enable = true;

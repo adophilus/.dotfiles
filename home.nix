@@ -394,6 +394,9 @@ in
     floci-pkg
     floci-ui
 
+    # AWS
+    awscli2
+
     # Process manager
     process-compose
   ];

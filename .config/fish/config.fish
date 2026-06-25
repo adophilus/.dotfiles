@@ -20,6 +20,8 @@ fish_add_path -g "$UV_BIN_PATH"
 
 # Point Docker-compatible tools at podman's rootless socket
 set -x DOCKER_HOST "unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+# Avoid name collision with floci/floci image during podman inspect
+set -x FLOCI_CONTAINER floci-aws
 
 direnv hook fish | source
 starship init fish | source

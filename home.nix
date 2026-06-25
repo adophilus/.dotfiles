@@ -397,6 +397,9 @@ in
     # AWS
     awscli2
 
+    # Notes / annotation
+    xournalpp
+
     # Process manager
     process-compose
   ];

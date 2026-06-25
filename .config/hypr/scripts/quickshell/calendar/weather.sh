@@ -106,21 +106,18 @@ get_data() {
     # STANDARD API FETCH LOGIC
     # ---------------------------------------------------------
     forecast_url="http://api.openweathermap.org/data/2.5/forecast?APPID=${KEY}&id=${ID}&units=${UNIT}"
-    raw_api=$(curl -sf "$forecast_url")
+    raw_api=$(curl -sfm 8 "$forecast_url")
     
     weather_url="http://api.openweathermap.org/data/2.5/weather?APPID=${KEY}&id=${ID}&units=${UNIT}"
-    raw_weather=$(curl -sf "$weather_url")
+    raw_weather=$(curl -sfm 8 "$weather_url")
     
     # Check if curl failed OR if OpenWeather returned an error
     api_cod=$(echo "$raw_api" | jq -r '.cod' 2>/dev/null)
     
     if [ -z "$raw_api" ] || [ -z "$raw_weather" ] || [[ "$api_cod" != "200" ]]; then
-        # If curl failed (network glitch, rate limit, API downtime), don't destroy
-        # the existing working cache. Just abort the update.
-        # If there is NO cache at all, then fall back to dummy data.
-        if [ ! -f "$json_file" ]; then
-            write_dummy_data
-        fi
+        # ponytail: don't write zeros on transient network failure — leave cache
+        # missing so pollers retry naturally (TopBar every 150s). Recovers within
+        # ~2.5 min of internet coming back, vs up to 1 hour before.
         return
     fi
 

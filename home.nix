@@ -18,9 +18,9 @@ let
   # To add a new program config: create config/programs/<name>/default.nix
   programsDir = ./config/programs;
   dirContents = builtins.readDir programsDir;
-  moduleDirs = builtins.filter
-    (name: dirContents.${name} == "directory")
-    (builtins.attrNames dirContents);
+  moduleDirs = builtins.filter (name: dirContents.${name} == "directory") (
+    builtins.attrNames dirContents
+  );
   moduleImports = map (name: programsDir + "/${name}") moduleDirs;
 
   # Legcord with VA-API hardware video decode enabled.
@@ -54,7 +54,8 @@ in
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
-  ] ++ moduleImports;
+  ]
+  ++ moduleImports;
 
   # ── Identity ──────────────────────────────────────────────────────────
   home.username = "adophilus";
@@ -84,6 +85,8 @@ in
     pavucontrol
     qpwgraph
     tree
+
+    tigervnc
 
     # Video drivers
     intel-media-driver
@@ -134,7 +137,6 @@ in
     lua
     lua51Packages.luarocks
     lua-language-server
-
 
     # Tmux
     tmux
@@ -453,11 +455,11 @@ in
         # iGPU = Intel UHD 620 (Kaby Lake-R), iHD driver. Supports H.264,
         # HEVC, VP8, VP9 decode in hardware (verified via `vainfo`).
         # Without these, WebRTC video is software-decoded on the CPU.
-        "media.ffmpeg.vaapi.enabled" = true;            # master VA-API switch
+        "media.ffmpeg.vaapi.enabled" = true; # master VA-API switch
         "media.hardware-video-decoding.force-enabled" = true; # bypass blocklist
-        "media.ffmpeg.low-latency.enabled" = true;      # KEY for WebRTC VA-API
-        "gfx.webrender.all" = true;                     # HW WebRender required or VA-API is silently disabled
-        "media.av1.enabled" = false;                    # UHD 620 has no AV1 decode → would hit CPU
+        "media.ffmpeg.low-latency.enabled" = true; # KEY for WebRTC VA-API
+        "gfx.webrender.all" = true; # HW WebRender required or VA-API is silently disabled
+        "media.av1.enabled" = false; # UHD 620 has no AV1 decode → would hit CPU
       };
 
       mods = [

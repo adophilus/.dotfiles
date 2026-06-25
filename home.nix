@@ -393,6 +393,9 @@ in
     # Floci — local cloud emulator for AWS/Azure
     floci-pkg
     floci-ui
+
+    # Process manager
+    process-compose
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────

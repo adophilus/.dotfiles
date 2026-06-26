@@ -400,6 +400,9 @@ in
     # Notes / annotation
     xournalpp
 
+    # Productivity
+    super-productivity
+
     # Process manager
     process-compose
   ];

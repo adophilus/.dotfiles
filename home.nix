@@ -64,6 +64,9 @@ in
 
   # ── Package allowlist ─────────────────────────────────────────────────
   nixpkgs.config = {
+    permittedInsecurePackages = [
+      "electron-37.10.3"
+    ];
     allowUnfreePredicate =
       pkg:
       builtins.elem (lib.getName pkg) [

@@ -473,6 +473,7 @@ in
         "media.ffmpeg.vaapi.enabled" = true; # master VA-API switch
         "media.hardware-video-decoding.force-enabled" = true; # bypass blocklist
         "media.ffmpeg.low-latency.enabled" = true; # KEY for WebRTC VA-API
+        "media.rdd-process.enabled" = true; # RDD is where VA-API decode runs
         "gfx.webrender.all" = true; # HW WebRender required or VA-API is silently disabled
         "media.av1.enabled" = false; # UHD 620 has no AV1 decode → would hit CPU
       };

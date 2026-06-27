@@ -92,7 +92,12 @@
                   ;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;
-                  config.allowUnfree = true;
+                  config = {
+                    allowUnfree = true;
+                    permittedInsecurePackages = [
+                      "electron-37.10.3"
+                    ];
+                  };
                 };
               };
             }

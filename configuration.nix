@@ -442,7 +442,11 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate =
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "electron-37.10.3"
+    ];
+    allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
       "vivaldi"
@@ -459,6 +463,7 @@
       "obsidian"
       "osu-lazer"
     ];
+  };
 
   programs.fish.enable = true;
 

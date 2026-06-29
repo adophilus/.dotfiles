@@ -6,7 +6,7 @@
   # newer than the nix store copy. The target is writable so Hyprland and
   # its tools can write to it if needed.
   home.activation.copyHyprConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ${pkgs.rsync}/bin/rsync -a --delete --exclude hypridle.conf \
+    run ${pkgs.rsync}/bin/rsync -a --delete --exclude hypridle.conf --exclude '.env' \
       ${../../../.config/hypr}/ $HOME/.config/hypr/
     run chmod -R u+w $HOME/.config/hypr
   '';

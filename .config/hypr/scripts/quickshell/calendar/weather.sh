@@ -182,8 +182,7 @@ get_data() {
             raw_feels=$(echo "$day_data" | jq '[.[].main.feels_like] | max')
             f_feels_like=$(printf "%.1f" "$raw_feels")
 
-            f_pop=$(echo "$day_data" | jq '[.[].pop] | max')
-            f_pop_pct=$(echo "$f_pop * 100" | bc | cut -d. -f1)
+            f_pop_pct=$(echo "$day_data" | jq '[.[].pop] | max * 100 | round')
             f_wind=$(echo "$day_data" | jq '[.[].wind.speed] | max | round')
             f_hum=$(echo "$day_data" | jq '[.[].main.humidity] | add / length | round')
             

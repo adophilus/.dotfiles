@@ -542,4 +542,21 @@ in
     stylePath = "${config.home.homeDirectory}/.config/swayosd/style.css";
   };
   # services.hypridle is managed in config/programs/hypridle/default.nix
+
+  # opencode headless server — autostarts on login.
+  # ponytail: WantedBy=default.target runs it for the login session only;
+  # enable `loginctl enable-linger` if you want it running before/without login.
+  systemd.user.services.opencode = {
+    Unit = {
+      Description = "opencode headless server";
+      After = [ "network.target" ];
+    };
+    Service = {
+      ExecStart = "${config.home.homeDirectory}/.local/share/pnpm/bin/opencode serve";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
 }

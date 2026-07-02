@@ -106,7 +106,6 @@ Item {
     Behavior on diskUsagePercent { NumberAnimation { duration: 800; easing.type: Easing.OutQuint } }
     
     property string diskUsageText: "..."
-    property var diskFolders: []
 
     function formatBytes(bytes) {
         if (bytes <= 0 || isNaN(bytes)) return "0 B/s";
@@ -115,55 +114,25 @@ Item {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
     }
 
+    // ponytail: df is one instant statfs call; only poll while the panel is open.
     Timer {
         id: diskTimer
         interval: 60000
-        running: true; repeat: true; triggeredOnStart: true
-        onTriggered: { diskProc.running = false; diskProc.running = true; }
+        running: root.widgetVisible; repeat: true; triggeredOnStart: true
+        onTriggered: diskProc.running = true
     }
 
     Process {
         id: diskProc
-        command: ["bash", "-c", "df -h ~ | awk 'NR==2{printf(\"%s;%s / %s;\", $5, $3, $2)}'; du -sh ~/.config ~/.cache ~/.local/share ~/Downloads ~/Documents ~/Pictures ~/Videos ~/Music ~/Projects ~/Games 2>/dev/null | sort -hr | head -n 5 | awk '{printf(\"%s|%s,\", $1, $2)}'"]
+        command: ["bash", "-c", "df -h ~ | awk 'NR==2{printf(\"%s;%s / %s\", $5, $3, $2)}'"]
         stdout: StdioCollector {
             onStreamFinished: {
                 let text = this.text ? this.text.trim() : "";
                 if (!text) return;
-                
                 var parts = text.split(";");
-                if (parts.length >= 3) {
+                if (parts.length >= 2) {
                     root.diskUsagePercent = parseFloat(parts[0].replace('%', '')) / 100.0;
                     root.diskUsageText = parts[1];
-                    
-                    var folderList = parts[2].split(",").filter(str => str.length > 0);
-                    var newFolders = [];
-                    var maxVal = 0;
-                    
-                    for (var i = 0; i < folderList.length; i++) {
-                        var fp = folderList[i].split("|");
-                        if (fp.length === 2) {
-                            var sizeStr = fp[0];
-                            var pathStr = fp[1].split("/").pop(); 
-                            
-                            var num = parseFloat(sizeStr);
-                            if (sizeStr.indexOf('G') !== -1) num *= 1024;
-                            if (sizeStr.indexOf('M') !== -1) num *= 1;
-                            if (sizeStr.indexOf('K') !== -1) num /= 1024;
-                            
-                            if (num > maxVal) maxVal = num;
-                            newFolders.push({ name: pathStr, sizeStr: sizeStr, rawSize: num });
-                        }
-                    }
-                    
-                    var finalModel = [];
-                    for (var j = 0; j < newFolders.length; j++) {
-                        finalModel.push({
-                            name: newFolders[j].name,
-                            size: newFolders[j].sizeStr,
-                            relative: maxVal > 0 ? newFolders[j].rawSize / maxVal : 0
-                        });
-                    }
-                    root.diskFolders = finalModel;
                 }
             }
         }

@@ -1,5 +1,7 @@
 # fish_config theme save "Catppuccin Mocha"
 
+set -U fish_autosuggestion_enabled 0
+
 set -x GOPATH "$HOME/go"
 set -x BUNPATH "$HOME/.cache/.bun"
 set -x PNPM_HOME "$HOME/.local/share/pnpm"

@@ -61,7 +61,6 @@
     in
     {
       nixosConfigurations = {
-        # TODO please change the hostname to your own
         zenith = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {

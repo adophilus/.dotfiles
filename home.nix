@@ -235,6 +235,7 @@ in
     # Dev tools
     gh
     flyctl
+    gcc # C/C++ toolchain (provides cc/gcc/g++); needed for node-gyp native builds
 
     # Drives
     udiskie
@@ -552,11 +553,34 @@ in
       After = [ "network.target" ];
     };
     Service = {
-      ExecStart = "${config.home.homeDirectory}/.local/share/pnpm/bin/opencode serve";
+      ExecStart = "${config.home.homeDirectory}/.local/share/pnpm/bin/opencode serve --hostname 127.0.0.1 --port 4096";
       Restart = "on-failure";
+      RestartSec =  5;
+      Environment = [
+        "OPENCODE_SERVER_PASSWORD=8CKWE5FEWiJbwBmW8WBEdBZYwfAj03mH"
+      ];
     };
     Install = {
       WantedBy = [ "default.target" ];
     };
   };
+
+  systemd.user.services.opencode-vps-tunnel = {
+    Unit = {
+      Description = "vps tunnel for opencode headless server";
+      After = [
+        "network-online.target"
+        "opencode.service"
+      ];
+    };
+    Service = {
+      ExecStart = "${pkgs.openssh}/bin/ssh -N -R 4096:127.0.0.1:4096 vps";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
 }

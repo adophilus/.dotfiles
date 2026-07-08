@@ -405,7 +405,11 @@
       # ── Bluetooth: prefer AAC codec ──
       "50-bluetooth" = {
         "monitor.bluez.properties" = {
-          "bluez5.codecs" = [ "aac" "sbc" "sbc_xq" ];
+          "bluez5.codecs" = [
+            "aac"
+            "sbc"
+            "sbc_xq"
+          ];
           "bluez5.enable-sbc-xq" = true;
           "bluez5.enable-hw-volume" = true;
         };
@@ -415,7 +419,10 @@
               { "device.name" = "~bluez_card.*"; }
             ];
             actions.update-props = {
-              "bluez5.auto-connect" = [ "a2dp_sink" "hfp_hf" ];
+              "bluez5.auto-connect" = [
+                "a2dp_sink"
+                "hfp_hf"
+              ];
               "bluez5.a2dp.aac.bitratemode" = 5;
             };
           }
@@ -447,22 +454,22 @@
       "electron-37.10.3"
     ];
     allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "vivaldi"
-      "postman"
-      "spotify"
-      "google-chrome"
-      "zoom"
-      "code"
-      "vscode"
-      "steam"
-      "steam-unwrapped"
-      # "vscode-fhs"
-      "discord"
-      "obsidian"
-      "osu-lazer"
-    ];
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "vivaldi"
+        "postman"
+        "spotify"
+        "google-chrome"
+        "zoom"
+        "code"
+        "vscode"
+        "steam"
+        "steam-unwrapped"
+        # "vscode-fhs"
+        "discord"
+        "obsidian"
+        "osu-lazer"
+      ];
   };
 
   programs.fish.enable = true;
@@ -496,6 +503,7 @@
       "networkmanager"
     ];
     shell = pkgs-unstable.fish;
+    linger = true;
   };
 
   # List packages installed in system profile. To search, run:
@@ -518,6 +526,18 @@
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad-vpn;
+  };
+
+  services.postgresql = {
+    enable = true;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      #...
+      #type database DBuser origin-address auth-method
+      local all       all     trust
+      # ipv4
+      host  all      all     127.0.0.1/8   trust
+    '';
   };
 
   services.tor = {
@@ -555,6 +575,7 @@
     allowedTCPPorts = [
       2121
       3000
+      4096
       5000
       8000
       8080

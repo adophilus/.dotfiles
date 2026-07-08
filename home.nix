@@ -557,6 +557,7 @@ in
       Restart = "on-failure";
       RestartSec =  5;
       Environment = [
+        "OPENCODE_SERVER_USERNAME=adophilus"
         "OPENCODE_SERVER_PASSWORD=8CKWE5FEWiJbwBmW8WBEdBZYwfAj03mH"
       ];
     };

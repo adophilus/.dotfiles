@@ -54,6 +54,7 @@ in
 {
   imports = [
     inputs.zen-browser.homeModules.twilight
+    inputs.sops-nix.homeManagerModules.sops
   ]
   ++ moduleImports;
 
@@ -409,6 +410,9 @@ in
 
     # Process manager
     process-compose
+
+    # AI coding tools
+    opencode
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
@@ -544,22 +548,31 @@ in
   };
   # services.hypridle is managed in config/programs/hypridle/default.nix
 
+  sops = {
+    # age.keyFile = "/home/adophilus/.age-key.txt";
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    secrets.adophilus = {
+      sopsFile = ./secrets/adophilus/.env;
+      format = "dotenv";
+    };
+  };
+
   # opencode headless server — autostarts on login.
   # ponytail: WantedBy=default.target runs it for the login session only;
   # enable `loginctl enable-linger` if you want it running before/without login.
   systemd.user.services.opencode = {
     Unit = {
-      Description = "opencode headless server";
-      After = [ "network.target" ];
+      Description = "OpenCode headless server";
+      After = [
+        "network.target"
+        "sops-nix.service"
+      ];
     };
     Service = {
-      ExecStart = "${config.home.homeDirectory}/.local/share/pnpm/bin/opencode serve --hostname 127.0.0.1 --port 4096";
+      ExecStart = "${pkgs-unstable.opencode}/bin/opencode serve --hostname $OPENCODE_SERVER_HOSTNAME --port $OPENCODE_SERVER_PORT";
       Restart = "on-failure";
-      RestartSec =  5;
-      Environment = [
-        "OPENCODE_SERVER_USERNAME=adophilus"
-        "OPENCODE_SERVER_PASSWORD=8CKWE5FEWiJbwBmW8WBEdBZYwfAj03mH"
-      ];
+      RestartSec = 5;
+      EnvironmentFile = config.sops.secrets.adophilus.path;
     };
     Install = {
       WantedBy = [ "default.target" ];
@@ -568,14 +581,14 @@ in
 
   systemd.user.services.opencode-vps-tunnel = {
     Unit = {
-      Description = "vps tunnel for opencode headless server";
+      Description = "VPS tunnel for OpenCode headless server";
       After = [
         "network-online.target"
         "opencode.service"
       ];
     };
     Service = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -R 4096:127.0.0.1:4096 vps";
+      ExecStart = "${pkgs.openssh}/bin/ssh -N -R $OPENCODE_SERVER_PORT:$OPENCODE_SERVER_HOST:$OPENCODE_SERVER_PORT vps";
       Restart = "on-failure";
       RestartSec = 5;
     };

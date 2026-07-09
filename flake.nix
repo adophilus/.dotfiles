@@ -24,6 +24,10 @@
     zennotes.url = "github:ZenNotes/zennotes";
     hyprland.url = "github:hyprwm/Hyprland";
     nixgl.url = "github:guibou/nixGL";
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -51,6 +55,7 @@
       end4dots,
       wifitui,
       gws,
+      sops-nix,
       ...
     }:
     let
@@ -78,7 +83,6 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              # TODO replace ryan with your own username
               home-manager.users.adophilus = import ./home.nix;
               home-manager.extraSpecialArgs = {
                 inherit
@@ -88,6 +92,7 @@
                   gws
                   wstui-pkg
                   floci-pkg
+                  sops-nix
                   ;
                 pkgs-unstable = import nixpkgs-unstable {
                   inherit system;

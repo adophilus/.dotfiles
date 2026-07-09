@@ -175,9 +175,9 @@ in
     openssl
 
     # Python
-    python310
-    python310Packages.pyftpdlib
-    python310Packages.pip
+    python3
+    python3Packages.pyftpdlib
+    python3Packages.pip
     poetry
     ffmpeg
     mitmproxy
@@ -412,7 +412,7 @@ in
     process-compose
 
     # AI coding tools
-    opencode
+    # opencode
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
@@ -557,27 +557,35 @@ in
     };
   };
 
-  # opencode headless server — autostarts on login.
-  # ponytail: WantedBy=default.target runs it for the login session only;
-  # enable `loginctl enable-linger` if you want it running before/without login.
-  systemd.user.services.opencode = {
-    Unit = {
-      Description = "OpenCode headless server";
-      After = [
-        "network.target"
-        "sops-nix.service"
-      ];
-    };
-    Service = {
-      ExecStart = "${pkgs-unstable.opencode}/bin/opencode serve --hostname $OPENCODE_SERVER_HOSTNAME --port $OPENCODE_SERVER_PORT";
-      Restart = "on-failure";
-      RestartSec = 5;
-      EnvironmentFile = config.sops.secrets.adophilus.path;
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
+  programs.opencode = {
+    enable = true;
+    web = {
+      enable = true;
+      environmentFile = config.sops.secrets.adophilus.path;
     };
   };
+
+  # # opencode headless server — autostarts on login.
+  # # ponytail: WantedBy=default.target runs it for the login session only;
+  # # enable `loginctl enable-linger` if you want it running before/without login.
+  # systemd.user.services.opencode = {
+  #   Unit = {
+  #     Description = "OpenCode headless server";
+  #     After = [
+  #       "network.target"
+  #       "sops-nix.service"
+  #     ];
+  #   };
+  #   Service = {
+  #     ExecStart = "${pkgs-unstable.opencode}/bin/opencode serve --hostname $OPENCODE_SERVER_HOSTNAME --port $OPENCODE_SERVER_PORT";
+  #     Restart = "on-failure";
+  #     RestartSec = 5;
+  #     EnvironmentFile = config.sops.secrets.adophilus.path;
+  #   };
+  #   Install = {
+  #     WantedBy = [ "default.target" ];
+  #   };
+  # };
 
   systemd.user.services.opencode-vps-tunnel = {
     Unit = {

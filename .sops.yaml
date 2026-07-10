@@ -1,5 +1,5 @@
 keys:
-  - &zenith age1ep7mt0ztyx54nf25sjfx3tutxvx22ddsvczkevvyv2erm5u0ufkqhgt4lv
+  - &machine_zenith age1ep7mt0ztyx54nf25sjfx3tutxvx22ddsvczkevvyv2erm5u0ufkqhgt4lv
 creation_rules:
   - path_regex: secrets/adophilus/.env
-    age: *zenith
+    age: *machine_zenith

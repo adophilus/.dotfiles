@@ -664,7 +664,7 @@ in
       ];
     };
     Service = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -R $OPENCODE_SERVER_PORT:$OPENCODE_SERVER_HOST:$OPENCODE_SERVER_PORT vps";
+      ExecStart = "${pkgs.openssh}/bin/ssh -N -R $OPENCODE_SERVER_PROXY_PORT:$OPENCODE_SERVER_HOST:$OPENCODE_SERVER_PORT vps";
       Restart = "on-failure";
       RestartSec = 5;
     };

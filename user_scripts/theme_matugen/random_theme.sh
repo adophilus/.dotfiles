@@ -2,7 +2,7 @@
 #
 # set_random_wallpaper.sh
 #
-# Selects a random wallpaper, sets it with swww, and updates matugen colors.
+# Selects a random wallpaper, sets it with awww, and updates matugen colors.
 # Designed for Arch Linux with Hyprland/UWSM on NVIDIA/Intel hybrid hardware.
 
 set -euo pipefail
@@ -14,7 +14,7 @@ set -euo pipefail
 readonly WALLPAPER_DIR="${HOME}/Pictures/wallpapers"
 
 # Array eliminates word-splitting issues and shellcheck warnings
-readonly -a SWWW_OPTS=(
+readonly -a awww_OPTS=(
     --transition-type grow
     --transition-duration 2
     --transition-fps 60
@@ -37,7 +37,7 @@ die() {
 # ══════════════════════════════════════════════════════════════════════════════
 
 # Removed 'find' and 'shuf' as they are no longer required
-for cmd in swww matugen uwsm-app; do
+for cmd in awww matugen uwsm-app; do
     command -v "$cmd" >/dev/null 2>&1 || die "Required command not found: '$cmd'"
 done
 
@@ -48,18 +48,18 @@ done
 # Daemon Initialization
 # ══════════════════════════════════════════════════════════════════════════════
 
-if ! swww query >/dev/null 2>&1; then
+if ! awww query >/dev/null 2>&1; then
     # Start daemon via uwsm for proper session/cgroup scoping
-    uwsm-app -- swww-daemon >/dev/null 2>&1 &
+    uwsm-app -- awww-daemon >/dev/null 2>&1 &
     
     # Poll for readiness instead of arbitrary sleep
     for ((i = 0; i < DAEMON_INIT_RETRIES; i++)); do
-        swww query >/dev/null 2>&1 && break
+        awww query >/dev/null 2>&1 && break
         sleep 0.2
     done
     
     # Final verification
-    swww query >/dev/null 2>&1 || die "swww daemon failed to initialize"
+    awww query >/dev/null 2>&1 || die "awww daemon failed to initialize"
 fi
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -88,7 +88,7 @@ target_wallpaper="${wallpapers[RANDOM % ${#wallpapers[@]}]}"
 # ══════════════════════════════════════════════════════════════════════════════
 
 # Set wallpaper (blocks until transition completes)
-swww img "$target_wallpaper" "${SWWW_OPTS[@]}"
+awww img "$target_wallpaper" "${awww_OPTS[@]}"
 
 # Generate color scheme asynchronously (setsid fully detaches the process)
     setsid uwsm-app -- matugen --mode dark --type scheme-fruit-salad image "$target_wallpaper" \

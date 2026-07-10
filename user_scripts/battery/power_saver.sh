@@ -410,9 +410,9 @@ perform_root_operations() {
 
 switch_theme_if_queued() {
     if [[ "${SWITCH_THEME_LATER}" != "true" ]]; then
-        # Kill swww immediately if not switching theme
-        run_quiet pkill swww-daemon
-        log_step "swww-daemon terminated."
+        # Kill awww immediately if not switching theme
+        run_quiet pkill awww-daemon
+        log_step "awww-daemon terminated."
         return
     fi
 
@@ -436,10 +436,10 @@ switch_theme_if_queued() {
     gum style --foreground 240 "(Terminal may close - this is expected)"
     sleep 1
 
-    # Execute theme switch and handle swww-daemon cleanup
+    # Execute theme switch and handle awww-daemon cleanup
     if uwsm-app -- "${THEME_SCRIPT}" --mode light; then
         sleep 3
-        run_quiet pkill swww-daemon
+        run_quiet pkill awww-daemon
         log_step "Theme switched to light mode."
     else
         log_error "Theme switch failed."

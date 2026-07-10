@@ -139,7 +139,7 @@ in
 
     # Lua
     lua
-    lua51Packages.luarocks
+    luaPackages.luarocks
     lua-language-server
 
     # Tmux
@@ -382,7 +382,7 @@ in
     quickshell
     qt6.qtmultimedia
     qt6.qtdeclarative
-    swww
+    awww
     gpu-screen-recorder
     satty
     zbar
@@ -585,6 +585,12 @@ in
   #   Install = {
   #     WantedBy = [ "default.target" ];
   #   };
+  # };
+
+  # Managing hyprland from nixos config
+  # wayland.windowManager.hyprland = {
+  #     enable = true;
+  #     plugins = [ inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors ];
   # };
 
   systemd.user.services.opencode-vps-tunnel = {

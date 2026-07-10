@@ -25,7 +25,7 @@ readonly THUMB_SIZE=300
 readonly MAX_JOBS=$(($(nproc) * 2))
 
 # Dependencies
-for cmd in magick rofi swww notify-send; do
+for cmd in magick rofi awww notify-send; do
     if ! command -v "$cmd" &>/dev/null; then
         notify-send "Error" "Missing dependency: $cmd" -u critical
         exit 1
@@ -160,7 +160,7 @@ if [[ -n "$selection" ]]; then
 
         echo "Applying: $full_path"
         
-        swww img "$full_path" \
+        awww img "$full_path" \
             --transition-type grow \
             --transition-duration 2 \
             --transition-fps 60 &

@@ -26,7 +26,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
         # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         home-manager.follows = "home-manager";
       };
     };
@@ -36,8 +36,6 @@
     #   inputs.hyprland.follows =
     #     "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
     # };
-    # voxtype.url = "github:peteonrails/voxtype";
-    # voxtype.url = "path:/home/adophilus/.projects/tools/hyprland/peteonrails/voxtype";
   };
 
   outputs =

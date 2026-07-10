@@ -25,6 +25,7 @@ set -x DOCKER_HOST "unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 # Avoid name collision with floci/floci image during podman inspect
 set -x FLOCI_CONTAINER floci-aws
 
+fzf --fish | source
 direnv hook fish | source
 starship init fish | source
 

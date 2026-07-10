@@ -47,36 +47,44 @@ fi
 print_workspaces() {
     # Get raw data with a timeout fallback
     spaces=$(timeout 2 hyprctl workspaces -j 2>/dev/null)
-    active=$(timeout 2 hyprctl activeworkspace -j 2>/dev/null | jq '.id')
+    monitors=$(timeout 2 hyprctl monitors -j 2>/dev/null)
 
     # Failsafe if hyprctl crashes to prevent jq from outputting errors
-    if [ -z "$spaces" ] || [ -z "$active" ]; then return; fi
+    if [ -z "$spaces" ] || [ -z "$monitors" ]; then return; fi
 
-    # Generate the JSON and write it atomically to prevent UI flickering
-    echo "$spaces" | jq --unbuffered --argjson a "$active" --arg end "$SEQ_END" -c '
-        # Create a map of workspace ID -> workspace data for easy lookup
-        (map( { (.id|tostring): . } ) | add) as $s
-        |
-        # Iterate from 1 to SEQ_END
-        [range(1; ($end|tonumber) + 1)] | map(
-            . as $i |
-            # Determine state: active -> occupied -> empty
-            (if $i == $a then "active"
-             elif ($s[$i|tostring] != null and $s[$i|tostring].windows > 0) then "occupied"
-             else "empty" end) as $state |
+    # Generate a per-monitor workspace file.
+    # Each monitor gets its own file with relative indices (1-N) matching
+    # hyprsome's index system, so pills show correct state per-monitor.
+    for mon in $(echo "$monitors" | jq -r '.[].name'); do
+        jq -n --unbuffered \
+            --argjson spaces "$spaces" \
+            --argjson monitors "$monitors" \
+            --arg mon "$mon" \
+            --arg end "$SEQ_END" '
+            ($monitors | map(select(.name == $mon))[0].activeWorkspace.id // -1) as $active_id |
+            ([$spaces[] | select(.monitor == $mon)] | sort_by(.id)) as $mon_ws |
+            [range(1; ($end | tonumber) + 1)] | map(
+                . as $idx |
+                (if $idx <= ($mon_ws | length) then $mon_ws[$idx - 1] else null end) as $ws |
+                {
+                    id: $idx,
+                    state: (
+                        if $ws != null and $ws.id == $active_id then "active"
+                        elif $ws != null and ($ws.windows // 0) > 0 then "occupied"
+                        else "empty"
+                        end
+                    ),
+                    tooltip: (
+                        if $ws != null and ($ws.lastwindowtitle // "") != "" then $ws.lastwindowtitle
+                        else "Empty"
+                        end
+                    )
+                }
+            )
+        ' > "$QS_RUN_WORKSPACES/workspaces_${mon}.tmp"
 
-            # Get window title for tooltip (if exists)
-            (if $s[$i|tostring] != null then $s[$i|tostring].lastwindowtitle else "Empty" end) as $win |
-
-            {
-                id: $i,
-                state: $state,
-                tooltip: $win
-            }
-        )
-    ' > "$QS_RUN_WORKSPACES/workspaces.tmp"
-    
-    mv "$QS_RUN_WORKSPACES/workspaces.tmp" "$QS_RUN_WORKSPACES/workspaces.json"
+        mv "$QS_RUN_WORKSPACES/workspaces_${mon}.tmp" "$QS_RUN_WORKSPACES/workspaces_${mon}.json"
+    done
 }
 
 # Print initial state

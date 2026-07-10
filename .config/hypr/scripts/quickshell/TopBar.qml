@@ -72,6 +72,9 @@ Variants {
             property bool isUpdateVisible: updateAvailable || forceUpdateShow
             
             property int workspaceCount: 8
+
+            // Per-monitor workspace file (matches workspaces.sh output)
+            property string wsFile: paths.getRunDir("workspaces") + "/workspaces_" + (barWindow.screen ? barWindow.screen.name : "default") + ".json"
             
             property string activeWidget: "" 
             property bool isSettingsOpen: activeWidget === "settings"
@@ -291,7 +294,7 @@ Variants {
             Process {
 		id: wsReader
 		running: true
-                command: ["cat", paths.getRunDir("workspaces") + "/workspaces.json"]
+                command: ["bash", "-c", "while [ ! -f " + barWindow.wsFile + " ]; do sleep 0.5; done; cat " + barWindow.wsFile]
                 stdout: StdioCollector {
                     onStreamFinished: {
                         let txt = this.text.trim();
@@ -333,7 +336,7 @@ Variants {
             Process {
                 id: wsWatcher
                 running: true
-                command: ["bash", "-c", "inotifywait -qq -e close_write,modify " + paths.getRunDir("workspaces") + "/workspaces.json"]
+                command: ["bash", "-c", "while [ ! -f " + barWindow.wsFile + " ]; do sleep 0.5; done; inotifywait -qq -e close_write,modify " + barWindow.wsFile]
                 onExited: {
                     wsReader.running = false;
                     wsReader.running = true;

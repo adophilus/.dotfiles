@@ -565,6 +565,68 @@ in
     };
   };
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplicationPackages = [ ];
+
+    defaultApplications = {
+      "text/html" = "zen-twilight.desktop";
+      "x-scheme-handler/http" = "zen-twilight.desktop";
+      "x-scheme-handler/https" = "zen-twilight.desktop";
+      "x-scheme-handler/chrome" = "zen-twilight.desktop";
+      "x-scheme-handler/about" = "vivaldi-stable.desktop";
+      "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
+      "application/xhtml+xml" = "zen-twilight.desktop";
+      "application/x-extension-htm" = "zen-twilight.desktop";
+      "application/x-extension-html" = "zen-twilight.desktop";
+      "application/x-extension-shtml" = "zen-twilight.desktop";
+      "application/x-extension-xhtml" = "zen-twilight.desktop";
+      "application/x-extension-xht" = "zen-twilight.desktop";
+
+      "application/pdf" = "org.pwmt.zathura.desktop";
+
+      "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/discord" = "legcord.desktop";
+      "x-scheme-handler/discord-1216669957799018608" = "discord-1216669957799018608.desktop";
+      "x-scheme-handler/postman" = "Postman.desktop";
+      "x-scheme-handler/figma" = "figma-linux.desktop";
+
+      "x-scheme-handler/mailspring" = "Mailspring.desktop";
+      "x-scheme-handler/mailto" = "userapp-Thunderbird-A9DVM3.desktop";
+      "message/rfc822" = "userapp-Thunderbird-A9DVM3.desktop";
+      "x-scheme-handler/mid" = "userapp-Thunderbird-A9DVM3.desktop";
+      "x-scheme-handler/news" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/snews" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/nntp" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/feed" = "userapp-Thunderbird-OU2OM3.desktop";
+      "application/rss+xml" = "userapp-Thunderbird-OU2OM3.desktop";
+      "application/x-extension-rss" = "userapp-Thunderbird-OU2OM3.desktop";
+      "x-scheme-handler/webcal" = "userapp-Thunderbird-EEW2M3.desktop";
+      "text/calendar" = "userapp-Thunderbird-EEW2M3.desktop";
+      "application/x-extension-ics" = "userapp-Thunderbird-EEW2M3.desktop";
+      "x-scheme-handler/webcals" = "userapp-Thunderbird-EEW2M3.desktop";
+    };
+
+    associations.added = {
+      "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+      "x-scheme-handler/mailto" = "userapp-Thunderbird-A9DVM3.desktop";
+      "x-scheme-handler/mid" = "userapp-Thunderbird-A9DVM3.desktop";
+      "x-scheme-handler/news" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/snews" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/nntp" = "userapp-Thunderbird-CVXNM3.desktop";
+      "x-scheme-handler/feed" = "userapp-Thunderbird-OU2OM3.desktop";
+      "application/rss+xml" = "userapp-Thunderbird-OU2OM3.desktop";
+      "application/x-extension-rss" = "userapp-Thunderbird-OU2OM3.desktop";
+      "x-scheme-handler/webcal" = "userapp-Thunderbird-EEW2M3.desktop";
+      "x-scheme-handler/webcals" = "userapp-Thunderbird-EEW2M3.desktop";
+      "x-scheme-handler/http" = "zen-twilight.desktop";
+      "x-scheme-handler/https" = "zen-twilight.desktop";
+      "x-scheme-handler/chrome" = "zen-twilight.desktop";
+    };
+  };
+
   # # opencode headless server — autostarts on login.
   # # ponytail: WantedBy=default.target runs it for the login session only;
   # # enable `loginctl enable-linger` if you want it running before/without login.

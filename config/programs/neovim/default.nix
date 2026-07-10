@@ -8,6 +8,7 @@
     vimAlias = true;
     vimdiffAlias = true;
     package = pkgs.neovim-unwrapped;
+    sideloadInitLua = true;
   };
 
   # Sync Neovim config from nix store. Uses rsync --update so that

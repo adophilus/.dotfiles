@@ -410,9 +410,6 @@ in
 
     # Process manager
     process-compose
-
-    # AI coding tools
-    # opencode
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
@@ -451,6 +448,63 @@ in
 
   # ── Home Manager self-management ──────────────────────────────────────
   programs.home-manager.enable = true;
+
+  # ── Zen Browser ───────────────────────────────────────────────────────
+  programs.zen-browser = {
+    enable = true;
+
+    nativeMessagingHosts = [
+      pkgs.firefoxpwa
+      pkgs-unstable.gopass-jsonapi
+    ];
+
+    profiles.default = {
+      settings = {
+        "zen.workspaces.continue-where-left-off" = true;
+        "zen.workspaces.natural-scroll" = true;
+        "zen.view.compact.hide-tabbar" = true;
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.view.compact.animate-sidebar" = false;
+        "zen.welcome-screen.seen" = true;
+        "zen.urlbar.behavior" = "float";
+
+        # ── Hardware video decode (VA-API) for calls/meet ──
+        # iGPU = Intel UHD 620 (Kaby Lake-R), iHD driver. Supports H.264,
+        # HEVC, VP8, VP9 decode in hardware (verified via `vainfo`).
+        # Without these, WebRTC video is software-decoded on the CPU.
+        "media.ffmpeg.vaapi.enabled" = true; # master VA-API switch
+        "media.hardware-video-decoding.force-enabled" = true; # bypass blocklist
+        "media.ffmpeg.low-latency.enabled" = true; # KEY for WebRTC VA-API
+        "media.rdd-process.enabled" = true; # RDD is where VA-API decode runs
+        "gfx.webrender.all" = true; # HW WebRender required or VA-API is silently disabled
+        "media.av1.enabled" = false; # UHD 620 has no AV1 decode → would hit CPU
+      };
+
+      mods = [
+        "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
+        "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
+      ];
+    };
+
+    policies = {
+      AutofillAddressEnabled = true;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+    };
+  };
 
   # ── Git ───────────────────────────────────────────────────────────────
   programs.git = {
@@ -497,14 +551,6 @@ in
     secrets.adophilus = {
       sopsFile = ./secrets/adophilus/.env;
       format = "dotenv";
-    };
-  };
-
-  programs.opencode = {
-    enable = true;
-    web = {
-      enable = true;
-      environmentFile = config.sops.secrets.adophilus.path;
     };
   };
 
@@ -569,28 +615,6 @@ in
       "x-scheme-handler/chrome" = "zen-twilight.desktop";
     };
   };
-
-  # # opencode headless server — autostarts on login.
-  # # ponytail: WantedBy=default.target runs it for the login session only;
-  # # enable `loginctl enable-linger` if you want it running before/without login.
-  # systemd.user.services.opencode = {
-  #   Unit = {
-  #     Description = "OpenCode headless server";
-  #     After = [
-  #       "network.target"
-  #       "sops-nix.service"
-  #     ];
-  #   };
-  #   Service = {
-  #     ExecStart = "${pkgs-unstable.opencode}/bin/opencode serve --hostname $OPENCODE_SERVER_HOSTNAME --port $OPENCODE_SERVER_PORT";
-  #     Restart = "on-failure";
-  #     RestartSec = 5;
-  #     EnvironmentFile = config.sops.secrets.adophilus.path;
-  #   };
-  #   Install = {
-  #     WantedBy = [ "default.target" ];
-  #   };
-  # };
 
   # Managing hyprland from nixos config
   # wayland.windowManager.hyprland = {

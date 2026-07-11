@@ -5,9 +5,11 @@
     web = {
       enable = true;
       environmentFile = config.sops.secrets.adophilus.path;
-      extreArgs = [
+      extraArgs = [
         "--hostname"
         "0.0.0.0"
+        "--cors"
+        "app-local://localhost"
       ];
     };
   };

@@ -23,7 +23,7 @@
   '';
 
   home.activation.copyAgentsConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ${pkgs.rsync}/bin/rsync --archive ${../../../.config/.agents}/ $HOME/.agents/
+    run ${pkgs.rsync}/bin/rsync --delete --archive ${../../../.config/.agents}/ $HOME/.agents/
     run chmod --recursive u+w $HOME/.agents
   '';
 }

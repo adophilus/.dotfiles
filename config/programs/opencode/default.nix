@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.opencode = {
     enable = true;
@@ -8,9 +13,12 @@
       extraArgs = [
         "--hostname"
         "0.0.0.0"
-        "--cors"
-        "app-local://localhost"
       ];
     };
   };
+
+  home.activation.copyOpencodeConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run ${pkgs.rsync}/bin/rsync --archive ${../../../.config/opencode}/ $HOME/.config/opencode/
+    run chmod --recursive u+w $HOME/.config/opencode
+  '';
 }

@@ -74,7 +74,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              home-manager.users.adophilus = import ./home.nix;
+              home-manager.users.adophilus = import ./users/adophilus/home.nix;
               home-manager.extraSpecialArgs = {
                 inherit
                   inputs

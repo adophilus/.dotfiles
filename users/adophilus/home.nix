@@ -16,7 +16,7 @@ let
   # Auto-discover all program modules under config/programs/.
   # Each subdirectory with a default.nix is imported automatically.
   # To add a new program config: create config/programs/<name>/default.nix
-  programsDir = ./config/programs;
+  programsDir = ../../config/programs;
   dirContents = builtins.readDir programsDir;
   moduleDirs = builtins.filter (name: dirContents.${name} == "directory") (
     builtins.attrNames dirContents
@@ -418,15 +418,15 @@ in
   home.file = {
     # Scripts
     ".local/bin/ytd" = {
-      source = ./.local/bin/ytd;
+      source = ../../.local/bin/ytd;
       executable = true;
     };
 
-    ".config/bottom".source = ./.config/bottom;
-    ".config/kitty".source = ./.config/kitty;
-    ".config/tmuxinator".source = ./.config/tmuxinator;
-    ".config/zellij".source = ./.config/zellij;
-    ".config/ghostty".source = ./.config/ghostty;
+    ".config/bottom".source = ../../.config/bottom;
+    ".config/kitty".source = ../../.config/kitty;
+    ".config/tmuxinator".source = ../../.config/tmuxinator;
+    ".config/zellij".source = ../../.config/zellij;
+    ".config/ghostty".source = ../../.config/ghostty;
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";
@@ -518,7 +518,7 @@ in
   # Uses builtins.readFile so fish can freely write fish_variables at runtime.
   programs.fish = {
     enable = true;
-    shellInit = builtins.readFile ./.config/fish/config.fish;
+    shellInit = builtins.readFile ../../.config/fish/config.fish;
   };
 
   # ── Desktop entries ───────────────────────────────────────────────────
@@ -549,7 +549,7 @@ in
     # age.keyFile = "/home/adophilus/.age-key.txt";
     age.keyFile = "/var/lib/sops-nix/key.txt";
     secrets.adophilus = {
-      sopsFile = ./secrets/adophilus/.env;
+      sopsFile = ./secrets/.env;
       format = "dotenv";
     };
   };
@@ -639,5 +639,4 @@ in
       WantedBy = [ "default.target" ];
     };
   };
-
 }

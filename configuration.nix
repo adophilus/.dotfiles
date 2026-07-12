@@ -657,13 +657,17 @@
   networking.resolvconf.dnsExtensionMechanism = false;
   services.resolved = {
     enable = true;
-    dnssec = "true";
-    domains = [ "~." ];
-    fallbackDns = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
-    dnsovertls = "true";
+    settings = {
+      Resolve = {
+        DNSSEC = "true";
+        Domains = [ "~." ];
+        FallbackDns = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        DNSOverTLS = "true";
+      };
+    };
   };
 
   zramSwap.enable = true;

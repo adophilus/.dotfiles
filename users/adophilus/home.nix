@@ -509,8 +509,12 @@ in
   # ── Git ───────────────────────────────────────────────────────────────
   programs.git = {
     enable = true;
-    userName = "Adophilus";
-    userEmail = "uchenna19of@gmail.com";
+    settings = {
+      user = {
+        name = "Adophilus";
+        email = "uchenna19of@gmail.com";
+      };
+    };
     package = pkgs-unstable.git;
   };
 

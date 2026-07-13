@@ -54,6 +54,11 @@
 			"type": "local",
 			"command": ["pnpx", "@vkhanhqui/figma-mcp-go"]
 		},
+		// "figma-bridge": {
+		// 	"type": "local",
+    // 	"command": ["pnpx", "@gethopp/figma-mcp-bridge"],
+    // 	"enabled": true,
+  	// },
 		"codegraph": {
 			"type": "local",
 			"command": ["codegraph", "serve", "--mcp"],

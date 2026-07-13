@@ -54,6 +54,13 @@
       # Build wstui from stable nixpkgs (has the deps we need)
       wstui-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/wstui/default.nix { };
       floci-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/floci/default.nix { };
+
+      homeManagerProgramsDir = ./config/programs;
+      homeManagerDirContents = builtins.readDir homeManagerProgramsDir;
+      homeManagerModuleDirs = builtins.filter (name: homeManagerDirContents.${name} == "directory") (
+        builtins.attrNames homeManagerDirContents
+      );
+      homeManagerModules = map (name: homeManagerProgramsDir + "/${name}") homeManagerModuleDirs;
     in
     {
       nixosConfigurations = {
@@ -94,9 +101,21 @@
                     ];
                   };
                 };
+                modules = homeManagerModules;
               };
             }
           ];
+        };
+      };
+
+      homeManagerModules = {
+        programs = (
+          builtins.foldl' (
+            acc: curr: acc // { "${curr}" = homeManagerProgramsDir + "/${curr}"; }
+          ) { } homeManagerModuleDirs
+        );
+        users = {
+          adophilus = ./users/adophilus/home.nix;
         };
       };
     };

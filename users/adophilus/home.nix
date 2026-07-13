@@ -9,20 +9,11 @@
   gws,
   wstui-pkg,
   floci-pkg,
+  modules,
   ...
 }:
 
 let
-  # Auto-discover all program modules under config/programs/.
-  # Each subdirectory with a default.nix is imported automatically.
-  # To add a new program config: create config/programs/<name>/default.nix
-  programsDir = ../../config/programs;
-  dirContents = builtins.readDir programsDir;
-  moduleDirs = builtins.filter (name: dirContents.${name} == "directory") (
-    builtins.attrNames dirContents
-  );
-  moduleImports = map (name: programsDir + "/${name}") moduleDirs;
-
   # Legcord with VA-API hardware video decode enabled.
   # nixpkgs' legcord doesn't expose commandLineArgs (its Electron flags are
   # hardcoded in installPhase), so we re-wrap via symlinkJoin to add the
@@ -56,7 +47,7 @@ in
     inputs.zen-browser.homeModules.twilight
     inputs.sops-nix.homeManagerModules.sops
   ]
-  ++ moduleImports;
+  ++ modules;
 
   # ── Identity ──────────────────────────────────────────────────────────
   home.username = "adophilus";
@@ -552,7 +543,7 @@ in
   sops = {
     # age.keyFile = "/home/adophilus/.age-key.txt";
     age.keyFile = "/var/lib/sops-nix/key.txt";
-    secrets.adophilus = {
+    secrets."adophilus/.env" = {
       sopsFile = ./secrets/.env;
       format = "dotenv";
     };
@@ -643,4 +634,6 @@ in
       WantedBy = [ "default.target" ];
     };
   };
+
+  programs.opencode.web.environmentFile = config.sops.secrets."adophilus/.env".path;
 }

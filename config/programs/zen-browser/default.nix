@@ -87,6 +87,10 @@ in
           guid = "78272b6fa58f4a1abaac99321d503a20@proton.me";
           pinned = true;
         }
+        {
+          slug = "markdown-viewer";
+          guid = "markdown-viewer@outofindex.com";
+        }
       ];
     };
   };

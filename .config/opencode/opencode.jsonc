@@ -52,7 +52,8 @@
 		},
 		"figma-mcp-go": {
 			"type": "local",
-			"command": ["pnpx", "@vkhanhqui/figma-mcp-go"]
+			"command": ["pnpx", "@vkhanhqui/figma-mcp-go"],
+			"enabled": true
 		},
 		// "figma-bridge": {
 		// 	"type": "local",

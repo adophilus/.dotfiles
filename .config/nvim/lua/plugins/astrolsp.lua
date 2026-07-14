@@ -112,6 +112,7 @@ return {
     on_attach = function(client, bufnr)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
+      client.server_capabilities.documentColorProvider = nil -- broken assert on Neovim 0.12; nvim-colorizer.lua covers this
     end,
   },
 }

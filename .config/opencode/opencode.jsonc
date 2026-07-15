@@ -12,10 +12,7 @@
 	"mcp": {
 		"zai-mcp-server": {
 			"type": "local",
-			"command": [
-				"pnpx",
-				"@z_ai/mcp-server"
-			]
+			"command": ["pnpx", "@z_ai/mcp-server"]
 		},
 		"zread": {
 			"type": "remote",
@@ -45,10 +42,7 @@
 		},
 		"pdf-reader": {
 			"type": "local",
-			"command": [
-				"pnpx",
-				"@sylphx/pdf-reader-mcp"
-			],
+			"command": ["pnpx", "@sylphx/pdf-reader-mcp"],
 			"enabled": true
 		},
 		"penpot": {
@@ -58,10 +52,7 @@
 		},
 		"figma-mcp-go": {
 			"type": "local",
-			"command": [
-				"pnpx",
-				"@vkhanhqui/figma-mcp-go"
-			],
+			"command": ["pnpx", "@vkhanhqui/figma-mcp-go"],
 			"enabled": true
 		},
 		// "figma-bridge": {
@@ -71,11 +62,7 @@
 		// },
 		"codegraph": {
 			"type": "local",
-			"command": [
-				"codegraph",
-				"serve",
-				"--mcp"
-			],
+			"command": ["codegraph", "serve", "--mcp"],
 			"enabled": true
 		}
 	},
@@ -89,14 +76,8 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					},
 					"variants": {
 						"low": {
@@ -114,14 +95,8 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					},
 					"variants": {
 						"low": {
@@ -139,14 +114,8 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					},
 					"variants": {
 						"minimal": {
@@ -170,14 +139,8 @@
 						"output": 64000
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"antigravity-claude-opus-4-6-thinking": {
@@ -187,14 +150,8 @@
 						"output": 64000
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					},
 					"variants": {
 						"low": {
@@ -216,14 +173,8 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"gemini-2.5-pro": {
@@ -233,14 +184,8 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"gemini-3-flash-preview": {
@@ -250,14 +195,8 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"gemini-3-pro-preview": {
@@ -267,14 +206,8 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"gemini-3.1-pro-preview": {
@@ -284,14 +217,8 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				},
 				"gemini-3.1-pro-preview-customtools": {
@@ -301,43 +228,37 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": [
-							"text",
-							"image",
-							"pdf"
-						],
-						"output": [
-							"text"
-						]
+						"input": ["text", "image", "pdf"],
+						"output": ["text"]
 					}
 				}
-			}
-		},
-		"alibaba-model-studio": {
-			"npm": "@ai-sdk/openai-compatible",
-			"name": "Alibaba ModelStudio",
-			"options": {
-				"baseURL": "https://ws-schmz6e1al2l2xek.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
-				"apiKey": "{env:ALIBABA_MODEL_STUDIO_API_KEY}"
-			},
-			"models": {
-				"qwen3.5-plus": {
-					"name": "qwen3.5-plus",
-					"limit": {
-						"context": 262144,
-						"output": 8192
-					}
-				}
-			}
-		},
-		"chutes": {
-			"npm": "@ai-sdk/openai-compatible",
-			"name": "Chutes",
-			"options": {
-				"baseURL": "https://llm.chutes.ai/v1",
-				"apiKey": "{env:CHUTES_API_KEY}"
 			}
 		}
+		// "alibaba-model-studio": {
+		// 	"npm": "@ai-sdk/openai-compatible",
+		// 	"name": "Alibaba ModelStudio",
+		// 	"options": {
+		// 		"baseURL": "https://ws-schmz6e1al2l2xek.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+		// 		"apiKey": "{env:ALIBABA_MODEL_STUDIO_API_KEY}"
+		// 	},
+		// 	"models": {
+		// 		"qwen3.5-plus": {
+		// 			"name": "qwen3.5-plus",
+		// 			"limit": {
+		// 				"context": 262144,
+		// 				"output": 8192
+		// 			}
+		// 		}
+		// 	}
+		// },
+		// "chutes": {
+		// 	"npm": "@ai-sdk/openai-compatible",
+		// 	"name": "Chutes",
+		// 	"options": {
+		// 		"baseURL": "https://llm.chutes.ai/v1",
+		// 		"apiKey": "{env:CHUTES_API_KEY}"
+		// 	}
+		// }
 	},
 	"agent": {
 		"explore": {

@@ -64,6 +64,6 @@ end
 --     map.set({ "n" , "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 -- end
 
-vim.g._lsp_enabled_document_color = false -- broken assert on Neovim 0.12; nvim-colorizer.lua covers this
+require('vim.lsp.document_color').enable(false) -- broken assert on Neovim 0.12; nvim-colorizer.lua covers this
 require "lazy_setup"
 require "polish"

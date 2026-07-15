@@ -41,7 +41,7 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
-  { "nvimtools/none-ls.nvim", enabled = false }, -- broken on Neovim 0.12, pulled by astrocommunity.pack.nix
+  { "nvimtools/none-ls.nvim", version = false }, -- astrocommunity pins old commit; need latest for Neovim 0.12 compat
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {

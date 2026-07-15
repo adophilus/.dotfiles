@@ -319,6 +319,15 @@
 			"options": {
 				"baseURL": "https://ws-schmz6e1al2l2xek.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
 				"apiKey": "{env:ALIBABA_MODEL_STUDIO_API_KEY}"
+			},
+			"models": {
+				"qwen3.5-plus": {
+					"name": "qwen3.5-plus",
+					"limit": {
+						"context": 262144,
+						"output": 8192
+					}
+				}
 			}
 		},
 		"chutes": {

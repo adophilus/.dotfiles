@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, lib, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  lib,
+  ...
+}:
 
 {
   programs.neovim = {
@@ -15,8 +20,12 @@
   # lazy-lock.json written by :Lazy update in ~/.config/nvim is preserved
   # (it's newer than the repo copy until you copy it back).
   home.activation.copyNvimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ${pkgs.rsync}/bin/rsync -a --delete \
-      ${../../../.config/nvim}/ $HOME/.config/nvim/
-    run chmod -R u+w $HOME/.config/nvim
+    run ${pkgs.rsync}/bin/rsync --archive --update ${../../../.config/nvim}/ $HOME/.config/nvim/
+    run chmod --recursive u+w $HOME/.config/nvim
+  '';
+
+  home.activation.copyNvimPlugins = lib.hm.dag.entryAfter [ "writeBoundary" "copyNvimConfig" ] ''
+    run ${pkgs.rsync}/bin/rsync --archive ${../../../.config/my-astronvim-plugins}/ $HOME/.config/nvim/lua/plugins/
+    run chmod --recursive u+w $HOME/.config/nvim/lua/plugins
   '';
 }

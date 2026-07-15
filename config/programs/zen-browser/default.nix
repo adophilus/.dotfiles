@@ -91,6 +91,10 @@ in
           slug = "markdown-viewer";
           guid = "markdown-viewer@outofindex.com";
         }
+        {
+          slug = "react-devtools";
+          guid = "@react-devtools";
+        }
       ];
     };
   };

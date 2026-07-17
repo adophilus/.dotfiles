@@ -12,7 +12,10 @@
 	"mcp": {
 		"zai-mcp-server": {
 			"type": "local",
-			"command": ["pnpx", "@z_ai/mcp-server"]
+			"command": [
+				"pnpx",
+				"@z_ai/mcp-server"
+			]
 		},
 		"zread": {
 			"type": "remote",
@@ -42,7 +45,10 @@
 		},
 		"pdf-reader": {
 			"type": "local",
-			"command": ["pnpx", "@sylphx/pdf-reader-mcp"],
+			"command": [
+				"pnpx",
+				"@sylphx/pdf-reader-mcp"
+			],
 			"enabled": true
 		},
 		"penpot": {
@@ -52,7 +58,10 @@
 		},
 		"figma-mcp-go": {
 			"type": "local",
-			"command": ["pnpx", "@vkhanhqui/figma-mcp-go"],
+			"command": [
+				"pnpx",
+				"@vkhanhqui/figma-mcp-go"
+			],
 			"enabled": true
 		},
 		// "figma-bridge": {
@@ -62,7 +71,11 @@
 		// },
 		"codegraph": {
 			"type": "local",
-			"command": ["codegraph", "serve", "--mcp"],
+			"command": [
+				"codegraph",
+				"serve",
+				"--mcp"
+			],
 			"enabled": true
 		}
 	},
@@ -76,8 +89,14 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"variants": {
 						"low": {
@@ -95,8 +114,14 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"variants": {
 						"low": {
@@ -114,8 +139,14 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"variants": {
 						"minimal": {
@@ -139,8 +170,14 @@
 						"output": 64000
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"antigravity-claude-opus-4-6-thinking": {
@@ -150,8 +187,14 @@
 						"output": 64000
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"variants": {
 						"low": {
@@ -173,8 +216,14 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"gemini-2.5-pro": {
@@ -184,8 +233,14 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"gemini-3-flash-preview": {
@@ -195,8 +250,14 @@
 						"output": 65536
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"gemini-3-pro-preview": {
@@ -206,8 +267,14 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"gemini-3.1-pro-preview": {
@@ -217,8 +284,14 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				},
 				"gemini-3.1-pro-preview-customtools": {
@@ -228,8 +301,14 @@
 						"output": 65535
 					},
 					"modalities": {
-						"input": ["text", "image", "pdf"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image",
+							"pdf"
+						],
+						"output": [
+							"text"
+						]
 					}
 				}
 			}

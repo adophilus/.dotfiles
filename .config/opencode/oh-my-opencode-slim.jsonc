@@ -3,36 +3,49 @@
 	"presets": {
 		"dynamic": {
 			"orchestrator": {
-				"model": "zai-coding-plan/glm-5.1",
-				"skills": ["*"],
-				"mcps": ["*", "!context7"]
+				"model": "zai-coding-plan/glm-5.2",
+				"skills": [
+					"*"
+				],
+				"mcps": [
+					"*",
+					"!context7"
+				]
 			},
 			"oracle": {
-				"model": "zai-coding-plan/glm-5.1",
+				"model": "zai-coding-plan/glm-5.2",
 				"variant": "high",
-				"skills": ["simplify"],
+				"skills": [
+					"simplify"
+				],
 				"mcps": []
 			},
 			"designer": {
-				"model": "zai-coding-plan/glm-5.1",
+				"model": "zai-coding-plan/glm-5.2",
 				"variant": "medium",
-				"skills": ["agent-browser"],
+				"skills": [
+					"agent-browser"
+				],
 				"mcps": []
 			},
 			"explorer": {
-				"model": "zai-coding-plan/glm-5.1",
+				"model": "zai-coding-plan/glm-5.2",
 				"variant": "low",
 				"skills": [],
 				"mcps": []
 			},
 			"librarian": {
-				"model": "zai-coding-plan/glm-5.1",
+				"model": "zai-coding-plan/glm-5.2",
 				"variant": "low",
 				"skills": [],
-				"mcps": ["websearch", "context7", "grep_app"]
+				"mcps": [
+					"websearch",
+					"context7",
+					"grep_app"
+				]
 			},
 			"fixer": {
-				"model": "zai-coding-plan/glm-5.1",
+				"model": "zai-coding-plan/glm-5.2",
 				"variant": "low",
 				"skills": [],
 				"mcps": []

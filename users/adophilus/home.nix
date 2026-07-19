@@ -9,6 +9,7 @@
   gws,
   wstui-pkg,
   floci-pkg,
+  ytd-pkg,
   modules,
   ...
 }:
@@ -278,7 +279,6 @@ in
     podman-compose
 
     # Node.js
-    biome
     deno
     nodejs
     pnpm
@@ -401,6 +401,8 @@ in
 
     # Process manager
     process-compose
+
+    ytd-pkg
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
@@ -408,10 +410,10 @@ in
   # see config/programs/*/default.nix
   home.file = {
     # Scripts
-    ".local/bin/ytd" = {
-      source = ../../.local/bin/ytd;
-      executable = true;
-    };
+    # ".local/bin/ytd" = {
+    #   source = ../../.local/bin/ytd;
+    #   executable = true;
+    # };
 
     ".config/bottom".source = ../../.config/bottom;
     ".config/kitty".source = ../../.config/kitty;

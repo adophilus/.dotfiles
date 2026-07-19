@@ -51,9 +51,20 @@
     }:
     let
       system = "x86_64-linux";
-      # Build wstui from stable nixpkgs (has the deps we need)
-      wstui-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/wstui/default.nix { };
-      floci-pkg = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/floci/default.nix { };
+      pkgsParams = {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "electron-37.10.3"
+          ];
+        };
+      };
+      pkgs = import nixpkgs pkgsParams;
+      pkgs-unstable = import nixpkgs-unstable pkgsParams;
+      wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
+      floci-pkg = pkgs.callPackage ./pkgs/floci/default.nix { };
+      ytd-pkg = pkgs.callPackage ./pkgs/ytd/default.nix { };
 
       homeManagerProgramsDir = ./config/programs;
       homeManagerDirContents = builtins.readDir homeManagerProgramsDir;
@@ -64,11 +75,10 @@
     in
     {
       nixosConfigurations = {
-        zenith = nixpkgs.lib.nixosSystem rec {
+        zenith = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+            inherit inputs pkgs-unstable;
           };
           modules = [
             ./configuration.nix
@@ -91,16 +101,9 @@
                   wstui-pkg
                   floci-pkg
                   sops-nix
+                  ytd-pkg
+                  pkgs-unstable
                   ;
-                pkgs-unstable = import nixpkgs-unstable {
-                  inherit system;
-                  config = {
-                    allowUnfree = true;
-                    permittedInsecurePackages = [
-                      "electron-37.10.3"
-                    ];
-                  };
-                };
                 modules = homeManagerModules;
               };
             }

@@ -48,30 +48,28 @@ fi
 # ── Format selector ─────────────────────────────────────────────────
 # Key fix: broad fallbacks so yt-dlp always finds something.
 # bv*[height<=Q]+ba/b tries separate streams first, then single file.
-if [[ "$AUDIO_ONLY" == true ]]; then
+if [[ "${AUDIO_ONLY}" == true ]]; then
     FORMAT="ba/b"
     POST_PROCESS=(
         --extract-audio
         --audio-format mp3
         --audio-quality 0
     )
-    EXT="mp3"
 else
-    if [[ "$QUALITY" == "best" ]]; then
+    if [[ "${QUALITY}" == "best" ]]; then
         FORMAT="bv*+ba/b"
-    elif [[ "$QUALITY" == "worst" ]]; then
+    elif [[ "${QUALITY}" == "worst" ]]; then
         FORMAT="worst"
     else
         FORMAT="bv*[height<=${QUALITY}]+ba/b[height<=${QUALITY}]"
     fi
     POST_PROCESS=(--merge-output-format mp4)
-    EXT="mp4"
 fi
 
 # ── Output template ─────────────────────────────────────────────────
-if [[ -n "$CUSTOM_NAME" ]]; then
+if [[ -n "${CUSTOM_NAME}" ]]; then
     OUTPUT="${CUSTOM_NAME}.%(ext)s"
-elif [[ "$PLAYLIST" == true ]]; then
+elif [[ "${PLAYLIST}" == true ]]; then
     # Numbered: "01 - Title.mp4" so playlist stays ordered
     OUTPUT="%(playlist_index)02d - %(title)s.%(ext)s"
 else
@@ -80,27 +78,27 @@ fi
 
 # ── Common args ─────────────────────────────────────────────────────
 ARGS=(
-    --format "$FORMAT"
-    --output "$OUTPUT"
+    --format "${FORMAT}"
+    --output "${OUTPUT}"
     --no-check-certificate
     --embed-metadata
     --restrict-filenames
 )
 
 # Thumbnail (embed in audio/video, skip for playlists to speed things up)
-if [[ "$THUMBNAIL" == true ]]; then
+if [[ "${THUMBNAIL}" == true ]]; then
     ARGS+=(--embed-thumbnail)
 fi
 
 # Playlist support — don't error on playlist, download all items
-if [[ "$PLAYLIST" == true ]]; then
+if [[ "${PLAYLIST}" == true ]]; then
     ARGS+=(--yes-playlist)
 else
     ARGS+=(--no-playlist)
 fi
 
 # Subtitles
-if [[ "$SUBTITLES" == true ]]; then
+if [[ "${SUBTITLES}" == true ]]; then
     ARGS+=(
         --write-subs
         --sub-langs "en.*,en"
@@ -109,17 +107,17 @@ if [[ "$SUBTITLES" == true ]]; then
 fi
 
 ARGS+=("${POST_PROCESS[@]}")
-ARGS+=("$URL")
+ARGS+=("${URL}")
 
 # ── Run ─────────────────────────────────────────────────────────────
-echo "Downloading: $URL"
-if [[ "$AUDIO_ONLY" == true ]]; then
+echo "Downloading: ${URL}"
+if [[ "${AUDIO_ONLY}" == true ]]; then
     echo "  Mode: Audio (MP3)"
 else
     echo "  Mode: Video (${QUALITY}p max)"
 fi
-[[ "$PLAYLIST" == true ]] && echo "  Playlist: Yes"
-[[ "$SUBTITLES" == true ]] && echo "  Subs: Yes"
+[[ "${PLAYLIST}" == true ]] && echo "  Playlist: Yes"
+[[ "${SUBTITLES}" == true ]] && echo "  Subs: Yes"
 echo ""
 
 exec yt-dlp "${ARGS[@]}"

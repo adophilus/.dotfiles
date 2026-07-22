@@ -138,10 +138,6 @@ in
     tmux
     tmuxinator
 
-    # Vim
-    neovide
-    vim
-
     sshfs
 
     # Interop
@@ -403,6 +399,8 @@ in
     process-compose
 
     ytd-pkg
+
+    # heroic
   ];
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────

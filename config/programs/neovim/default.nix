@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-unstable,
+  pkgs-deprecated,
   lib,
   ...
 }:
@@ -12,7 +12,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = pkgs.neovim-unwrapped;
+    package = pkgs-deprecated.neovim-unwrapped;
     sideloadInitLua = true;
   };
 

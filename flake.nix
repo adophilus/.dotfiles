@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -40,8 +41,9 @@
 
   outputs =
     inputs@{
-      nixpkgs,
       home-manager,
+      nixpkgs-deprecated,
+      nixpkgs,
       nixpkgs-unstable,
       end4dots,
       wifitui,
@@ -60,6 +62,7 @@
           ];
         };
       };
+      pkgs-deprecated = import nixpkgs-deprecated pkgsParams;
       pkgs = import nixpkgs pkgsParams;
       pkgs-unstable = import nixpkgs-unstable pkgsParams;
       wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
@@ -102,6 +105,7 @@
                   floci-pkg
                   sops-nix
                   ytd-pkg
+                  pkgs-deprecated
                   pkgs-unstable
                   ;
                 modules = homeManagerModules;

@@ -9,6 +9,7 @@ return {
 	---@type AstroUIOpts
 	opts = {
 		-- change colorscheme
+		-- colorscheme = "base16-ayu-dark",
 		colorscheme = "base16-ayu-dark",
 		-- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
 		highlights = {

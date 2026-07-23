@@ -576,6 +576,7 @@
     enable = true;
 
     allowedTCPPorts = [
+      22 # SSH (key-only auth — PasswordAuthentication is off)
       2121
       3000
       3001

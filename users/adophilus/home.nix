@@ -64,7 +64,6 @@ in
     allowUnfreePredicate =
       pkg:
       builtins.elem (lib.getName pkg) [
-        "vivaldi"
         "postman"
         "spotify"
         "google-chrome"
@@ -363,8 +362,6 @@ in
 
     # Browsers
     tor-browser
-    vivaldi
-    vivaldi-ffmpeg-codecs
     firefox
     google-chrome
     mullvad-browser
@@ -685,8 +682,8 @@ in
       "x-scheme-handler/http" = "zen-twilight.desktop";
       "x-scheme-handler/https" = "zen-twilight.desktop";
       "x-scheme-handler/chrome" = "zen-twilight.desktop";
-      "x-scheme-handler/about" = "vivaldi-stable.desktop";
-      "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
+      "x-scheme-handler/about" = "zen-twilight.desktop";
+      "x-scheme-handler/unknown" = "zen-twilight.desktop";
       "application/xhtml+xml" = "zen-twilight.desktop";
       "application/x-extension-htm" = "zen-twilight.desktop";
       "application/x-extension-html" = "zen-twilight.desktop";

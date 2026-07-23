@@ -457,7 +457,6 @@
     allowUnfreePredicate =
       pkg:
       builtins.elem (lib.getName pkg) [
-        "vivaldi"
         "postman"
         "spotify"
         "google-chrome"

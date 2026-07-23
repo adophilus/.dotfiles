@@ -20,6 +20,7 @@
   # lazy-lock.json written by :Lazy update in ~/.config/nvim is preserved
   # (it's newer than the repo copy until you copy it back).
   home.activation.copyNvimConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p $HOME/.config
     run ${pkgs.rsync}/bin/rsync --archive --update ${../../../.config/nvim}/ $HOME/.config/nvim/
     run chmod --recursive u+w $HOME/.config/nvim
   '';

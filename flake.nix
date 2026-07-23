@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -61,6 +66,17 @@
         builtins.attrNames homeManagerDirContents
       );
       homeManagerModules = map (name: homeManagerProgramsDir + "/${name}") homeManagerModuleDirs;
+
+      # Cross-platform config/programs modules (work on macOS). Excludes the
+      # Linux-only desktop-shell ones (hypr, hypridle, matugen, rofi, waybar,
+      # wlogout, zen-browser, appearance, cava, user-scripts).
+      darwinHomeManagerModules = map (name: homeManagerProgramsDir + "/${name}") [
+        "lazygit"
+        "mpv"
+        "neovim"
+        "starship"
+        "tmux"
+      ];
     in
     {
       nixosConfigurations = {
@@ -102,10 +118,62 @@
                   };
                 };
                 modules = homeManagerModules;
+                homeDirectory = "/home/adophilus";
               };
             }
           ];
         };
+      };
+
+      # ── macOS (Intel Mac, Sonoma via OCLP) ──────────────────────────────
+      # Apply with: darwin-rebuild switch --flake .#mac
+      # NOTE: darwin systems can ONLY be built on macOS. This output declares
+      # the config; iterate/build it on the Mac itself.
+      darwinConfigurations.mac = inputs.nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        specialArgs = {
+          inherit inputs;
+          pkgs-unstable = import nixpkgs-unstable {
+            system = "x86_64-darwin";
+            config.allowUnfree = true;
+          };
+        };
+        modules = [
+          ./darwin-configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            # Determinate Nix owns Nix itself — nix-darwin must not fight it.
+            nix.enable = false;
+
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.adophilus = import ./users/adophilus/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit
+                inputs
+                end4dots
+                wifitui
+                gws
+                wstui-pkg
+                floci-pkg
+                ;
+              pkgs-unstable = import nixpkgs-unstable {
+                system = "x86_64-darwin";
+                config = {
+                  allowUnfree = true;
+                  permittedInsecurePackages = [
+                    "electron-37.10.3"
+                  ];
+                };
+              };
+              # Only cross-platform program modules on macOS.
+              modules = darwinHomeManagerModules;
+              # macOS home directory (defaults to /home/adophilus on Linux).
+              homeDirectory = "/Users/adophilus";
+            };
+          }
+        ];
       };
 
       homeManagerModules = {

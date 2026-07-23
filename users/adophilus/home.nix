@@ -10,6 +10,7 @@
   wstui-pkg,
   floci-pkg,
   modules,
+  homeDirectory ? "/home/adophilus",
   ...
 }:
 
@@ -51,7 +52,7 @@ in
 
   # ── Identity ──────────────────────────────────────────────────────────
   home.username = "adophilus";
-  home.homeDirectory = "/home/adophilus";
+  home.homeDirectory = homeDirectory;
   home.stateVersion = "24.05";
 
   # ── Package allowlist ─────────────────────────────────────────────────
@@ -76,7 +77,48 @@ in
   };
 
   # ── Packages ──────────────────────────────────────────────────────────
-  home.packages = with pkgs-unstable; [
+  home.packages =
+    # ── Cross-platform packages (installed on both Linux and macOS) ──
+    (with pkgs-unstable; [
+      tree
+      just
+      wget
+      curlFull
+      jq
+      fzf
+      direnv
+      openssl
+      gnumake
+      sqlite
+      gh
+      gcc
+      ripgrep
+      tmux
+      vim
+      starship
+      yazi
+      lazygit
+      git-lfs
+      tldr
+      zip
+      unzip
+      file
+      rclone
+      cloudflared
+      flyctl
+      go
+      deno
+      nodejs
+      python3
+      poetry
+      uv
+      rustc
+      cargo
+      zig
+      d2
+    ])
+    # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
+    ++ lib.optionals pkgs.stdenv.isLinux (with pkgs-unstable; [
     pavucontrol
     qpwgraph
     tree
@@ -400,7 +442,7 @@ in
 
     # Process manager
     process-compose
-  ];
+  ]);
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
   # For configs managed by activation scripts (copy from nix store),
@@ -439,7 +481,7 @@ in
   programs.home-manager.enable = true;
 
   # ── Zen Browser ───────────────────────────────────────────────────────
-  programs.zen-browser = {
+  programs.zen-browser = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
 
     nativeMessagingHosts = [
@@ -515,7 +557,7 @@ in
   };
 
   # ── Desktop entries ───────────────────────────────────────────────────
-  xdg.desktopEntries.scrcpy = {
+  xdg.desktopEntries.scrcpy = lib.mkIf pkgs.stdenv.isLinux {
     name = "scrcpy";
     genericName = "Android Remote Control";
     exec = "scrcpy --render-driver=opengles2";
@@ -531,14 +573,14 @@ in
   };
 
   # ── Services ──────────────────────────────────────────────────────────
-  services.swayosd = {
+  services.swayosd = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     topMargin = 0.9;
     stylePath = "${config.home.homeDirectory}/.config/swayosd/style.css";
   };
   # services.hypridle is managed in config/programs/hypridle/default.nix
 
-  sops = {
+  sops = lib.mkIf pkgs.stdenv.isLinux {
     # age.keyFile = "/home/adophilus/.age-key.txt";
     age.keyFile = "/var/lib/sops-nix/key.txt";
     secrets."adophilus/.env" = {
@@ -547,7 +589,7 @@ in
     };
   };
 
-  xdg.mimeApps = {
+  xdg.mimeApps = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     defaultApplicationPackages = [ ];
 
@@ -633,5 +675,5 @@ in
     };
   };
 
-  programs.opencode.web.environmentFile = config.sops.secrets."adophilus/.env".path;
+  programs.opencode.web.environmentFile = lib.mkIf pkgs.stdenv.isLinux config.sops.secrets."adophilus/.env".path;
 }

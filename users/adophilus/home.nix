@@ -537,6 +537,10 @@ in
 
     ".config/bottom".source = ../../.config/bottom;
     ".config/kitty".source = ../../.config/kitty;
+
+    # Platform-specific kitty override (borderless on Hyprland, titlebar on macOS).
+    ".config/kitty-os.conf".text =
+      if pkgs.stdenv.isLinux then "hide_window_decorations yes\n" else "hide_window_decorations no\n";
     ".config/zellij".source = ../../.config/zellij;
     ".config/ghostty".source = ../../.config/ghostty;
 

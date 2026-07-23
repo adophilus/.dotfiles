@@ -565,12 +565,13 @@ in
   programs.home-manager.enable = true;
 
   # ── Zen Browser ───────────────────────────────────────────────────────
-  programs.zen-browser = lib.mkIf pkgs.stdenv.isLinux {
+  programs.zen-browser = {
     enable = true;
 
     nativeMessagingHosts = [
-      pkgs.firefoxpwa
       pkgs-unstable.gopass-jsonapi
+    ] ++ lib.optionals pkgs.stdenv.isLinux [
+      pkgs.firefoxpwa # not available on x86_64-darwin
     ];
 
     profiles.default = {

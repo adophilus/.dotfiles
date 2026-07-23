@@ -117,6 +117,7 @@ in
       cargo
       zig
       d2
+      ytd-pkg
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (with pkgs-unstable; [

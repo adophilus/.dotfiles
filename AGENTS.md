@@ -47,7 +47,7 @@ This is a **NixOS + home-manager** flake repo. Key landmarks:
 | `configuration.nix` | System-level NixOS config (boot, hardware, services). |
 | `home.nix` | Home-manager entry point. Auto-imports `config/programs/*`. |
 | `config/programs/` | Per-program home-manager modules (neovim, hypr, tmux, ...). Each subdir with a `default.nix` is auto-discovered. |
-| `modules/` | NixOS system modules (auto-suspend, wireguard, wireproxy). |
+| `modules/` | NixOS system modules (auto-suspend). |
 | `pkgs/` | Custom package definitions (`callPackage` derivations). |
 | `secrets/` | sops-nix encrypted secrets. |
 

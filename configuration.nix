@@ -14,8 +14,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ./modules/wireproxy.nix
-    # ./modules/wireguard.nix
     ./modules/auto-suspend.nix
   ];
 
@@ -164,7 +162,10 @@
 
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false; # blocks PAM password fallback
+    };
   };
 
   # services.logind.extraConfig = pkgs-unstable.lib.mkForce ''
@@ -504,6 +505,9 @@
     ];
     shell = pkgs-unstable.fish;
     linger = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICU9oLDteF2G2m8xcqsj3bF7hXcVSKA2kIXE34f0TeZL adophilus@zenith.pc"
+    ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -532,11 +536,11 @@
     enable = true;
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
-      #...
-      #type database DBuser origin-address auth-method
-      local all       all     trust
-      # ipv4
-      host  all      all     127.0.0.1/8   trust
+      # type db   user       address       method
+      local  all  postgres                 peer          # superuser: sudo -u postgres psql
+      local  all  all                      peer          # dev via socket: OS user -> role
+      host   all  all       127.0.0.1/32   scram-sha-256 # TCP loopback: password required
+      host   all  all       ::1/128        scram-sha-256
     '';
   };
 

@@ -317,7 +317,7 @@
 		// 	"npm": "@ai-sdk/openai-compatible",
 		// 	"name": "Alibaba ModelStudio",
 		// 	"options": {
-		// 		"baseURL": "https://ws-schmz6e1al2l2xek.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+		// 		"baseURL": "{env:ALIBABA_MODEL_STUDIO_BASE_URL}",
 		// 		"apiKey": "{env:ALIBABA_MODEL_STUDIO_API_KEY}"
 		// 	},
 		// 	"models": {

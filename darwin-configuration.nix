@@ -54,6 +54,20 @@
       "legcord"
       "whatsapp"
       "figma"
+      # media
+      "vlc"
+      "obs"
+      "shotcut"
+      # private browsing
+      "tor-browser"
+      "mullvad-browser"
+      # crypto
+      "monero-wallet"
+      "electrum"
+      # other
+      "transmission"
+      "gnucash"
+      # "ghostty"  # disabled — using kitty as daily driver
     ];
     # CLI tools
     brews = [

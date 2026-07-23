@@ -443,7 +443,7 @@ in
 
     # Terminal
     kitty
-    ghostty
+    # ghostty  # disabled — using kitty as daily driver
     starship
 
     # File manager
@@ -475,7 +475,7 @@ in
 
     # Documentation
     tldr
-    zeal
+    # zeal
 
     # Archive
     zip
@@ -484,7 +484,7 @@ in
     # Zig
     zig
 
-    penpot-desktop
+    # penpot-desktop
     figma-linux
 
     rustscan
@@ -548,7 +548,7 @@ in
     ".config/kitty-os.conf".text =
       if pkgs.stdenv.isLinux then "hide_window_decorations yes\n" else "hide_window_decorations no\n";
     ".config/zellij".source = ../../.config/zellij;
-    ".config/ghostty".source = ../../.config/ghostty;
+    # ".config/ghostty".source = ../../.config/ghostty;  # ghostty disabled (using kitty)
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";

@@ -7,6 +7,12 @@
 {
   nixpkgs.hostPlatform = "x86_64-darwin";
 
+  # Hostname — nadir (the celestial opposite of zenith). Sets HostName
+  # (terminal/ssh prompt), LocalHostName (Bonjour .local), ComputerName (Finder).
+  networking.hostName = "nadir";
+  networking.localHostName = "nadir";
+  networking.computerName = "Nadir";
+
   # Set once, never change. 4 = Sonoma era. Verify on first `darwin-rebuild`.
   system.stateVersion = 4;
 

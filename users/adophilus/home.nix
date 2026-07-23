@@ -164,6 +164,7 @@ in
       rustscan
 
       # Security / crypto
+      age
       gopass
       gopass-jsonapi
       zbar

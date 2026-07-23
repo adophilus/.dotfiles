@@ -506,8 +506,7 @@
     shell = pkgs-unstable.fish;
     linger = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJZPOgp7+K4/EoD42le6SrMyx0f1V9C7BTV9ofTZhZk9" # PC (Windows)
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2bq3qXrnIuRcH3zmJfbh14qGBTervXKVf6iZ5uQs+c" # vps (contabo)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICU9oLDteF2G2m8xcqsj3bF7hXcVSKA2kIXE34f0TeZL adophilus@zenith.pc"
     ];
   };
 

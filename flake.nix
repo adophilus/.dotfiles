@@ -165,6 +165,16 @@
                 wstui-pkg
                 floci-pkg
                 ;
+              # ytd wrapper built for x86_64-darwin (on Linux it comes from the
+              # flake-level let, which is x86_64-linux only).
+              ytd-pkg = (import nixpkgs {
+                system = "x86_64-darwin";
+                config.allowUnfree = true;
+              }).callPackage ./pkgs/ytd/default.nix { };
+              pkgs-deprecated = import nixpkgs-deprecated {
+                system = "x86_64-darwin";
+                config.allowUnfree = true;
+              };
               pkgs-unstable = import nixpkgs-unstable {
                 system = "x86_64-darwin";
                 config = {

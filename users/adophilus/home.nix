@@ -79,10 +79,14 @@ in
 
   # ── Packages ──────────────────────────────────────────────────────────
   home.packages =
-    # ── Cross-platform packages (installed on both Linux and macOS) ──
+    # ── Cross-platform packages (Linux + macOS) ──
+    # Verified available on x86_64-darwin (Intel Mac). Packages also present in
+    # the Linux-only list below dedup cleanly (identical derivations) on Linux.
     (with pkgs-unstable; [
+      # Dev basics
       tree
       just
+      dos2unix
       wget
       curlFull
       jq
@@ -94,29 +98,115 @@ in
       gh
       gcc
       ripgrep
-      tmux
-      vim
-      starship
-      yazi
-      lazygit
-      git-lfs
       tldr
       zip
       unzip
       file
-      rclone
+      nixfmt
+      manix
+      termdown
       cloudflared
-      flyctl
+      inetutils
+      posting
+      mitmproxy
+
+      # Editors / terminals
+      tmux
+      vim
+      kitty
+
+      # Languages & toolchains
+      lua
+      luaPackages.luarocks
+      lua-language-server
+      cargo
+      rustc
+      openjdk
+      maven
       go
+      air
       deno
       nodejs
+      pnpm
+      bun
+      biome
+      zig
       python3
+      python3Packages.pyftpdlib
+      python3Packages.pip
       poetry
       uv
-      rustc
-      cargo
-      zig
+      php
+      php82Packages.composer
+      php82Extensions.mbstring
+      php82Extensions.iconv
+
+      # Git
+      gitoxide
+      git-lfs
+      gitui
+      lazygit
+
+      # Shell / prompt / fs / calc
+      starship
+      yazi
+      libqalculate
+      sshfs
+
+      # Networking
+      stunnel
+      socat
+      dig
+      torsocks
+      flyctl
+      google-cloud-sdk
+      awscli2
+      rclone
+      rustscan
+
+      # Security / crypto
+      gopass
+      gopass-jsonapi
+      electrum
+      zbar
+
+      # Media / docs / viewers
+      ffmpeg
+      imagemagick
       d2
+      mdbook
+      tesseract
+      cava
+      zathura
+      pkgs.mpv
+      obsidian
+      thunderbird
+      xournalpp
+      super-productivity
+      process-compose
+      pkgs.sayonara
+      zeal
+
+      # System monitors / device tools
+      bottom
+      btop
+      gdu
+      dive
+      scrcpy
+      android-tools
+      tokei
+
+      # GUI apps (have x86_64-darwin builds)
+      firefox
+      google-chrome
+
+      # Misc desktop libs
+      libnotify
+      webp-pixbuf-loader
+      gtk3
+      discordo
+
+      # Custom — built per-host in flake.nix
       ytd-pkg
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──

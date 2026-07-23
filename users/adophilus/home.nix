@@ -166,7 +166,6 @@ in
       # Security / crypto
       gopass
       gopass-jsonapi
-      electrum
       zbar
 
       # Media / docs / viewers
@@ -176,7 +175,6 @@ in
       mdbook
       tesseract
       cava
-      zathura
       pkgs.mpv
       obsidian
       thunderbird
@@ -184,7 +182,6 @@ in
       super-productivity
       process-compose
       pkgs.sayonara
-      zeal
 
       # System monitors / device tools
       bottom

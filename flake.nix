@@ -133,10 +133,10 @@
       };
 
       # ── macOS (Intel Mac, Sonoma via OCLP) ──────────────────────────────
-      # Apply with: darwin-rebuild switch --flake .#mac
+      # Apply with: darwin-rebuild switch --flake .#nadir
       # NOTE: darwin systems can ONLY be built on macOS. This output declares
       # the config; iterate/build it on the Mac itself.
-      darwinConfigurations.mac = inputs.nix-darwin.lib.darwinSystem {
+      darwinConfigurations.nadir = inputs.nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         specialArgs = {
           inherit inputs;

@@ -1,5 +1,5 @@
 # macOS system-level config (nix-darwin) for the Intel Mac.
-# Apply with: darwin-rebuild switch --flake .#mac
+# Apply with: darwin-rebuild switch --flake .#nadir
 {
   pkgs,
   ...

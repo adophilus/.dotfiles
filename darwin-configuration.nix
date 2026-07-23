@@ -7,6 +7,10 @@
 {
   nixpkgs.hostPlatform = "x86_64-darwin";
 
+  # Primary user — required by recent nix-darwin for homebrew.enable (and
+  # other per-user system options).
+  system.primaryUser = "adophilus";
+
   # Hostname — nadir (the celestial opposite of zenith). Sets HostName
   # (terminal/ssh prompt), LocalHostName (Bonjour .local), ComputerName (Finder).
   networking.hostName = "nadir";
@@ -35,6 +39,27 @@
   # Fonts — installed so macOS CoreText (and kitty) can see them.
   fonts.packages = [ pkgs.nerd-fonts.hurmit ];
 
-  # TODO (curate on the Mac): Homebrew casks, system.defaults.* (dock/finder),
-  # any system packages you want outside $HOME.
+  # Homebrew — macOS apps/CLIs that nixpkgs can't provide on x86_64-darwin
+  # (legcord, opencode, etc.). Requires Homebrew installed first:
+  #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "uninstall"; # remove casks/brews not listed here (declarative reconcile)
+      autoUpdate = false; # skip `brew update` on each activation (faster rebuilds)
+      upgrade = false; # skip `brew upgrade` on each activation
+    };
+    # GUI apps (.app bundles)
+    casks = [
+      "legcord"
+      "whatsapp"
+      "figma"
+    ];
+    # CLI tools
+    brews = [
+      "opencode"
+    ];
+  };
+
+  # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.
 }

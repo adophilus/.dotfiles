@@ -21,6 +21,11 @@ let
   # hardcoded in installPhase), so we re-wrap via symlinkJoin to add the
   # Chromium VA-API video decode feature. Electron 38 (≈ Chromium 142) still
   # needs this explicitly; Chromium 143+ will enable it by default.
+  #
+  # NOTE: legcord has NO nixpkgs x86_64-darwin build, so on macOS install it
+  # via Homebrew (`brew install --cask legcord`) or declare it under
+  # homebrew.casks in darwin-configuration.nix. This VA-API wrapper is
+  # Linux-only anyway (macOS uses VideoToolbox, not VA-API).
   legcord-vapi = pkgs-unstable.symlinkJoin {
     name = "legcord";
     paths = [ pkgs-unstable.legcord ];

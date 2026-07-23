@@ -26,6 +26,9 @@
     home = "/Users/adophilus";
   };
 
+  # Fonts — installed so macOS CoreText (and kitty) can see them.
+  fonts.packages = [ pkgs.nerd-fonts.hurmit ];
+
   # TODO (curate on the Mac): Homebrew casks, system.defaults.* (dock/finder),
-  # fonts, any system packages you want outside $HOME.
+  # any system packages you want outside $HOME.
 }

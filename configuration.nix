@@ -168,6 +168,9 @@
     };
   };
 
+  # Fonts (Nerd Fonts etc.) — installed system-wide, visible to fontconfig.
+  fonts.packages = [ pkgs.nerd-fonts.hurmit ];
+
   # services.logind.extraConfig = pkgs-unstable.lib.mkForce ''
   #   HandleLidSwitch=hibernate
   #   HandleLidSwitchExternalPower=hibernate

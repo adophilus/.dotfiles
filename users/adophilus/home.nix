@@ -135,7 +135,6 @@ in
 
     # Tmux
     tmux
-    tmuxinator
 
     # Vim
     neovide
@@ -415,7 +414,6 @@ in
 
     ".config/bottom".source = ../../.config/bottom;
     ".config/kitty".source = ../../.config/kitty;
-    ".config/tmuxinator".source = ../../.config/tmuxinator;
     ".config/zellij".source = ../../.config/zellij;
     ".config/ghostty".source = ../../.config/ghostty;
 

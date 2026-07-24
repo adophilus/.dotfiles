@@ -1,5 +1,8 @@
 keys:
   - &machine_zenith age1ep7mt0ztyx54nf25sjfx3tutxvx22ddsvczkevvyv2erm5u0ufkqhgt4lv
+  - &machine_nadir age17yt5e6jx9vxpsdq798x2uljdnqzqlhzlhza24kl45hzarayfk3jspzuc9v
 creation_rules:
   - path_regex: users/adophilus/secrets/.env
-    age: *machine_zenith
+    age:
+    - *machine_zenith
+    - *machine_nadir

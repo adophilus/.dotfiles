@@ -28,6 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Installs Homebrew itself via Nix on macOS (sits under nix-darwin's
+    # homebrew module, which manages the casks/brews list).
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     zen-browser = {
       url = "github:adophilus/zen-browser-flake";
       inputs = {
@@ -147,6 +151,7 @@
         };
         modules = [
           ./darwin-configuration.nix
+          inputs.nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
           {
             # Determinate Nix owns Nix itself — nix-darwin must not fight it.

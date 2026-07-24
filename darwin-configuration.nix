@@ -39,9 +39,19 @@
   # Fonts — installed so macOS CoreText (and kitty) can see them.
   fonts.packages = [ pkgs.nerd-fonts.hurmit ];
 
-  # Homebrew — macOS apps/CLIs that nixpkgs can't provide on x86_64-darwin
-  # (legcord, opencode, etc.). Requires Homebrew installed first:
-  #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # nix-homebrew — installs Homebrew ITSELF via Nix (into /usr/local on Intel),
+  # so brew is declarative rather than curl|bash. Sits under nix-darwin's
+  # homebrew module below (which manages casks/brews), and fixes the
+  # "Homebrew doesn't seem to be installed" error.
+  nix-homebrew = {
+    enable = true;
+    user = "adophilus"; # owner of the Homebrew prefix
+    # NOTE: do NOT set enableRosetta on Intel (assertion fails).
+    # enableFlakes does NOT exist (removed). mutableTaps defaults to true.
+  };
+
+  # Homebrew cask/brew management — driven by the brew binary nix-homebrew
+  # installs above.
   homebrew = {
     enable = true;
     onActivation = {

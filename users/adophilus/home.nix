@@ -578,8 +578,16 @@ in
   # No-op on Linux (duti is macOS-only).
   home.activation.setZenDefaultBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     lib.optionalString pkgs.stdenv.isDarwin ''
-      ${pkgs.duti}/bin/duti -s app.zen-browser.zen https
-      ${pkgs.duti}/bin/duti -s app.zen-browser.zen http
+      # Register Zen with Launch Services first (home-manager's symlinked apps
+      # aren't always auto-registered, which makes duti fail with error -54),
+      # then set it as the default http/https handler. Steps are non-fatal so a
+      # hiccup doesn't abort the whole activation.
+      for zen in "$HOME/Applications/Home Manager Apps"/Zen*.app; do
+        [ -e "$zen" ] || continue
+        /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "$zen" || true
+        ${pkgs.duti}/bin/duti -s app.zen-browser.zen https || true
+        ${pkgs.duti}/bin/duti -s app.zen-browser.zen http || true
+      done
     ''
   );
 

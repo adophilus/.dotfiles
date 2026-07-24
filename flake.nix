@@ -148,7 +148,9 @@
         system = "x86_64-darwin";
         specialArgs = {
           inherit inputs;
-          pkgs-unstable = import nixpkgs-unstable {
+          # nixpkgs-unstable (26.11) dropped x86_64-darwin; use 26.05 (nixpkgs)
+          # as the Mac's "unstable" — Intel-darwin is capped at the 26.05 release.
+          pkgs-unstable = import nixpkgs {
             system = "x86_64-darwin";
             config.allowUnfree = true;
           };
@@ -173,6 +175,7 @@
                 gws
                 wstui-pkg
                 floci-pkg
+                lark-pkg
                 ;
               # ytd wrapper built for x86_64-darwin (on Linux it comes from the
               # flake-level let, which is x86_64-linux only).
@@ -184,7 +187,8 @@
                 system = "x86_64-darwin";
                 config.allowUnfree = true;
               };
-              pkgs-unstable = import nixpkgs-unstable {
+              # nixpkgs-unstable (26.11) dropped x86_64-darwin; use 26.05 (nixpkgs).
+              pkgs-unstable = import nixpkgs {
                 system = "x86_64-darwin";
                 config = {
                   allowUnfree = true;

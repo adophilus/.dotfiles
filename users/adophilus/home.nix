@@ -211,8 +211,6 @@ in
 
       # Custom — built per-host in flake.nix
       ytd-pkg
-
-      lark-pkg
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (
@@ -522,6 +520,9 @@ in
         # Floci — local cloud emulator for AWS/Azure
         floci-pkg
         floci-ui
+
+        # Lark (work collab) — Linux-only: .deb-based feishu override, no darwin build
+        lark-pkg
 
         # AWS
         awscli2

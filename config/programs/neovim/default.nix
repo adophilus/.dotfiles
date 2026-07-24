@@ -14,6 +14,8 @@
     vimdiffAlias = true;
     package = pkgs-deprecated.neovim-unwrapped;
     sideloadInitLua = true;
+    withRuby = false; # adopt new home-manager default (silences deprecation warning)
+    withPython3 = false;
   };
 
   # Sync Neovim config from nix store. Uses rsync --update so that

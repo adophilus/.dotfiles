@@ -77,6 +77,8 @@
       # other
       "transmission"
       "gnucash"
+      # work
+      "lark"
       # "ghostty"  # disabled — using kitty as daily driver
     ];
     # CLI tools

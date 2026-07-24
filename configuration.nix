@@ -14,7 +14,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/auto-suspend.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -171,10 +170,14 @@
   # Fonts (Nerd Fonts etc.) — installed system-wide, visible to fontconfig.
   fonts.packages = [ pkgs.nerd-fonts.hurmit ];
 
-  # services.logind.extraConfig = pkgs-unstable.lib.mkForce ''
-  #   HandleLidSwitch=hibernate
-  #   HandleLidSwitchExternalPower=hibernate
-  # '';
+  # Don't suspend/hibernate when the lid closes — lets the laptop run headless
+  # (e.g. closed, accessed over SSH from the Mac). lidSwitchDocked already
+  # defaults to "ignore" (when an external monitor is attached).
+  # NOTE: this also disables suspend-on-lid while on battery; if you'd rather
+  # keep battery-lid suspend for safety when carrying it, drop the lidSwitch
+  # line below and keep only lidSwitchExternalPower = "ignore".
+  services.logind.lidSwitch = "ignore";
+  services.logind.lidSwitchExternalPower = "ignore";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

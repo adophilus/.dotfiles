@@ -588,6 +588,17 @@ in
     done
   '';
 
+  # Set Zen Browser as the default web browser on macOS (http/https handlers).
+  # Runs as the user (Launch Services defaults are per-user), after the apps are
+  # linked. Re-applied each rebuild since macOS can reset the default browser.
+  # No-op on Linux (duti is macOS-only).
+  home.activation.setZenDefaultBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    lib.optionalString pkgs.stdenv.isDarwin ''
+      ${pkgs.duti}/bin/duti -s app.zen-browser.zen https
+      ${pkgs.duti}/bin/duti -s app.zen-browser.zen http
+    ''
+  );
+
   # ── Zen Browser ───────────────────────────────────────────────────────
   programs.zen-browser = {
     enable = true;

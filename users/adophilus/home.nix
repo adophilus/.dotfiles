@@ -578,6 +578,16 @@ in
   # ── Home Manager self-management ──────────────────────────────────────
   programs.home-manager.enable = true;
 
+  # Re-index home-manager apps into macOS Spotlight after each rebuild.
+  # home-manager symlinks .app bundles into /nix/store, which Spotlight is slow
+  # to index; this forces it so the apps (kitty, firefox, …) appear in search.
+  # No-op on Linux (no ~/Applications/Home Manager Apps there).
+  home.activation.reindexSpotlight = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    for app in "$HOME/Applications/Home Manager Apps"/*.app; do
+      [ -e "$app" ] && /usr/bin/mdimport "$app" 2>/dev/null || true
+    done
+  '';
+
   # ── Zen Browser ───────────────────────────────────────────────────────
   programs.zen-browser = {
     enable = true;

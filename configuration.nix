@@ -14,7 +14,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/auto-suspend.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

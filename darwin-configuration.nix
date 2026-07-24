@@ -11,6 +11,17 @@
   # other per-user system options).
   system.primaryUser = "adophilus";
 
+  # nixpkgs config — system-level (home-manager uses global pkgs, so this
+  # belongs here, not in home.nix). Mirrors configuration.nix on zenith.
+  nixpkgs.config = {
+    permittedInsecurePackages = [ "electron-37.10.3" ];
+    allowUnfreePredicate = pkg:
+      builtins.elem (pkgs.lib.getName pkg) [
+        "postman" "spotify" "google-chrome" "zoom" "code" "vscode"
+        "steam" "steam-unwrapped" "discord" "legcord" "obsidian" "osu-lazar"
+      ];
+  };
+
   # Hostname — nadir (the celestial opposite of zenith). Sets HostName
   # (terminal/ssh prompt), LocalHostName (Bonjour .local), ComputerName (Finder).
   networking.hostName = "nadir";

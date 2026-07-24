@@ -473,8 +473,9 @@
         "steam-unwrapped"
         # "vscode-fhs"
         "discord"
+        "legcord"
         "obsidian"
-        "osu-lazer"
+        "osu-lazar"
       ];
   };
 

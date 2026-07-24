@@ -62,25 +62,9 @@ in
   home.homeDirectory = homeDirectory;
   home.stateVersion = "24.05";
 
-  # ── Package allowlist ─────────────────────────────────────────────────
-  nixpkgs.config = {
-    permittedInsecurePackages = [
-      "electron-37.10.3"
-    ];
-    allowUnfreePredicate =
-      pkg:
-      builtins.elem (lib.getName pkg) [
-        "postman"
-        "spotify"
-        "google-chrome"
-        "code"
-        "vscode"
-        "discord"
-        "legcord"
-        "obsidian"
-        "osu-lazer"
-      ];
-  };
+  # nixpkgs.config (allowUnfreePredicate + permittedInsecurePackages) now lives
+  # in the system configs (configuration.nix / darwin-configuration.nix) —
+  # home-manager uses global pkgs, so it belongs at the system level.
 
   # ── Packages ──────────────────────────────────────────────────────────
   home.packages =

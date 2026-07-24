@@ -210,326 +210,331 @@ in
 
       # Custom — built per-host in flake.nix
       ytd-pkg
+
+      feishu
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
-    ++ lib.optionals pkgs.stdenv.isLinux (with pkgs-unstable; [
-    pavucontrol
-    qpwgraph
-    tree
-
-    tigervnc
-
-    # Video drivers
-    intel-media-driver
-    libva
-    libva-utils
-    libva-vdpau-driver
-
-    # PDF readers
-    zathura
-
-    # Email
-    thunderbird
-
-    # Finances
-    gnucash
-
-    just
-    posting
-
-    # Notes
-    inputs.zennotes.packages.x86_64-linux.zennotes-desktop
-    dos2unix
-    cloudflared
-
-    # ADB tools
-    scrcpy
-    adbfs-rootless
-
-    # Nix
-    nixfmt
-    manix
-
-    # Timers
-    termdown
-
-    # Networking
-    stunnel
-    socat
-    wget
-    inetutils
-    curlFull
-
-    # Java
-    openjdk
-    maven
-
-    # Lua
-    lua
-    luaPackages.luarocks
-    lua-language-server
-
-    # Tmux
-    tmux
-
-    sshfs
-
-    # Interop
-    anyrun
-    appimage-run
-
-    # Google
-    google-cloud-sdk
-    gws.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # Rust
-    cargo
-    rustc
-
-    acpi
-
-    sqlite
-
-    jq
-    gnumake
-    fzf
-    direnv
-    openssl
-
-    # Python
-    python3
-    python3Packages.pyftpdlib
-    python3Packages.pip
-    poetry
-    ffmpeg
-    mitmproxy
-    uv
-
-    # PHP
-    php
-    php82Packages.composer
-    php82Extensions.mbstring
-    php82Extensions.iconv
-
-    # Crypto
-    monero-gui
-    electrum
-
-    # Graphics
-    obs-studio
-    shotcut
-    imagemagick
-
-    # Networking
-    wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # Torrent
-    deluge
-
-    # Notifications
-    swaynotificationcenter
-    libnotify
-    webp-pixbuf-loader
-    gtk-layer-shell
-    gtk3
-    gtksourceview3
-    gobject-introspection
-    upower
-    yad
-    ydotool
-    libdbusmenu-gtk3
-
-    # Video players
-    pkgs.mpv
-    vlc
-    d2
-
-    # Android
-    android-tools
-    nwg-look
-
-    obsidian
-    grim
-
-    # Code editors
-    code-cursor-fhs
-    vscode-fhs
-
-    # Dev tools
-    gh
-    flyctl
-    gcc # C/C++ toolchain (provides cc/gcc/g++); needed for node-gyp native builds
-
-    # Drives
-    udiskie
-
-    # Browsers
-    tor-browser
-    firefox
-    google-chrome
-    mullvad-browser
-
-    # Password management
-    gopass
-    gopass-jsonapi
-
-    mdbook
-    ags
-
-    # Music
-    pkgs.spotifywm
-    pkgs.sayonara
-
-    # Clipboard
-    cliphist
-    slurp
-    tesseract
-    grimblast
-
-    # Wayland
-    wl-clipboard
-    waypaper
-    wlogout
-
-    # Hyprland ecosystem
-    hypridle
-    hyprcursor
-    hyprpaper
-    hyprsome
-    pkgs.hyprlock
-    hyprpicker
-    hyprsunset
-    hyprshade
-
-    # Containers
-    dive
-    podman-tui
-    podman-compose
-
-    # Node.js
-    deno
-    nodejs
-    pnpm
-    bun
-
-    # Go
-    go
-    air
-
-    # Discord TUI client
-    discordo
-
-    # System monitors
-    bottom
-    powertop
-    btop
-
-    # Disk analysis
-    gdu
-
-    gjs
-    wayshot
-    foot
-
-    # Networking tools
-    dig
-    unixtools.netstat
-    unixtools.route
-
-    ltrace
-    ripgrep
-    tokei
-    torsocks
-
-    # Terminal
-    kitty
-    # ghostty  # disabled — using kitty as daily driver
-    starship
-
-    # File manager
-    yazi
-
-    # Calculator
-    libqalculate
-
-    # Discord (Legcord — lightweight moddable client, wrapped with VA-API)
-    legcord-vapi
-
-    # WhatsApp (native GTK4 client)
-    karere
-
-    # WhatsApp (terminal client with vim motions)
-    wstui-pkg
-
-    # Git
-    gitoxide
-    git-lfs
-    gitui
-    lazygit
-
-    # Launchers
-    fuzzel
-    brightnessctl
-    wofi
-    rofi
-
-    # Documentation
-    tldr
-    # zeal
-
-    # Archive
-    zip
-    unzip
-
-    # Zig
-    zig
-
-    # penpot-desktop
-    figma-linux
-
-    rustscan
-
-    file
-    rclone
-
-    # Playwright
-    playwright-driver.browsers
-
-    gnome-network-displays
-
-    # Quickshell desktop shell
-    quickshell
-    qt6.qtmultimedia
-    qt6.qtdeclarative
-    awww
-    gpu-screen-recorder
-    satty
-    zbar
-    pamixer
-    inotify-tools
-    playerctl
-    cava
-    mpvpaper
-    easyeffects
-
-    usbutils
-
-    # Floci — local cloud emulator for AWS/Azure
-    floci-pkg
-    floci-ui
-
-    # AWS
-    awscli2
-
-    # Notes / annotation
-    xournalpp
-
-    # Productivity
-    super-productivity
-
-    # Process manager
-    process-compose
-  ]);
+    ++ lib.optionals pkgs.stdenv.isLinux (
+      with pkgs-unstable;
+      [
+        pavucontrol
+        qpwgraph
+        tree
+
+        tigervnc
+
+        # Video drivers
+        intel-media-driver
+        libva
+        libva-utils
+        libva-vdpau-driver
+
+        # PDF readers
+        zathura
+
+        # Email
+        thunderbird
+
+        # Finances
+        gnucash
+
+        just
+        posting
+
+        # Notes
+        inputs.zennotes.packages.x86_64-linux.zennotes-desktop
+        dos2unix
+        cloudflared
+
+        # ADB tools
+        scrcpy
+        adbfs-rootless
+
+        # Nix
+        nixfmt
+        manix
+
+        # Timers
+        termdown
+
+        # Networking
+        stunnel
+        socat
+        wget
+        inetutils
+        curlFull
+
+        # Java
+        openjdk
+        maven
+
+        # Lua
+        lua
+        luaPackages.luarocks
+        lua-language-server
+
+        # Tmux
+        tmux
+
+        sshfs
+
+        # Interop
+        anyrun
+        appimage-run
+
+        # Google
+        google-cloud-sdk
+        gws.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+        # Rust
+        cargo
+        rustc
+
+        acpi
+
+        sqlite
+
+        jq
+        gnumake
+        fzf
+        direnv
+        openssl
+
+        # Python
+        python3
+        python3Packages.pyftpdlib
+        python3Packages.pip
+        poetry
+        ffmpeg
+        mitmproxy
+        uv
+
+        # PHP
+        php
+        php82Packages.composer
+        php82Extensions.mbstring
+        php82Extensions.iconv
+
+        # Crypto
+        monero-gui
+        electrum
+
+        # Graphics
+        obs-studio
+        shotcut
+        imagemagick
+
+        # Networking
+        wifitui.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+        # Torrent
+        deluge
+
+        # Notifications
+        swaynotificationcenter
+        libnotify
+        webp-pixbuf-loader
+        gtk-layer-shell
+        gtk3
+        gtksourceview3
+        gobject-introspection
+        upower
+        yad
+        ydotool
+        libdbusmenu-gtk3
+
+        # Video players
+        pkgs.mpv
+        vlc
+        d2
+
+        # Android
+        android-tools
+        nwg-look
+
+        obsidian
+        grim
+
+        # Code editors
+        code-cursor-fhs
+        vscode-fhs
+
+        # Dev tools
+        gh
+        flyctl
+        gcc # C/C++ toolchain (provides cc/gcc/g++); needed for node-gyp native builds
+
+        # Drives
+        udiskie
+
+        # Browsers
+        tor-browser
+        firefox
+        google-chrome
+        mullvad-browser
+
+        # Password management
+        gopass
+        gopass-jsonapi
+
+        mdbook
+        ags
+
+        # Music
+        pkgs.spotifywm
+        pkgs.sayonara
+
+        # Clipboard
+        cliphist
+        slurp
+        tesseract
+        grimblast
+
+        # Wayland
+        wl-clipboard
+        waypaper
+        wlogout
+
+        # Hyprland ecosystem
+        hypridle
+        hyprcursor
+        hyprpaper
+        hyprsome
+        pkgs.hyprlock
+        hyprpicker
+        hyprsunset
+        hyprshade
+
+        # Containers
+        dive
+        podman-tui
+        podman-compose
+
+        # Node.js
+        deno
+        nodejs
+        pnpm
+        bun
+
+        # Go
+        go
+        air
+
+        # Discord TUI client
+        discordo
+
+        # System monitors
+        bottom
+        powertop
+        btop
+
+        # Disk analysis
+        gdu
+
+        gjs
+        wayshot
+        foot
+
+        # Networking tools
+        dig
+        unixtools.netstat
+        unixtools.route
+
+        ltrace
+        ripgrep
+        tokei
+        torsocks
+
+        # Terminal
+        kitty
+        # ghostty  # disabled — using kitty as daily driver
+        starship
+
+        # File manager
+        yazi
+
+        # Calculator
+        libqalculate
+
+        # Discord (Legcord — lightweight moddable client, wrapped with VA-API)
+        legcord-vapi
+
+        # WhatsApp (native GTK4 client)
+        karere
+
+        # WhatsApp (terminal client with vim motions)
+        wstui-pkg
+
+        # Git
+        gitoxide
+        git-lfs
+        gitui
+        lazygit
+
+        # Launchers
+        fuzzel
+        brightnessctl
+        wofi
+        rofi
+
+        # Documentation
+        tldr
+        # zeal
+
+        # Archive
+        zip
+        unzip
+
+        # Zig
+        zig
+
+        # penpot-desktop
+        figma-linux
+
+        rustscan
+
+        file
+        rclone
+
+        # Playwright
+        playwright-driver.browsers
+
+        gnome-network-displays
+
+        # Quickshell desktop shell
+        quickshell
+        qt6.qtmultimedia
+        qt6.qtdeclarative
+        awww
+        gpu-screen-recorder
+        satty
+        zbar
+        pamixer
+        inotify-tools
+        playerctl
+        cava
+        mpvpaper
+        easyeffects
+
+        usbutils
+
+        # Floci — local cloud emulator for AWS/Azure
+        floci-pkg
+        floci-ui
+
+        # AWS
+        awscli2
+
+        # Notes / annotation
+        xournalpp
+
+        # Productivity
+        super-productivity
+
+        # Process manager
+        process-compose
+      ]
+    );
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────
   # For configs managed by activation scripts (copy from nix store),
@@ -577,7 +582,8 @@ in
 
     nativeMessagingHosts = [
       pkgs-unstable.gopass-jsonapi
-    ] ++ lib.optionals pkgs.stdenv.isLinux [
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
       pkgs.firefoxpwa # not available on x86_64-darwin
     ];
 
@@ -767,5 +773,7 @@ in
     };
   };
 
-  programs.opencode.web.environmentFile = lib.mkIf pkgs.stdenv.isLinux config.sops.secrets."adophilus/.env".path;
+  programs.opencode.web.environmentFile =
+    lib.mkIf pkgs.stdenv.isLinux
+      config.sops.secrets."adophilus/.env".path;
 }

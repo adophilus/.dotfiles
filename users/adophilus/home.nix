@@ -591,64 +591,8 @@ in
     ''
   );
 
-  # ── Zen Browser ───────────────────────────────────────────────────────
-  programs.zen-browser = {
-    enable = true;
-
-    nativeMessagingHosts = [
-      pkgs-unstable.gopass-jsonapi
-    ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      pkgs.firefoxpwa # not available on x86_64-darwin
-    ];
-
-    profiles.default = {
-      settings = {
-        "zen.workspaces.continue-where-left-off" = true;
-        "zen.workspaces.natural-scroll" = true;
-        "zen.view.compact.hide-tabbar" = true;
-        "zen.view.compact.hide-toolbar" = true;
-        "zen.view.compact.animate-sidebar" = false;
-        "zen.welcome-screen.seen" = true;
-        "zen.urlbar.behavior" = "float";
-
-        # ── Hardware video decode (VA-API) for calls/meet ──
-        # iGPU = Intel UHD 620 (Kaby Lake-R), iHD driver. Supports H.264,
-        # HEVC, VP8, VP9 decode in hardware (verified via `vainfo`).
-        # Without these, WebRTC video is software-decoded on the CPU.
-        "media.ffmpeg.vaapi.enabled" = true; # master VA-API switch
-        "media.hardware-video-decoding.force-enabled" = true; # bypass blocklist
-        "media.ffmpeg.low-latency.enabled" = true; # KEY for WebRTC VA-API
-        "media.rdd-process.enabled" = true; # RDD is where VA-API decode runs
-        "gfx.webrender.all" = true; # HW WebRender required or VA-API is silently disabled
-        "media.av1.enabled" = false; # UHD 620 has no AV1 decode → would hit CPU
-      };
-
-      mods = [
-        "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
-        "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
-      ];
-    };
-
-    policies = {
-      AutofillAddressEnabled = true;
-      AutofillCreditCardEnabled = false;
-      DisableAppUpdate = true;
-      DisableFeedbackCommands = true;
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
-      NoDefaultBookmarks = true;
-      OfferToSaveLogins = false;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
-    };
-  };
+  # Zen Browser config lives in config/programs/zen-browser/default.nix
+  # (single source for both hosts; previously duplicated here).
 
   # ── Git ───────────────────────────────────────────────────────────────
   programs.git = {

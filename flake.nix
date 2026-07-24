@@ -97,6 +97,7 @@
         "neovim"
         "starship"
         "tmux"
+        "zen-browser"
       ];
     in
     {

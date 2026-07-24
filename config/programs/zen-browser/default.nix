@@ -32,8 +32,9 @@ in
     enable = true;
 
     nativeMessagingHosts = [
-      pkgs.firefoxpwa
       pkgs-unstable.gopass-jsonapi
+    ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      pkgs.firefoxpwa # Linux-only (not on x86_64-darwin)
     ];
 
     profiles.default = {

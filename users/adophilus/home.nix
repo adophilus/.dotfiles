@@ -578,6 +578,27 @@ in
   # ── Home Manager self-management ──────────────────────────────────────
   programs.home-manager.enable = true;
 
+  # Re-index home-manager apps into macOS Spotlight after each rebuild.
+  # home-manager symlinks .app bundles into /nix/store, which Spotlight is slow
+  # to index; this forces it so the apps (kitty, firefox, …) appear in search.
+  # No-op on Linux (no ~/Applications/Home Manager Apps there).
+  home.activation.reindexSpotlight = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    for app in "$HOME/Applications/Home Manager Apps"/*.app; do
+      [ -e "$app" ] && /usr/bin/mdimport "$app" 2>/dev/null || true
+    done
+  '';
+
+  # Set Zen Browser as the default web browser on macOS (http/https handlers).
+  # Runs as the user (Launch Services defaults are per-user), after the apps are
+  # linked. Re-applied each rebuild since macOS can reset the default browser.
+  # No-op on Linux (duti is macOS-only).
+  home.activation.setZenDefaultBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    lib.optionalString pkgs.stdenv.isDarwin ''
+      ${pkgs.duti}/bin/duti -s app.zen-browser.zen https
+      ${pkgs.duti}/bin/duti -s app.zen-browser.zen http
+    ''
+  );
+
   # ── Zen Browser ───────────────────────────────────────────────────────
   programs.zen-browser = {
     enable = true;

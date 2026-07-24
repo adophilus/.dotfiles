@@ -76,7 +76,10 @@
       pkgs-unstable = import nixpkgs-unstable pkgsParams;
       wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
       floci-pkg = pkgs.callPackage ./pkgs/floci/default.nix { };
-      ytd-pkg = pkgs.callPackage ./pkgs/ytd/default.nix { };
+      ytd-pkg   = pkgs.callPackage ./pkgs/ytd/default.nix { };
+      # Built from pkgs-unstable so its `feishu` base + buildInputs resolve
+      # consistently (feishu is not in stable nixpkgs at this version).
+      lark-pkg  = pkgs-unstable.callPackage ./pkgs/lark/default.nix { };
 
       homeManagerProgramsDir = ./config/programs;
       homeManagerDirContents = builtins.readDir homeManagerProgramsDir;
@@ -125,6 +128,7 @@
                   floci-pkg
                   sops-nix
                   ytd-pkg
+                  lark-pkg
                   pkgs-deprecated
                   pkgs-unstable
                   ;

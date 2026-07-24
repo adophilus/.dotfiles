@@ -10,6 +10,7 @@
   wstui-pkg,
   floci-pkg,
   ytd-pkg,
+  lark-pkg,
   modules,
   homeDirectory ? "/home/adophilus",
   ...
@@ -211,7 +212,7 @@ in
       # Custom — built per-host in flake.nix
       ytd-pkg
 
-      feishu
+      lark-pkg
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (

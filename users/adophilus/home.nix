@@ -49,6 +49,21 @@ let
       exec podman-compose "$@"
     fi
   '';
+
+  # with-secrets: run a command with the sops-decrypted .env loaded into its
+  # environment. Secrets stay scoped to that one process — not leaked into
+  # your interactive shell. Usage: with-secrets opencode   (or any command)
+  with-secrets = pkgs.writeShellScriptBin "with-secrets" ''
+    SOPS_ENV="${config.sops.secrets."adophilus/.env".path}"
+    if [ ! -f "$SOPS_ENV" ]; then
+      echo "with-secrets: secrets file not found at $SOPS_ENV" >&2
+      exit 1
+    fi
+    set -a  # auto-export vars set by the sourced file
+    . "$SOPS_ENV"
+    set +a
+    exec "$@"
+  '';
 in
 {
   imports = [
@@ -195,6 +210,7 @@ in
 
       # Custom — built per-host in flake.nix
       ytd-pkg
+      with-secrets
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (

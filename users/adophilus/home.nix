@@ -637,7 +637,7 @@ in
   };
   # services.hypridle is managed in config/programs/hypridle/default.nix
 
-  sops = lib.mkIf pkgs.stdenv.isLinux {
+  sops = {
     # age.keyFile = "/home/adophilus/.age-key.txt";
     age.keyFile = "/var/lib/sops-nix/key.txt";
     secrets."adophilus/.env" = {

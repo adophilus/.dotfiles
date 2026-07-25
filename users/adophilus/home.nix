@@ -186,7 +186,6 @@ in
       obsidian
       thunderbird
       xournalpp
-      super-productivity
       process-compose
       pkgs.sayonara
 
@@ -530,9 +529,6 @@ in
 
         # Notes / annotation
         xournalpp
-
-        # Productivity
-        super-productivity
 
         # Process manager
         process-compose

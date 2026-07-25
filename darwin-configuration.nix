@@ -40,8 +40,10 @@
   # automatically when Remote Login is enabled (no separate firewall rule needed).
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
+    extraConfig = ''
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+    '';
   };
 
   # Fish shell — enabled at system level so it's on PATH for the login shell.

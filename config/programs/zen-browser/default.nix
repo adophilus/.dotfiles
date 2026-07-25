@@ -63,6 +63,32 @@ in
         "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
         "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
       ];
+
+      # Declarative essentials — pinned tabs in Zen's Essentials sidebar.
+      # ⚠ Close Zen before rebuild (activation needs exclusive access to
+      # zen-sessions.jsonlz4). Omit pinsForceAction to keep existing pins
+      # as normal tabs; set to "remove" to delete undeclared pins.
+      pins = {
+        "Gmail" = {
+          id = "c174dca4-e48c-43f2-a7ec-09cfc34c566b";
+          url = "https://mail.google.com";
+          position = 101;
+          isEssential = true;
+        };
+        "Discord" = {
+          id = "4f655856-378f-4694-9633-f15207eb0edf";
+          url = "https://discord.com/app";
+          position = 102;
+          isEssential = true;
+        };
+        "keybr" = {
+          id = "4747adea-8354-471e-8f58-415ff5ca3f4b";
+          url = "https://www.keybr.com";
+          position = 103;
+          isEssential = true;
+        };
+      };
+      pinsForce = true;
     };
 
     policies = {

@@ -98,6 +98,7 @@
         "starship"
         "tmux"
         "zen-browser"
+        "opencode"
       ];
     in
     {

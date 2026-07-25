@@ -4,8 +4,12 @@
   ...
 }:
 {
-  programs.opencode = {
+  # opencode package + web server — Linux only (no x86_64-darwin build in
+  # nixpkgs; on macOS opencode is installed via Homebrew). The config-file
+  # deployment below (activation scripts + home.file) runs on both platforms.
+  programs.opencode = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
+
     web = {
       enable = true;
       extraArgs = [
@@ -14,8 +18,10 @@
       ];
     };
   };
+  };
 
   home.activation.copyOpencodeConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p $HOME/.config
     run ${pkgs.rsync}/bin/rsync --archive ${../../../.config/opencode}/ $HOME/.config/opencode/
     run chmod --recursive u+w $HOME/.config/opencode
   '';

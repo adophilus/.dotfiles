@@ -36,6 +36,14 @@
   # this to true (or remove it).
   nix.enable = false;
 
+  # SSH (Remote Login) — key-only auth, mirroring zenith. macOS opens port 22
+  # automatically when Remote Login is enabled (no separate firewall rule needed).
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
+
   # Fish shell — enabled at system level so it's on PATH for the login shell.
   programs.fish.enable = true;
 
@@ -45,6 +53,11 @@
   users.users.adophilus = {
     shell = pkgs.fish;
     home = "/Users/adophilus";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJZPOgp7+K4/EoD42le6SrMyx0f1V9C7BTV9ofTZhZk9" # PC (Windows)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvspjstxde1C6CflLgJ6U7G5s3Ax/sLxquGyleTFqyb" # zenith (nixos)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2bq3qXrnIuRcH3zmJfbh14qGBTervXKVf6iZ5uQs+c" # vps (contabo)
+    ];
   };
 
   # Fonts — installed so macOS CoreText (and kitty) can see them.

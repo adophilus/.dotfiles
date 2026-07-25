@@ -56,9 +56,7 @@
     shell = pkgs.fish;
     home = "/Users/adophilus";
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJZPOgp7+K4/EoD42le6SrMyx0f1V9C7BTV9ofTZhZk9" # PC (Windows)
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvspjstxde1C6CflLgJ6U7G5s3Ax/sLxquGyleTFqyb" # zenith (nixos)
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL2bq3qXrnIuRcH3zmJfbh14qGBTervXKVf6iZ5uQs+c" # vps (contabo)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGMOszuqNs3PhCKOhCejkol4u4/vRgLP1s2vCT9nJo4D adophilus@nadir"
     ];
   };
 

@@ -628,6 +628,10 @@ in
   programs.fish = {
     enable = true;
     shellInit = builtins.readFile ../../.config/fish/config.fish;
+    # Wrap opencode so it always runs with the sops secrets loaded.
+    # (with-secrets is a bash script, so no recursion — exec opencode finds
+    # the real binary on PATH, bypassing this fish alias.)
+    shellAliases.opencode = "with-secrets opencode";
   };
 
   # ── Desktop entries ───────────────────────────────────────────────────

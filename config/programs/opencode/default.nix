@@ -18,7 +18,6 @@
       ];
     };
   };
-  };
 
   home.activation.copyOpencodeConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     run mkdir -p $HOME/.config

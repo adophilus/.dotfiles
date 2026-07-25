@@ -170,6 +170,7 @@ in
 
       # Security / crypto
       age
+      sops
       gopass
       gopass-jsonapi
       zbar

@@ -88,6 +88,7 @@
       "legcord"
       "whatsapp"
       "figma"
+      "open-design"
       # media
       "vlc"
       "obs"

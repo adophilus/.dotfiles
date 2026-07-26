@@ -70,17 +70,12 @@
 				"pnpx",
 				"figma-console-mcp"
 			],
-      "enabled": true,
+			"enabled": true,
 			"environment": {
 				"FIGMA_ACCESS_TOKEN": "{env:FIGMA_ACCESS_TOKEN}",
 				"ENABLE_MCP_APPS": "true"
 			}
 		},
-		// "figma-bridge": {
-		// 	"type": "local",
-		// 	"command": ["pnpx", "@gethopp/figma-mcp-bridge"],
-		// 	"enabled": true,
-		// },
 		"codegraph": {
 			"type": "local",
 			"command": [

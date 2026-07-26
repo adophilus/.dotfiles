@@ -1,6 +1,7 @@
 return {
 	"AstroNvim/astroui",
 	opts = {
-		colorscheme = "base16-ayu-dark",
+		-- colorscheme = "base16-ayu-dark",
+		colorscheme = "charcoal",
 	},
 }

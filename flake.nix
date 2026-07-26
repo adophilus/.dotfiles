@@ -41,6 +41,9 @@
       };
     };
 
+    # Open Design — local-first design tool (builds from source via dream2nix)
+    open-design.url = "github:nexu-io/open-design";
+
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows =
@@ -80,6 +83,9 @@
       # Built from pkgs-unstable so its `feishu` base + buildInputs resolve
       # consistently (feishu is not in stable nixpkgs at this version).
       lark-pkg  = pkgs-unstable.callPackage ./pkgs/lark/default.nix { };
+
+      # Open Design daemon (from the upstream flake, builds from source)
+      open-design-pkg = inputs.open-design.packages.${system}.default;
 
       homeManagerProgramsDir = ./config/programs;
       homeManagerDirContents = builtins.readDir homeManagerProgramsDir;
@@ -130,8 +136,9 @@
                   floci-pkg
                   sops-nix
                   ytd-pkg
-                  lark-pkg
-                  pkgs-deprecated
+                lark-pkg
+                open-design-pkg
+                pkgs-deprecated
                   pkgs-unstable
                   ;
                 modules = homeManagerModules;

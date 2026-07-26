@@ -93,10 +93,16 @@ in
           position = 104;
           isEssential = true;
         };
+        "LinkedIn" = {
+          id = "cb1ec737-39dd-45cf-aa07-721436cbac71";
+          url = "https://www.linkedin.com";
+          position = 105;
+          isEssential = true;
+        };
         "Super Productivity" = {
           id = "e6a47b03-c431-4a58-9228-cf80af35b162";
           url = "https://app.super-productivity.com";
-          position = 105;
+          position = 106;
           isEssential = true;
         };
       };

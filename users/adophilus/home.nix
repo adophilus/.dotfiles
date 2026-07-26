@@ -11,6 +11,7 @@
   floci-pkg,
   ytd-pkg,
   lark-pkg,
+  open-design-pkg,
   modules,
   homeDirectory ? "/home/adophilus",
   ...
@@ -523,6 +524,7 @@ in
 
         # Lark (work collab) — Linux-only: .deb-based feishu override, no darwin build
         lark-pkg
+        open-design-pkg
 
         # AWS
         awscli2

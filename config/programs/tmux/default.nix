@@ -1,11 +1,12 @@
 { lib, ... }:
 
 {
-  # Only copies config files — TPM manages plugins separately at runtime.
-  # Uses rsync (not rm -rf + cp) so runtime-installed plugins/ survive rebuilds.
+  # Copies ONLY the 2 config files (tmux.conf + tmux.conf.local) — leaves the
+  # plugins/ directory (installed by TPM at runtime) untouched across rebuilds.
   home.activation.copyTmuxConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run mkdir -p $HOME/.config
-    run ${pkgs.rsync}/bin/rsync --archive --exclude plugins/ ${../../../.config/tmux}/ $HOME/.config/tmux/
-    run chmod --recursive u+w $HOME/.config/tmux
+    run mkdir -p $HOME/.config/tmux
+    run cp -f ${../../../.config/tmux/tmux.conf} $HOME/.config/tmux/tmux.conf
+    run cp -f ${../../../.config/tmux/tmux.conf.local} $HOME/.config/tmux/tmux.conf.local
+    run chmod u+w $HOME/.config/tmux/tmux.conf $HOME/.config/tmux/tmux.conf.local
   '';
 }

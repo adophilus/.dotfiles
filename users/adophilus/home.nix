@@ -124,27 +124,12 @@ in
       lua
       luaPackages.luarocks
       lua-language-server
-      cargo
-      rustc
-      openjdk
-      maven
-      go
-      air
       deno
       nodejs
       pnpm
       bun
       biome
-      zig
       python3
-      python3Packages.pyftpdlib
-      python3Packages.pip
-      poetry
-      uv
-      php
-      php82Packages.composer
-      php82Extensions.mbstring
-      php82Extensions.iconv
 
       # Git
       gitoxide
@@ -184,7 +169,6 @@ in
       tesseract
       cava
       pkgs.mpv
-      obsidian
       thunderbird
       xournalpp
       process-compose
@@ -200,8 +184,7 @@ in
       tokei
 
       # GUI apps (have x86_64-darwin builds)
-      firefox
-      google-chrome
+      # google-chrome  # commented — using zen as primary
 
       # Misc desktop libs
       libnotify
@@ -242,7 +225,7 @@ in
         posting
 
         # Notes
-        inputs.zennotes.packages.x86_64-linux.zennotes-desktop
+        # inputs.zennotes.packages.x86_64-linux.zennotes-desktop
         dos2unix
         cloudflared
 
@@ -264,10 +247,6 @@ in
         inetutils
         curlFull
 
-        # Java
-        openjdk
-        maven
-
         # Lua
         lua
         luaPackages.luarocks
@@ -286,10 +265,6 @@ in
         google-cloud-sdk
         gws.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-        # Rust
-        cargo
-        rustc
-
         acpi
 
         sqlite
@@ -302,18 +277,8 @@ in
 
         # Python
         python3
-        python3Packages.pyftpdlib
-        python3Packages.pip
-        poetry
         ffmpeg
         mitmproxy
-        uv
-
-        # PHP
-        php
-        php82Packages.composer
-        php82Extensions.mbstring
-        php82Extensions.iconv
 
         # Crypto
         monero-gui
@@ -352,12 +317,12 @@ in
         android-tools
         nwg-look
 
-        obsidian
+        # obsidian  # removed
         grim
 
         # Code editors
-        code-cursor-fhs
-        vscode-fhs
+        # code-cursor-fhs  # removed
+        # vscode-fhs  # removed
 
         # Dev tools
         gh
@@ -367,11 +332,11 @@ in
         # Drives
         udiskie
 
-        # Browsers
-        tor-browser
-        firefox
-        google-chrome
-        mullvad-browser
+        # Browsers (zen-browser is primary)
+        # tor-browser  # commented — using zen
+        # firefox  # removed — using zen
+        # google-chrome  # commented — using zen
+        # mullvad-browser  # commented — using zen
 
         # Password management
         gopass
@@ -416,10 +381,6 @@ in
         pnpm
         bun
 
-        # Go
-        go
-        air
-
         # Discord TUI client
         discordo
 
@@ -457,7 +418,7 @@ in
         libqalculate
 
         # Discord (Legcord — lightweight moddable client, wrapped with VA-API)
-        legcord-vapi
+        # legcord-vapi  # removed — using legcord via Homebrew on Mac, evaluating on zenith
 
         # WhatsApp (native GTK4 client)
         karere
@@ -485,8 +446,7 @@ in
         zip
         unzip
 
-        # Zig
-        zig
+        # zig  # removed
 
         # penpot-desktop
         figma-linux
@@ -497,7 +457,7 @@ in
         rclone
 
         # Playwright
-        playwright-driver.browsers
+        # playwright-driver.browsers  # removed — massive (~500MB+)
 
         gnome-network-displays
 
@@ -568,9 +528,9 @@ in
 
   # ── Session variables ─────────────────────────────────────────────────
   home.sessionVariables = {
-    PLAYWRIGHT_BROWSERS_PATH = "${pkgs-unstable.playwright-driver.browsers}";
-    PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "1";
-    PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
+    # PLAYWRIGHT_BROWSERS_PATH = "${pkgs-unstable.playwright-driver.browsers}";
+    # PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "1";
+    # PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
     # STARSHIP_CONFIG is set in config/programs/starship/default.nix
   };
 
@@ -687,7 +647,7 @@ in
 
       "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
-      "x-scheme-handler/discord" = "legcord.desktop";
+      # "x-scheme-handler/discord" = "legcord.desktop";  # legcord removed
       "x-scheme-handler/discord-1216669957799018608" = "discord-1216669957799018608.desktop";
       "x-scheme-handler/postman" = "Postman.desktop";
       "x-scheme-handler/figma" = "figma-linux.desktop";

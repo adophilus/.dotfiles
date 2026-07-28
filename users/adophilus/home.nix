@@ -38,6 +38,9 @@ let
     '';
   };
 
+  # d2 without playwright-driver.browsers (~7.6GB). SVG export only.
+  d2-lite = pkgs.d2.overrideAttrs (_: _: { buildInputs = [ ]; });
+
   # floci-ui: clone the repo and run the compose stack via podman-compose
   floci-ui = pkgs.writeShellScriptBin "floci-ui" ''
     set -e
@@ -164,6 +167,7 @@ in
       # Media / docs / viewers
       ffmpeg
       imagemagick
+      d2-lite
       mdbook
       tesseract
       cava

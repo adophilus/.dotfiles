@@ -539,7 +539,7 @@
   };
 
   services.postgresql = {
-    enable = true;
+    # enable = true;
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       # type db   user       address       method

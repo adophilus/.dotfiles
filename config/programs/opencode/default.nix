@@ -5,7 +5,7 @@
 }:
 {
   # opencode package + web server — Linux only (no x86_64-darwin build in
-  # nixpkgs; on macOS opencode is installed via Homebrew). The config-file
+  # nixpkgs; on macOS opencode is installed standalone via pnpm global). The config-file
   # deployment below (activation scripts + home.file) runs on both platforms.
   programs.opencode = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;

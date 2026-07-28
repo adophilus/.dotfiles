@@ -128,7 +128,7 @@ in
       luaPackages.luarocks
       lua-language-server
       deno
-      nodejs
+      nodejs_22
       pnpm
       bun
       biome

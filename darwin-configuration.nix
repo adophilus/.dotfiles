@@ -106,10 +106,9 @@
       "lark"
       # "ghostty"  # disabled — using kitty as daily driver
     ];
-    # CLI tools
-    brews = [
-      "opencode"
-    ];
+    # CLI tools come from nix (home.packages); no Homebrew brews. opencode is
+    # installed standalone so it doesn't pull a Homebrew node that shadows nix's.
+    brews = [ ];
   };
 
   # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.

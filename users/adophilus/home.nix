@@ -484,7 +484,7 @@ in
 
         # Lark (work collab) — Linux-only: .deb-based feishu override, no darwin build
         lark-pkg
-        open-design-pkg
+        # open-design-pkg
 
         # AWS
         awscli2

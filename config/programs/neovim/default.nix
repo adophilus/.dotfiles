@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-deprecated,
   lib,
   ...
 }:
@@ -11,7 +12,10 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = pkgs.neovim-unwrapped;
+    # ponytail: pinned to 25.11 cos 26.05 HEAD has 0.12+ (incompatible with AstroNvim).
+    # Current pinned flake.lock has 0.11.6, but next `nix flake update` bumps to 0.12.4.
+    # Remove this when AstroNvim supports 0.12+.
+    package = pkgs-deprecated.neovim-unwrapped;
     sideloadInitLua = true;
     withRuby = false; # adopt new home-manager default (silences deprecation warning)
     withPython3 = false;

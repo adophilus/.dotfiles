@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    # Kept solely for neovim-unwrapped 0.11.x (26.05 HEAD has 0.12+, breaks AstroNvim).
+    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -56,6 +58,7 @@
   outputs =
     inputs@{
       home-manager,
+      nixpkgs-deprecated,
       nixpkgs,
       nixpkgs-unstable,
       end4dots,
@@ -75,6 +78,7 @@
           ];
         };
       };
+      pkgs-deprecated = import nixpkgs-deprecated pkgsParams;
       pkgs = import nixpkgs pkgsParams;
       pkgs-unstable = import nixpkgs-unstable pkgsParams;
       wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
@@ -138,6 +142,7 @@
                 ytd-pkg
                 lark-pkg
                 open-design-pkg
+                pkgs-deprecated
                 pkgs-unstable
                 ;
                 modules = homeManagerModules;
@@ -191,6 +196,10 @@
                 system = "x86_64-darwin";
                 config.allowUnfree = true;
               }).callPackage ./pkgs/ytd/default.nix { };
+              pkgs-deprecated = import nixpkgs-deprecated {
+                system = "x86_64-darwin";
+                config.allowUnfree = true;
+              };
               # nixpkgs-unstable (26.11) dropped x86_64-darwin; use 26.05 (nixpkgs).
               pkgs-unstable = import nixpkgs {
                 system = "x86_64-darwin";

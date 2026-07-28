@@ -164,7 +164,6 @@ in
       # Media / docs / viewers
       ffmpeg
       imagemagick
-      d2
       mdbook
       tesseract
       cava

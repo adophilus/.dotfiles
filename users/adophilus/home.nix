@@ -164,7 +164,6 @@ in
       # Media / docs / viewers
       ffmpeg
       imagemagick
-      d2
       mdbook
       tesseract
       cava
@@ -311,7 +310,6 @@ in
         # Video players
         pkgs.mpv
         vlc
-        d2
 
         # Android
         android-tools

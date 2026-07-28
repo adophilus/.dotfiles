@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -42,7 +41,10 @@
     };
 
     # Open Design — local-first design tool (builds from source via dream2nix)
-    open-design.url = "github:nexu-io/open-design";
+    open-design = {
+      url = "github:nexu-io/open-design";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
@@ -54,7 +56,6 @@
   outputs =
     inputs@{
       home-manager,
-      nixpkgs-deprecated,
       nixpkgs,
       nixpkgs-unstable,
       end4dots,
@@ -74,7 +75,6 @@
           ];
         };
       };
-      pkgs-deprecated = import nixpkgs-deprecated pkgsParams;
       pkgs = import nixpkgs pkgsParams;
       pkgs-unstable = import nixpkgs-unstable pkgsParams;
       wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
@@ -127,20 +127,19 @@
 
               home-manager.users.adophilus = import ./users/adophilus/home.nix;
               home-manager.extraSpecialArgs = {
-                inherit
-                  inputs
-                  end4dots
-                  wifitui
-                  gws
-                  wstui-pkg
-                  floci-pkg
-                  sops-nix
-                  ytd-pkg
+              inherit
+                inputs
+                end4dots
+                wifitui
+                gws
+                wstui-pkg
+                floci-pkg
+                sops-nix
+                ytd-pkg
                 lark-pkg
                 open-design-pkg
-                pkgs-deprecated
-                  pkgs-unstable
-                  ;
+                pkgs-unstable
+                ;
                 modules = homeManagerModules;
                 homeDirectory = "/home/adophilus";
               };
@@ -192,10 +191,6 @@
                 system = "x86_64-darwin";
                 config.allowUnfree = true;
               }).callPackage ./pkgs/ytd/default.nix { };
-              pkgs-deprecated = import nixpkgs-deprecated {
-                system = "x86_64-darwin";
-                config.allowUnfree = true;
-              };
               # nixpkgs-unstable (26.11) dropped x86_64-darwin; use 26.05 (nixpkgs).
               pkgs-unstable = import nixpkgs {
                 system = "x86_64-darwin";

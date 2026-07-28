@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-deprecated,
   lib,
   ...
 }:
@@ -12,7 +11,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = pkgs-deprecated.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     sideloadInitLua = true;
     withRuby = false; # adopt new home-manager default (silences deprecation warning)
     withPython3 = false;

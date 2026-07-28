@@ -113,7 +113,7 @@ in
       cloudflared
       inetutils
       posting
-      mitmproxy
+      # mitmproxy
 
       # Editors / terminals
       tmux
@@ -278,7 +278,7 @@ in
         # Python
         python3
         ffmpeg
-        mitmproxy
+        # mitmproxy
 
         # Crypto
         monero-gui

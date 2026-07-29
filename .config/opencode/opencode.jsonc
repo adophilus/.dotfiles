@@ -84,6 +84,14 @@
 				"--mcp"
 			],
 			"enabled": true
+		},
+		"tmux-mcp-rs": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"@bnomei/tmux-mcp-rs"
+			],
+			"enabled": true
 		}
 	},
 	"provider": {

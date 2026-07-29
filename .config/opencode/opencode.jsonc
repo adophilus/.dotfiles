@@ -92,6 +92,14 @@
 				"@bnomei/tmux-mcp-rs"
 			],
 			"enabled": true
+		},
+		"mitmproxy-mcp": {
+			"type": "local",
+			"command": [
+				"uvx",
+				"mitmproxy-mcp"
+			],
+			"enabled": true
 		}
 	},
 	"provider": {

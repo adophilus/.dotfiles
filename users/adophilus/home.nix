@@ -338,7 +338,7 @@ in
         # Browsers (zen-browser is primary)
         # tor-browser  # commented — using zen
         # firefox  # removed — using zen
-        # google-chrome  # commented — using zen
+        google-chrome
         # mullvad-browser  # commented — using zen
 
         # Password management

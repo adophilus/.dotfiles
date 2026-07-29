@@ -89,6 +89,7 @@
       "whatsapp"
       "figma"
       "open-design"
+      "google-chrome"
       # media
       "vlc"
       "obs"

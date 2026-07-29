@@ -2,6 +2,10 @@
 
 set -U fish_autosuggestion_enabled 0
 
+# Vim-style key bindings (Esc for normal mode, hjkl to navigate).
+# fish_hybrid_key_bindings also keeps emacs bindings (Ctrl+A/E/etc.) in insert mode.
+fish_hybrid_key_bindings
+
 set -x GOPATH "$HOME/go"
 set -x BUNPATH "$HOME/.cache/.bun"
 set -x PNPM_HOME "$HOME/.local/share/pnpm"

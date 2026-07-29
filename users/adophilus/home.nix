@@ -116,7 +116,7 @@ in
       cloudflared
       inetutils
       posting
-      # mitmproxy
+      mitmproxy
 
       # Editors / terminals
       tmux

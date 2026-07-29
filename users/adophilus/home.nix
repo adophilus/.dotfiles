@@ -133,6 +133,7 @@ in
       bun
       biome
       python3
+      uv
 
       # Git
       gitoxide
@@ -187,7 +188,7 @@ in
       tokei
 
       # GUI apps (have x86_64-darwin builds)
-      # google-chrome  # commented — using zen as primary
+      google-chrome  # commented — using zen as primary
 
       # Misc desktop libs
       libnotify

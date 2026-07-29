@@ -117,6 +117,7 @@ in
       inetutils
       posting
       mitmproxy
+      mailhog
 
       # Editors / terminals
       tmux

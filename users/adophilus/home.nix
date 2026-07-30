@@ -379,12 +379,6 @@ in
         podman-tui
         podman-compose
 
-        # Node.js
-        deno
-        nodejs
-        pnpm
-        bun
-
         # Discord TUI client
         discordo
 

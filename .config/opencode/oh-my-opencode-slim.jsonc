@@ -1,4 +1,5 @@
 {
+	"$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
 	"preset": "dynamic",
 	"presets": {
 		"dynamic": {
@@ -52,6 +53,11 @@
 			}
 		}
 	},
+  "multiplexer": {
+    "type": "tmux",
+    "layout": "tiled",
+    "main_pane_size": 60
+  },
 	"fallback": {
 		"enabled": true,
 		"timeoutMs": 15000

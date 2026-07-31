@@ -42,19 +42,20 @@ let
   d2-lite = pkgs.d2.overrideAttrs (_: _: { buildInputs = [ ]; });
 
   # tunnel: reverse SSH tunnel to the VPS via autossh.
-  # Forwards a local port through the VPS to tunnel.adophilus.com (Caddy → :4098).
-  # Usage: tunnel 3000
+  # Multiple simultaneous tunnels via port-based subdomains.
+  # Usage: tunnel <remote-port> <local-port>
   tunnel = pkgs.writeShellScriptBin "tunnel" ''
-    if [ -z "$1" ]; then
-      echo "Usage: tunnel <local-port>"
-      echo "  tunnel 3000    # localhost:3000 → vps:4098 → tunnel.adophilus.com"
+    if [ $# -lt 2 ]; then
+      echo "Usage: tunnel <remote-port> <local-port>"
+      echo "  tunnel 4098 3000    # localhost:3000 → vps:4098 → https://4098.tunnel.adophilus.com"
+      echo "  tunnel 4099 8080    # localhost:8080 → vps:4099 → https://4099.tunnel.adophilus.com"
       exit 1
     fi
-    LOCAL_PORT=$1
-    REMOTE_PORT=4098
-    DOMAIN="tunnel.adophilus.com"
+    REMOTE_PORT=$1
+    LOCAL_PORT=$2
+    DOMAIN="$REMOTE_PORT.tunnel.adophilus.com"
     echo -e "\033[1m🔒 SSH Tunnel\033[0m"
-    echo -e "   \033[90mlocalhost:\033[0m$LOCAL_PORT \033[90m→ vps:\033[0m$REMOTE_PORT \033[90m→\033[0m $DOMAIN"
+    echo -e "   \033[90mlocalhost:\033[0m$LOCAL_PORT \033[90m→ vps:\033[0m$REMOTE_PORT \033[90m→\033[0m https://$DOMAIN"
     echo -e "   \033[90mauto-reconnect:\033[0m enabled   \033[90mCtrl+C to stop\033[0m"
     echo ""
     exec ${pkgs.autossh}/bin/autossh -M 0 -N \

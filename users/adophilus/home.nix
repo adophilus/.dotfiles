@@ -41,6 +41,28 @@ let
   # d2 without playwright-driver.browsers (~7.6GB). SVG export only.
   d2-lite = pkgs.d2.overrideAttrs (_: _: { buildInputs = [ ]; });
 
+  # tunnel: reverse SSH tunnel to the VPS via autossh.
+  # Forwards a local port through the VPS to tunnel.adophilus.com (Caddy → :4098).
+  # Usage: tunnel 3000
+  tunnel = pkgs.writeShellScriptBin "tunnel" ''
+    if [ -z "$1" ]; then
+      echo "Usage: tunnel <local-port>"
+      echo "  tunnel 3000    # localhost:3000 → vps:4098 → tunnel.adophilus.com"
+      exit 1
+    fi
+    LOCAL_PORT=$1
+    REMOTE_PORT=4098
+    DOMAIN="tunnel.adophilus.com"
+    echo -e "\033[1m🔒 SSH Tunnel\033[0m"
+    echo -e "   \033[90mlocalhost:\033[0m$LOCAL_PORT \033[90m→ vps:\033[0m$REMOTE_PORT \033[90m→\033[0m $DOMAIN"
+    echo -e "   \033[90mauto-reconnect:\033[0m enabled   \033[90mCtrl+C to stop\033[0m"
+    echo ""
+    exec ${pkgs.autossh}/bin/autossh -M 0 -N \
+      -o "ExitOnForwardFailure=yes" \
+      -R "$REMOTE_PORT:localhost:$LOCAL_PORT" \
+      vps
+  '';
+
   # floci-ui: clone the repo and run the compose stack via podman-compose
   floci-ui = pkgs.writeShellScriptBin "floci-ui" ''
     set -e
@@ -118,6 +140,7 @@ in
       posting
       # mitmproxy  # nixpkgs build fails: msgpack<=1.1.2 required, nixpkgs has 1.2.1. Use: uvx mitmproxy
       mailhog
+      autossh
 
       # Editors / terminals
       tmux

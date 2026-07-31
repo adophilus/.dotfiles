@@ -142,6 +142,7 @@ in
       # mitmproxy  # nixpkgs build fails: msgpack<=1.1.2 required, nixpkgs has 1.2.1. Use: uvx mitmproxy
       mailhog
       autossh
+      tunnel
 
       # Editors / terminals
       tmux

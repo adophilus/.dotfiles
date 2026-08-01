@@ -149,6 +149,10 @@ in
       vim
       kitty
 
+      # Containers (on macOS: podman machine init && podman machine start)
+      podman
+      podman-compose
+
       # Languages & toolchains
       lua
       luaPackages.luarocks

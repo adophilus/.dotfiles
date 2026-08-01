@@ -94,6 +94,7 @@
       "vlc"
       "obs"
       "shotcut"
+      "strawberry"
       # private browsing
       "tor-browser"
       "mullvad-browser"

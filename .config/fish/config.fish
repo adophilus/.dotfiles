@@ -23,6 +23,7 @@ fish_add_path -g "$DENOPATH/bin"
 fish_add_path -g "$CARGOPATH/bin"
 fish_add_path -g "$TOOLSPATH"
 fish_add_path -g "$UV_BIN_PATH"
+fish_add_path -g "$HOME/.local/bin"
 
 # Point Docker-compatible tools at podman's rootless socket
 set -x DOCKER_HOST "unix://$XDG_RUNTIME_DIR/podman/podman.sock"

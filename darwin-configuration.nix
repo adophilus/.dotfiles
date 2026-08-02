@@ -103,7 +103,6 @@
       # other
       "transmission"
       "gnucash"
-      "visual-studio-code"
       # work
       "lark"
       # "ghostty"  # disabled — using kitty as daily driver
@@ -112,13 +111,6 @@
     # installed standalone so it doesn't pull a Homebrew node that shadows nix's.
     brews = [ ];
   };
-
-  # Hibernate — hibernatemode 25 = true hibernate (RAM → disk, power off).
-  # macOS has no "Hibernate" menu item; this makes Sleep = Hibernate.
-  # Wake is slower (~10-30s) but battery doesn't drain.
-  system.activationScripts.extraActivation.text = ''
-    pmset -a hibernatemode 25
-  '';
 
   # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.
 }

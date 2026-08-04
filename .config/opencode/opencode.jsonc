@@ -2,10 +2,10 @@
 	"$schema": "https://opencode.ai/config.json",
 	"plugin": [
 		"opencode-antigravity-auth@1.4.6",
-		"oh-my-opencode-slim",
+		"oh-my-opencode-slim@latest",
 		"opencode-antigravity-auth@latest",
 		"opencode-dir",
-		"@dietrichgebert/ponytail"
+		"@dietrichgebert/ponytail@latest"
 	],
 	"lsp": false,
 	"permission": "allow",
@@ -93,14 +93,14 @@
 			],
 			"enabled": true
 		},
-		"mitmproxy-mcp": {
-			"type": "local",
-			"command": [
-				"uvx",
-				"mitmproxy-mcp"
-			],
-			"enabled": true
-		}
+		// "mitmproxy-mcp": {
+		// 	"type": "local",
+		// 	"command": [
+		// 		"uvx",
+		// 		"mitmproxy-mcp"
+		// 	],
+		// 	"enabled": true
+		// }
 	},
 	"provider": {
 		"google": {

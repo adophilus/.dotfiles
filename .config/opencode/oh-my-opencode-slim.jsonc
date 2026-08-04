@@ -51,15 +51,39 @@
 				"skills": [],
 				"mcps": []
 			}
+		},
+		"opencode-go": {
+			"orchestrator": {
+				"model": "opencode-go/minimax-m3",
+				"variant": "thinking"
+			},
+			"oracle": {
+				"model": "opencode-go/qwen3.7-max",
+				"variant": "max"
+			},
+			"librarian": {
+				"model": "opencode-go/deepseek-v4-flash",
+				"variant": "high"
+			},
+			"explorer": {
+				"model": "opencode-go/deepseek-v4-flash",
+				"variant": "high"
+			},
+			"designer": {
+				"model": "opencode-go/kimi-k2.7-code"
+			},
+			"fixer": {
+				"model": "opencode-go/deepseek-v4-flash",
+				"variant": "high"
+			},
+			"observer": {
+				"model": "opencode-go/mimo-v2.5"
+			}
 		}
 	},
-  "multiplexer": {
-    "type": "tmux",
-    "layout": "tiled",
-    "main_pane_size": 60
-  },
-	"fallback": {
-		"enabled": true,
-		"timeoutMs": 15000
+	"multiplexer": {
+		"type": "tmux",
+		"layout": "tiled",
+		"main_pane_size": 60
 	}
 }

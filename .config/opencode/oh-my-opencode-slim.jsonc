@@ -85,9 +85,5 @@
 		"type": "tmux",
 		"layout": "tiled",
 		"main_pane_size": 60
-	},
-	"fallback": {
-		"enabled": true,
-		"timeoutMs": 15000
 	}
 }

@@ -7,5 +7,8 @@ return {
 				enabled = false,
 			},
 		},
+		servers = {
+			"nixfmt"
+		}
 	},
 }

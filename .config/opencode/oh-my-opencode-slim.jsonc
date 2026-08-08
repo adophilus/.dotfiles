@@ -1,8 +1,8 @@
 {
 	"$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-	"preset": "dynamic",
+	"preset": "zai",
 	"presets": {
-		"dynamic": {
+		"zai": {
 			"orchestrator": {
 				"model": "zai-coding-plan/glm-5.2",
 				"skills": [

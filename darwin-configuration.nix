@@ -91,7 +91,7 @@
       "open-design"
       "google-chrome"
       # media
-      "vlc"
+      # "vlc"
       "obs"
       "shotcut"
       # private browsing

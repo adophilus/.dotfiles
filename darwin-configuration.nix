@@ -105,6 +105,8 @@
       "gnucash"
       # work
       "lark"
+      # dev
+      "opencode-desktop"
       # "ghostty"  # disabled — using kitty as daily driver
     ];
     # CLI tools come from nix (home.packages); no Homebrew brews. opencode is

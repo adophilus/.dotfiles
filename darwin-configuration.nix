@@ -103,6 +103,7 @@
       # other
       "transmission"
       "gnucash"
+      "scroll-reverser" # independent trackpad/mouse scroll direction
       # work
       "lark"
       # dev

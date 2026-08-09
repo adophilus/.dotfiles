@@ -15,4 +15,4 @@ __pycache__/
 
 # Result symlinks from nix builds
 result
-/.env
+.env

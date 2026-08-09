@@ -559,7 +559,15 @@ in
     # PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "1";
     # PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
     # STARSHIP_CONFIG is set in config/programs/starship/default.nix
+    PNPM_HOME = "${config.home.homeDirectory}/.local/share/pnpm";
   };
+
+  # Shell-agnostic PATH entries (bash/zsh/fish all source these via HM).
+  # bun global bin (opencode) + pnpm global bin (codegraph, pi, ...).
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.bun/bin"
+    "${config.home.homeDirectory}/.local/share/pnpm/bin"
+  ];
 
   # ── Home Manager self-management ──────────────────────────────────────
   programs.home-manager.enable = true;

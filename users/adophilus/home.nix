@@ -81,7 +81,7 @@ let
   # environment. Secrets stay scoped to that one process — not leaked into
   # your interactive shell. Usage: with-secrets opencode   (or any command)
   with-secrets = pkgs.writeShellScriptBin "with-secrets" ''
-    SOPS_ENV="${config.sops.secrets."adophilus/.env".path}"
+    SOPS_ENV="${config.sops.secrets."adophilus/env".path}"
     if [ ! -f "$SOPS_ENV" ]; then
       echo "with-secrets: secrets file not found at $SOPS_ENV" >&2
       exit 1
@@ -654,8 +654,8 @@ in
   sops = {
     # age.keyFile = "/home/adophilus/.age-key.txt";
     age.keyFile = "/var/lib/sops-nix/key.txt";
-    secrets."adophilus/.env" = {
-      sopsFile = ./secrets/.env;
+    secrets."adophilus/env" = {
+      sopsFile = ./secrets/env;
       format = "dotenv";
     };
   };
@@ -748,5 +748,5 @@ in
 
   programs.opencode.web.environmentFile =
     lib.mkIf pkgs.stdenv.isLinux
-      config.sops.secrets."adophilus/.env".path;
+      config.sops.secrets."adophilus/env".path;
 }

@@ -4,7 +4,9 @@
     "zai-mcp-server": {
       "type": "stdio",
       "command": "pnpx",
-      "args": ["@z_ai/mcp-server"]
+      "args": [
+        "@z_ai/mcp-server"
+      ]
     },
     "zread": {
       "type": "http",
@@ -34,7 +36,9 @@
     "pdf-reader": {
       "type": "stdio",
       "command": "pnpx",
-      "args": ["@sylphx/pdf-reader-mcp"]
+      "args": [
+        "@sylphx/pdf-reader-mcp"
+      ]
     },
     "penpot": {
       "type": "http",
@@ -43,13 +47,17 @@
     "figma-mcp-go": {
       "type": "stdio",
       "command": "pnpx",
-      "args": ["@vkhanhqui/figma-mcp-go"],
+      "args": [
+        "@vkhanhqui/figma-mcp-go"
+      ],
       "disabled": true
     },
     "figma-console": {
       "type": "stdio",
       "command": "pnpx",
-      "args": ["figma-console-mcp"],
+      "args": [
+        "figma-console-mcp"
+      ],
       "env": {
         "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}",
         "ENABLE_MCP_APPS": "true"
@@ -58,12 +66,25 @@
     "codegraph": {
       "type": "stdio",
       "command": "codegraph",
-      "args": ["serve", "--mcp"]
+      "args": [
+        "serve",
+        "--mcp"
+      ]
     },
     "tmux-mcp-rs": {
       "type": "stdio",
       "command": "pnpx",
-      "args": ["@bnomei/tmux-mcp-rs"]
+      "args": [
+        "@bnomei/tmux-mcp-rs"
+      ]
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ],
+      "enabled": true
     }
   }
 }

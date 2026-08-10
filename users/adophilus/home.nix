@@ -366,7 +366,7 @@ in
         udiskie
 
         # Browsers (zen-browser is primary)
-        # tor-browser  # commented — using zen
+        tor-browser
         # firefox  # removed — using zen
         google-chrome
         # mullvad-browser  # commented — using zen
@@ -727,26 +727,4 @@ in
   #     enable = true;
   #     plugins = [ inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors ];
   # };
-
-  systemd.user.services.opencode-vps-tunnel = {
-    Unit = {
-      Description = "VPS tunnel for OpenCode headless server";
-      After = [
-        "network-online.target"
-        "opencode.service"
-      ];
-    };
-    Service = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -R $OPENCODE_SERVER_PROXY_PORT:$OPENCODE_SERVER_HOST:$OPENCODE_SERVER_PORT vps";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-
-  programs.opencode.web.environmentFile =
-    lib.mkIf pkgs.stdenv.isLinux
-      config.sops.secrets."adophilus/env".path;
 }

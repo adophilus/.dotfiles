@@ -77,14 +77,6 @@
       "args": [
         "@bnomei/tmux-mcp-rs"
       ]
-    },
-    "chrome-devtools": {
-      "type": "stdio",
-      "command": "pnpx",
-      "args": [
-        "chrome-devtools-mcp@latest"
-      ],
-      "enabled": true
     }
   }
 }

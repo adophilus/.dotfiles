@@ -1,4 +1,4 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
   home.file.".pi/agent/themes" = {

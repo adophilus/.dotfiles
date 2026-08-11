@@ -1,3 +1,11 @@
 {
-  "theme": "charcoal"
+  "theme": "charcoal",
+  "defaultProvider": "zai",
+  "defaultModel": "glm-5.2",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:@dietrichgebert/ponytail",
+    "npm:pi-a2a-adaptor"
+  ]
 }

@@ -354,8 +354,7 @@ in
         grim
 
         # Code editors
-        # code-cursor-fhs  # removed
-        # vscode-fhs  # removed
+        vscode-fhs
 
         # Dev tools
         gh

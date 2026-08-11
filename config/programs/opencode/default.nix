@@ -13,24 +13,42 @@
 
     web = {
       enable = true;
+      # Loopback-only + passwordless: the bridge (and local clients) hit this
+      # directly over 127.0.0.1; no remote exposure (the VPS tunnel is gone).
+      # NOTE: to complete the passwordless transition, remove OPENCODE_SERVER_PASSWORD
+      # from users/adophilus/secrets/env via `sops`. Until then opencode still
+      # enforces the old password and the bridge will 401.
       extraArgs = [
         "--hostname"
-        "0.0.0.0"
+        "127.0.0.1"
       ];
       environmentFile = config.sops.secrets."adophilus/env".path;
     };
   };
 
-  systemd.user.services.opencode-vps-tunnel = {
+  # opencode-a2a bridge: exposes opencode over the A2A protocol so pi (and other
+  # A2A clients) can drive the local opencode runtime. Talks to the loopback
+  # opencode web server directly — no auth, no caddy (zenith has no edge).
+  # Requires A2A_STATIC_AUTH_CREDENTIALS in the sops env file; the binary comes
+  # from `uv tool install opencode-a2a` (outside the Nix closure, like `pi`).
+  systemd.user.services.opencode-a2a = {
     Unit = {
-      Description = "VPS tunnel for OpenCode headless server";
-      After = [
-        "network-online.target"
-        "opencode.service"
-      ];
+      Description = "opencode-a2a bridge (A2A surface for opencode)";
+      After = [ "opencode.service" ];
     };
     Service = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -R $OPENCODE_SERVER_PROXY_PORT:$OPENCODE_SERVER_HOST:$OPENCODE_SERVER_PORT vps";
+      ExecStart = "${config.home.homeDirectory}/.local/bin/opencode-a2a serve";
+      Environment = [
+        "OPENCODE_BASE_URL=http://127.0.0.1:4096"
+        "OPENCODE_WORKSPACE_ROOT=${config.home.homeDirectory}"
+        "A2A_HOST=127.0.0.1"
+        "A2A_PORT=4097"
+        "A2A_PUBLIC_URL=http://127.0.0.1:4097"
+        "A2A_ENABLE_WORKSPACE_MUTATIONS=true"
+      ];
+      # A2A_STATIC_AUTH_CREDENTIALS (the bearer token pi presents) lives in the
+      # sops env file alongside the provider keys.
+      EnvironmentFile = config.sops.secrets."adophilus/env".path;
       Restart = "on-failure";
       RestartSec = 5;
     };

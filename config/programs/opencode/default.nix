@@ -57,11 +57,11 @@
     };
   };
 
-  home.file.".config/opencode/AGENTS.md".source = ../../../.config/opencode/AGENTS.md;
+  home.file.".config/opencode/AGENTS.md".source = ../../../home/.config/opencode/AGENTS.md;
   home.file.".config/opencode/oh-my-opencode-slim.jsonc".source =
-    ../../../.config/opencode/oh-my-opencode-slim.jsonc;
-  home.file.".config/opencode/opencode.jsonc".source = ../../../.config/opencode/opencode.jsonc;
-  home.file.".config/opencode/tui.jsonc".source = ../../../.config/opencode/tui.jsonc;
-  home.file.".config/opencode/themes".source = ../../../.config/opencode/themes;
-  home.file.".agents".source = ../../../.agents;
+    ../../../home/.config/opencode/oh-my-opencode-slim.jsonc;
+  home.file.".config/opencode/opencode.jsonc".source = ../../../home/.config/opencode/opencode.jsonc;
+  home.file.".config/opencode/tui.jsonc".source = ../../../home/.config/opencode/tui.jsonc;
+  home.file.".config/opencode/themes".source = ../../../home/.config/opencode/themes;
+  home.file.".agents".source = ../../../home/.agents;
 }

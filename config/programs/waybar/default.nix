@@ -6,7 +6,7 @@
   # waybar_swap_config.sh script — this only updates the theme files themselves.
   home.activation.copyWaybarThemes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     run mkdir -p $HOME/.config/waybar
-    for theme in ${../../../.config/waybar}/*/; do
+    for theme in ${../../../home/.config/waybar}/*/; do
       name=$(basename "$theme")
       run rm -rf "$HOME/.config/waybar/$name"
       run cp -r "$theme" "$HOME/.config/waybar/$name"

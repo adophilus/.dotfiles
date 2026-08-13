@@ -4,7 +4,7 @@
   "defaultModel": "glm-5.2",
   "defaultThinkingLevel": "medium",
   "packages": [
-    "npm:pi-mcp-adapter",
-    "npm:@dietrichgebert/ponytail"
+    "npm:pi-mcp-adapter@2.24.0",
+    "npm:@dietrichgebert/ponytail@4.9.0"
   ]
 }

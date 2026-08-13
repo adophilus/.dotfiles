@@ -533,14 +533,14 @@ in
     #   executable = true;
     # };
 
-    ".config/bottom".source = ../../.config/bottom;
-    ".config/kitty".source = ../../.config/kitty;
+    ".config/bottom".source = ../../home/.config/bottom;
+    ".config/kitty".source = ../../home/.config/kitty;
 
     # Platform-specific kitty override (borderless on Hyprland, titlebar on macOS).
     ".config/kitty-os.conf".text =
       if pkgs.stdenv.isLinux then "hide_window_decorations yes\n" else "hide_window_decorations no\n";
-    ".config/zellij".source = ../../.config/zellij;
-    # ".config/ghostty".source = ../../.config/ghostty;  # ghostty disabled (using kitty)
+    ".config/zellij".source = ../../home/.config/zellij;
+    # ".config/ghostty".source = ../../home/.config/ghostty;  # ghostty disabled (using kitty)
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";
@@ -619,7 +619,7 @@ in
   # Uses builtins.readFile so fish can freely write fish_variables at runtime.
   programs.fish = {
     enable = true;
-    shellInit = builtins.readFile ../../.config/fish/config.fish;
+    shellInit = builtins.readFile ../../home/.config/fish/config.fish;
     # Wrap opencode so it always runs with the sops secrets loaded.
     # (with-secrets is a bash script, so no recursion — exec opencode finds
     # the real binary on PATH, bypassing this fish alias.)

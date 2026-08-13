@@ -5,7 +5,6 @@
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-mcp-adapter",
-    "npm:@dietrichgebert/ponytail",
-    "npm:pi-a2a-adaptor"
+    "npm:@dietrichgebert/ponytail"
   ]
 }

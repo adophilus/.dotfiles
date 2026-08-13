@@ -63,5 +63,5 @@
   home.file.".config/opencode/opencode.jsonc".source = ../../../.config/opencode/opencode.jsonc;
   home.file.".config/opencode/tui.jsonc".source = ../../../.config/opencode/tui.jsonc;
   home.file.".config/opencode/themes".source = ../../../.config/opencode/themes;
-  home.file.".agents".source = ../../../.config/.agents;
+  home.file.".agents".source = ../../../.agents;
 }

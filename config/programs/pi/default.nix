@@ -2,7 +2,7 @@
 
 {
   home.file.".pi/agent/themes" = {
-    source = ../../../home/.config/pi/themes;
+    source = ../../../home/.pi/agent/themes;
     recursive = true;
   };
 
@@ -12,7 +12,7 @@
     # Only copy if settings.json doesn't exist (fresh install)
     let
       settingsPath = "${config.home.homeDirectory}/.pi/agent/settings.json";
-      dotfilesSettings = ../../../home/.pi/settings.json;
+      dotfilesSettings = ../../../home/.pi/agent/settings.json;
     in
     lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -f "${settingsPath}" ]; then

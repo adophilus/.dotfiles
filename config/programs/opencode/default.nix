@@ -21,6 +21,8 @@
       extraArgs = [
         "--hostname"
         "127.0.0.1"
+        "--port"
+        "4096"
       ];
       environmentFile = config.sops.secrets."adophilus/env".path;
     };

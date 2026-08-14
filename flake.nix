@@ -109,6 +109,7 @@
         "tmux"
         "zen-browser"
         "opencode"
+        "aerospace"
       ];
     in
     {

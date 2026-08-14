@@ -83,6 +83,9 @@
       autoUpdate = false; # skip `brew update` on each activation (faster rebuilds)
       upgrade = false; # skip `brew upgrade` on each activation
     };
+    taps = [
+      "nikitabobko/homebrew-tap" # aerospace tiling WM
+    ];
     # GUI apps (.app bundles)
     casks = [
       "legcord"
@@ -107,7 +110,7 @@
       # work
       "lark"
       # tiling window manager (i3-style, no SIP changes)
-      "aerospace"
+      "nikitabobko/homebrew-tap/aerospace"
       # dev
       "opencode-desktop"
       # "ghostty"  # disabled — using kitty as daily driver

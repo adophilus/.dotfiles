@@ -59,6 +59,28 @@
     };
   };
 
+  # opencode ACP server. Two things to know from the acp.ts source:
+  # - ACP's client-facing transport is stdio (NDJSON) — clients like Zed spawn
+  #   this binary themselves. The --hostname/--port flags pin the INTERNAL
+  #   opencode API this process boots for its own SDK client, pinned here to
+  #   127.0.0.1:4098 (deterministic, loopback-only, no port collision).
+  # - opencode reads hostname/port from CLI flags or opencode.jsonc `server.*`
+  #   ONLY — there are no OPENCODE_ACP_SERVER_* env vars, so flags it is.
+  systemd.user.services.opencode-acp = {
+    Unit = {
+      Description = "opencode ACP server (internal API on 127.0.0.1:4098)";
+    };
+    Service = {
+      ExecStart = "${pkgs.opencode}/bin/opencode acp --hostname 127.0.0.1 --port 4098 --print-logs";
+      EnvironmentFile = config.sops.secrets."adophilus/env".path;
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
   home.file.".config/opencode/AGENTS.md".source = ../../../home/.config/opencode/AGENTS.md;
   home.file.".config/opencode/oh-my-opencode-slim.jsonc".source =
     ../../../home/.config/opencode/oh-my-opencode-slim.jsonc;

@@ -106,6 +106,8 @@
       "scroll-reverser" # independent trackpad/mouse scroll direction
       # work
       "lark"
+      # tiling window manager (i3-style, no SIP changes)
+      "aerospace"
       # dev
       "opencode-desktop"
       # "ghostty"  # disabled — using kitty as daily driver

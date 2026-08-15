@@ -203,7 +203,8 @@ in
       tesseract
       cava
       pkgs.mpv
-      thunderbird
+      # thunderbird — moved to homebrew cask on nadir (Spotlight indexing);
+      # zenith still gets it from the Linux-only list below
       xournalpp
       process-compose
       pkgs.sayonara

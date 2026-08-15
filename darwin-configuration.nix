@@ -93,6 +93,8 @@
       "figma"
       "open-design"
       "google-chrome"
+      # email — cask not home-manager pkg so Spotlight indexes the .app
+      "thunderbird"
       # media
       # "vlc"
       "obs"

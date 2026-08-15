@@ -203,8 +203,6 @@ in
       tesseract
       cava
       pkgs.mpv
-      # thunderbird — moved to homebrew cask on nadir (Spotlight indexing);
-      # zenith still gets it from the Linux-only list below
       xournalpp
       process-compose
       pkgs.sayonara
@@ -217,9 +215,6 @@ in
       scrcpy
       android-tools
       tokei
-
-      # GUI apps (have x86_64-darwin builds)
-      google-chrome  # commented — using zen as primary
 
       # Misc desktop libs
       libnotify
@@ -260,7 +255,6 @@ in
         posting
 
         # Notes
-        # inputs.zennotes.packages.x86_64-linux.zennotes-desktop
         dos2unix
         cloudflared
 

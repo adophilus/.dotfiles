@@ -5,6 +5,20 @@
 #   1-5 → main monitor
 #   6-0 → secondary monitor
 # 'main' = macOS "Use as Main" display (System Settings → Displays)
+
+# Don't warp the cursor when focus changes — mouse stays where you put it.
+# (mouse-follows-focus defaults to true and causes the monitor-jumping.)
+mouse-follows-focus = false
+
+# Explicit monitor-focus binds: alt+ctrl+hjkl move AeroSpace's focus
+# between monitors (fixes "can't focus external monitor").
+[mode.main.binding]
+    alt-ctrl-h = 'focus-monitor left'
+    alt-ctrl-j = 'focus-monitor down'
+    alt-ctrl-k = 'focus-monitor up'
+    alt-ctrl-l = 'focus-monitor right'
+    # alt+w = focus-monitor --wrap-around next  # uncomment for simple next-monitor cycling
+
 [workspace-to-monitor-force-assignment]
     1 = 'main'
     2 = 'main'

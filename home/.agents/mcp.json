@@ -77,6 +77,14 @@
       "args": [
         "@bnomei/tmux-mcp-rs"
       ]
+    },
+    "open-computer-use": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "@qwen-code/open-computer-use",
+        "mcp"
+      ]
     }
   }
 }

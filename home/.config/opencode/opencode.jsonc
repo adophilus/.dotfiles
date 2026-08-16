@@ -92,6 +92,15 @@
 			],
 			"enabled": true
 		},
+		"open-computer-use": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"@qwen-code/open-computer-use",
+				"mcp"
+			],
+			"enabled": true
+		},
 		"chrome-devtools": {
 			"type": "local",
 			"command": [

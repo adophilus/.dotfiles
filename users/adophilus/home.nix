@@ -516,6 +516,18 @@ in
         # Process manager
         process-compose
       ]
+    )
+    # ── macOS-only packages (nadir — the only darwin host) ──
+    # Gated by platform, not hostname: zenith is the sole Linux host, so
+    # isDarwin here ⇔ nadir (same convention as the Linux-only block above).
+    ++ lib.optionals pkgs.stdenv.isDarwin (
+      with pkgs-unstable;
+      [
+        # Foundry (forge/cast/anvil/chisel) — solidity dev toolchain for the
+        # crypto-flashing investigation lab. 26.05 has 1.7.1 on x86_64-darwin;
+        # note nadir's pkgs-unstable IS 26.05 (unstable dropped Intel Macs).
+        foundry
+      ]
     );
 
   # ── Config file symlinks (nix store, read-only) ───────────────────────

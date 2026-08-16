@@ -96,7 +96,8 @@
 			"type": "local",
 			"command": [
 				"pnpx",
-				"chrome-devtools-mcp@latest"
+				"chrome-devtools-mcp@latest",
+				"--category-extensions"
 			],
 			"enabled": true
 		}

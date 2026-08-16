@@ -92,14 +92,14 @@
 			],
 			"enabled": true
 		},
-		// "chrome-devtools": {
-		// 	"type": "local",
-		// 	"command": [
-		// 		"pnpx",
-		// 		"chrome-devtools-mcp@latest"
-		// 	],
-		// 	"enabled": true
-		// }
+		"chrome-devtools": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"chrome-devtools-mcp@latest"
+			],
+			"enabled": true
+		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",
 		// 	"command": [

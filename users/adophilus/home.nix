@@ -350,6 +350,7 @@ in
 
         # Code editors
         vscode-fhs
+        pkgs.opencode-desktop # desktop GUI from stable (pkgs., not pkgs-unstable — matches mpv pin above)
 
         # Dev tools
         gh

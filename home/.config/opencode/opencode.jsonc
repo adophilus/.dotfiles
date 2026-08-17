@@ -11,9 +11,12 @@
 	"mcp": {
 		"zai-mcp-server": {
 			"type": "local",
+			// Direct pnpm-global binary, not `pnpx @z_ai/mcp-server`: the hub
+			// cold-spawns all local MCPs at once and pnpx's dlx resolution made
+			// this one exceed opencode's init window (log: "server unavailable"
+			// status=failed). Update with: pnpm add -g @z_ai/mcp-server
 			"command": [
-				"pnpx",
-				"@z_ai/mcp-server"
+				"zai-mcp-server"
 			]
 		},
 		"zread": {

@@ -24,6 +24,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # opencode: newer than nixpkgs 26.05 (which ships 1.15.10 — too old for
+    # current MCP streamable-HTTP servers; z.ai endpoints 400 the old Accept
+    # header). Local bun build (no upstream cache). Deliberately NO nixpkgs
+    # follows: upstream pins the toolchain (bun/nodejs) their build needs;
+    # ours is frozen at 26.05 (last Intel-darwin release) and would grow
+    # stale under this fast-moving package. Repo moved sst→anomalyco.
+    opencode.url = "github:anomalyco/opencode";
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";

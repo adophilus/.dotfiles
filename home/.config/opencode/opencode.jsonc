@@ -109,6 +109,13 @@
 				"--category-extensions"
 			],
 			"enabled": true
+		},
+		"open-design": {
+			"type": "local",
+			"command": [
+				"open-design-mcp"
+			],
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

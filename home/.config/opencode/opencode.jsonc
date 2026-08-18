@@ -111,6 +111,13 @@
 				"/etc/profiles/per-user/adophilus/bin/google-chrome-stable"
 			],
 			"enabled": true
+		},
+		"open-design": {
+			"type": "local",
+			"command": [
+				"open-design-mcp"
+			],
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

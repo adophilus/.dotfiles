@@ -225,6 +225,9 @@ in
       # Custom — built per-host in flake.nix
       ytd-pkg
       with-secrets
+
+      # Open Design MCP wrapper (darwin: exec the app's daemon; Linux: stub error)
+      (pkgs.callPackage ../../pkgs/open-design-mcp/default.nix { })
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (

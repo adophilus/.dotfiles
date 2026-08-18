@@ -2,14 +2,22 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
-  # opencode package + web server — Linux only (no x86_64-darwin build in
-  # nixpkgs; on macOS opencode is installed standalone via pnpm global). The config-file
-  # deployment below (activation scripts + home.file) runs on both platforms.
-  programs.opencode = lib.mkIf pkgs.stdenv.isLinux {
+  # opencode package + web server. The home-manager module emits a systemd
+  # unit on Linux and a launchd agent on darwin — the darwin branch wraps
+  # `serve` in a script that sources environmentFile (launchd has no
+  # EnvironmentFile= equivalent). Hub pattern: one server on 4096 holding the
+  # sops secrets; TUI/browser/GUI clients attach to it.
+  programs.opencode = {
     enable = true;
+
+    # nixpkgs 26.05 ships 1.15.10; upstream keeps the hub's MCP client current
+    # (z.ai remotes 400 old Accept headers, local servers handshake strictly).
+    # `inputs` arrives via extraSpecialArgs, like sops-nix in home.nix.
+    package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
 
     web = {
       enable = true;
@@ -27,6 +35,23 @@
       environmentFile = config.sops.secrets."adophilus/env".path;
     };
   };
+
+  # The generated launchd agent runs with launchd's bare PATH
+  # (/usr/bin:/bin:/usr/sbin:/sbin) — local MCP children resolve their
+  # command[0] against it, so bare names (pnpx, node, codegraph) fail with
+  # "executable not found". Merge a real PATH into the agent. On Linux this
+  # option is inert (the systemd branch is live there).
+  launchd.agents.opencode-web.config.EnvironmentVariables.PATH =
+    lib.concatStringsSep ":"
+      [
+        "/etc/profiles/per-user/${config.home.username}/bin" # nix-darwin profile: pnpx, node
+        "${config.home.homeDirectory}/.local/share/pnpm/bin" # pnpm globals: codegraph
+        "/usr/local/bin" # Homebrew (Intel)
+        "/usr/bin"
+        "/bin"
+        "/usr/sbin"
+        "/sbin"
+      ];
 
   # opencode-a2a bridge: exposes opencode over the A2A protocol so pi (and other
   # A2A clients) can drive the local opencode runtime. Talks to the loopback

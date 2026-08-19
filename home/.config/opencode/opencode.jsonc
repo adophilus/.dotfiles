@@ -105,8 +105,10 @@
 			"type": "local",
 			"command": [
 				"pnpx",
-				"chrome-devtools-mcp@1.7.0",
-				"--category-extensions"
+				"chrome-devtools-mcp@latest",
+				"--category-extensions",
+				"--executablePath",
+				"/etc/profiles/per-user/adophilus/bin/google-chrome-stable"
 			],
 			"enabled": true
 		},

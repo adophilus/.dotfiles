@@ -99,6 +99,8 @@
       "vlc"
       "obs"
       "shotcut"
+      # games
+      "steam"
       # private browsing
       "tor-browser"
       "mullvad-browser"

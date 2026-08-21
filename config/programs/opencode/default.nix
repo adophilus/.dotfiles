@@ -17,7 +17,8 @@
     # nixpkgs 26.05 ships 1.15.10; upstream keeps the hub's MCP client current
     # (z.ai remotes 400 old Accept headers, local servers handshake strictly).
     # `inputs` arrives via extraSpecialArgs, like sops-nix in home.nix.
-    package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
+    package = lib.mkDefault inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
+    environmentFile = lib.mkDefault config.sops.secrets."adophilus/env".path;
 
     web = {
       enable = true;
@@ -32,7 +33,7 @@
         "--port"
         "4096"
       ];
-      environmentFile = lib.mkDefault config.sops.secrets."adophilus/env".path;
+      environmentFile = config.programs.opencode.environmentFile;
     };
   };
 

@@ -96,9 +96,11 @@
       # email — cask not home-manager pkg so Spotlight indexes the .app
       "thunderbird"
       # media
-      # "vlc"
+      "vlc"
       "obs"
       "shotcut"
+      # games
+      "steam"
       # private browsing
       "tor-browser"
       "mullvad-browser"

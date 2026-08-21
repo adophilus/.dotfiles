@@ -6,7 +6,7 @@
   ...
 }:
 {
-  # options.services.opencode-a2a.enable = lib.mkEnableOption "A2A bridge for opencode";
+  options.services.opencode-a2a = lib.mkEnableOption "A2A bridge for opencode";
 
   config = lib.mkMerge [
     {
@@ -17,7 +17,6 @@
       # sops secrets; TUI/browser/GUI clients attach to it.
       programs.opencode = {
         enable = true;
-        a2a.enable = lib.mkEnableOption "A2A bridge for opencode";
 
         web = {
           enable = true;
@@ -59,7 +58,7 @@
       home.file.".agents".source = ../../../home/.agents;
     }
 
-    (lib.mkIf config.a2a.enable {
+    (lib.mkIf config.services.opencode-a2a.enable {
       # opencode-a2a bridge: exposes opencode over the A2A protocol so pi (and other
       # A2A clients) can drive the local opencode runtime. Talks to the loopback
       # opencode web server directly — no auth, no caddy (zenith has no edge).

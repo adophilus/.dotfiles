@@ -732,6 +732,12 @@ in
     };
   };
 
+  programs.opencode = {
+    package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
+    web.environmentFile = config.sops.secrets."adophilus/env".path;
+  };
+  services.opencode-a2a.enable = true; # zenith + nadir only
+
   # Managing hyprland from nixos config
   # wayland.windowManager.hyprland = {
   #     enable = true;

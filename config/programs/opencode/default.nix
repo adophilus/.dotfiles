@@ -6,6 +6,8 @@
   ...
 }:
 {
+  options.services.opencode-a2a = lib.mkEnableOption "A2A bridge for opencode";
+
   # opencode package + web server. The home-manager module emits a systemd
   # unit on Linux and a launchd agent on darwin — the darwin branch wraps
   # `serve` in a script that sources environmentFile (launchd has no
@@ -13,12 +15,6 @@
   # sops secrets; TUI/browser/GUI clients attach to it.
   programs.opencode = {
     enable = true;
-
-    # nixpkgs 26.05 ships 1.15.10; upstream keeps the hub's MCP client current
-    # (z.ai remotes 400 old Accept headers, local servers handshake strictly).
-    # `inputs` arrives via extraSpecialArgs, like sops-nix in home.nix.
-    package = lib.mkDefault inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
-    environmentFile = lib.mkDefault config.sops.secrets."adophilus/env".path;
 
     web = {
       enable = true;
@@ -33,7 +29,6 @@
         "--port"
         "4096"
       ];
-      environmentFile = config.programs.opencode.environmentFile;
     };
   };
 
@@ -61,6 +56,9 @@
     Unit = {
       Description = "opencode-a2a bridge (A2A surface for opencode)";
       After = [ "opencode.service" ];
+      # circuit breaker: 5 starts in 3min → unit goes to `failed` and stays down
+      StartLimitIntervalSec = 180;
+      StartLimitBurst = 5;
     };
     Service = {
       ExecStart = "${config.home.homeDirectory}/.local/bin/opencode-a2a serve";
@@ -74,8 +72,7 @@
       ];
       # A2A_STATIC_AUTH_CREDENTIALS (the bearer token pi presents) lives in the
       # sops env file alongside the provider keys.
-      EnvironmentFile = config.sops.secrets."adophilus/env".path;
-      # EnvironmentFile = config.programs.opencode.web.environmentFile;
+      EnvironmentFile = config.programs.opencode.web.environmentFile;
       Restart = "on-failure";
       RestartSec = 5;
     };

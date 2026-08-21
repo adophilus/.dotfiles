@@ -6,7 +6,7 @@
   ...
 }:
 {
-  options.services.opencode-a2a = lib.mkEnableOption "A2A bridge for opencode";
+  options.services.opencode-a2a.enable = lib.mkEnableOption "A2A bridge for opencode";
 
   config = lib.mkMerge [
     {

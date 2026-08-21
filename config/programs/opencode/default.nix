@@ -32,7 +32,7 @@
         "--port"
         "4096"
       ];
-      environmentFile = config.sops.secrets."adophilus/env".path;
+      environmentFile = lib.mkDefault config.sops.secrets."adophilus/env".path;
     };
   };
 
@@ -41,17 +41,15 @@
   # command[0] against it, so bare names (pnpx, node, codegraph) fail with
   # "executable not found". Merge a real PATH into the agent. On Linux this
   # option is inert (the systemd branch is live there).
-  launchd.agents.opencode-web.config.EnvironmentVariables.PATH =
-    lib.concatStringsSep ":"
-      [
-        "/etc/profiles/per-user/${config.home.username}/bin" # nix-darwin profile: pnpx, node
-        "${config.home.homeDirectory}/.local/share/pnpm/bin" # pnpm globals: codegraph
-        "/usr/local/bin" # Homebrew (Intel)
-        "/usr/bin"
-        "/bin"
-        "/usr/sbin"
-        "/sbin"
-      ];
+  launchd.agents.opencode-web.config.EnvironmentVariables.PATH = lib.concatStringsSep ":" [
+    "/etc/profiles/per-user/${config.home.username}/bin" # nix-darwin profile: pnpx, node
+    "${config.home.homeDirectory}/.local/share/pnpm/bin" # pnpm globals: codegraph
+    "/usr/local/bin" # Homebrew (Intel)
+    "/usr/bin"
+    "/bin"
+    "/usr/sbin"
+    "/sbin"
+  ];
 
   # opencode-a2a bridge: exposes opencode over the A2A protocol so pi (and other
   # A2A clients) can drive the local opencode runtime. Talks to the loopback
@@ -76,6 +74,7 @@
       # A2A_STATIC_AUTH_CREDENTIALS (the bearer token pi presents) lives in the
       # sops env file alongside the provider keys.
       EnvironmentFile = config.sops.secrets."adophilus/env".path;
+      # EnvironmentFile = config.programs.opencode.web.environmentFile;
       Restart = "on-failure";
       RestartSec = 5;
     };

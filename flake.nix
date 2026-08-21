@@ -91,10 +91,10 @@
       pkgs-unstable = import nixpkgs-unstable pkgsParams;
       wstui-pkg = pkgs.callPackage ./pkgs/wstui/default.nix { };
       floci-pkg = pkgs.callPackage ./pkgs/floci/default.nix { };
-      ytd-pkg   = pkgs.callPackage ./pkgs/ytd/default.nix { };
+      ytd-pkg = pkgs.callPackage ./pkgs/ytd/default.nix { };
       # Built from pkgs-unstable so its `feishu` base + buildInputs resolve
       # consistently (feishu is not in stable nixpkgs at this version).
-      lark-pkg  = pkgs-unstable.callPackage ./pkgs/lark/default.nix { };
+      lark-pkg = pkgs-unstable.callPackage ./pkgs/lark/default.nix { };
 
       # Open Design daemon (from the upstream flake, builds from source)
       open-design-pkg = inputs.open-design.packages.${system}.default;
@@ -140,20 +140,20 @@
 
               home-manager.users.adophilus = import ./users/adophilus/home.nix;
               home-manager.extraSpecialArgs = {
-              inherit
-                inputs
-                end4dots
-                wifitui
-                gws
-                wstui-pkg
-                floci-pkg
-                sops-nix
-                ytd-pkg
-                lark-pkg
-                open-design-pkg
-                pkgs-deprecated
-                pkgs-unstable
-                ;
+                inherit
+                  inputs
+                  end4dots
+                  wifitui
+                  gws
+                  wstui-pkg
+                  floci-pkg
+                  sops-nix
+                  ytd-pkg
+                  lark-pkg
+                  open-design-pkg
+                  pkgs-deprecated
+                  pkgs-unstable
+                  ;
                 modules = homeManagerModules;
                 homeDirectory = "/home/adophilus";
               };
@@ -201,10 +201,13 @@
                 ;
               # ytd wrapper built for x86_64-darwin (on Linux it comes from the
               # flake-level let, which is x86_64-linux only).
-              ytd-pkg = (import nixpkgs {
-                system = "x86_64-darwin";
-                config.allowUnfree = true;
-              }).callPackage ./pkgs/ytd/default.nix { };
+              ytd-pkg =
+                (import nixpkgs {
+                  system = "x86_64-darwin";
+                  config.allowUnfree = true;
+                }).callPackage
+                  ./pkgs/ytd/default.nix
+                  { };
               pkgs-deprecated = import nixpkgs-deprecated {
                 system = "x86_64-darwin";
                 config.allowUnfree = true;
@@ -227,6 +230,8 @@
           }
         ];
       };
+
+      packages.${system}.opencode = inputs.opencode.packages.${system}.opencode;
 
       homeManagerModules = {
         programs = (

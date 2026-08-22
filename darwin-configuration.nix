@@ -49,6 +49,16 @@
   # Fish shell — enabled at system level so it's on PATH for the login shell.
   programs.fish.enable = true;
 
+  # WireGuard client (vps tunnel, conf at ~/.config/wireguard/vps.conf).
+  # macOS has no kernel wireguard — wireguard-go is the userspace data plane,
+  # wg-quick uses it to create a utun device. Bring up with:
+  #   sudo wg-quick up ~/.config/wireguard/vps.conf
+  # (from nixpkgs 26.05 — the last release supporting x86_64-darwin)
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+    wireguard-go
+  ];
+
   # home-manager CANNOT set the login shell on macOS — only nix-darwin (or
   # manual `chsh`) can. This makes fish the login shell for adophilus.
   environment.shells = [ "${pkgs.fish}/bin/fish" ];

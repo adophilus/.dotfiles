@@ -59,6 +59,26 @@
     wireguard-go
   ];
 
+  # WireGuard tunnel at boot. macOS-native equivalent of the systemd unit the
+  # Linux boxes get from networking.wireguard: wg-quick creates the utun
+  # device via the userspace wireguard-go backend. The private key itself
+  # lives in the sops-decrypted file (HM decrypts at darwin-rebuild; the file
+  # persists across reboots on macOS, so the boot-time daemon can read it) —
+  # vps.conf has no secret in it and injects the key via PostUp.
+  launchd.daemons.wireguard-vps = {
+    command = pkgs.writeShellScript "wireguard-vps" ''
+      export PATH="${pkgs.wireguard-tools}/bin:${pkgs.wireguard-go}/bin:$PATH"
+      exec ${pkgs.wireguard-tools}/bin/wg-quick up /Users/adophilus/.config/wireguard/vps.conf
+    '';
+    serviceConfig = {
+      UserName = "root";
+      RunAtLoad = true;
+      # restart only on failure — a clean exit means the tunnel is
+      # configured and wg-quick is done (re-running it would error).
+      KeepAlive.SuccessfulExit = false;
+    };
+  };
+
   # home-manager CANNOT set the login shell on macOS — only nix-darwin (or
   # manual `chsh`) can. This makes fish the login shell for adophilus.
   environment.shells = [ "${pkgs.fish}/bin/fish" ];

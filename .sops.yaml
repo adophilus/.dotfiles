@@ -9,3 +9,7 @@ creation_rules:
   - path_regex: users/adophilus/secrets/wg0-private-key
     age:
     - *machine_zenith
+  - path_regex: users/adophilus/secrets/wg-nadir-key
+    age:
+    - *machine_zenith
+    - *machine_nadir

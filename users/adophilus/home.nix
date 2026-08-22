@@ -668,6 +668,13 @@ in
       sopsFile = ./secrets/env;
       format = "dotenv";
     };
+    # nadir's wireguard key — decrypted to
+    # ~/.config/sops-nix/secrets/adophilus/wg-nadir-key and injected by the
+    # PostUp hook in ~/.config/wireguard/vps.conf (no secret in the conf).
+    secrets."adophilus/wg-nadir-key" = {
+      sopsFile = ./secrets/wg-nadir-key;
+      format = "binary";
+    };
   };
 
   xdg.mimeApps = lib.mkIf pkgs.stdenv.isLinux {

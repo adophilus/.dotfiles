@@ -514,6 +514,8 @@
     linger = true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICU9oLDteF2G2m8xcqsj3bF7hXcVSKA2kIXE34f0TeZL adophilus@zenith"
+      # vps (root@contabo) — reaches zenith over the wireguard tunnel
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICktWflForgyrcGSLVtaUTfNOyHcSKCT0TdDPew8wMHu root@contabo"
     ];
   };
 

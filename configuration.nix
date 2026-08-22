@@ -14,6 +14,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # System-level sops (the HM module handles user secrets; this one
+    # handles secrets systemd services need, like the wireguard key).
+    inputs.sops-nix.nixosModules.default
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -151,12 +154,18 @@
 
   # WireGuard tunnel to the VPS (10.100.0.0/24, split tunnel — only tunnel
   # subnet traffic enters wg0, everything else uses the normal uplink).
-  # Key handling: /etc/wireguard/local.key is persistent root-only /etc state.
-  # Upgrade path: import sops-nix as a NixOS module (it currently only reaches
-  # home-manager) and encrypt the key like the VPS repo does.
+  # Private key: sops-encrypted at users/adophilus/secrets/wg0-private-key,
+  # decrypted at activation to /run/secrets/wg0-private-key (never enters the
+  # world-readable store). /etc/wireguard/local.key stays as root-only backup.
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  sops.secrets."wg0-private-key" = {
+    sopsFile = ./users/adophilus/secrets/wg0-private-key;
+    format = "binary";
+  };
+
   networking.wireguard.interfaces.wg0 = {
     ips = [ "10.100.0.2/32" ];
-    privateKeyFile = "/etc/wireguard/local.key";
+    privateKeyFile = config.sops.secrets."wg0-private-key".path;
     peers = [
       {
         # contabo (vps)

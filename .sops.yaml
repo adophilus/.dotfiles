@@ -6,3 +6,6 @@ creation_rules:
     age:
     - *machine_zenith
     - *machine_nadir
+  - path_regex: users/adophilus/secrets/wg0-private-key
+    age:
+    - *machine_zenith

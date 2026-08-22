@@ -149,6 +149,25 @@
     ];
   };
 
+  # WireGuard tunnel to the VPS (10.100.0.0/24, split tunnel — only tunnel
+  # subnet traffic enters wg0, everything else uses the normal uplink).
+  # Key handling: /etc/wireguard/local.key is persistent root-only /etc state.
+  # Upgrade path: import sops-nix as a NixOS module (it currently only reaches
+  # home-manager) and encrypt the key like the VPS repo does.
+  networking.wireguard.interfaces.wg0 = {
+    ips = [ "10.100.0.2/32" ];
+    privateKeyFile = "/etc/wireguard/local.key";
+    peers = [
+      {
+        # contabo (vps)
+        publicKey = "eFRbH1eD2p8QJidX2FhWX7pQdla/ret2akO9l7x5JGg=";
+        allowedIPs = [ "10.100.0.0/24" ];
+        endpoint = "37.60.224.206:51820";
+        persistentKeepalive = 25; # home NAT forgets UDP mappings after ~30s
+      }
+    ];
+  };
+
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
 

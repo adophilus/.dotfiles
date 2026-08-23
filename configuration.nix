@@ -117,6 +117,17 @@
   networking.hostName = "zenith";
   networking.usePredictableInterfaceNames = true;
 
+  # mDNS/zeroconf — deterministic LAN names without touching the MTN router:
+  # zenith.local resolves on the LAN, and zenith can resolve nadir.local
+  # (macOS publishes via Bonjour natively). Multicast-based: LAN-only, never
+  # crosses the wireguard tunnel — pair with 10.100.0.x for off-LAN paths.
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish.enable = true;
+    publish.addresses = true;
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager = {

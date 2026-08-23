@@ -581,29 +581,21 @@
     '';
   };
 
+  # Tor client. SOCKS proxy on 127.0.0.1:9050 (curl --socks5-hostname,
+  # etc). DNS-over-Tor deliberately OFF: port 53 belongs to resolved's stub
+  # (127.0.0.53) — binding Tor there made tor crash-loop, which took SOCKS
+  # down with it. resolved already provides DoT+DNSSEC system-wide, and
+  # socksified clients resolve via the SOCKS handshake (--socks5-hostname,
+  # the "-hostname" is what prevents DNS leaks) so a Tor DNSPort is
+  # redundant here.
   services.tor = {
     enable = true;
-    client.dns.enable = true;
-    settings.DNSPort = [
-      {
-        addr = "127.0.0.1";
-        port = 53;
-      }
-    ];
-    # resolved = {
-    #   enable = true; # For caching DNS requests.
-    #   fallbackDns = [ "" ]; # Overwrite compiled-in fallback DNS servers.
-    # };
-    openFirewall = false;
-    relay = {
-      enable = false;
-      # role = "relay";
+    client = {
+      enable = true;
+      socks.enable = true; # 127.0.0.1:9050
     };
-    # settings = {
-    #   UseBridges = true;
-    #   ClientTransportPlugin = "obfs4 exec ${pkgs-unstable.obfs4}/bin/lyrebird";
-    #   Bridge = "obfs4 IP:ORPort [fingerprint]";
-    # };
+    openFirewall = false;
+    relay.enable = false;
   };
 
   # Enable the OpenSSH daemon.

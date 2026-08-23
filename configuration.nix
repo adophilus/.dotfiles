@@ -605,6 +605,41 @@
     client.enable = true; # SOCKS 127.0.0.1:9050
     openFirewall = false;
     relay.enable = false;
+    # Host the demo onion service. Lives under `relay.` for historical
+    # reasons — works with relay.enable = false (relay.* gates only
+    # public relay roles). Key is generated on first start into
+    # /var/lib/tor/onion/demo/hostname — the .onion address IS the
+    # service's public key.
+    relay.onionServices."demo" = {
+      version = 3;
+      map = [
+        {
+          port = 80; # virtual port the visitor connects to
+          target = {
+            addr = "127.0.0.1";
+            port = 3000; # the node backend below
+          };
+        }
+      ];
+    };
+  };
+
+  # Onion demo backend — pure-node "what can the server see" page.
+  # Zero deps (no node_modules in the store); store-path ExecStart.
+  systemd.services.onion-demo = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.nodejs}/bin/node ${
+        ./tor-onion/index.js
+      }"; # store path — safe to serve to the world, contains no secrets
+      Restart = "on-failure";
+      # hardening: it needs loopback:3000 and nothing else
+      NoNewPrivileges = true;
+      PrivateTmp = true;
+      ProtectSystem = "strict";
+      ProtectHome = true;
+    };
   };
 
   # Enable the OpenSSH daemon.

@@ -78,7 +78,8 @@
 		"codegraph": {
 			"type": "local",
 			"command": [
-				"codegraph",
+				"pnpx",
+				"codegraph@1.3.0",
 				"serve",
 				"--mcp"
 			],

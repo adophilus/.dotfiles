@@ -592,8 +592,9 @@
     '';
   };
 
-  # Tor client. SOCKS proxy on 127.0.0.1:9050 (curl --socks5-hostname,
-  # etc). DNS-over-Tor deliberately OFF: port 53 belongs to resolved's stub
+  # Tor client. SOCKS proxy on 127.0.0.1:9050 comes with client.enable
+  # (module default SocksPort) — curl --socks5-hostname, etc.
+  # DNS-over-Tor deliberately OFF: port 53 belongs to resolved's stub
   # (127.0.0.53) — binding Tor there made tor crash-loop, which took SOCKS
   # down with it. resolved already provides DoT+DNSSEC system-wide, and
   # socksified clients resolve via the SOCKS handshake (--socks5-hostname,
@@ -601,10 +602,7 @@
   # redundant here.
   services.tor = {
     enable = true;
-    client = {
-      enable = true;
-      socks.enable = true; # 127.0.0.1:9050
-    };
+    client.enable = true; # SOCKS 127.0.0.1:9050
     openFirewall = false;
     relay.enable = false;
   };

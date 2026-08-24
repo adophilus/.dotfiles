@@ -214,7 +214,7 @@
   };
 
   # Fonts (Nerd Fonts etc.) — installed system-wide, visible to fontconfig.
-  fonts.packages = [ pkgs.nerd-fonts.hurmit ];
+  fonts.packages = [ pkgs.nerd-fonts.hurmit pkgs.nerd-fonts.space-mono ];
 
   # Don't suspend/hibernate when the lid closes — lets the laptop run headless
   # (e.g. closed, accessed over SSH from the Mac). lidSwitchDocked already

@@ -617,7 +617,7 @@
           port = 80; # virtual port the visitor connects to
           target = {
             addr = "127.0.0.1";
-            port = 3000; # the node backend below
+            port = 11000; # the node backend (11000: 3000 is for work)
           };
         }
       ];
@@ -634,11 +634,13 @@
         ./tor-onion/index.js
       }"; # store path — safe to serve to the world, contains no secrets
       Restart = "on-failure";
-      # hardening: it needs loopback:3000 and nothing else
+      # hardening: loopback:11000 and nothing else. The tunnel subnet is
+      # denied so the demo never serves workday traffic over the VPN.
       NoNewPrivileges = true;
       PrivateTmp = true;
       ProtectSystem = "strict";
       ProtectHome = true;
+      IPAddressDeny = "10.100.0.0/24";
     };
   };
 

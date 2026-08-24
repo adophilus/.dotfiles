@@ -7,7 +7,7 @@
 // .onion address).
 const http = require("http");
 
-const PORT = 3000;
+const PORT = 11000; // 3000 is for work; the onion maps virtual 80 → here
 
 // The page echoes attacker-controllable input (headers). Escape it —
 // same rule as any clearnet app; anonymity of transport doesn't make XSS

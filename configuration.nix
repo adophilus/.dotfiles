@@ -117,6 +117,13 @@
   networking.hostName = "zenith";
   networking.usePredictableInterfaceNames = true;
 
+  # WireGuard mesh names (mDNS can't cross wg — no broadcast domain).
+  networking.extraHosts = ''
+    10.100.0.1 contabo.vpn
+    10.100.0.2 zenith.vpn
+    10.100.0.3 nadir.vpn
+  '';
+
   # mDNS/zeroconf — deterministic LAN names without touching the MTN router:
   # zenith.local resolves on the LAN, and zenith can resolve nadir.local
   # (macOS publishes via Bonjour natively). Multicast-based: LAN-only, never

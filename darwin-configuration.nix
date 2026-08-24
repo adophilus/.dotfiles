@@ -28,6 +28,18 @@
   networking.localHostName = "nadir";
   networking.computerName = "Nadir";
 
+  # /etc/hosts, replaced wholesale (nix-darwin has no networking.extraHosts).
+  # Standard macOS entries + wireguard mesh names (mDNS can't cross wg — no
+  # broadcast domain; and .local is reserved by mDNSResponder, hence .vpn).
+  environment.etc.hosts.text = ''
+    127.0.0.1 localhost
+    255.255.255.255 broadcasthost
+    ::1 localhost
+    10.100.0.1 contabo.vpn
+    10.100.0.2 zenith.vpn
+    10.100.0.3 nadir.vpn
+  '';
+
   # Set once, never change. 4 = Sonoma era. Verify on first `darwin-rebuild`.
   system.stateVersion = 4;
 

@@ -157,9 +157,9 @@
       "lark"
       # tiling window manager (i3-style, no SIP changes)
       "nikitabobko/homebrew-tap/aerospace"
-      # dev
-      "opencode-desktop"
       # "ghostty"  # disabled — using kitty as daily driver
+      # opencode-desktop removed as cask — now from the opencode flake via
+      # home-manager (users/adophilus/home.nix, cross-platform packages).
     ];
     # CLI tools come from nix (home.packages); no Homebrew brews. opencode is
     # installed standalone so it doesn't pull a Homebrew node that shadows nix's.

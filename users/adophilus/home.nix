@@ -148,6 +148,9 @@ in
       tmux
       vim
       kitty
+      # opencode GUI — same flake input as the CLI (programs.opencode.package
+      # below), so GUI and CLI stay in lockstep on both hosts.
+      inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode-desktop
 
       # Containers (on macOS: podman machine init && podman machine start)
       podman
@@ -353,7 +356,6 @@ in
 
         # Code editors
         vscode-fhs
-        pkgs.opencode-desktop # desktop GUI from stable (pkgs., not pkgs-unstable — matches mpv pin above)
 
         # Dev tools
         gh

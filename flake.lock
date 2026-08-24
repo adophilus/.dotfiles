@@ -819,11 +819,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1786992843,
-        "narHash": "sha256-nC8Sxgx8EWA/c47pzVzylOf6tImvYYxvNhzqs9nLZpI=",
+        "lastModified": 1787568768,
+        "narHash": "sha256-uGBTtpCfKnPbS/zSPiDqUtINE4qJVT+1pR6cBhUAyqk=",
         "owner": "anomalyco",
         "repo": "opencode",
-        "rev": "e14acea58108ad97fef5dcc179a359d9d0f75eac",
+        "rev": "105b398c2a9ff2f16eaae409836e1dbc4d37671a",
         "type": "github"
       },
       "original": {

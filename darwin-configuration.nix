@@ -99,6 +99,8 @@
     home = "/Users/adophilus";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGMOszuqNs3PhCKOhCejkol4u4/vRgLP1s2vCT9nJo4D adophilus@nadir"
+      # vps (root@contabo) — reaches nadir over the wireguard tunnel
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICv8JOH5fkPP8uxOud6DRRh1UsPkSj5xjKk8uo1VxLmv root@contabo"
     ];
   };
 

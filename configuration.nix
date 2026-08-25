@@ -67,8 +67,13 @@
     # This forces your mouse and keyboard to stay awake 100% of the time,
     # preventing any wonkiness, lag, or dropped keystrokes.
     # Don't stop specific usb devices (even when idle, e.g: keyboard)
-    # 214b:7250 = USB hub, 046d:c077 = Logitech mouse, 41e4:2103 = MCHOSE Ace 60 Pro kbd,
-    # 291d:385d = MCHOSE V9 PRO headset dongle, 10c4:0005 + 03f0:2f4a = older devices
+    # Denylist entries, in order:
+    #   10c4:0005  old Silicon Labs device (previous peripheral, kept in case it returns)
+    #   03f0:2f4a  old HP device (previous peripheral, kept in case it returns)
+    #   214b:7250  Huasheng USB2 hub (the one kbd + mouse plug into)
+    #   046d:c077  Logitech mouse (on the hub)
+    #   41e4:2103  MCHOSE Ace 60 Pro keyboard (on the hub)
+    #   291d:385d  MCHOSE V9 PRO headset USB-C audio dongle
     USB_DENYLIST = "10c4:0005 03f0:2f4a 214b:7250 046d:c077 41e4:2103 291d:385d";
     };
   };

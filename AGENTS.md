@@ -50,6 +50,30 @@ This is a **NixOS + home-manager** flake repo. Key landmarks:
 | `pkgs/` | Custom package definitions (`callPackage` derivations). |
 | `secrets/` | sops-nix encrypted secrets. |
 
+## Remote execution workflow (tmux MCP)
+
+When running commands on zenith (or nadir) from the VPS:
+
+- **One command per send, never chained.** No `;`-joined blobs, no
+  `| tail -N` truncation — output must stay fully visible in the pane
+  for the human to inspect.
+- **Long-running commands** (rebuilds, servers): start it, confirm it's
+  running (~10s), then stop and ask to be pinged back when it finishes.
+  No polling loops. opencode has no callback/hook for this — the ping
+  is manual.
+- **Tracked queueing** (`execute-command` with command IDs) works on
+  VPS-local panes only — its bookkeeping wrapper needs `tmux` on PATH.
+  Over forwarded sockets into root shells it degrades; use plain
+  send-keys + capture-pane there.
+- **Root shells on zenith have no user profile tools.** `sudo su` /
+  `systemd-run` shells can't see home-manager packages (`git`, `tmux`,
+  ...). Known failures this caused: `git pull` chains dying, MCP
+  side-channel breaking. Pull as the user over ssh; give the root pane
+  only system-path commands (`nixos-rebuild`, `systemctl`, `ip`...).
+- The tmux bridge: `ssh -fN -L /tmp/zenith-tmux.sock:/tmp/tmux-1000/default
+  zenith.vpn`, then point the MCP's `socket` param at it. Rebuild the
+  bridge when it dies (tmux server restarts, reboots).
+
 ## What to avoid
 
 - Writing the corrected code or config unprompted.

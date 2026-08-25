@@ -50,6 +50,10 @@
       ];
 
       home.file.".config/opencode/AGENTS.md".source = ../../../home/.config/opencode/AGENTS.md;
+      # Same global instructions for pi (reads ~/.pi/agent/AGENTS.md).
+      # One repo source, two placements — no symlink needed. Inert on
+      # machines without pi installed.
+      home.file.".pi/agent/AGENTS.md".source = ../../../home/.config/opencode/AGENTS.md;
       home.file.".config/opencode/oh-my-opencode-slim.jsonc".source =
         ../../../home/.config/opencode/oh-my-opencode-slim.jsonc;
       home.file.".config/opencode/opencode.jsonc".source = ../../../home/.config/opencode/opencode.jsonc;

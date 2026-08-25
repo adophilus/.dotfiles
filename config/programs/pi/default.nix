@@ -1,24 +1,10 @@
-{ config, lib, ... }:
+{ ... }:
 
 {
+  home.file.".pi/agent/settings.json".source = ../../../home/.pi/agent/settings.json;
+
   home.file.".pi/agent/themes" = {
     source = ../../../home/.pi/agent/themes;
     recursive = true;
   };
-
-  # settings.json is read/write by pi — using an activation script to
-  # preserve user changes while initializing from dotfiles on fresh installs.
-  home.activation.initPiSettings = (
-    # Only copy if settings.json doesn't exist (fresh install)
-    let
-      settingsPath = "${config.home.homeDirectory}/.pi/agent/settings.json";
-      dotfilesSettings = ../../../home/.pi/agent/settings.json;
-    in
-    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -f "${settingsPath}" ]; then
-        run mkdir -p $HOME/.pi/agent
-        run cp ${dotfilesSettings} "${settingsPath}"
-      fi
-    ''
-  );
 }

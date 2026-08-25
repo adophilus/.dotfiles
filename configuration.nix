@@ -607,49 +607,11 @@
   # socksified clients resolve via the SOCKS handshake (--socks5-hostname,
   # the "-hostname" is what prevents DNS leaks) so a Tor DNSPort is
   # redundant here.
-  services.tor = {
-    enable = true;
-    client.enable = true; # SOCKS 127.0.0.1:9050
-    openFirewall = false;
-    relay.enable = false;
-    # Host the demo onion service. Lives under `relay.` for historical
-    # reasons — works with relay.enable = false (relay.* gates only
-    # public relay roles). Key is generated on first start into
-    # /var/lib/tor/onion/demo/hostname — the .onion address IS the
-    # service's public key.
-    relay.onionServices."demo" = {
-      version = 3;
-      map = [
-        {
-          port = 80; # virtual port the visitor connects to
-          target = {
-            addr = "127.0.0.1";
-            port = 11000; # the node backend (11000: 3000 is for work)
-          };
-        }
-      ];
-    };
-  };
-
-  # Onion demo backend — pure-node "what can the server see" page.
-  # Zero deps (no node_modules in the store); store-path ExecStart.
-  systemd.services.onion-demo = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.nodejs}/bin/node ${
-        ./tor-onion/index.js
-      }"; # store path — safe to serve to the world, contains no secrets
-      Restart = "on-failure";
-      # hardening: loopback:11000 and nothing else. The tunnel subnet is
-      # denied so the demo never serves workday traffic over the VPN.
-      NoNewPrivileges = true;
-      PrivateTmp = true;
-      ProtectSystem = "strict";
-      ProtectHome = true;
-      IPAddressDeny = "10.100.0.0/24";
-    };
-  };
+  # Tor: no local daemon. Tor entry is contabo's gateway over the tunnel
+  # (10.100.0.1:9050 — see vps repo). The weekend's onion demo
+  # (zn6dq...esad.onion, served by tor-onion/index.js) was retired with
+  # this change: address = service key, key deleted, address permanently
+  # unreachable — the self-certifying property, observed at teardown.
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

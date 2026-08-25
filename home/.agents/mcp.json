@@ -5,7 +5,7 @@
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "@z_ai/mcp-server"
+        "@z_ai/mcp-server@0.1.4"
       ]
     },
     "zread": {
@@ -37,7 +37,7 @@
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "@sylphx/pdf-reader-mcp"
+        "@sylphx/pdf-reader-mcp@4.1.3"
       ]
     },
     "penpot": {
@@ -48,7 +48,7 @@
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "@vkhanhqui/figma-mcp-go"
+        "@vkhanhqui/figma-mcp-go@0.1.3"
       ],
       "disabled": true
     },
@@ -56,7 +56,7 @@
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "figma-console-mcp"
+        "figma-console-mcp@1.40.0"
       ],
       "env": {
         "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}",
@@ -65,8 +65,9 @@
     },
     "codegraph": {
       "type": "stdio",
-      "command": "codegraph",
+      "command": "pnpx",
       "args": [
+        "codegraph@1.3.0",
         "serve",
         "--mcp"
       ]
@@ -75,16 +76,30 @@
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "@bnomei/tmux-mcp-rs"
+        "@bnomei/tmux-mcp-rs@0.6.0"
       ]
     },
     "open-computer-use": {
       "type": "stdio",
       "command": "pnpx",
       "args": [
-        "@qwen-code/open-computer-use",
+        "@qwen-code/open-computer-use@0.2.3",
         "mcp"
       ]
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "chrome-devtools-mcp@latest",
+        "--category-extensions",
+        "--executablePath",
+        "/etc/profiles/per-user/adophilus/bin/google-chrome-stable"
+      ]
+    },
+    "open-design": {
+      "type": "stdio",
+      "command": "open-design-mcp"
     }
   }
 }

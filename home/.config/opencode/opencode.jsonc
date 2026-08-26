@@ -119,6 +119,14 @@
 				"open-design-mcp"
 			],
 			"enabled": true
+		},
+		"super-productivity": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"super-productivity-mcp@1.5.0"
+			],
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

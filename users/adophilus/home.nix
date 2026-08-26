@@ -254,6 +254,9 @@ in
         # Email
         thunderbird
 
+        # Task tracking (unfree; plugin-capable build >= 18.3.0)
+        pkgs.super-productivity
+
         # Finances
         gnucash
 

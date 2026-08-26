@@ -97,9 +97,16 @@
         "/etc/profiles/per-user/adophilus/bin/google-chrome-stable"
       ]
     },
-    "open-design": {
+    "open-design-mcp": {
       "type": "stdio",
       "command": "open-design-mcp"
+    },
+    "super-productivity": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "super-productivity-mcp@1.5.0"
+      ]
     }
   }
 }

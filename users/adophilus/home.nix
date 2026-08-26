@@ -540,6 +540,16 @@ in
   # For configs managed by activation scripts (copy from nix store),
   # see config/programs/*/default.nix
   home.file = {
+    # Tor Browser → contabo tor gateway. user.js is re-applied at every
+    # browser startup (declaration wins over runtime pref drift).
+    # Profile name (9z2hgjka) is assigned by the nixpkgs wrapper on first
+    # launch — if it ever changes, update the path.
+    # TODO(nadir): macOS profile lives at
+    # ~/Library/Application Support/TorBrowser-Data/Browser/profile.default/
+    ".tor project/firefox/9z2hgjka.default/user.js" =
+      lib.mkIf pkgs.stdenv.isLinux
+        { source = ../../home/.config/tor-browser/user.js; };
+
     # Scripts
     # ".local/bin/ytd" = {
     #   source = ../../.local/bin/ytd;

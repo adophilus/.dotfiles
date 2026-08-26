@@ -168,5 +168,17 @@
     brews = [ ];
   };
 
+  # ── Headless corner-machine behavior ─────────────────────────────────
+  # Keep awake with the lid closed (macOS equivalent of zenith's
+  # services.logind.lidSwitch = "ignore"). `disablesleep` — NOT `sleep 0`,
+  # which only stops idle sleep, not lid-close sleep. Explicit Sleep from
+  # the  menu still works when you want it. Keep the Mac plugged in:
+  # with sleep disabled, a closed lid on battery just drains.
+  # (pmset persists across boots; the activation script keeps it owned
+  # by the flake.)
+  system.activationScripts.keepAwakeLidClosed.text = ''
+    /usr/bin/pmset -c disablesleep 1
+  '';
+
   # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.
 }

@@ -118,6 +118,7 @@
         "zen-browser"
         "opencode"
         "aerospace"
+        "pi"
       ];
     in
     {

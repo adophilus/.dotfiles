@@ -177,7 +177,7 @@
   # (pmset persists across boots; the activation script keeps it owned
   # by the flake.)
   system.activationScripts.keepAwakeLidClosed.text = ''
-    /usr/bin/pmset -c disablesleep 1
+    /usr/bin/pmset -a disablesleep 1
   '';
 
   # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.

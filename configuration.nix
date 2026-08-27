@@ -202,6 +202,12 @@
     ];
   };
 
+  # Tailscale — WireGuard-based mesh, but auth is identity-based (login URL,
+  # accounts) instead of manual key exchange like wg0 above. Claims only the
+  # CGNAT range 100.64.0.0/10, so no overlap with wg0's 10.100.0.0/24.
+  # Join a tailnet with: sudo tailscale up (prints a login URL).
+  services.tailscale.enable = true;
+
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
 
@@ -661,6 +667,11 @@
     ]; # Video streaming and mDNS/Discovery
 
     trustedInterfaces = [ "p2p-wl+" ]; # Allows Wi-Fi Direct/P2P interfaces
+
+    # Tailscale: strict reverse-path filtering drops packets whose source
+    # (100.x) isn't routed via the incoming interface yet; loose accepts
+    # them. Needed to act as exit node / subnet router.
+    checkReversePath = "loose";
   };
   services.gnome.gnome-keyring.enable = true;
 

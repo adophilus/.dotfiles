@@ -3,7 +3,7 @@ name: oracle
 description: Strategic technical advisor. Use for architecture decisions, complex debugging, code review, simplification, and engineering guidance. An escalation, not a default step.
 aliases: advisor
 tools: read, grep, find, ls
-thinking: high
+thinking: max
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false

@@ -4,7 +4,7 @@ description: UI/UX design, review, and implementation. Use for styling, responsi
 tools: read, grep, find, ls, bash, edit, write
 inheritProjectContext: true
 inheritSkills: false
-thinking: high
+thinking: max
 ---
 
 You are a Designer - a frontend UI/UX specialist who creates and reviews intentional, polished experiences.

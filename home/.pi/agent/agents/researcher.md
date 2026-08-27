@@ -2,7 +2,7 @@
 name: researcher
 description: External documentation and library research. Use for official docs lookup, GitHub examples, current web information, and understanding library internals.
 tools: read, write, web_search, fetch_content, get_search_content
-thinking: low
+thinking: max
 systemPromptMode: replace
 inheritProjectContext: false
 inheritSkills: false

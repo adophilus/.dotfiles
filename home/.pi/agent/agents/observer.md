@@ -2,7 +2,7 @@
 name: observer
 description: Visual analysis specialist. Use for images, screenshots, PDFs, and diagrams - extracts structured observations so the caller never processes the raw file.
 tools: read
-thinking: medium
+thinking: max
 systemPromptMode: replace
 inheritProjectContext: false
 inheritSkills: false

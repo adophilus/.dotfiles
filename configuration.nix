@@ -666,7 +666,13 @@
       5353
     ]; # Video streaming and mDNS/Discovery
 
-    trustedInterfaces = [ "p2p-wl+" ]; # Allows Wi-Fi Direct/P2P interfaces
+    trustedInterfaces = [
+      "p2p-wl+" # Wi-Fi Direct/P2P (Miracast)
+      # Cryptokey routing: any packet on wg0 was decrypted by the contabo
+      # peer's key — the tunnel is the authentication (same reasoning as the
+      # VPS's trustedInterfaces). All ports reachable from the tunnel.
+      "wg0"
+    ];
 
     # Tailscale: strict reverse-path filtering drops packets whose source
     # (100.x) isn't routed via the incoming interface yet; loose accepts

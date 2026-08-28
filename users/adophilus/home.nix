@@ -165,6 +165,7 @@ in
       pnpm
       bun
       biome
+      go
       python3
       uv
 

@@ -231,6 +231,9 @@ in
 
       # Open Design MCP wrapper (darwin: exec the app's daemon; Linux: stub error)
       (pkgs.callPackage ../../pkgs/open-design-mcp/default.nix { })
+
+      # Chrome DevTools MCP wrapper (per-host chrome executablePath)
+      (pkgs.callPackage ../../pkgs/chrome-devtools-mcp/default.nix { })
     ])
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (

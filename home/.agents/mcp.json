@@ -89,13 +89,7 @@
     },
     "chrome-devtools": {
       "type": "stdio",
-      "command": "pnpx",
-      "args": [
-        "chrome-devtools-mcp@latest",
-        "--category-extensions",
-        "--executablePath",
-        "/etc/profiles/per-user/adophilus/bin/google-chrome-stable"
-      ]
+      "command": "chrome-devtools-mcp"
     },
     "open-design-mcp": {
       "type": "stdio",

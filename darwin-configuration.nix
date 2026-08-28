@@ -55,6 +55,10 @@
     extraConfig = ''
       PasswordAuthentication no
       KbdInteractiveAuthentication no
+      # Let inbound sessions carry their locale — without this every ssh
+      # drops to LANG=C and starship/fish draw glyphs (❯ etc) for 1970s
+      # terminals. Client side sends LANG/LC_* by default (SendEnv).
+      AcceptEnv LANG LC-*
     '';
   };
 

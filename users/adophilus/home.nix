@@ -757,6 +757,17 @@ in
   programs.opencode = {
     package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     web.environmentFile = config.sops.secrets."adophilus/env".path;
+    # nadir: bind all interfaces so `opencode attach http://nadir.vpn:4096`
+    # reaches it over the wireguard mesh (module default is loopback-only).
+    # 0.0.0.0 rather than the tunnel IP: survives the launchd/wireguard boot
+    # race; still gated by the server password + home NAT. zenith keeps the
+    # loopback default.
+    web.extraArgs = lib.mkIf pkgs.stdenv.isDarwin (lib.mkForce [
+      "--hostname"
+      "0.0.0.0"
+      "--port"
+      "4096"
+    ]);
   };
   services.opencode-a2a.enable = true; # zenith + nadir only
 

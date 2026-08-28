@@ -61,10 +61,11 @@ When running commands on zenith (or nadir) from the VPS:
   running (~10s), then stop and ask to be pinged back when it finishes.
   No polling loops. opencode has no callback/hook for this — the ping
   is manual.
-- **Tracked queueing** (`execute-command` with command IDs) works on
-  VPS-local panes only — its bookkeeping wrapper needs `tmux` on PATH.
-  Over forwarded sockets into root shells it degrades; use plain
-  send-keys + capture-pane there.
+- **Tracked queueing** (`execute-command` with command IDs) works on any
+  local pane — zenith, nadir, and contabo alike. Its bookkeeping wrapper
+  just needs `tmux` on PATH, which holds wherever the MCP runs (user shell).
+  Note: a selftest command like `exit 3` kills the pane's own shell before
+  the wrapper can report — use `sh -c 'exit 3'` to test exit-code tracking.
 - **Root shells on zenith have no user profile tools.** `sudo su` /
   `systemd-run` shells can't see home-manager packages (`git`, `tmux`,
   ...). Known failures this caused: `git pull` chains dying, MCP

@@ -235,6 +235,9 @@ in
       # Chrome DevTools MCP wrapper (per-host chrome executablePath)
       (pkgs.callPackage ../../pkgs/chrome-devtools-mcp/default.nix { })
     ])
+    # ── Terminal, Linux-only: ghostty to try alongside kitty ──
+    # (ungated it would source-build Zig+GTK forever on the Intel Mac)
+    ++ lib.optionals pkgs.stdenv.isLinux [ pkgs.ghostty ]
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
     ++ lib.optionals pkgs.stdenv.isLinux (
       with pkgs-unstable;
@@ -441,7 +444,7 @@ in
 
         # Terminal
         kitty
-        # ghostty  # disabled — using kitty as daily driver
+        # ghostty  # Linux-only now — enabled in the optionals block above
         starship
 
         # File manager
@@ -569,7 +572,7 @@ in
     ".config/kitty-os.conf".text =
       if pkgs.stdenv.isLinux then "hide_window_decorations yes\n" else "hide_window_decorations no\n";
     ".config/zellij".source = ../../home/.config/zellij;
-    # ".config/ghostty".source = ../../home/.config/ghostty;  # ghostty disabled (using kitty)
+    ".config/ghostty".source = ../../home/.config/ghostty;  # port of kitty.conf
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";

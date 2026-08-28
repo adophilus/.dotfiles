@@ -176,7 +176,7 @@
   # with sleep disabled, a closed lid on battery just drains.
   # (pmset persists across boots; the activation script keeps it owned
   # by the flake.)
-  system.activationScripts.keepAwakeLidClosed.text = ''
+  system.activationScripts.postActivation.text = ''
     /usr/bin/pmset -a disablesleep 1
   '';
 

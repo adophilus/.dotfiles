@@ -761,6 +761,25 @@ in
     };
   };
 
+  # nadir's wireguard client conf — declarative (was hand-written).
+  # FULL TUNNEL: AllowedIPs 0.0.0.0/0 routes everything via contabo
+  # (the stacking experiment, made permanent). Tradeoffs: contabo sees all
+  # egress; tunnel down = internet down (launchd daemon self-heals).
+  # Rollback = revert AllowedIPs here + rebuild + wg-quick down/up.
+  # Key: injected at up-time via PostUp from the sops-decrypted file —
+  # this conf is secret-free, safe in the store.
+  home.file.".config/wireguard/vps.conf".text = lib.mkIf pkgs.stdenv.isDarwin ''
+    [Interface]
+    Address = 10.100.0.3/32
+    PostUp = wg set %i private-key /Users/adophilus/.config/sops-nix/secrets/adophilus/wg-nadir-key
+
+    [Peer] # contabo (vps)
+    PublicKey = eFRbH1eD2p8QJidX2FhWX7pQdla/ret2akO9l7x5JGg=
+    Endpoint = 37.60.224.206:51820
+    AllowedIPs = 0.0.0.0/0
+    PersistentKeepalive = 25
+  '';
+
   programs.opencode = {
     package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     web.environmentFile = config.sops.secrets."adophilus/env".path;

@@ -163,7 +163,7 @@
       "lark"
       # tiling window manager (i3-style, no SIP changes)
       "nikitabobko/homebrew-tap/aerospace"
-      # "ghostty"  # disabled — using kitty as daily driver
+      "ghostty" # cask, not nixpkgs — Intel-Mac nix build source-builds Zig+GTK forever (see home.nix)
       # opencode-desktop removed as cask — now from the opencode flake via
       # home-manager (users/adophilus/home.nix, cross-platform packages).
     ];

@@ -18,7 +18,7 @@
     allowUnfreePredicate = pkg:
       builtins.elem (pkgs.lib.getName pkg) [
         "postman" "spotify" "google-chrome" "zoom" "code" "vscode"
-        "steam" "steam-unwrapped" "discord" "legcord" "obsidian" "osu-lazar"
+        "discord" "legcord" "obsidian" "osu-lazar"
       ];
   };
 
@@ -148,7 +148,7 @@
       "obs"
       "shotcut"
       # games
-      "steam"
+      "epic-games"
       # private browsing
       "tor-browser"
       "mullvad-browser"

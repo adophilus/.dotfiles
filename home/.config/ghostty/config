@@ -65,3 +65,10 @@ keybind = alt+l=ignore
 # ── Window ──
 # kitty: hide_window_decorations yes (Linux, via kitty-os.conf)
 gtk-titlebar = false
+
+# kitty runs with zero padding (its window_padding_width 4 is commented out);
+# ghostty defaults to 2px. Balance centers the sub-cell grid remainder
+# (window size rarely divides evenly by cell size) instead of right/bottom.
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true

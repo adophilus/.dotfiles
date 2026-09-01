@@ -1,7 +1,7 @@
 ---
 name: designer
 description: UI/UX design, review, and implementation. Use for styling, responsive design, component architecture, and visual polish.
-tools: read, grep, find, ls, bash, edit, write
+tools: read, grep, find, ls, bash, edit, write, mcp, mcpScript
 inheritProjectContext: true
 inheritSkills: false
 thinking: max

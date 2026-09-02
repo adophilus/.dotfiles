@@ -1,24 +1,104 @@
-# AeroSpace config — minimal; unspecified options use compiled-in defaults
-# (alt-hjkl focus, alt-1..0 workspaces, alt-shift move, etc.)
+# AeroSpace config — nadir
 #
-# Workspaces are pinned per monitor:
-#   1-5 → main monitor
-#   6-0 → secondary monitor
-# 'main' = macOS "Use as Main" display (System Settings → Displays)
+# THE RULE THIS FILE OBEYS (hard-won lesson, 2026-08):
+# AeroSpace merges nothing. Scalar keys you omit fall back to built-in defaults,
+# but TABLE keys — [mode.main.binding], [mode.service.binding] — fall back to
+# EMPTY. The previous "minimal" config assumed table defaults merge in; they
+# don't, so every keybind silently vanished. Tables below are therefore
+# complete copies of the shipped defaults
+# (/Applications/AeroSpace.app/Contents/Resources/default-config.toml),
+# trimmed to the 1–0 workspace scheme. Want the default value for a scalar?
+# Delete the line.
 
-# Don't warp the cursor when focus changes — mouse stays where you put it.
-# (mouse-follows-focus defaults to true and causes the monitor-jumping.)
-mouse-follows-focus = false
+config-version = 2
 
-# Explicit monitor-focus binds: alt+ctrl+hjkl move AeroSpace's focus
-# between monitors (fixes "can't focus external monitor").
+# --- "daemon" equivalents ---------------------------------------------------
+# Start AeroSpace at login (no manual launch each boot).
+start-at-login = true
+# Watch ~/.aerospace.toml and reload on change — every rebuild becomes live.
+# Needs one manual `aerospace reload-config` after first setting it, to arm.
+auto-reload-config = true
+
+# --- non-default scalars ----------------------------------------------------
+# Only workspaces 1–10 exist; empty ones stay alive (i3-like feel).
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+# NOTE: no mouse-follows-focus here — that's a config-version 1 key. In v2 the
+# mouse-warps-to-focus behavior only happens if you explicitly set
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] (like the
+# shipped default does). Omitting it = mouse stays put, which is what we want.
+
+# --- bindings (COMPLETE — see rule at top) ----------------------------------
 [mode.main.binding]
+    # window focus
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    # move window within layout
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    # layout / resize
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # workspaces
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    # move window to workspace
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
+
+    # monitor focus (custom — fixes "can't reach the external monitor")
     alt-ctrl-h = 'focus-monitor left'
     alt-ctrl-j = 'focus-monitor down'
     alt-ctrl-k = 'focus-monitor up'
     alt-ctrl-l = 'focus-monitor right'
-    # alt+w = focus-monitor --wrap-around next  # uncomment for simple next-monitor cycling
 
+    # misc
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    alt-shift-semicolon = 'mode service'
+
+# Service mode (entered via alt+shift+;). Kept verbatim from defaults — if this
+# table were empty you'd be stuck in the mode with no escape key.
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main'] # reset layout
+    f = ['layout floating tiling', 'mode main'] # toggle floating/tiling
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
+
+# --- workspace → monitor pinning --------------------------------------------
+# 1–5 on main display, 6–0 (i.e. workspace "10") on secondary.
+# 'main' = macOS "Use as Main" display (System Settings → Displays)
 [workspace-to-monitor-force-assignment]
     1 = 'main'
     2 = 'main'
@@ -29,4 +109,4 @@ mouse-follows-focus = false
     7 = 'secondary'
     8 = 'secondary'
     9 = 'secondary'
-    0 = 'secondary'
+    10 = 'secondary'

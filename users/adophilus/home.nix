@@ -560,6 +560,16 @@ in
       lib.mkIf pkgs.stdenv.isLinux
         { source = ../../home/.config/tor-browser/user.js; };
 
+    # nadir's WireGuard conf — the imperative half of the launchd daemon
+    # org.nixos.wireguard-vps (darwin-configuration.nix): daemon is
+    # flake-owned, and now so is the conf it brings up. Secret-free by
+    # design (key injected via PostUp from sops), which is what makes it
+    # safe for the world-readable store. nadir-only — zenith's tunnel is
+    # system-level (networking.wireguard in configuration.nix).
+    ".config/wireguard/vps.conf" = lib.mkIf pkgs.stdenv.isDarwin {
+      source = ../../home/.config/wireguard/vps.conf;
+    };
+
     # Scripts
     # ".local/bin/ytd" = {
     #   source = ../../.local/bin/ytd;

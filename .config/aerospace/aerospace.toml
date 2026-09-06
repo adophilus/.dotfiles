@@ -30,17 +30,19 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 # --- bindings (COMPLETE — see rule at top) ----------------------------------
 [mode.main.binding]
-    # window focus
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    # window focus (Hyprland-style: crosses monitor boundaries — the combined
+    # desktop frame is the space, not just this monitor's workspace)
+    alt-h = 'focus left --boundaries all-monitors-outer-frame'
+    alt-j = 'focus down --boundaries all-monitors-outer-frame'
+    alt-k = 'focus up --boundaries all-monitors-outer-frame'
+    alt-l = 'focus right --boundaries all-monitors-outer-frame'
 
-    # move window within layout
-    alt-shift-h = 'move left'
-    alt-shift-j = 'move down'
-    alt-shift-k = 'move up'
-    alt-shift-l = 'move right'
+    # move window within layout (also across monitors at the monitor edge —
+    # without the flag the default boundary action is to split in-place)
+    alt-shift-h = 'move left --boundaries all-monitors-outer-frame'
+    alt-shift-j = 'move down --boundaries all-monitors-outer-frame'
+    alt-shift-k = 'move up --boundaries all-monitors-outer-frame'
+    alt-shift-l = 'move right --boundaries all-monitors-outer-frame'
 
     # layout / resize
     alt-slash = 'layout tiles horizontal vertical'

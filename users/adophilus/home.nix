@@ -771,6 +771,25 @@ in
     };
   };
 
+  # Tor Browser: enter the tor network via the mesh relay (microsocks on
+  # contabo, 10.100.0.1:1080). user.js is the one profile file the browser
+  # only ever READS (it rewrites torrc/prefs.js, never this) — prefs get
+  # applied at every startup, then pushed to tor via the control port.
+  # Pref names/types per TorSettings.sys.mjs (TorProxyType: Socks4=0,
+  # Socks5=1, HTTPS=2) — verified working 2026-09-06 (lsof + GETCONF).
+  # NOTE: profile dir is hash-named (gwe3nnhs.default) — a FRESH profile
+  # needs this path repointed.
+  home.file.".Library/Application Support/TorBrowser-Data/Browser/gwe3nnhs.default/user.js".text =
+    lib.mkIf pkgs.stdenv.isDarwin ''
+      // Tor gateway via the wireguard mesh — managed by home-manager.
+      user_pref("torbrowser.settings.proxy.enabled", true);
+      user_pref("torbrowser.settings.proxy.type", 1);
+      user_pref("torbrowser.settings.proxy.address", "10.100.0.1");
+      user_pref("torbrowser.settings.proxy.port", 1080);
+      user_pref("torbrowser.settings.proxy.username", "");
+      user_pref("torbrowser.settings.proxy.password", "");
+    '';
+
   programs.opencode = {
     package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     web.environmentFile = config.sops.secrets."adophilus/env".path;

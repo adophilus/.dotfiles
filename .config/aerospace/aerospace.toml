@@ -47,6 +47,8 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     # layout / resize
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
+    alt-f = 'fullscreen'
+    alt-shift-f = 'macos-native-fullscreen'
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 

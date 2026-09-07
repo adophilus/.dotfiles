@@ -140,6 +140,10 @@ in
           slug = "react-devtools";
           guid = "@react-devtools";
         }
+        {
+          slug = "tridactyl-vim";
+          guid = "tridactyl.vim@cmcaine.co.uk";
+        }
       ];
     };
   };

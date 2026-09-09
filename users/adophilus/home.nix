@@ -553,9 +553,8 @@ in
     # Tor Browser → contabo tor gateway. user.js is re-applied at every
     # browser startup (declaration wins over runtime pref drift).
     # Profile name (9z2hgjka) is assigned by the nixpkgs wrapper on first
-    # launch — if it ever changes, update the path.
-    # TODO(nadir): macOS profile lives at
-    # ~/Library/Application Support/TorBrowser-Data/Browser/profile.default/
+    # launch — if it ever changes, update the path. nadir's entry below
+    # shares the same source file.
     ".tor project/firefox/9z2hgjka.default/user.js" =
       lib.mkIf pkgs.stdenv.isLinux
         { source = ../../home/.config/tor-browser/user.js; };
@@ -780,17 +779,8 @@ in
   # NOTE: profile dir is hash-named (gwe3nnhs.default) — a FRESH profile
   # needs this path repointed.
   home.file.".Library/Application Support/TorBrowser-Data/Browser/gwe3nnhs.default/user.js" =
-    lib.mkIf pkgs.stdenv.isDarwin {
-      text = ''
-        // Tor gateway via the wireguard mesh — managed by home-manager.
-        user_pref("torbrowser.settings.proxy.enabled", true);
-        user_pref("torbrowser.settings.proxy.type", 1);
-        user_pref("torbrowser.settings.proxy.address", "10.100.0.1");
-        user_pref("torbrowser.settings.proxy.port", 1080);
-        user_pref("torbrowser.settings.proxy.username", "");
-        user_pref("torbrowser.settings.proxy.password", "");
-      '';
-    };
+    lib.mkIf pkgs.stdenv.isDarwin
+      { source = ../../home/.config/tor-browser/user.js; };
 
   programs.opencode = {
     package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;

@@ -779,16 +779,18 @@ in
   # Socks5=1, HTTPS=2) — verified working 2026-09-06 (lsof + GETCONF).
   # NOTE: profile dir is hash-named (gwe3nnhs.default) — a FRESH profile
   # needs this path repointed.
-  home.file.".Library/Application Support/TorBrowser-Data/Browser/gwe3nnhs.default/user.js".text =
-    lib.mkIf pkgs.stdenv.isDarwin ''
-      // Tor gateway via the wireguard mesh — managed by home-manager.
-      user_pref("torbrowser.settings.proxy.enabled", true);
-      user_pref("torbrowser.settings.proxy.type", 1);
-      user_pref("torbrowser.settings.proxy.address", "10.100.0.1");
-      user_pref("torbrowser.settings.proxy.port", 1080);
-      user_pref("torbrowser.settings.proxy.username", "");
-      user_pref("torbrowser.settings.proxy.password", "");
-    '';
+  home.file.".Library/Application Support/TorBrowser-Data/Browser/gwe3nnhs.default/user.js" =
+    lib.mkIf pkgs.stdenv.isDarwin {
+      text = ''
+        // Tor gateway via the wireguard mesh — managed by home-manager.
+        user_pref("torbrowser.settings.proxy.enabled", true);
+        user_pref("torbrowser.settings.proxy.type", 1);
+        user_pref("torbrowser.settings.proxy.address", "10.100.0.1");
+        user_pref("torbrowser.settings.proxy.port", 1080);
+        user_pref("torbrowser.settings.proxy.username", "");
+        user_pref("torbrowser.settings.proxy.password", "");
+      '';
+    };
 
   programs.opencode = {
     package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;

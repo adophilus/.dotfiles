@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-# Reload Kitty instances
-killall -USR1 .kitty-wrapped
-
+# (ghostty needs no kick — it watches its config and reloads itself.)
 
 # Reload CAVA
 if pgrep -x "cava" > /dev/null; then

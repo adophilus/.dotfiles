@@ -1,0 +1,9 @@
+{
+  "include": [],
+  "exclude": [],
+  "keys": [
+    "shift+alt+down",
+    "ctrl+q"
+  ],
+  "maxLines": 1
+}

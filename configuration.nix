@@ -208,6 +208,34 @@
   # Join a tailnet with: sudo tailscale up (prints a login URL).
   services.tailscale.enable = true;
 
+  # chrome-cdp-proxy — expose the (loopback-only) Chrome DevTools hub on
+  # wg0 so agents on other mesh hosts can attach: socket-proxyd forwards
+  # wg0:9222 to 127.0.0.1:9222, where the chrome-devtools-mcp wrapper keeps
+  # a headed hub Chrome running (see pkgs/chrome-devtools-mcp). Remote
+  # agents point --browserUrl at http://10.100.0.2:9222 — IP literal, never
+  # zenith.vpn: Chrome's DevTools endpoint rejects non-localhost Host
+  # headers that aren't IP literals (DNS-rebinding guard, gives HTTP 500),
+  # but happily echoes an IP Host into webSocketDebuggerUrl so the WS
+  # connection flows back through this same proxy.
+  # CDP itself has zero auth; exposure is fine because wg0 is trusted above
+  # for the same cryptokey-routing reason — the tunnel is the authentication.
+  systemd.sockets.chrome-cdp-proxy = {
+    description = "chrome-cdp-proxy socket (Chrome DevTools on wg0)";
+    wantedBy = [ "sockets.target" ];
+    socketConfig = {
+      ListenStream = "10.100.0.2:9222";
+      # sockets.target races wg0 getting its address at boot; FreeBind lets
+      # the socket bind before the IP exists and light up once wg0 does.
+      FreeBind = true;
+    };
+  };
+  systemd.services.chrome-cdp-proxy = {
+    description = "chrome-cdp-proxy: wg0:9222 -> hub Chrome on 127.0.0.1:9222";
+    # Socket-activated: the socket unit (same name) hands the accepted fd
+    # to this service; nothing runs until the first connection arrives.
+    serviceConfig.ExecStart = "${pkgs.systemd}/lib/systemd/systemd-socket-proxyd 127.0.0.1:9222";
+  };
+
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
 
@@ -235,8 +263,8 @@
   # NOTE: this also disables suspend-on-lid while on battery; if you'd rather
   # keep battery-lid suspend for safety when carrying it, drop the lidSwitch
   # line below and keep only lidSwitchExternalPower = "ignore".
-  services.logind.lidSwitch = "ignore";
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

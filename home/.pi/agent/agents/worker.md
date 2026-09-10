@@ -2,7 +2,7 @@
 name: worker
 description: Fast implementation specialist. Receives complete context and a task spec, executes code changes efficiently.
 aliases: developer, coder, implementer, develop
-thinking: high
+thinking: max
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false

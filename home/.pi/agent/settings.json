@@ -12,6 +12,7 @@
 		"npm:pi-subagents@0.56.0",
 		"npm:pi-zentui@0.21.0",
 		"npm:pi-web-access@0.25.0",
-		"npm:@ozancakir/pi-pop@0.1.2"
+		"npm:@ozancakir/pi-pop@0.1.2",
+		"npm:split-editor@0.1.8"
 	]
 }

@@ -1,0 +1,3 @@
+ui:
+  # Unified diff view instead of side-by-side (default: true)
+  sideBySide: false

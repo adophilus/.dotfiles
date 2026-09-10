@@ -23,7 +23,24 @@ interactive TUI.
 process-compose -p $PC_PORT <command>   # PC_PORT from the workspace .env (direnv); default 8080
 ```
 
-If `$PC_PORT` is empty, find the instance: `pgrep -af "process-compose up"`.
+If `$PC_PORT` is empty, discover live instances. Use `pgrep -x` (exact
+binary match — `pgrep -f "process-compose up"` also matches wrapper shells
+and the probe's own `bash -c`, giving false positives); port comes from the
+cmdline, workspace from the process cwd:
+
+```bash
+for pid in $(pgrep -x process-compose); do
+  port=$(tr '\0' ' ' </proc/$pid/cmdline | grep -oE -- '--port[= ][0-9]+' | grep -oE '[0-9]+')
+  echo "${port:-8080}  $(readlink /proc/$pid/cwd)"
+done
+```
+
+Port for a known workspace (agent shells don't load direnv):
+
+```bash
+grep -E '^PC_PORT=' <workspace-dir>/.env | cut -d= -f2
+```
+
 Multiple concurrent workspaces = multiple ports — always target the right one.
 
 ## Reads (verified on v1.120.0)
@@ -67,15 +84,25 @@ process-compose -p $PC_PORT down                     # stop everything
 ## Gotchas
 
 - `logs -f` (follow) **never returns** — don't run it bare in the agent shell.
-  Use `-n` with a line count, or run follow inside a tmux window.
+  Use `-n` with a line count, or run follow inside a tmux window. Same for
+  `process monitor` (state-change stream) and any other `--follow` output.
 - The log buffer is in-memory and bounded (`log_length` config); for full
   history use the process's `log_path` file if configured.
 - `project is-ready` failing with a red `FTL` line is a *readiness signal*
   (it names the failing processes), not a CLI error.
 - Client output may include ANSI colors; `process list -o json` is the
   parse-safe path.
-- `restart` waits the process's availability backoff between stop/start —
-  allow a few seconds before expecting readiness.
+- `restart` returns as soon as the process is relaunched (~1s), *before*
+  readiness — poll `process get <name>` / `project is-ready` before
+  expecting Ready.
+- `process stop` / `start` take **one name per call** — comma-separated
+  multi-names is a `logs`-only affordance.
+- If the project wraps `docker compose up <svc>` as processes (infra-in-pc),
+  never pre-start those containers detached (`docker compose up -d` before
+  `process-compose up`) — the wrappers can't take over already-running
+  containers (podman-compose fails with `exec.fifo: No such file or directory`)
+  and crash-loop under `restart: always`. Fix: `process stop <name>`, scoped
+  `docker compose down <name>`, `process start <name>`.
 
 ## Still tmux (not via CLI)
 

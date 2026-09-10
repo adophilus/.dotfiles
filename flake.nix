@@ -110,7 +110,6 @@
       # Linux-only desktop-shell ones (hypr, hypridle, matugen, rofi, waybar,
       # wlogout, zen-browser, appearance, cava, user-scripts).
       darwinHomeManagerModules = map (name: homeManagerProgramsDir + "/${name}") [
-        "gh-dash"
         "lazygit"
         "mpv"
         "neovim"

@@ -122,6 +122,9 @@ in
       curlFull
       jq
       fzf
+      # diff pair: diffnav (git-diff TUI) renders via the delta binary
+      delta
+      diffnav
       direnv
       openssl
       gnumake
@@ -642,6 +645,9 @@ in
   programs.git = {
     enable = true;
     settings = {
+      # diffnav for `git diff` (README: git config --global pager.diff diffnav);
+      # delta is only a diffnav dependency (exec'd from PATH), not wired into git
+      pager.diff = "diffnav";
       user = {
         name = "Adophilus";
         email = "uchenna19of@gmail.com";

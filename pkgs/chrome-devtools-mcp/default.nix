@@ -20,31 +20,46 @@
 # PATH to its runtimeInputs, which would hide `pnpx` (and `curl`) from the
 # ambient PATH every other `pnpx` server in .agents/mcp.json relies on.
 #
-# The build-time branch is now hub-only: attach mode never launches a
+# Build-time branch is now hub-only: attach mode never launches a
 # browser, so the MCP needs no --executablePath — but the hub does, and
 # NixOS hides Chrome from auto-detection while macOS has a stable
-# /Applications path.
+# /Applications path. The same branch picks the hub default: zenith owns a
+# local lazy-init hub; nadir attaches to zenith's through the
+# chrome-cdp-proxy on wg0 (configuration.nix). CHROME_DEVTOOLS_URL beats
+# either default. A non-loopback URL means "someone else's hub": attach
+# only, never launch — an unreachable foreign hub should error, not
+# quietly spawn a local Chrome.
 { pkgs, ... }:
 let
   chrome =
     if pkgs.stdenv.isDarwin
     then "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     else "/etc/profiles/per-user/adophilus/bin/google-chrome-stable";
+  hubUrl =
+    if pkgs.stdenv.isDarwin
+    then "http://10.100.0.2:9222"
+    else "http://127.0.0.1:9222";
 in
 pkgs.writeShellScriptBin "chrome-devtools-mcp" ''
-  url=http://127.0.0.1:9222
+  url=''${CHROME_DEVTOOLS_URL:-${hubUrl}}
   cache=$HOME/.cache/chrome-devtools-mcp
 
-  if ! curl -fsS "$url/json/version" >/dev/null 2>&1; then
-    mkdir -p "$cache"
-    # Detached + redirected: a hub holding the stdio pipes open would wedge
-    # the transport when the parent dies; a full pipe blocks Chrome itself.
-    "${chrome}" \
-      --remote-debugging-port=9222 \
-      --user-data-dir="$cache/chrome-profile" \
-      --no-first-run --no-default-browser-check \
-      >>"$cache/hub.log" 2>&1 &
-  fi
+  case "$url" in
+    http://127.0.0.1* | http://localhost*)
+      # Local hub: lazy-init.
+      if ! curl -fsS "$url/json/version" >/dev/null 2>&1; then
+        mkdir -p "$cache"
+        # Detached + redirected: a hub holding the stdio pipes open would
+        # wedge the transport when the parent dies; a full pipe blocks
+        # Chrome itself.
+        "${chrome}" \
+          --remote-debugging-port=9222 \
+          --user-data-dir="$cache/chrome-profile" \
+          --no-first-run --no-default-browser-check \
+          >>"$cache/hub.log" 2>&1 &
+      fi
+      ;;
+  esac
 
   # Not bookkeeping — the race fix: poll whether we launched or lost.
   i=0

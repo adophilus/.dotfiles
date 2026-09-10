@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
 # ARCH/HYPRLAND ROFI MENU SYSTEM
-# Optimized for Bash 5+ | Dependencies: rofi-wayland, uwsm, kitty, hyprctl, fd, file
+# Optimized for Bash 5+ | Dependencies: rofi-wayland, uwsm, ghostty, hyprctl, fd, file
 # -----------------------------------------------------------------------------
 
 set -uo pipefail
@@ -12,7 +12,7 @@ readonly HYPR_CONF="${HOME}/.config/hypr"
 readonly HYPR_SOURCE="${HYPR_CONF}/source"
 readonly SEARCH_DIR="${HOME}/Documents/pensive/linux"
 
-readonly TERMINAL="kitty"
+readonly TERMINAL="ghostty"
 readonly EDITOR="${EDITOR:-nvim}"
 readonly FILE_MANAGER="yazi"
 
@@ -60,7 +60,7 @@ run_term() {
 run_term_hold() {
     local class="$1"
     shift
-    uwsm-app -- "$TERMINAL" --hold --class "$class" -e "$@" >/dev/null 2>&1 &
+    uwsm-app -- "$TERMINAL" --wait-after-command=true --class "$class" -e "$@" >/dev/null 2>&1 &
     disown
     exit 0
 }

@@ -147,7 +147,6 @@ in
       # Editors / terminals
       tmux
       vim
-      kitty
       # opencode GUI — same flake input as the CLI (programs.opencode.package
       # below), so GUI and CLI stay in lockstep on both hosts.
       inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode-desktop
@@ -236,7 +235,7 @@ in
       # Chrome DevTools MCP wrapper (per-host chrome executablePath)
       (pkgs.callPackage ../../pkgs/chrome-devtools-mcp/default.nix { })
     ])
-    # ── Terminal, Linux-only: ghostty to try alongside kitty ──
+    # ── Terminal, Linux-only: ghostty ──
     # (ungated it would source-build Zig+GTK forever on the Intel Mac)
     ++ lib.optionals pkgs.stdenv.isLinux [ pkgs.ghostty ]
     # ── Linux-only packages (Hyprland/Wayland, Linux media, containers, …) ──
@@ -444,8 +443,6 @@ in
         torsocks
 
         # Terminal
-        kitty
-        # ghostty  # Linux-only now — enabled in the optionals block above
         starship
 
         # File manager
@@ -576,13 +573,9 @@ in
     # };
 
     ".config/bottom".source = ../../home/.config/bottom;
-    ".config/kitty".source = ../../home/.config/kitty;
 
-    # Platform-specific kitty override (borderless on Hyprland, titlebar on macOS).
-    ".config/kitty-os.conf".text =
-      if pkgs.stdenv.isLinux then "hide_window_decorations yes\n" else "hide_window_decorations no\n";
     ".config/zellij".source = ../../home/.config/zellij;
-    ".config/ghostty".source = ../../home/.config/ghostty;  # port of kitty.conf
+    ".config/ghostty".source = ../../home/.config/ghostty;
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";
@@ -615,7 +608,7 @@ in
 
   # Re-index home-manager apps into macOS Spotlight after each rebuild.
   # home-manager symlinks .app bundles into /nix/store, which Spotlight is slow
-  # to index; this forces it so the apps (kitty, firefox, …) appear in search.
+  # to index; this forces it so the apps (ghostty, firefox, …) appear in search.
   # No-op on Linux (no ~/Applications/Home Manager Apps there).
   home.activation.reindexSpotlight = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     for app in "$HOME/Applications/Home Manager Apps"/*.app; do

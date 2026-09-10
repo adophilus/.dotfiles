@@ -108,8 +108,8 @@
     ];
   };
 
-  # Fonts — installed so macOS CoreText (and kitty) can see them.
-  fonts.packages = [ pkgs.nerd-fonts.hurmit pkgs.nerd-fonts.space-mono ];
+  # Fonts — installed so macOS CoreText (and ghostty) can see them.
+  fonts.packages = [ pkgs.nerd-fonts.hurmit pkgs.nerd-fonts.profont ];
 
   # nix-homebrew — installs Homebrew ITSELF via Nix (into /usr/local on Intel),
   # so brew is declarative rather than curl|bash. Sits under nix-darwin's

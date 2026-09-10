@@ -1,0 +1,4 @@
+# Only the diff viewer is managed; gh-dash defaults everything else.
+# Note: this file is overwritten on each rebuild — add sections here, not by hand.
+pager:
+  diff: diffnav

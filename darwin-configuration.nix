@@ -95,6 +95,26 @@
     };
   };
 
+  # chrome-cdp-forwarder — nadir's mirror of zenith's chrome-cdp-proxy
+  # (configuration.nix): forwards utun4:9222 -> 127.0.0.1:9222 so agents
+  # on other mesh hosts can drive this Mac's lazily-started hub Chrome
+  # (pkgs/chrome-devtools-mcp). launchd has no systemd-socket-proxyd, so
+  # a resident socat stands in (fork = one process per connection). Bind
+  # is wg-IP-only — the tunnel is the ACL, CDP itself has zero auth.
+  # KeepAlive covers the boot race: socat can't bind 10.100.0.3 until
+  # wireguard-vps creates utun4 (no FreeBind equivalent on macOS), so it
+  # exits non-clean and launchd relaunches it until the address exists.
+  launchd.daemons.chrome-cdp-forwarder = {
+    command = pkgs.writeShellScript "chrome-cdp-forwarder" ''
+      exec ${pkgs.socat}/bin/socat TCP-LISTEN:9222,bind=10.100.0.3,fork,reuseaddr TCP:127.0.0.1:9222
+    '';
+    serviceConfig = {
+      UserName = "adophilus";
+      RunAtLoad = true;
+      KeepAlive.SuccessfulExit = false;
+    };
+  };
+
   # home-manager CANNOT set the login shell on macOS — only nix-darwin (or
   # manual `chsh`) can. This makes fish the login shell for adophilus.
   environment.shells = [ "${pkgs.fish}/bin/fish" ];

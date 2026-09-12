@@ -23,22 +23,20 @@
 # Build-time branch is now hub-only: attach mode never launches a
 # browser, so the MCP needs no --executablePath — but the hub does, and
 # NixOS hides Chrome from auto-detection while macOS has a stable
-# /Applications path. The same branch picks the hub default: zenith owns a
-# local lazy-init hub; nadir attaches to zenith's through the
-# chrome-cdp-proxy on wg0 (configuration.nix). CHROME_DEVTOOLS_URL beats
-# either default. A non-loopback URL means "someone else's hub": attach
-# only, never launch — an unreachable foreign hub should error, not
-# quietly spawn a local Chrome.
+# /Applications path. Hub default is LOCAL on every host: each machine
+# lazily owns its hub Chrome. Remote control is the explicit
+# CHROME_DEVTOOLS_URL override pointing at another host's wg proxy
+# (zenith: chrome-cdp-proxy in configuration.nix; nadir:
+# chrome-cdp-forwarder in darwin-configuration.nix). A non-loopback URL
+# means "someone else's hub": attach only, never launch — an unreachable
+# foreign hub should error, not quietly spawn a local Chrome.
 { pkgs, ... }:
 let
   chrome =
     if pkgs.stdenv.isDarwin
     then "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     else "/etc/profiles/per-user/adophilus/bin/google-chrome-stable";
-  hubUrl =
-    if pkgs.stdenv.isDarwin
-    then "http://10.100.0.2:9222"
-    else "http://127.0.0.1:9222";
+  hubUrl = "http://127.0.0.1:9222";
 in
 pkgs.writeShellScriptBin "chrome-devtools-mcp" ''
   url=''${CHROME_DEVTOOLS_URL:-${hubUrl}}

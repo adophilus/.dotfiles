@@ -11,7 +11,6 @@
   floci-pkg,
   ytd-pkg,
   lark-pkg,
-  gh-review-pkg,
   open-design-pkg,
   modules,
   homeDirectory ? "/home/adophilus",
@@ -126,6 +125,12 @@ in
       # diff pair: diffnav (git-diff TUI) renders via the delta binary
       delta
       diffnav
+      # PR review TUI (line comments) — pairs with the gh-dash R keybind.
+      # Built from this host's pkgs-unstable (linux import on zenith, darwin
+      # import on nadir) — a derivation is system-bound at callPackage time,
+      # so cross-platform tools need one per-host instance, not the
+      # x86_64-linux one from the flake-level let.
+      (pkgs-unstable.callPackage ../../pkgs/gh-review/default.nix { })
       direnv
       openssl
       gnumake
@@ -246,13 +251,6 @@ in
     ++ lib.optionals pkgs.stdenv.isLinux (
       with pkgs-unstable;
       [
-        # PR review TUI (line comments) — pairs with the gh-dash R keybind.
-        # Linux-only: gh-dash itself is zenith-only (darwinHomeManagerModules
-        # in flake.nix), and gh-review-pkg comes from the flake-level let,
-        # which is x86_64-linux — ungated it breaks darwin-rebuild with a
-        # system mismatch.
-        gh-review-pkg
-
         pavucontrol
         qpwgraph
         tree

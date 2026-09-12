@@ -391,6 +391,17 @@
   services.greetd = {
     enable = true;
     settings = {
+      # Auto-login at boot: zenith runs headless (lid closed, driven over
+      # ssh/wg0 from nadir) — the graphical session must exist from
+      # power-on or every GUI app waits on a walk to the greeter (Chrome,
+      # the CDP hub, etc. all need a live Wayland session). tuigreet stays
+      # the default for any later manual login (e.g. after logout).
+      # Trade-off: power button = unlocked session; physical access is
+      # already the trust boundary here.
+      initial_session = {
+        command = "uwsm start default";
+        user = "adophilus";
+      };
       default_session = {
         command = "${pkgs-unstable.tuigreet}/bin/tuigreet --cmd 'uwsm start default'";
       };

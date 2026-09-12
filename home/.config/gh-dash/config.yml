@@ -1,4 +1,8 @@
-# Only the diff viewer is managed; gh-dash defaults everything else.
-# Note: this file is overwritten on each rebuild — add sections here, not by hand.
+# Overwritten on each rebuild — add sections here, not by hand.
+keybindings:
+  prs:
+    - key: R
+      name: Review (gh-review)
+      command: "gh-review {{.RepoName}} {{.PrNumber}}"
 pager:
   diff: diffnav

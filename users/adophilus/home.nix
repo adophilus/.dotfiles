@@ -11,6 +11,7 @@
   floci-pkg,
   ytd-pkg,
   lark-pkg,
+  gh-review-pkg,
   open-design-pkg,
   modules,
   homeDirectory ? "/home/adophilus",
@@ -125,6 +126,8 @@ in
       # diff pair: diffnav (git-diff TUI) renders via the delta binary
       delta
       diffnav
+      # PR review TUI (line comments) — pairs with the gh-dash R keybind
+      gh-review-pkg
       direnv
       openssl
       gnumake
@@ -648,6 +651,9 @@ in
       # diffnav for `git diff` (README: git config --global pager.diff diffnav);
       # delta is only a diffnav dependency (exec'd from PATH), not wired into git
       pager.diff = "diffnav";
+      # delta reads its settings from gitconfig [delta] even when exec'd by
+      # diffnav; 0.12.0 passes no --line-numbers flag of its own
+      delta."line-numbers" = true;
       user = {
         name = "Adophilus";
         email = "uchenna19of@gmail.com";

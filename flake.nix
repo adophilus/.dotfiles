@@ -95,7 +95,6 @@
       # Built from pkgs-unstable so its `feishu` base + buildInputs resolve
       # consistently (feishu is not in stable nixpkgs at this version).
       lark-pkg = pkgs-unstable.callPackage ./pkgs/lark/default.nix { };
-      gh-review-pkg = pkgs-unstable.callPackage ./pkgs/gh-review/default.nix { };
 
       # Open Design daemon (from the upstream flake, builds from source)
       open-design-pkg = inputs.open-design.packages.${system}.default;
@@ -120,6 +119,8 @@
         "opencode"
         "aerospace"
         "pi"
+        "gh-dash"
+        "gh-enhance"
       ];
     in
     {
@@ -152,7 +153,6 @@
                   sops-nix
                   ytd-pkg
                   lark-pkg
-                  gh-review-pkg
                   open-design-pkg
                   pkgs-deprecated
                   pkgs-unstable
@@ -201,7 +201,6 @@
                 wstui-pkg
                 floci-pkg
                 lark-pkg
-                gh-review-pkg
                 ;
               # ytd wrapper built for x86_64-darwin (on Linux it comes from the
               # flake-level let, which is x86_64-linux only).

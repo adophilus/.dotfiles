@@ -126,8 +126,6 @@ in
       # diff pair: diffnav (git-diff TUI) renders via the delta binary
       delta
       diffnav
-      # PR review TUI (line comments) — pairs with the gh-dash R keybind
-      gh-review-pkg
       direnv
       openssl
       gnumake
@@ -248,6 +246,13 @@ in
     ++ lib.optionals pkgs.stdenv.isLinux (
       with pkgs-unstable;
       [
+        # PR review TUI (line comments) — pairs with the gh-dash R keybind.
+        # Linux-only: gh-dash itself is zenith-only (darwinHomeManagerModules
+        # in flake.nix), and gh-review-pkg comes from the flake-level let,
+        # which is x86_64-linux — ungated it breaks darwin-rebuild with a
+        # system mismatch.
+        gh-review-pkg
+
         pavucontrol
         qpwgraph
         tree

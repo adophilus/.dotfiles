@@ -123,6 +123,11 @@
 				"super-productivity-mcp@1.5.0"
 			],
 			"enabled": true
+		},
+		"typeui": {
+			"type": "remote",
+			"url": "https://mcp.typeui.sh/mcp",
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

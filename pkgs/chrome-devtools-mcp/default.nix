@@ -52,10 +52,17 @@ pkgs.writeShellScriptBin "chrome-devtools-mcp" ''
         # Detached + redirected: a hub holding the stdio pipes open would
         # wedge the transport when the parent dies; a full pipe blocks
         # Chrome itself.
+        # --password-store=basic: greetd auto-login types no password, so
+        # the login keyring stays locked and Chrome's default store pops
+        # a gcr "Unlock Login Keyring" prompt on the hub's screen, waiting
+        # for a human who isn't there (and macOS Keychain does the same
+        # dance on nadir). The hub is an agent-driven tool profile — no
+        # keyring dependency at all.
         "${chrome}" \
           --remote-debugging-port=9222 \
           --user-data-dir="$cache/chrome-profile" \
           --no-first-run --no-default-browser-check \
+          --password-store=basic \
           >>"$cache/hub.log" 2>&1 &
       fi
       ;;

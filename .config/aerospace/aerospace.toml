@@ -23,6 +23,11 @@ auto-reload-config = true
 # Only workspaces 1–10 exist; empty ones stay alive (i3-like feel).
 persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
+# Cursor warps to the focused window's center on every focus change — but only
+# if it isn't already inside that window (lazy). Use 'window-force-center' to
+# always recenter. (v2 replacement for the old mouse-follows-focus switch.)
+on-focus-changed = ['move-mouse window-lazy-center']
+
 # NOTE: no mouse-follows-focus here — that's a config-version 1 key. In v2 the
 # mouse-warps-to-focus behavior only happens if you explicitly set
 # on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] (like the

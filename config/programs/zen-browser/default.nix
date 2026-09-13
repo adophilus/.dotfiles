@@ -33,6 +33,7 @@ in
 
     nativeMessagingHosts = [
       pkgs-unstable.gopass-jsonapi
+      pkgs-unstable.tridactyl-native
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       pkgs.firefoxpwa # Linux-only (not on x86_64-darwin)
     ];

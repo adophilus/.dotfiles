@@ -263,6 +263,9 @@ in
         libva-utils
         libva-vdpau-driver
 
+        # 3D — nixpkgs blender is broken on x86_64-darwin; nadir uses the cask
+        blender
+
         # PDF readers
         zathura
 

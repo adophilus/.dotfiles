@@ -167,6 +167,7 @@
       "vlc"
       "obs"
       "shotcut"
+      "blender" # nixpkgs broken on x86_64-darwin — cask gives the .app
       # games
       "epic-games"
       # private browsing

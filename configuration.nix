@@ -28,7 +28,7 @@
   services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
   services.power-profiles-daemon.enable = false;   # Disable GNOMEs power management
   services.tlp = {
-  enable = true; # Enable TLP (better than gnomes internal power manager)
+  enable = false; # Enable TLP (better than gnomes internal power manager)
   settings = {
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;

@@ -4,5 +4,8 @@ keybindings:
     - key: R
       name: Review (gh-review)
       command: "gh-review {{.RepoName}} {{.PrNumber}}"
+    - key: D
+      name: Mark as draft
+      command: "gh pr ready --undo --repo {{.RepoName}} {{.PrNumber}}"
 pager:
   diff: diffnav

@@ -37,11 +37,6 @@
 				"Authorization": "Bearer {env:Z_AI_API_KEY}"
 			}
 		},
-		"browseros": {
-			"type": "remote",
-			"url": "http://127.0.0.1:9000/mcp",
-			"enabled": true
-		},
 		"pdf-reader": {
 			"type": "local",
 			"command": [

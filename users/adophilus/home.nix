@@ -421,7 +421,6 @@ in
         hyprsome
         pkgs.hyprlock
         hyprpicker
-        hyprsunset
         hyprshade
 
         # Containers

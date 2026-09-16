@@ -458,6 +458,8 @@ set -g @tmux_power_g1 '#141414'
 set -g @tmux_power_g2 '#1e1e1e'
 set -g @tmux_power_g3 '#333333'
 set -g @tmux_power_g4 '#555555'
+# battery segment (reads oh-my-tmux's live-polled user option; hides on battery-less hosts)
+set -g @tmux_power_right_x "#{?@battery_percentage,🔋 #{@battery_percentage},}"
 # set -g @tmux_power_show_upload_speed   true
 # set -g @tmux_power_show_download_speed true
 # set -g @fzf-url-bind 'x'

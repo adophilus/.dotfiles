@@ -14,7 +14,6 @@
 		"npm:pi-web-access@0.25.0",
 		"npm:@ozancakir/pi-pop@0.1.2",
 		"npm:split-editor@0.1.8",
-		"npm:pi-hide-messages@0.2.0",
-		"npm:pi-image-tools@1.4.0"
+		"npm:pi-hide-messages@0.2.0"
 	]
 }

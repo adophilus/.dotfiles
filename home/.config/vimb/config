@@ -1,0 +1,12 @@
+" vimb — quick-lookup browser (zen is the daily driver)
+" options: man vimb SETTINGS
+set dark-mode=on
+set home-page=https://lite.duckduckgo.com/lite/
+" open the editor for form fields (Ctrl-t in input mode, ;e hint)
+set editor-command=ghostty -e nvim %s
+" tridactyl-style home-row hint labels
+set hint-keys=asdfghjkl
+
+" default search when the :open input is not a URI
+shortcut-add dl=https://lite.duckduckgo.com/lite/?q=$0
+shortcut-default dl

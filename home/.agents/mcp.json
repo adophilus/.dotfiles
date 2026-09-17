@@ -102,6 +102,10 @@
       "type": "http",
       "url": "https://mcp.typeui.sh/mcp",
       "auth": "oauth"
+    },
+    "tldraw": {
+      "type": "http",
+      "url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp"
     }
   }
 }

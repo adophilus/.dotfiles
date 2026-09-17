@@ -123,6 +123,11 @@
 			"type": "remote",
 			"url": "https://mcp.typeui.sh/mcp",
 			"enabled": true
+		},
+		"tldraw": {
+			"type": "remote",
+			"url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp",
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

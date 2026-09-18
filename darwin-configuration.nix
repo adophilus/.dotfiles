@@ -180,6 +180,10 @@
       "transmission"
       "gnucash"
       "scroll-reverser" # independent trackpad/mouse scroll direction
+      # launcher — Spotlight can't index the symlinked .apps that nix/hm
+      # drop into ~/Applications (mdworker doesn't follow symlinks into
+      # /nix/store); Raycast enumerates app dirs itself, symlinks included.
+      "raycast"
       # work
       "lark"
       # tiling window manager (i3-style, no SIP changes)

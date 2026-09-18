@@ -243,6 +243,12 @@ in
 
       # Chrome DevTools MCP wrapper (per-host chrome executablePath)
       (pkgs.callPackage ../../pkgs/chrome-devtools-mcp/default.nix { })
+
+      # Google Workspace CLI (gws) — flake input, shared by both hosts.
+      # x86_64-darwin works only because gws's own nixpkgs lock (2026-03
+      # nixos-unstable) predates the Intel-darwin drop — don't
+      # `nix flake update gws` past it.
+      gws.packages.${pkgs.stdenv.hostPlatform.system}.default
     ])
     # ── Terminal, Linux-only: ghostty ──
     # (ungated it would source-build Zig+GTK forever on the Intel Mac)
@@ -319,7 +325,6 @@ in
 
         # Google
         google-cloud-sdk
-        gws.packages.${pkgs.stdenv.hostPlatform.system}.default
 
         acpi
 

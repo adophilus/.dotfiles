@@ -233,6 +233,12 @@
   # The proxy is therefore set in the browser's own connection settings
   # (UI), which is the authoritative store the browser re-applies itself.
 
+  # Dock — hidden for good; apps launch via Raycast instead. autohide alone
+  # still reveals on edge-hover; the huge delay (seconds before reveal)
+  # makes that effectively never happen.
+  system.defaults.dock.autohide = true;
+  system.defaults.dock.autohide-delay = 1000.0;
+
   # Free up ⌘+Space from Spotlight so Raycast can take it (Raycast's own
   # hotkey is set inside the app, Preferences > General — not nix-managed).
   # No dedicated nix-darwin option for this; CustomUserPreferences just runs
@@ -249,5 +255,5 @@
     };
   };
 
-  # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.
+  # TODO (curate on the Mac): system.defaults.* (finder), more casks.
 }

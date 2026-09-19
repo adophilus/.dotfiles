@@ -77,5 +77,9 @@ pkgs.writeShellScriptBin "chrome-devtools-mcp" ''
     sleep 0.3
   done
 
-  exec pnpx chrome-devtools-mcp@latest --category-extensions --browserUrl "$url"
+  # Filesystem root for file-writing tools (screenshot/trace filePath).
+  # ~/.projects covers every agent project; widen with CHROME_DEVTOOLS_WORKSPACE.
+  workspace=''${CHROME_DEVTOOLS_WORKSPACE:-$HOME/.projects}
+
+  exec pnpx chrome-devtools-mcp@latest --category-extensions --browserUrl "$url" --workspace "$workspace"
 ''

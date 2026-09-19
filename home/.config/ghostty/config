@@ -8,6 +8,8 @@ font-family = ProFont IIx Nerd Font Mono
 font-family-bold = ProFont IIx Nerd Font Mono
 font-family-italic = ProFont IIx Nerd Font Mono
 font-family-bold-italic = ProFont IIx Nerd Font Mono
+# thicken = synthetic bold: ProFont has no bold cut, so embolden at render time.
+font-thicken = true
 font-size = 12
 
 # ── Colors: Charcoal (monochrome) ──

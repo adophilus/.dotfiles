@@ -78,6 +78,16 @@
     };
   };
 
+  # Historical resource logging (system + per-process, incl. PPID) so I can
+  # review a full day's CPU/mem/disk/net usage later, e.g. to see what
+  # quickshell/plugins are actually costing. Logs land in /var/log/atop,
+  # one file per day, auto-rotated at midnight. Replay with `atop -r <file>`.
+  programs.atop = {
+    enable = true;
+    atopgpu.enable = false; # no NVIDIA GPU daemon needed
+    netatop.enable = true; # per-process network stats
+  };
+
   # services.i2pd = {
   #   enable = true;
   #   address = "127.0.0.1";

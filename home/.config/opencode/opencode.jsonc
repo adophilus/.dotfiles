@@ -104,6 +104,14 @@
 			],
 			"enabled": true
 		},
+		"scrcpy": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"scrcpy-mcp@0.5.0"
+			],
+			"enabled": true
+		},
 		"open-design": {
 			"type": "local",
 			"command": [

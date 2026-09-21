@@ -155,7 +155,8 @@ in
 
       # Editors / terminals
       tmux
-      vim
+      # viAlias = false: don't claim `vi`, let it fall through to /usr/bin/vi
+      (pkgs.vim.override { viAlias = false; })
       # opencode GUI — same flake input as the CLI (programs.opencode.package
       # below), so GUI and CLI stay in lockstep on both hosts.
       inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode-desktop

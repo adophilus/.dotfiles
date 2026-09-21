@@ -9,8 +9,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
     vimdiffAlias = true;
     # ponytail: pinned to 25.11 cos 26.05 HEAD has 0.12+ (incompatible with AstroNvim).
     # Current pinned flake.lock has 0.11.6, but next `nix flake update` bumps to 0.12.4.

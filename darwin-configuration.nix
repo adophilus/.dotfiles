@@ -140,6 +140,21 @@
     user = "adophilus"; # owner of the Homebrew prefix
     # NOTE: do NOT set enableRosetta on Intel (assertion fails).
     # enableFlakes does NOT exist (removed). mutableTaps defaults to true.
+
+    # Personal tap, vendored in this repo at tap/homebrew-penpot. With
+    # mutableTaps=true, activation rsyncs the derivation's content to
+    # $HOMEBREW_LIBRARY/Taps/<key> — plain content copy, no git involved.
+    # Key must be <user>/homebrew-<name>: brew resolves tap adophilus/penpot
+    # to Taps/adophilus/homebrew-penpot (it strips the homebrew- prefix).
+    # taps is attrsOf types.package, so the ./path needs a runCommand wrap.
+    taps."adophilus/homebrew-penpot" = pkgs.runCommand "homebrew-penpot" { } ''
+      cp -r ${./tap/homebrew-penpot} "$out"
+    '';
+
+    # Homebrew 4.6+ tap trust: non-official taps need explicit trust before
+    # their casks install. nix-homebrew runs `brew trust` at activation.
+    # (Trust entries are NOT auto-removed — `brew untrust` to undo by hand.)
+    trust.taps = [ "adophilus/penpot" ];
   };
 
   # Homebrew cask/brew management — driven by the brew binary nix-homebrew
@@ -159,6 +174,9 @@
       "legcord"
       "whatsapp"
       "figma"
+      # penpot — no cask upstream (unofficial Electron wrapper, Linux-only in
+      # nixpkgs); self-hosted cask from the personal tap (nix-homebrew.taps)
+      "adophilus/penpot/penpot"
       "open-design"
       "google-chrome"
       # email — cask not home-manager pkg so Spotlight indexes the .app
@@ -180,6 +198,10 @@
       "transmission"
       "gnucash"
       "scroll-reverser" # independent trackpad/mouse scroll direction
+      # launcher — Spotlight can't index the symlinked .apps that nix/hm
+      # drop into ~/Applications (mdworker doesn't follow symlinks into
+      # /nix/store); Raycast enumerates app dirs itself, symlinks included.
+      "raycast"
       # work
       "lark"
       # tiling window manager (i3-style, no SIP changes)
@@ -211,5 +233,27 @@
   # The proxy is therefore set in the browser's own connection settings
   # (UI), which is the authoritative store the browser re-applies itself.
 
-  # TODO (curate on the Mac): system.defaults.* (dock/finder), more casks.
+  # Dock — hidden for good; apps launch via Raycast instead. autohide alone
+  # still reveals on edge-hover; the huge delay (seconds before reveal)
+  # makes that effectively never happen.
+  system.defaults.dock.autohide = true;
+  system.defaults.dock.autohide-delay = 1000.0;
+
+  # Free up ⌘+Space from Spotlight so Raycast can take it (Raycast's own
+  # hotkey is set inside the app, Preferences > General — not nix-managed).
+  # No dedicated nix-darwin option for this; CustomUserPreferences just runs
+  # `defaults write` as the primary user. Writing the plist alone doesn't
+  # take effect live (symbolic hotkeys are cached in memory) — log out and
+  # back in after `darwin-rebuild switch` for it to apply. No reboot needed.
+  system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
+    AppleSymbolicHotKeys."64" = {
+      enabled = false;
+      value = {
+        type = "standard";
+        parameters = [ 32 49 1048576 ]; # space, keycode 49, cmd modifier
+      };
+    };
+  };
+
+  # TODO (curate on the Mac): system.defaults.* (finder), more casks.
 }

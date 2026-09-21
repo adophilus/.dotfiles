@@ -3,8 +3,10 @@
     "allow": [
       "mcp__pencil",
       "mcp__codegraph__*"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   },
+  "skipDangerousModePermissionPrompt": true,
   "hooks": {
     "UserPromptSubmit": [
       {

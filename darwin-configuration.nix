@@ -197,6 +197,9 @@
       # other
       "transmission"
       "gnucash"
+      # todo/time-tracker — exists in nixpkgs, but cask keeps the .app
+      # Spotlight-indexed (same reasoning as thunderbird above)
+      "super-productivity"
       "scroll-reverser" # independent trackpad/mouse scroll direction
       # launcher — Spotlight can't index the symlinked .apps that nix/hm
       # drop into ~/Applications (mdworker doesn't follow symlinks into

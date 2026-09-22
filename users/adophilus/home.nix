@@ -155,8 +155,9 @@ in
 
       # Editors / terminals
       tmux
-      # viAlias = false: don't claim `vi`, let it fall through to /usr/bin/vi
-      (pkgs.vim.override { viAlias = false; })
+      # 26.05 refactored vim: viAlias/vimAlias args are gone (it now always
+      # ships a `vi` symlink), so the old .override errors — plain pkgs.vim only
+      pkgs.vim
       # opencode GUI — same flake input as the CLI (programs.opencode.package
       # below), so GUI and CLI stay in lockstep on both hosts.
       inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode-desktop

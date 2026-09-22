@@ -121,6 +121,7 @@
         "pi"
         "gh-dash"
         "gh-enhance"
+        "sioyek"
       ];
     in
     {

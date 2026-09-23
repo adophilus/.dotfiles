@@ -796,7 +796,7 @@
   };
 
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 50; # Compresses half your RAM to fit 2x the apps
+  zramSwap.memoryPercent = 150; # thrash stopgap (4.6:1 zstd observed); drop to 50 once 32GB RAM is in
 
   # Device to resume from on hibernation (the disk swap partition on sda5)
   boot.resumeDevice = "/dev/disk/by-uuid/c5fda66e-d506-41a8-abd4-e48b066abfc2";

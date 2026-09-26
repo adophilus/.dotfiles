@@ -50,14 +50,6 @@
 			"url": "https://design.penpot.app/mcp/stream?userToken={env:PENPOT_USER_TOKEN}",
 			"enabled": true
 		},
-		"figma-mcp-go": {
-			"type": "local",
-			"command": [
-				"pnpx",
-				"@vkhanhqui/figma-mcp-go@0.1.3"
-			],
-			"enabled": false
-		},
 		"figma-console": {
 			"type": "local",
 			"command": [
@@ -112,13 +104,6 @@
 			],
 			"enabled": true
 		},
-		"open-design": {
-			"type": "local",
-			"command": [
-				"open-design-mcp"
-			],
-			"enabled": true
-		},
 		"super-productivity": {
 			"type": "local",
 			"command": [
@@ -127,19 +112,9 @@
 			],
 			"enabled": true
 		},
-		"typeui": {
-			"type": "remote",
-			"url": "https://mcp.typeui.sh/mcp",
-			"enabled": true
-		},
 		"onscript": {
 			"type": "remote",
 			"url": "https://mcp.onscript.xyz/mcp",
-			"enabled": true
-		},
-		"tldraw": {
-			"type": "remote",
-			"url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp",
 			"enabled": true
 		}
 		// "mitmproxy-mcp": {

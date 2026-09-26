@@ -105,11 +105,6 @@
         "super-productivity-mcp@1.5.0"
       ]
     },
-    "typeui": {
-      "type": "http",
-      "url": "https://mcp.typeui.sh/mcp",
-      "auth": "oauth"
-    },
     "onscript": {
       "type": "http",
       "url": "https://mcp.onscript.xyz/mcp"

@@ -110,6 +110,10 @@
       "url": "https://mcp.typeui.sh/mcp",
       "auth": "oauth"
     },
+    "onscript": {
+      "type": "http",
+      "url": "https://mcp.onscript.xyz/mcp"
+    },
     "tldraw": {
       "type": "http",
       "url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp"

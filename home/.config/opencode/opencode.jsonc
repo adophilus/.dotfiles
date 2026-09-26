@@ -132,6 +132,11 @@
 			"url": "https://mcp.typeui.sh/mcp",
 			"enabled": true
 		},
+		"onscript": {
+			"type": "remote",
+			"url": "https://mcp.onscript.xyz/mcp",
+			"enabled": true
+		},
 		"tldraw": {
 			"type": "remote",
 			"url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp",

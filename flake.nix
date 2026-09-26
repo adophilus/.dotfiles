@@ -122,6 +122,7 @@
         "gh-dash"
         "gh-enhance"
         "sioyek"
+        "claude-code"
       ];
     in
     {

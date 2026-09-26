@@ -40,14 +40,6 @@
       "type": "http",
       "url": "https://design.penpot.app/mcp/stream?userToken=${PENPOT_USER_TOKEN}"
     },
-    "figma-mcp-go": {
-      "type": "stdio",
-      "command": "pnpx",
-      "args": [
-        "@vkhanhqui/figma-mcp-go@0.1.3"
-      ],
-      "disabled": true
-    },
     "figma-console": {
       "type": "stdio",
       "command": "pnpx",
@@ -104,10 +96,6 @@
     "onscript": {
       "type": "http",
       "url": "https://mcp.onscript.xyz/mcp"
-    },
-    "tldraw": {
-      "type": "http",
-      "url": "https://tldraw-mcp-app.tldraw.workers.dev/mcp"
     }
   }
 }

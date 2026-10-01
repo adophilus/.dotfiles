@@ -96,6 +96,13 @@
     "onscript": {
       "type": "http",
       "url": "https://mcp.onscript.xyz/mcp"
+    },
+    "tldraw": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "@talhaorak/tldraw-mcp@0.1.1"
+      ]
     }
   }
 }

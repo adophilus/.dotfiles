@@ -116,6 +116,14 @@
 			"type": "remote",
 			"url": "https://mcp.onscript.xyz/mcp",
 			"enabled": true
+		},
+		"tldraw": {
+			"type": "local",
+			"command": [
+				"pnpx",
+				"@talhaorak/tldraw-mcp@0.1.1"
+			],
+			"enabled": true
 		}
 		// "mitmproxy-mcp": {
 		// 	"type": "local",

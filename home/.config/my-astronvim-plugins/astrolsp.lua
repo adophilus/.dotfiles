@@ -8,7 +8,8 @@ return {
 			},
 		},
 		servers = {
-			"nixfmt"
+			"nixfmt",
+			"rust_analyzer"
 		}
 	},
 }

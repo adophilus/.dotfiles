@@ -1,7 +1,7 @@
 {
 	"theme": "charcoal",
 	"defaultProvider": "zai",
-	"defaultModel": "glm-5.2",
+	"defaultModel": "glm-5.3-flash",
 	"defaultThinkingLevel": "max",
 	"hideThinkingBlock": true,
 	"outputPad": 0,

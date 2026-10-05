@@ -3,13 +3,11 @@
 # Syntax notes: kebab-case keys, `=` assignments,
 # palette = N=#hex for the 16 colors, keybind = chord=action.
 
-# ── Font (single weight — ProFont IIx ships one style) ──
-font-family = ProFont IIx Nerd Font Mono
-font-family-bold = ProFont IIx Nerd Font Mono
-font-family-italic = ProFont IIx Nerd Font Mono
-font-family-bold-italic = ProFont IIx Nerd Font Mono
-# thicken = synthetic bold: ProFont has no bold cut, so embolden at render time.
-font-thicken = true
+# ── Font ──
+font-family = SpaceMono Nerd Font
+font-family-bold = SpaceMono Nerd Font
+font-family-italic = SpaceMono Nerd Font
+font-family-bold-italic = SpaceMono Nerd Font
 font-size = 12
 
 # ── Colors: Charcoal (monochrome) ──

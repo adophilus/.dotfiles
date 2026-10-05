@@ -2,12 +2,12 @@
 	"$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
 	"preset": "zai",
 	"presets": {
-		// glm-5.2 only exposes variants "high"/"max" — anything else is a
-		// silent no-op. No variant set → z.ai API default: thinking ON,
+		// glm-5.3-flash exposes variants "low"/"high"/"max" — anything else is
+		// a silent no-op. No variant set → z.ai API default: thinking ON,
 		// reasoning effort "max" (docs.z.ai/guides/overview/concept-param).
 		"zai": {
 			"orchestrator": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [
 					"*"
 				],
@@ -17,26 +17,26 @@
 				]
 			},
 			"oracle": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [
 					"simplify"
 				],
 				"mcps": []
 			},
 			"designer": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [
 					"agent-browser"
 				],
 				"mcps": []
 			},
 			"explorer": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [],
 				"mcps": []
 			},
 			"librarian": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [],
 				"mcps": [
 					"websearch",
@@ -45,7 +45,7 @@
 				]
 			},
 			"fixer": {
-				"model": "zai-coding-plan/glm-5.2",
+				"model": "zai-coding-plan/glm-5.3-flash",
 				"skills": [],
 				"mcps": []
 			}

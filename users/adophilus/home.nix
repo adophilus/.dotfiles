@@ -55,13 +55,13 @@ let
     LOCAL_PORT=$2
     DOMAIN="$REMOTE_PORT.tunnel.adophilus.com"
     echo -e "\033[1m🔒 SSH Tunnel\033[0m"
-    echo -e "   \033[90mlocalhost:\033[0m$LOCAL_PORT \033[90m→ vps:\033[0m$REMOTE_PORT \033[90m→\033[0m https://$DOMAIN"
+    echo -e "   \033[90mlocalhost:\033[0m$LOCAL_PORT \033[90m→ contabo.vpn:\033[0m$REMOTE_PORT \033[90m→\033[0m https://$DOMAIN"
     echo -e "   \033[90mauto-reconnect:\033[0m enabled   \033[90mCtrl+C to stop\033[0m"
     echo ""
     exec ${pkgs.autossh}/bin/autossh -M 0 -N \
       -o "ExitOnForwardFailure=yes" \
       -R "$REMOTE_PORT:localhost:$LOCAL_PORT" \
-      vps
+      contabo.vpn
   '';
 
   # floci-ui: clone the repo and run the compose stack via podman-compose

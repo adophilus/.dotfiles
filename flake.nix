@@ -123,6 +123,7 @@
         "gh-enhance"
         "sioyek"
         "claude-code"
+        "gpg"
       ];
     in
     {

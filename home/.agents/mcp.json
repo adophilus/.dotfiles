@@ -86,6 +86,13 @@
         "scrcpy-mcp@0.5.0"
       ]
     },
+    "scrcpy-mcp": {
+      "type": "stdio",
+      "command": "pnpx",
+      "args": [
+        "scrcpy-mcp@0.5.0"
+      ]
+    },
     "super-productivity": {
       "type": "stdio",
       "command": "pnpx",

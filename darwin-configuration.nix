@@ -15,10 +15,19 @@
   # belongs here, not in home.nix). Mirrors configuration.nix on zenith.
   nixpkgs.config = {
     permittedInsecurePackages = [ "electron-37.10.3" ];
-    allowUnfreePredicate = pkg:
+    allowUnfreePredicate =
+      pkg:
       builtins.elem (pkgs.lib.getName pkg) [
-        "postman" "spotify" "google-chrome" "zoom" "code" "vscode"
-        "discord" "legcord" "obsidian" "osu-lazar"
+        "postman"
+        "spotify"
+        "google-chrome"
+        "zoom"
+        "code"
+        "vscode"
+        "discord"
+        "legcord"
+        "obsidian"
+        "osu-lazar"
       ];
   };
 
@@ -129,7 +138,11 @@
   };
 
   # Fonts — installed so macOS CoreText (and ghostty) can see them.
-  fonts.packages = [ pkgs.nerd-fonts.hurmit pkgs.nerd-fonts.profont ];
+  fonts.packages = [
+    pkgs.nerd-fonts.hurmit
+    pkgs.nerd-fonts.profont
+    pkgs.nerd-fonts.bigblue-terminal
+  ];
 
   # nix-homebrew — installs Homebrew ITSELF via Nix (into /usr/local on Intel),
   # so brew is declarative rather than curl|bash. Sits under nix-darwin's
@@ -253,7 +266,11 @@
       enabled = false;
       value = {
         type = "standard";
-        parameters = [ 32 49 1048576 ]; # space, keycode 49, cmd modifier
+        parameters = [
+          32
+          49
+          1048576
+        ]; # space, keycode 49, cmd modifier
       };
     };
   };

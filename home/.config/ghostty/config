@@ -4,10 +4,10 @@
 # palette = N=#hex for the 16 colors, keybind = chord=action.
 
 # ── Font ──
-font-family = SpaceMono Nerd Font
-font-family-bold = SpaceMono Nerd Font
-font-family-italic = SpaceMono Nerd Font
-font-family-bold-italic = SpaceMono Nerd Font
+font-family = BigBlueTermPlus Nerd Font
+font-family-bold = BigBlueTermPlus Nerd Font
+font-family-italic = BigBlueTermPlus Nerd Font
+font-family-bold-italic = BigBlueTermPlus Nerd Font
 font-size = 12
 
 # ── Colors: Charcoal (monochrome) ──

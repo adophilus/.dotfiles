@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   # Installs gnupg + writes ~/.gnupg/gpg.conf. The keyring itself stays
@@ -10,6 +10,6 @@
   # On macOS, pinentry_mac provides the GUI prompt (headless pinentry fails).
   services.gpg-agent = {
     enable = true;
-    pinentry.package = pkgs.pinentry_mac;
+    # pinentry.package = if pkgs.stdenv.isLinux then pkgs.pinentry else pkgs.pinentry_mac;
   };
 }

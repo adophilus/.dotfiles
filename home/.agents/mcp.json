@@ -51,15 +51,6 @@
         "ENABLE_MCP_APPS": "true"
       }
     },
-    "codegraph": {
-      "type": "stdio",
-      "command": "pnpx",
-      "args": [
-        "codegraph@1.3.0",
-        "serve",
-        "--mcp"
-      ]
-    },
     "tmux-mcp-rs": {
       "type": "stdio",
       "command": "pnpx",

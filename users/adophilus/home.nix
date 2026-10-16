@@ -618,7 +618,7 @@ in
   };
 
   # Shell-agnostic PATH entries (bash/zsh/fish all source these via HM).
-  # bun global bin (opencode) + pnpm global bin (codegraph, pi, ...).
+  # bun global bin (opencode) + pnpm global bin (pi, lark, ...).
   home.sessionPath = [
     "${config.home.homeDirectory}/.bun/bin"
     "${config.home.homeDirectory}/.local/share/pnpm/bin"

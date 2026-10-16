@@ -17,10 +17,7 @@ in
 {
   # NOTE: ~/.claude.json stays unmanaged on purpose — CC rewrites it
   # (state: OAuth session, user-scope MCP, per-project trust). CLAUDE.md IS
-  # managed: the codegraph block is baked in verbatim (its markers make
-  # `codegraph install` idempotent — prompt-hook never writes the file).
-  # ponytail: if a future codegraph install rewrites the block, the RO
-  # symlink makes it fail loudly → copy the new block into the repo.
+  # managed.
   home.file = {
     ".claude/CLAUDE.md".source = ../../../home/.claude/CLAUDE.md;
     ".claude/settings.json".source = ../../../home/.claude/settings.json;

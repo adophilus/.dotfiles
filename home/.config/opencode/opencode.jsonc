@@ -62,16 +62,6 @@
 				"ENABLE_MCP_APPS": "true"
 			}
 		},
-		"codegraph": {
-			"type": "local",
-			"command": [
-				"pnpx",
-				"codegraph@1.3.0",
-				"serve",
-				"--mcp"
-			],
-			"enabled": true
-		},
 		"tmux-mcp-rs": {
 			"type": "local",
 			"command": [

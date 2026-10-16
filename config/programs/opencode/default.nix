@@ -36,12 +36,12 @@
 
       # The generated launchd agent runs with launchd's bare PATH
       # (/usr/bin:/bin:/usr/sbin:/sbin) — local MCP children resolve their
-      # command[0] against it, so bare names (pnpx, node, codegraph) fail with
+      # command[0] against it, so bare names (pnpx, node) fail with
       # "executable not found". Merge a real PATH into the agent. On Linux this
       # option is inert (the systemd branch is live there).
       launchd.agents.opencode-web.config.EnvironmentVariables.PATH = lib.concatStringsSep ":" [
         "/etc/profiles/per-user/${config.home.username}/bin" # nix-darwin profile: pnpx, node
-        "${config.home.homeDirectory}/.local/share/pnpm/bin" # pnpm globals: codegraph
+        "${config.home.homeDirectory}/.local/share/pnpm/bin" # pnpm globals (pi, lark, overstory)
         "/usr/local/bin" # Homebrew (Intel)
         "/usr/bin"
         "/bin"

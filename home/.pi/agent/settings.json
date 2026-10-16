@@ -1,6 +1,7 @@
 {
 	"theme": "charcoal",
 	"tuiMode": "regular",
+	"extensions": ["-builtin:mcp"],
 	"defaultProvider": "zai",
 	"defaultModel": "glm-5.3-flash",
 	"defaultThinkingLevel": "max",
@@ -14,7 +15,6 @@
 		"npm:pi-zentui@0.21.0",
 		"npm:pi-web-access@0.25.0",
 		"npm:@ozancakir/pi-pop@0.1.2",
-		"npm:pi-hide-messages@0.2.0",
 		"npm:pi-antigravity-multi-account@0.1.6"
 	]
 }

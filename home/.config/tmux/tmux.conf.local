@@ -390,7 +390,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # other special keys are transmitted correctly; required by the S-Enter binding
 # below and by tmux MCP servers that send modified Enter keys
 set -g extended-keys on
-set -g extended-keys-format on
+set -g extended-keys-format csi-u
 bind-key -T root         S-Enter     send-keys Escape "[13;2u"
 
 

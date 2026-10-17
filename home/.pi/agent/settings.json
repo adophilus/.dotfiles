@@ -15,6 +15,7 @@
 		"npm:pi-zentui@0.21.0",
 		"npm:pi-web-access@0.25.0",
 		"npm:@ozancakir/pi-pop@0.1.2",
-		"npm:pi-antigravity-multi-account@0.1.6"
+		"npm:pi-antigravity-multi-account@0.1.6",
+		"npm:pi-transcript-window@0.3.1"
 	]
 }

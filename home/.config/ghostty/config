@@ -4,12 +4,11 @@
 # palette = N=#hex for the 16 colors, keybind = chord=action.
 
 # ── Font ──
-font-family = BigBlueTermPlus Nerd Font
-font-family-bold = BigBlueTermPlus Nerd Font
-font-family-italic = BigBlueTermPlus Nerd Font
-font-family-bold-italic = BigBlueTermPlus Nerd Font
+font-family = BigBlueTerm437 Nerd Font Propo
+font-family-bold = BigBlueTerm437 Nerd Font Propo
+font-family-italic = BigBlueTerm437 Nerd Font Propo
+font-family-bold-italic = BigBlueTerm437 Nerd Font Propo
 font-size = 12
-font-style = Light
 
 # ── Colors: Charcoal (monochrome) ──
 foreground = #d4d4d4

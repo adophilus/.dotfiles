@@ -225,6 +225,7 @@
       "ghostty" # cask, not nixpkgs — Intel-Mac nix build source-builds Zig+GTK forever (see home.nix)
       # opencode-desktop removed as cask — now from the opencode flake via
       # home-manager (users/adophilus/home.nix, cross-platform packages).
+      "kdenlive"
     ];
     # CLI tools come from nix (home.packages); no Homebrew brews. opencode is
     # installed standalone so it doesn't pull a Homebrew node that shadows nix's.

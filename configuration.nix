@@ -270,6 +270,7 @@
     pkgs.nerd-fonts.profont
     pkgs.nerd-fonts.space-mono
     pkgs.nerd-fonts.bigblue-terminal
+    pkgs.nerd-fonts._3270
   ];
 
   # Don't suspend/hibernate when the lid closes — lets the laptop run headless

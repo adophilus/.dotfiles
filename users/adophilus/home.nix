@@ -511,7 +511,6 @@ in
 
         # Desktop bar
         waybar
-        awww
         gpu-screen-recorder
         satty
         zbar

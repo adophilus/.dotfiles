@@ -99,7 +99,7 @@
         "on-click": "activate",
         "sort-by-number": true,
         "active-only": true,
-        "all-outputs": true,
+        "separate-outputs": true,
         "show-special": true,
         "special-visible-only": false,
         "persistent-workspaces": {},

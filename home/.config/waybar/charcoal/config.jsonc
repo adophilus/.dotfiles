@@ -74,7 +74,7 @@
     // LEFT MODULES
     // ===================================================================
     "custom/launcher": {
-        "format": "󰣇",
+        "format": "",
         "tooltip-format": "App Launcher\n\nLMB: Application Menu\nRMB: Run Command",
         "on-click": "uwsm-app -- rofi -show drun",
         "on-click-right": "uwsm-app -- rofi -show run"
@@ -93,6 +93,16 @@
             "8": "8",
             "9": "9",
             "10": "0",
+            "11": "1",
+            "12": "2",
+            "13": "3",
+            "14": "4",
+            "15": "5",
+            "16": "6",
+            "17": "7",
+            "18": "8",
+            "19": "9",
+            "20": "0",
             "special": "󰠱",
             "default": ""
         },

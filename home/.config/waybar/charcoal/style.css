@@ -84,7 +84,7 @@
 
 window#waybar {
     background: transparent;
-    color: @on_surface;
+    color: @on-surface;
 }
 
 window#waybar.hidden {
@@ -92,15 +92,15 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background-color: @surface_container_high;
-    color: @on_surface;
-    border: 2px solid @outline_variant;
+    background-color: @surface-container_high;
+    color: @on-surface;
+    border: 2px solid @outline-variant;
     border-radius: 12px;
     padding: 8px 12px;
 }
 
 tooltip label {
-    color: @on_surface;
+    color: @on-surface;
     padding: 4px;
 }
 
@@ -157,7 +157,7 @@ tooltip label {
     margin: 2px 2px;
     border-radius: 8px;
     background: transparent;
-    color: @on_surface;
+    color: @on-surface;
 }
 
 #custom-launcher:hover,
@@ -176,7 +176,7 @@ tooltip label {
 #custom-inhibit-suspend:hover,
 #custom-notification:hover,
 #custom-power:hover {
-    background-color: @surface_container_highest;
+    background-color: @surface-container_highest;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -202,7 +202,7 @@ tooltip label {
     font-size: 16px;
     padding: 0 15px 0px 8px;
     color: @primary;
-    background-color: @primary_container;
+    background-color: @primary-container;
     border-radius: 10px;
     margin-left: 2px;
     margin-right: 4px;
@@ -210,14 +210,14 @@ tooltip label {
 
 #custom-launcher:hover {
     background-color: @primary;
-    color: @on_primary;
+    color: @on-primary;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    WORKSPACES
    ═══════════════════════════════════════════════════════════════════════════ */
 #workspaces {
-    background-color: @surface_container_low;
+    background-color: @surface-container_low;
     padding: 0 4px;
     border-radius: 10px;
 }
@@ -226,7 +226,7 @@ tooltip label {
     padding: 0;
     margin: 3px 2px;
     border-radius: 50px;
-    color: @on_surface_variant;
+    color: @on-surface_variant;
     background: transparent;
     min-width: 22px;
     min-height: 22px;
@@ -235,7 +235,7 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    background-color: @surface_container_highest;
+    background-color: @surface-container_highest;
     color: @primary;
 }
 
@@ -243,18 +243,18 @@ tooltip label {
     /* cursor white — brightest tier, so active reads as unmistakable
        inversion (#f4f4f4 bg / #0d0d0d fg), not white-on-grey */
     background-color: #f4f4f4;
-    color: @on_primary;
+    color: @on-primary;
     font-weight: 700;
 }
 
 #workspaces button.urgent {
     background-color: @error;
-    color: @on_error;
+    color: @on-error;
 }
 
 #workspaces button.special {
-    background-color: @tertiary_container;
-    color: @on_tertiary_container;
+    background-color: @tertiary-container;
+    color: @on-tertiary-container;
     font-size: 12px;
 }
 
@@ -267,8 +267,8 @@ tooltip label {
    SUBMAP & WINDOW & NET SPEED
    ═══════════════════════════════════════════════════════════════════════════ */
 #submap {
-    background-color: @tertiary_container;
-    color: @on_tertiary_container;
+    background-color: @tertiary-container;
+    color: @on-tertiary-container;
     padding: 0 12px;
     border-radius: 8px;
     font-weight: 700;
@@ -276,14 +276,14 @@ tooltip label {
 }
 
 #window {
-    color: @on_surface_variant;
+    color: @on-surface_variant;
     padding: 0 12px;
     font-size: 14px;
     opacity: 0.9;
 }
 
 #custom-net-speed {
-    color: @on_surface;
+    color: @on-surface;
     font-family: "JetBrainsMono Nerd Font Mono", monospace;
     font-size: 11px;
     padding: 0 8px;
@@ -293,8 +293,8 @@ tooltip label {
    CENTER SECTION
    ═══════════════════════════════════════════════════════════════════════════ */
 #clock {
-    background-color: @primary_container;
-    color: @on_primary_container;
+    background-color: @primary-container;
+    color: @on-primary_container;
     font-size: 13px;
     font-weight: 700;
     padding: 0 16px;
@@ -303,7 +303,7 @@ tooltip label {
 
 #clock:hover {
     background-color: @primary;
-    color: @on_primary;
+    color: @on-primary;
 }
 
 #privacy {
@@ -320,14 +320,14 @@ tooltip label {
    HARDWARE STATS GROUP
    ═══════════════════════════════════════════════════════════════════════════ */
 #group-hardware {
-    background-color: @surface_container_low;
+    background-color: @surface-container_low;
     border-radius: 10px;
     padding: 0 2px;
     margin: 2px 2px;
 }
 
 #group-hardware:hover {
-    background-color: @surface_container;
+    background-color: @surface-container;
 }
 
 /* REDUCED PADDING FOR THINNER LOOK */
@@ -340,34 +340,34 @@ tooltip label {
 }
 
 #cpu {
-    color: @on_surface;
+    color: @on-surface;
 }
 
 #cpu:hover {
-    color: @on_tertiary_container;
-    background-color: @tertiary_container;
+    color: @on-tertiary-container;
+    background-color: @tertiary-container;
 }
 
 #memory {
-    color: @on_surface;
+    color: @on-surface;
 }
 
 #memory:hover {
-    color: @on_secondary_container;
-    background-color: @secondary_container;
+    color: @on-secondary-container;
+    background-color: @secondary-container;
 }
 
 #disk {
-    color: @on_surface;
+    color: @on-surface;
 }
 
 #disk:hover {
-    color: @on_secondary_container;
-    background-color: @secondary_container;
+    color: @on-secondary-container;
+    background-color: @secondary-container;
 }
 
 #temperature {
-    color: @on_surface_variant;
+    color: @on-surface_variant;
 }
 
 #cpu.warning,
@@ -381,7 +381,7 @@ tooltip label {
 #memory.critical,
 #disk.critical,
 #temperature.critical {
-    color: @on_error;
+    color: @on-error;
     background-color: @error;
     font-weight: 700;
 }
@@ -390,38 +390,38 @@ tooltip label {
    CONNECTIVITY GROUP
    ═══════════════════════════════════════════════════════════════════════════ */
 #group-connectivity {
-    background-color: @surface_container_low;
+    background-color: @surface-container_low;
     border-radius: 10px;
     padding: 0 2px;
     margin: 2px 2px;
 }
 
 #group-connectivity:hover {
-    background-color: @surface_container;
+    background-color: @surface-container;
 }
 
 #backlight {
-    color: @on_surface;
+    color: @on-surface;
     font-size: 11px;
     min-width: 0;
     padding: 0 4px;
 }
 
 #backlight:hover {
-    color: @on_tertiary_container;
-    background-color: @tertiary_container;
+    color: @on-tertiary-container;
+    background-color: @tertiary-container;
 }
 
 #network {
-    color: @on_surface;
+    color: @on-surface;
     font-size: 11px;
     min-width: 0;
     padding: 0 4px;
 }
 
 #network:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 #network.disconnected {
@@ -434,18 +434,18 @@ tooltip label {
 }
 
 #network.linked {
-    color: @on_surface_variant;
+    color: @on-surface_variant;
 }
 
 #bluetooth {
-    color: @on_surface;
+    color: @on-surface;
     font-size: 13px;
     padding: 0 2px;
 }
 
 #bluetooth:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 #bluetooth.off,
@@ -459,15 +459,15 @@ tooltip label {
 }
 
 #pulseaudio {
-    color: @on_surface;
+    color: @on-surface;
     font-size: 11px;
     min-width: 0;
     padding: 0 4px;
 }
 
 #pulseaudio:hover {
-    background-color: @tertiary_container;
-    color: @on_tertiary_container;
+    background-color: @tertiary-container;
+    color: @on-tertiary-container;
 }
 
 #pulseaudio.muted {
@@ -476,15 +476,15 @@ tooltip label {
 }
 
 #battery {
-    color: @on_surface;
+    color: @on-surface;
     font-size: 11px;
     min-width: 0;
     padding: 0 4px;
 }
 
 #battery:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 #battery.charging,
@@ -495,8 +495,8 @@ tooltip label {
 
 #battery.charging:hover,
 #battery.plugged:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 #battery.warning {
@@ -505,7 +505,7 @@ tooltip label {
 }
 
 #battery.critical {
-    color: @on_error;
+    color: @on-error;
     background-color: @error;
     font-weight: 700;
 }
@@ -514,25 +514,25 @@ tooltip label {
    SYSTEM GROUP
    ═══════════════════════════════════════════════════════════════════════════ */
 #group-system {
-    background-color: @surface_container_low;
+    background-color: @surface-container_low;
     border-radius: 10px;
     padding: 0 2px;
     margin: 2px 2px;
 }
 
 #group-system:hover {
-    background-color: @surface_container;
+    background-color: @surface-container;
 }
 
 #custom-theme {
-    color: @on_surface_variant;
+    color: @on-surface_variant;
     font-size: 14px;
     padding: 0 8px;
 }
 
 #custom-theme:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 #custom-inhibit-suspend {
@@ -541,28 +541,28 @@ tooltip label {
 }
 
 #custom-inhibit-suspend.enabled {
-    color: @on_surface_variant;
+    color: @on-surface_variant;
 }
 
 #custom-inhibit-suspend.disabled {
-    color: @on_tertiary_container;
-    background-color: @tertiary_container;
+    color: @on-tertiary-container;
+    background-color: @tertiary-container;
     border-radius: 8px;
 }
 
 #custom-inhibit-suspend:hover {
-    background-color: @surface_container_highest;
+    background-color: @surface-container_highest;
 }
 
 #custom-notification {
     font-size: 14px;
     padding: 0 8px;
-    color: @on_surface_variant;
+    color: @on-surface_variant;
 }
 
 #custom-notification:hover {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+    background-color: @secondary-container;
+    color: @on-secondary-container;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -579,13 +579,13 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: @error_container;
+    background-color: @error-container;
     border-radius: 8px;
 }
 
 #tray menu {
-    background-color: @surface_container_high;
-    border: 2px solid @outline_variant;
+    background-color: @surface-container_high;
+    border: 2px solid @outline-variant;
     border-radius: 12px;
     padding: 8px;
 }
@@ -593,11 +593,11 @@ tooltip label {
 #tray menu menuitem {
     padding: 6px 12px;
     border-radius: 6px;
-    color: @on_surface;
+    color: @on-surface;
 }
 
 #tray menu menuitem:hover {
-    background-color: @surface_container_highest;
+    background-color: @surface-container_highest;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -608,12 +608,12 @@ tooltip label {
     padding: 0 12px;
     margin-right: 2px;
     margin-left: 3px;
-    color: @on_error_container;
-    background-color: @error_container;
+    color: @on-error_container;
+    background-color: @error-container;
     border-radius: 8px;
 }
 
 #custom-power:hover {
     background-color: @error;
-    color: @on_error;
+    color: @on-error;
 }

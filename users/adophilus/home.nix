@@ -216,10 +216,8 @@ in
       mdbook
       tesseract
       cava
-      pkgs.mpv
       xournalpp
       process-compose
-      pkgs.sayonara
 
       # System monitors / device tools
       bottom
@@ -322,7 +320,6 @@ in
         sshfs
 
         # Interop
-        anyrun
         appimage-run
 
         # Google
@@ -372,7 +369,6 @@ in
         libdbusmenu-gtk3
 
         # Video players
-        pkgs.mpv
         vlc
 
         # Android
@@ -408,7 +404,6 @@ in
 
         # Music
         pkgs.spotifywm
-        pkgs.sayonara
 
         # Clipboard
         cliphist
@@ -488,9 +483,7 @@ in
         lazygit
 
         # Launchers
-        fuzzel
         brightnessctl
-        wofi
         rofi
 
         # Documentation
@@ -598,9 +591,7 @@ in
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";
-    ".config/anyrun".source = "${end4dots}/.config/anyrun";
     ".config/foot".source = "${end4dots}/.config/foot";
-    ".config/fuzzel".source = "${end4dots}/.config/fuzzel";
     ".config/qt5ct".source = "${end4dots}/.config/qt5ct";
     ".config/zshrc.d".source = "${end4dots}/.config/zshrc.d";
     ".config/chrome-flags.conf".source = "${end4dots}/.config/chrome-flags.conf";

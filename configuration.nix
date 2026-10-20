@@ -574,8 +574,6 @@
         "zoom"
         "code"
         "vscode"
-        "steam"
-        "steam-unwrapped"
         # "vscode-fhs"
         "discord"
         "legcord"
@@ -728,7 +726,6 @@
 
   # (Optional) Install Seahorse to manage your passwords via a GUI
   programs.seahorse.enable = true;
-  programs.steam.enable = true;
 
   # Ensure the keyring is unlocked on login (works for most display managers)
   security.pam.services.login.enableGnomeKeyring = true;

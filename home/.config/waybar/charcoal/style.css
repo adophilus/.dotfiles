@@ -1,0 +1,619 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CHARCOAL WAYBAR THEME — GTK COMPATIBLE
+   Monochrome palette lifted verbatim from ghostty's charcoal config.
+   Self-contained: hardcoded @define-colors, no matugen import.
+
+   Charcoal tiers:
+     #0d0d0d  bg / panels        #d4d4d4  fg / primary
+     #1e1e1e  surface (inset)    #333333  raised / borders / hover
+     #555555  muted / selection  #848484  dim text
+     #f4f4f4  cursor (brightest)
+   Whisper-tinted grays (semantic only): red #7a6a6a / #a09090
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@define-color background #0d0d0d;
+@define-color foreground #d4d4d4;
+@define-color cursor #f4f4f4;
+
+/* Primary family — inverted-selection treatment (#d4d4d4 bg / #0d0d0d fg) */
+@define-color primary #d4d4d4;
+@define-color primary-fixed #d4d4d4;
+@define-color primary-fixed-dim #848484;
+@define-color on-primary #0d0d0d;
+@define-color on-primary-fixed #0d0d0d;
+@define-color on-primary-fixed-variant #333333;
+@define-color primary-container #1e1e1e;
+@define-color on-primary-container #d4d4d4;
+
+/* Secondary family — dim text, raised hover chip */
+@define-color secondary #848484;
+@define-color secondary-fixed #848484;
+@define-color secondary-fixed-dim #848484;
+@define-color on-secondary #0d0d0d;
+@define-color on-secondary-fixed #0d0d0d;
+@define-color on-secondary-fixed-variant #333333;
+@define-color secondary-container #333333;
+@define-color on-secondary-container #d4d4d4;
+
+/* Tertiary family — same monochrome tiers */
+@define-color tertiary #848484;
+@define-color tertiary-fixed #848484;
+@define-color tertiary-fixed-dim #848484;
+@define-color on-tertiary #0d0d0d;
+@define-color on-tertiary-fixed #0d0d0d;
+@define-color on-tertiary-fixed-variant #333333;
+@define-color tertiary-container #333333;
+@define-color on-tertiary-container #d4d4d4;
+
+/* Error family — whisper red only (battery warning, mute, critical, power) */
+@define-color error #7a6a6a;
+@define-color on-error #0d0d0d;
+@define-color error-container #333333;
+@define-color on-error-container #a09090;
+
+/* Surfaces — panel rgba near #0d0d0d, inset #1e1e1e, raised #333333 */
+@define-color surface rgba(13, 13, 13, 0.9);
+@define-color on-surface #d4d4d4;
+@define-color on-surface-variant #848484;
+@define-color outline #555555;
+@define-color outline-variant #333333;
+@define-color shadow #000000;
+@define-color scrim #000000;
+@define-color inverse-surface #d4d4d4;
+@define-color inverse-on-surface #0d0d0d;
+@define-color inverse-primary #0d0d0d;
+@define-color surface-dim #0d0d0d;
+@define-color surface-bright #333333;
+@define-color surface-container-lowest #0d0d0d;
+@define-color surface-container-low #1e1e1e;
+@define-color surface-container #1e1e1e;
+@define-color surface-container-high #1e1e1e;
+@define-color surface-container-highest #333333;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono NF", "JetBrains Mono", "Symbols Nerd Font", "Noto Sans", "DejaVu Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out, opacity 150ms ease-in-out;
+}
+
+window#waybar {
+    background: transparent;
+    color: @on_surface;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background-color: @surface_container_high;
+    color: @on_surface;
+    border: 2px solid @outline_variant;
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+tooltip label {
+    color: @on_surface;
+    padding: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN BAR SECTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @surface;
+    border-radius: 12px;
+    padding: 0 6px;
+    margin: 2px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.modules-left {
+    margin-left: 2px;
+    padding-left: 3px;
+}
+
+.modules-right {
+    margin-right: 2px;
+    padding-right: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE MODULE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+#custom-launcher,
+#workspaces,
+#submap,
+#window,
+#custom-net-speed,
+#clock,
+#privacy,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#custom-theme,
+#custom-inhibit-suspend,
+#custom-notification,
+#tray,
+#custom-power,
+#custom-separator,
+#custom-separator-2 {
+    padding: 0 10px;
+    margin: 2px 2px;
+    border-radius: 8px;
+    background: transparent;
+    color: @on_surface;
+}
+
+#custom-launcher:hover,
+#clock:hover,
+#custom-net-speed:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-theme:hover,
+#custom-inhibit-suspend:hover,
+#custom-notification:hover,
+#custom-power:hover {
+    background-color: @surface_container_highest;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEPARATORS
+   ═══════════════════════════════════════════════════════════════════════════ */
+#custom-separator,
+#custom-separator-2 {
+    color: @outline;
+    font-size: 12px;
+    padding: 0 2px;
+    margin: 3px 0;
+    opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LEFT SECTION - LAUNCHER
+   ═══════════════════════════════════════════════════════════════════════════ */
+#custom-launcher {
+    /* Pinned: JetBrainsMono NF (global stack) lacks U+F08C7 (nixos logo);
+       3270 Nerd Font Mono is the installed family that covers it
+       (fc-list ':charset=f08c7'). */
+    font-family: "3270 Nerd Font Mono", "3270 Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-size: 16px;
+    padding: 0 15px 0px 8px;
+    color: @primary;
+    background-color: @primary_container;
+    border-radius: 10px;
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+#custom-launcher:hover {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WORKSPACES
+   ═══════════════════════════════════════════════════════════════════════════ */
+#workspaces {
+    background-color: @surface_container_low;
+    padding: 0 4px;
+    border-radius: 10px;
+}
+
+#workspaces button {
+    padding: 0;
+    margin: 3px 2px;
+    border-radius: 50px;
+    color: @on_surface_variant;
+    background: transparent;
+    min-width: 22px;
+    min-height: 22px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#workspaces button:hover {
+    background-color: @surface_container_highest;
+    color: @primary;
+}
+
+#workspaces button.active {
+    /* cursor white — brightest tier, so active reads as unmistakable
+       inversion (#f4f4f4 bg / #0d0d0d fg), not white-on-grey */
+    background-color: #f4f4f4;
+    color: @on_primary;
+    font-weight: 700;
+}
+
+#workspaces button.urgent {
+    background-color: @error;
+    color: @on_error;
+}
+
+#workspaces button.special {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+    font-size: 12px;
+}
+
+#workspaces button.empty {
+    color: @outline;
+    opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUBMAP & WINDOW & NET SPEED
+   ═══════════════════════════════════════════════════════════════════════════ */
+#submap {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+#window {
+    color: @on_surface_variant;
+    padding: 0 12px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+#custom-net-speed {
+    color: @on_surface;
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-size: 11px;
+    padding: 0 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CENTER SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+#clock {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 0 16px;
+    border-radius: 10px;
+}
+
+#clock:hover {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+#privacy {
+    padding: 0 4px;
+    margin: 2px 2px;
+}
+
+#privacy-item {
+    color: @error;
+    padding: 0 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HARDWARE STATS GROUP
+   ═══════════════════════════════════════════════════════════════════════════ */
+#group-hardware {
+    background-color: @surface_container_low;
+    border-radius: 10px;
+    padding: 0 2px;
+    margin: 2px 2px;
+}
+
+#group-hardware:hover {
+    background-color: @surface_container;
+}
+
+/* REDUCED PADDING FOR THINNER LOOK */
+#cpu,
+#memory,
+#disk,
+#temperature {
+    padding: 0 4px;
+    font-size: 11px;
+}
+
+#cpu {
+    color: @on_surface;
+}
+
+#cpu:hover {
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
+}
+
+#memory {
+    color: @on_surface;
+}
+
+#memory:hover {
+    color: @on_secondary_container;
+    background-color: @secondary_container;
+}
+
+#disk {
+    color: @on_surface;
+}
+
+#disk:hover {
+    color: @on_secondary_container;
+    background-color: @secondary_container;
+}
+
+#temperature {
+    color: @on_surface_variant;
+}
+
+#cpu.warning,
+#memory.warning,
+#disk.warning {
+    color: @error;
+    opacity: 0.85;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#temperature.critical {
+    color: @on_error;
+    background-color: @error;
+    font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONNECTIVITY GROUP
+   ═══════════════════════════════════════════════════════════════════════════ */
+#group-connectivity {
+    background-color: @surface_container_low;
+    border-radius: 10px;
+    padding: 0 2px;
+    margin: 2px 2px;
+}
+
+#group-connectivity:hover {
+    background-color: @surface_container;
+}
+
+#backlight {
+    color: @on_surface;
+    font-size: 11px;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+#backlight:hover {
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
+}
+
+#network {
+    color: @on_surface;
+    font-size: 11px;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+#network:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#network.disconnected {
+    color: @outline;
+}
+
+#network.disabled {
+    color: @error;
+    opacity: 0.6;
+}
+
+#network.linked {
+    color: @on_surface_variant;
+}
+
+#bluetooth {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 2px;
+}
+
+#bluetooth:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+    color: @outline;
+    opacity: 0.5;
+}
+
+#bluetooth.connected {
+    color: @primary;
+}
+
+#pulseaudio {
+    color: @on_surface;
+    font-size: 11px;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+#pulseaudio:hover {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+}
+
+#pulseaudio.muted {
+    color: @error;
+    opacity: 0.7;
+}
+
+#battery {
+    color: @on_surface;
+    font-size: 11px;
+    min-width: 0;
+    padding: 0 4px;
+}
+
+#battery:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#battery.charging,
+#battery.plugged,
+#battery.full {
+    color: @primary;
+}
+
+#battery.charging:hover,
+#battery.plugged:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#battery.warning {
+    color: @error;
+    opacity: 0.9;
+}
+
+#battery.critical {
+    color: @on_error;
+    background-color: @error;
+    font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SYSTEM GROUP
+   ═══════════════════════════════════════════════════════════════════════════ */
+#group-system {
+    background-color: @surface_container_low;
+    border-radius: 10px;
+    padding: 0 2px;
+    margin: 2px 2px;
+}
+
+#group-system:hover {
+    background-color: @surface_container;
+}
+
+#custom-theme {
+    color: @on_surface_variant;
+    font-size: 14px;
+    padding: 0 8px;
+}
+
+#custom-theme:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#custom-inhibit-suspend {
+    font-size: 13px;
+    padding: 0 8px;
+}
+
+#custom-inhibit-suspend.enabled {
+    color: @on_surface_variant;
+}
+
+#custom-inhibit-suspend.disabled {
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
+    border-radius: 8px;
+}
+
+#custom-inhibit-suspend:hover {
+    background-color: @surface_container_highest;
+}
+
+#custom-notification {
+    font-size: 14px;
+    padding: 0 8px;
+    color: @on_surface_variant;
+}
+
+#custom-notification:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SYSTEM TRAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+#tray {
+    padding: 0 4px;
+    margin: 3px 3px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @error_container;
+    border-radius: 8px;
+}
+
+#tray menu {
+    background-color: @surface_container_high;
+    border: 2px solid @outline_variant;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+#tray menu menuitem {
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: @on_surface;
+}
+
+#tray menu menuitem:hover {
+    background-color: @surface_container_highest;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POWER BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+#custom-power {
+    font-size: 14px;
+    padding: 0 12px;
+    margin-right: 2px;
+    margin-left: 3px;
+    color: @on_error_container;
+    background-color: @error_container;
+    border-radius: 8px;
+}
+
+#custom-power:hover {
+    background-color: @error;
+    color: @on_error;
+}

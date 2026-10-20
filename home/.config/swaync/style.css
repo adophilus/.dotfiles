@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SWAYNC — CHARCOAL (monochrome)
+   Palette lifted verbatim from ghostty's charcoal config:
+     #0d0d0d bg · #1e1e1e surface · #333333 borders/raised · #555555 muted ·
+     #848484 dim · #d4d4d4 fg · #f4f4f4 cursor · whisper red #7a6a6a = critical
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono NF", "JetBrains Mono", "Symbols Nerd Font", sans-serif;
+  font-size: 13px;
+}
+
+/* ── Control center ── */
+.control-center {
+  background: #0d0d0d;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  color: #d4d4d4;
+}
+
+.control-center .notification {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Notifications ── */
+.notification-row {
+  outline: none;
+}
+
+.notification {
+  background: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  color: #d4d4d4;
+  padding: 6px;
+  margin: 6px 8px;
+}
+
+.notification-content {
+  background: transparent;
+  color: #d4d4d4;
+}
+
+.notification.critical {
+  border: 1px solid #7a6a6a;
+}
+
+.notification.critical .notification-body {
+  color: #a09090;
+}
+
+.notification-default-action,
+.notification-action {
+  background: #1e1e1e;
+  border: none;
+  color: #d4d4d4;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: #555555;
+  color: #d4d4d4;
+}
+
+.notification-action {
+  border-top: 1px solid #333333;
+}
+
+.notification-default-action:not(:only-child):first-child {
+  border-bottom: 1px solid #333333;
+}
+
+.close-button {
+  background: #333333;
+  color: #d4d4d4;
+  border-radius: 6px;
+  margin: 4px;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.close-button:hover {
+  background: #7a6a6a;
+  color: #0d0d0d;
+}
+
+/* ── Text ── */
+.notification-body {
+  color: #d4d4d4;
+}
+
+.summary {
+  color: #d4d4d4;
+  font-weight: 700;
+}
+
+.time {
+  color: #555555;
+}
+
+.app-name {
+  color: #848484;
+  font-weight: 700;
+}
+
+/* ── Widgets ── */
+.widget-title {
+  color: #d4d4d4;
+  padding: 8px;
+  margin: 8px;
+  font-weight: 700;
+}
+
+.widget-title > button {
+  background: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  color: #d4d4d4;
+  padding: 4px 8px;
+}
+
+.widget-title > button:hover {
+  background: #555555;
+}
+
+.widget-dnd,
+.widget-volume,
+.widget-backlight {
+  color: #d4d4d4;
+  padding: 8px;
+  margin: 8px;
+}
+
+.widget-dnd > switch {
+  background: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 8px;
+}
+
+.widget-dnd > switch:checked {
+  background: #555555;
+  border: 1px solid #555555;
+}
+
+.widget-dnd > switch slider {
+  background: #d4d4d4;
+  border-radius: 8px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+trough highlight {
+  background: #555555;
+}
+
+scale {
+  color: #d4d4d4;
+}
+
+/* ── Floating notification popup background ── */
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: transparent;
+}

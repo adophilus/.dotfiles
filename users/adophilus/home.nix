@@ -587,6 +587,7 @@ in
 
     ".config/zellij".source = ../../home/.config/zellij;
     ".config/ghostty".source = ../../home/.config/ghostty;
+    ".config/swaync".source = ../../home/.config/swaync;
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";

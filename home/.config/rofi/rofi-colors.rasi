@@ -1,47 +1,60 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ROFI COLORS — CHARCOAL (monochrome)
+
+   This file was matugen-generated; matugen is DORMANT — nothing regenerates
+   it, so values are now hardcoded to the charcoal palette (source of truth:
+   ~/.config/ghostty/config). Variable names are kept so config.rasi and
+   wallpaper.rasi keep working untouched.
+
+   Tiers: #0d0d0d bg · #1e1e1e surface · #333333 raised · #555555 selection ·
+   #848484 dim · #d4d4d4 fg · #f4f4f4 cursor. Whisper red #7a6a6a/#a09090 =
+   error/urgent only.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 * {
-    primary: #dfb8f6;
-    primary-fixed: #f3daff;
-    primary-fixed-dim: #dfb8f6;
-    on-primary: #412356;
-    on-primary-fixed: #2b0c40;
-    on-primary-fixed-variant: #593a6e;
-    primary-container: #593a6e;
-    on-primary-container: #f3daff;
-    secondary: #d2c1d9;
-    secondary-fixed: #efdcf5;
-    secondary-fixed-dim: #d2c1d9;
-    on-secondary: #382c3e;
-    on-secondary-fixed: #221729;
-    on-secondary-fixed-variant: #4f4256;
-    secondary-container: #4f4256;
-    on-secondary-container: #efdcf5;
-    tertiary: #f4b7ba;
-    tertiary-fixed: #ffdada;
-    tertiary-fixed-dim: #f4b7ba;
-    on-tertiary: #4c2528;
-    on-tertiary-fixed: #331014;
-    on-tertiary-fixed-variant: #663b3d;
-    tertiary-container: #663b3d;
-    on-tertiary-container: #ffdada;
-    error: #ffb4ab;
-    on-error: #690005;
-    error-container: #93000a;
-    on-error-container: #ffdad6;
-    surface: #161217;
-    on-surface: #e9e0e8;
-    on-surface-variant: #cdc3ce;
-    outline: #968e98;
-    outline-variant: #4b454d;
+    primary: #d4d4d4;
+    primary-fixed: #d4d4d4;
+    primary-fixed-dim: #848484;
+    on-primary: #0d0d0d;
+    on-primary-fixed: #0d0d0d;
+    on-primary-fixed-variant: #333333;
+    primary-container: #1e1e1e;
+    on-primary-container: #d4d4d4;
+    secondary: #848484;
+    secondary-fixed: #848484;
+    secondary-fixed-dim: #848484;
+    on-secondary: #0d0d0d;
+    on-secondary-fixed: #0d0d0d;
+    on-secondary-fixed-variant: #333333;
+    secondary-container: #1e1e1e;
+    on-secondary-container: #d4d4d4;
+    tertiary: #848484;
+    tertiary-fixed: #848484;
+    tertiary-fixed-dim: #848484;
+    on-tertiary: #0d0d0d;
+    on-tertiary-fixed: #0d0d0d;
+    on-tertiary-fixed-variant: #333333;
+    tertiary-container: #1e1e1e;
+    on-tertiary-container: #d4d4d4;
+    error: #7a6a6a;
+    on-error: #0d0d0d;
+    error-container: #333333;
+    on-error-container: #a09090;
+    surface: #0d0d0d;
+    on-surface: #d4d4d4;
+    on-surface-variant: #848484;
+    outline: #555555;
+    outline-variant: #333333;
     shadow: #000000;
     scrim: #000000;
-    inverse-surface: #e9e0e8;
-    inverse-on-surface: #332f35;
-    inverse-primary: #725188;
-    surface-dim: #161217;
-    surface-bright: #3c383e;
-    surface-container-lowest: #100d12;
-    surface-container-low: #1e1a20;
-    surface-container: #221e24;
-    surface-container-high: #2d282e;
-    surface-container-highest: #383339;
+    inverse-surface: #d4d4d4;
+    inverse-on-surface: #0d0d0d;
+    inverse-primary: #0d0d0d;
+    surface-dim: #0d0d0d;
+    surface-bright: #333333;
+    surface-container-lowest: #0d0d0d;
+    surface-container-low: #1e1e1e;
+    surface-container: #1e1e1e;
+    surface-container-high: #1e1e1e;
+    surface-container-highest: #333333;
 }

@@ -130,7 +130,6 @@ tooltip label {
 /* ═══════════════════════════════════════════════════════════════════════════
    BASE MODULE STYLES
    ═══════════════════════════════════════════════════════════════════════════ */
-#custom-launcher,
 #workspaces,
 #submap,
 #window,
@@ -160,7 +159,6 @@ tooltip label {
     color: @on-surface;
 }
 
-#custom-launcher:hover,
 #clock:hover,
 #custom-net-speed:hover,
 #cpu:hover,
@@ -194,25 +192,6 @@ tooltip label {
 /* ═══════════════════════════════════════════════════════════════════════════
    LEFT SECTION - LAUNCHER
    ═══════════════════════════════════════════════════════════════════════════ */
-#custom-launcher {
-    /* Pinned: JetBrainsMono NF (global stack) lacks U+F08C7 (nixos logo);
-       3270 Nerd Font Mono is the installed family that covers it
-       (fc-list ':charset=f08c7'). */
-    font-family: "3270 Nerd Font Mono", "3270 Nerd Font", "Symbols Nerd Font", sans-serif;
-    font-size: 16px;
-    padding: 0 15px 0px 8px;
-    color: @primary;
-    background-color: @primary-container;
-    border-radius: 10px;
-    margin-left: 2px;
-    margin-right: 4px;
-}
-
-#custom-launcher:hover {
-    background-color: @primary;
-    color: @on-primary;
-}
-
 /* ═══════════════════════════════════════════════════════════════════════════
    WORKSPACES
    ═══════════════════════════════════════════════════════════════════════════ */

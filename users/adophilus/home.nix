@@ -516,10 +516,8 @@ in
 
         gnome-network-displays
 
-        # Quickshell desktop shell
-        quickshell
-        qt6.qtmultimedia
-        qt6.qtdeclarative
+        # Desktop bar
+        waybar
         awww
         gpu-screen-recorder
         satty

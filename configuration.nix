@@ -424,16 +424,6 @@
     };
   };
 
-  # Enable ananicy
-  services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider = pkgs.ananicy-cpp;
-    settings = {
-      apply_nice = true;
-    };
-  };
-
   # Earlyoom killer
   systemd.oomd.enable = false;
   services.earlyoom.enable = true;

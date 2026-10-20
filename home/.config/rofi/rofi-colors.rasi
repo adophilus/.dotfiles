@@ -57,4 +57,22 @@
     surface-container: #1e1e1e;
     surface-container-high: #1e1e1e;
     surface-container-highest: #333333;
+
+    /* override rofi's builtin solarized defaults (cream bg / lightbg) */
+    background:                  #0d0d0d;
+    lightbg:                     #1e1e1e;
+
+    /* rofi element-state palette (consumed by config.rasi state refs) */
+    normal-foreground:              @on-surface;
+    normal-background:              rgba ( 13, 13, 13, 0 % );
+    alternate-normal-foreground:    @on-surface;
+    alternate-normal-background:    rgba ( 13, 13, 13, 0 % );
+    active-foreground:              @on-surface;
+    active-background:              @surface-container;
+    urgent-foreground:              #0d0d0d;
+    urgent-background:              @error;
+    selected-normal-foreground:     #0d0d0d;
+    selected-normal-background:     @primary;
+    selected-urgent-foreground:     #0d0d0d;
+    selected-urgent-background:     #a09090;
 }

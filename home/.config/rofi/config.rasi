@@ -42,7 +42,7 @@ configuration {
 }
 
 /* --- Import Colors --- */
-@import "../../.config/matugen/generated/rofi-colors.rasi"
+@import "rofi-colors.rasi"
 
 * {
     /* =====================================================================

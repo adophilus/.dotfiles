@@ -1,0 +1,189 @@
+/**
+ * Charcoal theme for Super Productivity
+ * Palette source: ghostty config (dotfiles) — bg #0d0d0d, fg #d4d4d4,
+ * tiers #1e1e1e/#333333/#555555, whisper-tinted grays for semantics only.
+ * Structure mirrors the built-in dark-base theme contract.
+ */
+
+:root {
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+}
+
+body.isDarkTheme {
+  /* Public theme contract */
+  --surface-1: #0d0d0d;
+  --surface-2: #1e1e1e;
+  --ink: #d4d4d4;
+  --ink-on-channel: 212, 212, 212;
+
+  /* Backgrounds */
+  --bg: #0d0d0d;
+  --bg-darker: #050505;
+  --bg-slightly-lighter: #141414;
+  --bg-lighter: #1e1e1e;
+  --bg-lightest: #333333;
+  --bg-super-light: #3a3a3a;
+
+  --card-bg: #141414;
+  --sidenav-bg: #0d0d0d;
+  --selected-task-bg-color: #1e1e1e;
+  --banner-bg: #1e1e1e;
+
+  --task-c-bg: #141414;
+  --task-c-selected-bg: #333333;
+  --sub-task-c-bg: #0d0d0d;
+  --sub-task-c-bg-done: #0d0d0d;
+  --task-c-bg-done: #0d0d0d;
+  --task-c-current-bg: #1e1e1e;
+  --task-c-drag-drop-bg: #3a3a3a;
+  --sub-task-c-bg-in-selected: #1e1e1e;
+
+  --standard-note-bg: #1e1e1e;
+  --standard-note-bg-hovered: #333333;
+
+  /* Text */
+  --text-color: #d4d4d4;
+  --text-color-less-intense: rgba(212, 212, 212, 0.87);
+  --text-color-muted: rgba(212, 212, 212, 0.54);
+  --text-color-more-intense: #f4f4f4;
+  --text-color-most-intense: #f4f4f4;
+
+  --standard-note-fg: #d4d4d4;
+  --task-detail-value-color: rgba(212, 212, 212, 0.7);
+
+  /* Borders */
+  --extra-border-color: #2a2a2a;
+  --separator-color: rgba(255, 255, 255, 0.08);
+  --divider-color: #1e1e1e;
+  --chip-outline-color: rgba(212, 212, 212, 0.23);
+
+  /* Accent: whisper blue (#9098a0 = palette bright-blue), quiet on purpose */
+  --c-accent: #9098a0;
+  --palette-accent-500: #9098a0;
+  --palette-accent-100: #c3c7cc;
+  --palette-accent-200: #adb3ba;
+  --palette-accent-300: #a0a8b0;
+  --palette-accent-400: #98a0a8;
+  --palette-accent-600: #828994;
+  --palette-accent-700: #747b85;
+  --palette-accent-800: #666d76;
+  --palette-accent-900: #585f67;
+  --palette-accent-contrast-500: #0d0d0d;
+
+  /* Semantic: whisper tints only */
+  --c-warn: #a09a90;
+  --c-error: #a09090;
+  --c-success: #90a090;
+  --c-info: #9098a0;
+
+  /* UI */
+  --scrollbar-thumb: #333333;
+  --scrollbar-thumb-hover: #555555;
+  --scrollbar-track: #0d0d0d;
+
+  --close-btn-bg: #333333;
+  --close-btn-border: transparent;
+
+  --select-hover-bg: rgba(144, 152, 160, 0.12);
+  --options-border-color: rgba(144, 152, 160, 0.2);
+
+  --attachment-bg: #1e1e1e;
+  --attachment-border: transparent;
+  --attachment-control-bg: rgba(0, 0, 0, 0.4);
+  --attachment-control-border: transparent;
+  --attachment-control-hover-bg: rgba(0, 0, 0, 0.8);
+
+  --grid-color: rgba(255, 255, 255, 0.06);
+  --progress-bg: rgba(255, 255, 255, 0.12);
+
+  --improvement-text: #d4d4d4;
+  --improvement-border: rgba(144, 152, 160, 0.3);
+  --improvement-button-text: #f4f4f4;
+
+  /* Shadows: off */
+  --shadow-key-umbra-opacity: 0;
+  --shadow-key-penumbra-opacity: 0;
+  --shadow-ambient-shadow-opacity: 0;
+  --task-shadow: none;
+  --task-shadow-sub-task: none;
+  --task-current-shadow: none;
+  --task-selected-shadow: none;
+  --card-shadow: none;
+  --banner-shadow: none;
+  --bottom-nav-shadow: none;
+  --whiteframe-shadow-1dp: none;
+  --whiteframe-shadow-2dp: none;
+  --whiteframe-shadow-3dp: none;
+  --whiteframe-shadow-4dp: none;
+  --whiteframe-shadow-6dp: none;
+  --whiteframe-shadow-8dp: none;
+  --whiteframe-shadow-12dp: none;
+  --whiteframe-shadow-24dp: none;
+
+  --hover-controls-border: none;
+  --hover-controls-border-opacity: 0;
+
+  --hover-bg-opacity: 0.04;
+  --focus-bg-opacity: 0.08;
+  --pressed-bg-opacity: 0.12;
+  --disabled-opacity: 0.38;
+}
+
+body::before,
+body .first-line:hover .hover-controls::before {
+  display: none !important;
+}
+
+body,
+body.isDarkTheme {
+  background-color: var(--bg);
+  color: var(--text-color);
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+body .page-wrapper,
+body.isDarkTheme .page-wrapper {
+  color: var(--text-color);
+}
+
+a,
+body a[href],
+body.isDarkTheme a[href] {
+  color: var(--c-accent);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover,
+body a[href]:hover,
+body.isDarkTheme a[href]:hover {
+  opacity: 0.8;
+}
+
+@media (hover: hover) {
+  body.isDarkTheme
+    task:not(.isSelected):not(.isCurrent):not(.isMultiSelected):hover:not(
+      :has(task:hover)
+    )
+    > swipe-block
+    > .inner-wrapper
+    > .inner-wrapper
+    > .box {
+    background-color: var(--task-c-selected-bg);
+    transition: background-color var(--transition-fast);
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+body.isDarkTheme {
+  --mat-theme-surface: var(--card-bg);
+  --mat-theme-on-surface: var(--text-color);
+  --mat-theme-background: var(--bg);
+}

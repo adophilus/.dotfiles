@@ -145,6 +145,10 @@ in
           slug = "tridactyl-vim";
           guid = "tridactyl.vim@cmcaine.co.uk";
         }
+        {
+          slug = "auto-tab-discard";
+          guid = "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}";
+        }
       ];
     };
   };

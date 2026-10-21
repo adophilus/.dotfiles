@@ -176,8 +176,7 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         },
-        "on-click": "uwsm-app -- gnome-clocks",
-        "on-click-middle": "uwsm-app -- kitty --class peaclock -e peaclock"
+        "on-click": "format-alt"
     },
 
     "privacy": {

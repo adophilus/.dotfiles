@@ -231,12 +231,12 @@
     },
 
     "temperature": {
-        "thermal-zone": 6,
+        "thermal-zone": 1,
         "format": "{icon} {temperatureC}°",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
         "critical-threshold": 75,
         "format-critical": "󰸁 {temperatureC}°",
-        "tooltip-format": "CPU Package: {temperatureC}°C / {temperatureF}°F\nThermal Zone: 6",
+        "tooltip-format": "CPU Package: {temperatureC}°C / {temperatureF}°F\nThermal Zone: 1 (B0D4)",
         "interval": 3
     },
 

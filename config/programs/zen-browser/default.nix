@@ -70,9 +70,9 @@ in
       # zen-sessions.jsonlz4). Omit pinsForceAction to keep existing pins
       # as normal tabs; set to "remove" to delete undeclared pins.
       pins = {
-        "Gmail" = {
-          id = "c174dca4-e48c-43f2-a7ec-09cfc34c566b";
-          url = "https://mail.google.com";
+        "Google Keep" = {
+          id = "042a8703-5c61-43c8-bf02-383ba6621084";
+          url = "https://keep.google.com";
           position = 101;
           isEssential = true;
         };
@@ -82,24 +82,19 @@ in
           position = 102;
           isEssential = true;
         };
-        "keybr" = {
-          id = "4747adea-8354-471e-8f58-415ff5ca3f4b";
-          url = "https://www.keybr.com";
-          position = 103;
-          isEssential = true;
-        };
         "X" = {
           id = "567b2f3c-ea78-4ad6-93b7-a85a8bc29db8";
           url = "https://x.com";
-          position = 104;
+          position = 103;
           isEssential = true;
         };
         "LinkedIn" = {
           id = "cb1ec737-39dd-45cf-aa07-721436cbac71";
           url = "https://www.linkedin.com";
-          position = 105;
+          position = 104;
           isEssential = true;
         };
+      };
         "Super Productivity" = {
           id = "e6a47b03-c431-4a58-9228-cf80af35b162";
           url = "https://app.super-productivity.com";

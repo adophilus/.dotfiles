@@ -94,7 +94,6 @@ in
           position = 104;
           isEssential = true;
         };
-      };
         "Super Productivity" = {
           id = "e6a47b03-c431-4a58-9228-cf80af35b162";
           url = "https://app.super-productivity.com";

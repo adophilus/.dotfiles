@@ -194,7 +194,7 @@
     // RIGHT MODULES - Hardware Stats
     // ===================================================================
     "cpu": {
-        "format": " {usage}%",
+        "format": "󰻠 {usage}%",
         "interval": 2,
         "on-click": "uwsm-app -- ghostty --class=btop -e btop",
         "on-click-right": "uwsm-app -- ghostty --class=sysbench_benchmark.sh -e $HOME/user_scripts/performance/sysbench_benchmark.sh",

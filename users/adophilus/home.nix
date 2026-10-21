@@ -589,6 +589,7 @@ in
     ".config/ghostty".source = ../../home/.config/ghostty;
     ".config/swaync".source = ../../home/.config/swaync;
     ".config/rofi".source = ../../home/.config/rofi;
+    ".config/rust-analyzer".source = ../../home/.config/rust-analyzer;
 
     # end-4/dots-hyprland configs (pinned flake input)
     ".config/ags".source = "${end4dots}/.config/ags";

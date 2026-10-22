@@ -57,12 +57,12 @@ format_speed() {
             _rx="$((rx_x10 / 10))"
         fi
 
-        _unit="MB"
+        _unit="MiB"
         _class="network-mb"
     else
         _tx=$(( tx_d / 1024 ))
         _rx=$(( rx_d / 1024 ))
-        _unit="KB"
+        _unit="KiB"
         _class="network-kb"
     fi
 }

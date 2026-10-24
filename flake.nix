@@ -101,9 +101,12 @@
 
       homeManagerProgramsDir = ./config/programs;
       homeManagerDirContents = builtins.readDir homeManagerProgramsDir;
-      homeManagerModuleDirs = builtins.filter (name: homeManagerDirContents.${name} == "directory") (
-        builtins.attrNames homeManagerDirContents
-      );
+      # A subdir only counts as a module if it has a default.nix, so
+      # assets-only dirs (super-productivity/ ships just a theme css) are skipped.
+      homeManagerModuleDirs = builtins.filter (name:
+        homeManagerDirContents.${name} == "directory"
+        && (builtins.readDir (homeManagerProgramsDir + "/${name}")) ? "default.nix"
+      ) (builtins.attrNames homeManagerDirContents);
       homeManagerModules = map (name: homeManagerProgramsDir + "/${name}") homeManagerModuleDirs;
 
       # Cross-platform config/programs modules (work on macOS). Excludes the

@@ -143,6 +143,7 @@
     pkgs.nerd-fonts.profont
     pkgs.nerd-fonts.bigblue-terminal
     pkgs.nerd-fonts._3270
+    pkgs.nerd-fonts.monofur
   ];
 
   # nix-homebrew — installs Homebrew ITSELF via Nix (into /usr/local on Intel),

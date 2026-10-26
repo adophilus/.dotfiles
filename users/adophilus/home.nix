@@ -812,6 +812,31 @@ in
   };
   services.opencode-a2a.enable = true; # zenith + nadir only
 
+  # ── macOS: start the podman machine VM at login ─────────────────────
+  # Upstream recipe: containers/podman docs/tutorials/macos_autostart.md.
+  # home-manager declares launchd.agents on all platforms; the plist only
+  # makes sense on darwin, so this evaluates to {} on zenith.
+  launchd.agents = lib.mkIf pkgs.stdenv.isDarwin {
+    podman-machine = {
+      enable = true;
+      config = {
+        ProgramArguments = [
+          "${config.home.profileDirectory}/bin/podman"
+          "machine"
+          "start"
+          "podman-machine-default"
+        ];
+        # One-shot: boots the VM then exits. AbandonProcessGroup is required,
+        # otherwise launchd kills the whole process group (VM included) when
+        # the podman command exits. Do NOT add KeepAlive — restart loop.
+        RunAtLoad = true;
+        AbandonProcessGroup = true;
+        StandardOutPath = "/tmp/podman-machine-start.log";
+        StandardErrorPath = "/tmp/podman-machine-start.err.log";
+      };
+    };
+  };
+
   # Managing hyprland from nixos config
   # wayland.windowManager.hyprland = {
   #     enable = true;

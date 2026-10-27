@@ -141,6 +141,7 @@
   fonts.packages = [
     pkgs.nerd-fonts.hurmit
     pkgs.nerd-fonts.profont
+    pkgs.nerd-fonts.space-mono
     pkgs.nerd-fonts.bigblue-terminal
     pkgs.nerd-fonts._3270
     pkgs.nerd-fonts.monofur

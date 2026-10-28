@@ -238,7 +238,7 @@ in
       ytd-pkg
       with-secrets
 
-      (pkgs.callPackage ../../pkgs/keybr-tui/default.nix { })
+      # (pkgs.callPackage ../../pkgs/keybr-tui/default.nix { })
 
       # Open Design MCP wrapper (darwin: exec the app's daemon; Linux: stub error)
       (pkgs.callPackage ../../pkgs/open-design-mcp/default.nix { })

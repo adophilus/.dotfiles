@@ -91,3 +91,38 @@ Balance: respect dependencies, avoid parallelizing what must be sequential, and 
 ## 5. Verify
 - Reconcile all writer lanes before declaring work complete.
 - Reuse still-valid evidence; don't repeat verification unless the state changed or the requirement demands it.
+
+# Browser automation workflow (chrome-devtools MCP)
+
+Multiple agents + the user share one Chrome instance through the same
+devtools connection. Tabs are a shared mutable resource — without
+discipline, agents fight over them (stale page IDs, sessions stomping
+each other, taken-over tabs). The hybrid rule:
+
+- **Default context** (no `isolatedContext` on `new_page`) — the user's
+  real browsing profile with all authenticated sessions (Gmail, Vercel,
+  mail, dashboards). Use this for anything that needs the user's
+  authenticated accounts: reading dashboards, checking mail, interacting
+  with prod services under their logins. Zero re-login cost.
+- **Isolated contexts** (`new_page` with `isolatedContext: "agent-<name>"`)
+  — for the agent's own test flows: sign-up walkthroughs, form driving,
+  anything sandboxed. Fresh cookie jar per context, so test sessions
+  never pollute the user's real accounts.
+- **Never re-login inside an isolated context.** Fresh contexts have no
+  sessions, and re-authenticating the user's MFA-secured accounts from an
+  agent triggers 6-digit challenges and suspected-bot locks. If a flow
+  needs an authenticated account, use the default context or a test
+  account with a mailhog/local OTP.
+
+Tab discipline (the volatile-ID problem):
+
+- The `pageId` the MCP exposes is an index into the current tab list —
+  it shifts whenever any tab opens, closes, or reorders. Don't hold it
+  across calls; re-scan (`list_pages`) and match by **URL** instead.
+- One webapp tab per agent. Close your own finished tabs; never close
+  the user's tabs.
+- If a tab crashes mid-drive (HMR remount, error boundary), re-find it
+  by URL and reload — don't open a duplicate.
+- Subagent briefs that drive the browser must include this discipline:
+  isolated context for test flows, default context for authed reads,
+  match tabs by URL, no tab spawns without need.

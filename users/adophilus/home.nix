@@ -372,6 +372,10 @@ in
 
         # Video players
         vlc
+        # mpv: zenith's UHD 620 has no AV1 hw decode entrypoint (vainfo), so
+        # VLC's VA-API path renders AV1 as black video. mpv falls back to
+        # software dav1d cleanly. Restored from f98c630's prune.
+        mpv
 
         # Android
         android-tools

@@ -4,4 +4,4 @@
 
 # No cargo-check bursts on save — 16GB laptop; RA + browser was hitting swap.
 # Run checks explicitly instead (or re-enable per-project if needed).
-checkOnSave = false
+# checkOnSave = false

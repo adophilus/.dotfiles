@@ -1,0 +1,37 @@
+# Charcoal-light — luminance-mirrored charcoal.
+# Each color is the charcoal counterpart with lightness inverted (HSL L' = 100% − L)
+# and hue tint preserved, so red stays red-whispered and "bright" slots (9–15)
+# become the darker, higher-contrast variants a light background needs.
+
+foreground = #2b2b2b
+background = #f2f2f2
+selection-foreground = #f2f2f2
+selection-background = #aaaaaa
+cursor-color = #0b0b0b
+cursor-text = #f2f2f2
+
+# 16-color palette (kitty color0..color15, kept in kitty's grouped order)
+# black
+palette = 0=#e1e1e1
+palette = 8=#cccccc
+# red
+palette = 1=#958585
+palette = 9=#6f5f5f
+# green
+palette = 2=#859585
+palette = 10=#5f6f5f
+# yellow
+palette = 3=#959085
+palette = 11=#6f695f
+# blue
+palette = 4=#858b95
+palette = 12=#5f676f
+# magenta
+palette = 5=#908595
+palette = 13=#695f6f
+# cyan
+palette = 6=#859395
+palette = 14=#5f6f6f
+# white
+palette = 7=#7b7b7b
+palette = 15=#2b2b2b

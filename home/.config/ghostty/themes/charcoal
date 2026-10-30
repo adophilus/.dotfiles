@@ -1,0 +1,36 @@
+# Charcoal monochrome — terminal palette source of truth.
+# Selected from ghostty/config via: theme = charcoal (or light:…,dark:…)
+# kitty: cursor / cursor_text_color equivalents included.
+
+foreground = #d4d4d4
+background = #0d0d0d
+selection-foreground = #0d0d0d
+selection-background = #555555
+cursor-color = #f4f4f4
+cursor-text = #0d0d0d
+
+# 16-color palette (kitty color0..color15, kept in kitty's grouped order)
+# black
+palette = 0=#1e1e1e
+palette = 8=#333333
+# red
+palette = 1=#7a6a6a
+palette = 9=#a09090
+# green
+palette = 2=#6a7a6a
+palette = 10=#90a090
+# yellow
+palette = 3=#7a756a
+palette = 11=#a09a90
+# blue
+palette = 4=#6a707a
+palette = 12=#9098a0
+# magenta
+palette = 5=#756a7a
+palette = 13=#9a90a0
+# cyan
+palette = 6=#6a787a
+palette = 14=#90a0a0
+# white
+palette = 7=#848484
+palette = 15=#d4d4d4

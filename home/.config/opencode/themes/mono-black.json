@@ -1,0 +1,61 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "theme": {
+    "primary":   "#ffffff",
+    "secondary": "#262626",
+    "accent":    "#ffffff",
+    "error":     "#808080",
+    "warning":   "#999999",
+    "success":   "#cccccc",
+    "info":      "#bfbfbf",
+
+    "text":      "#ffffff",
+    "textMuted": "#999999",
+
+    "background":        "#000000",
+    "backgroundPanel":   "#141414",
+    "backgroundElement": "#1e1e1e",
+
+    "border":       "#3d3d3d",
+    "borderActive": "#808080",
+    "borderSubtle": "#262626",
+
+    "diffAdded":               "#cccccc",
+    "diffRemoved":             "#999999",
+    "diffContext":             "#808080",
+    "diffHunkHeader":          "#bfbfbf",
+    "diffHighlightAdded":      "#ffffff",
+    "diffHighlightRemoved":    "#404040",
+    "diffAddedBg":             "#1a1a1a",
+    "diffRemovedBg":           "#141414",
+    "diffContextBg":           "#111111",
+    "diffLineNumber":          "#808080",
+    "diffAddedLineNumberBg":   "#1a1a1a",
+    "diffRemovedLineNumberBg": "#141414",
+
+    "markdownText":            "#ffffff",
+    "markdownHeading":         "#ffffff",
+    "markdownLink":            "#999999",
+    "markdownLinkText":        "#bfbfbf",
+    "markdownCode":            "#bfbfbf",
+    "markdownBlockQuote":      "#999999",
+    "markdownEmph":            "#ffffff",
+    "markdownStrong":          "#ffffff",
+    "markdownHorizontalRule":  "#3d3d3d",
+    "markdownListItem":        "#cccccc",
+    "markdownListEnumeration": "#808080",
+    "markdownImage":           "#999999",
+    "markdownImageText":       "#cccccc",
+    "markdownCodeBlock":       "#bfbfbf",
+
+    "syntaxComment":     "#808080",
+    "syntaxKeyword":     "#ffffff",
+    "syntaxFunction":    "#ffffff",
+    "syntaxVariable":    "#cccccc",
+    "syntaxString":      "#bfbfbf",
+    "syntaxNumber":      "#cccccc",
+    "syntaxType":        "#ffffff",
+    "syntaxOperator":    "#999999",
+    "syntaxPunctuation": "#999999"
+  }
+}

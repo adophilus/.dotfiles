@@ -3,6 +3,7 @@ return {
 	opts = {
 		-- colorscheme = "base16-ayu-dark",
 		-- colorscheme = "charcoal",
-		colorscheme = "charcoal-light",
+		-- colorscheme = "charcoal-light",
+		colorscheme = "mono-white",
 	},
 }

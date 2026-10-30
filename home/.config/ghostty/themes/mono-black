@@ -1,0 +1,27 @@
+# Pure monochrome (dark) — grayscale only, zero hue.
+# Selected from ghostty/config via: theme = mono-black
+
+foreground = #ffffff
+background = #000000
+selection-foreground = #000000
+selection-background = #808080
+cursor-color = #ffffff
+cursor-text = #000000
+
+# 16-color palette — gray ladder: 1e / 3d / 80 / 99 / cc / ff
+palette = 0=#1e1e1e
+palette = 8=#3d3d3d
+palette = 1=#999999
+palette = 9=#cccccc
+palette = 2=#999999
+palette = 10=#cccccc
+palette = 3=#999999
+palette = 11=#cccccc
+palette = 4=#999999
+palette = 12=#cccccc
+palette = 5=#999999
+palette = 13=#cccccc
+palette = 6=#999999
+palette = 14=#cccccc
+palette = 7=#808080
+palette = 15=#ffffff

@@ -1,6 +1,6 @@
 # Charcoal monochrome. Ghostty is the only terminal now — palette source of
-# truth lives in ./themes (charcoal, charcoal-light), applied via Ghostty's
-# theme feature: light/dark follows the OS appearance.
+# truth lives in ./themes (charcoal, charcoal-light, mono-black, mono-white),
+# applied via Ghostty's theme feature: light/dark follows the OS appearance.
 #
 # Syntax notes: kebab-case keys, `=` assignments, keybind = chord=action.
 
@@ -14,7 +14,7 @@ font-size = 20
 # ── Theme ──
 # Follow macOS light/dark. Pin one instead: theme = charcoal (or charcoal-light).
 # Any color set in THIS file would override the theme, so none are set here.
-theme = light:charcoal-light,dark:charcoal
+theme = light:mono-white,dark:mono-black
 
 # ── Behavior ──
 # kitty: confirm_os_window_close 0

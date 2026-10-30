@@ -1,0 +1,27 @@
+# Pure monochrome (light) — grayscale only, zero hue.
+# Mirror of mono-black: lightness inverted, no hue anywhere.
+
+foreground = #000000
+background = #ffffff
+selection-foreground = #ffffff
+selection-background = #808080
+cursor-color = #000000
+cursor-text = #ffffff
+
+# 16-color palette — gray ladder: e1 / c2 / 7f / 66 / 33 / 00
+palette = 0=#e1e1e1
+palette = 8=#c2c2c2
+palette = 1=#666666
+palette = 9=#333333
+palette = 2=#666666
+palette = 10=#333333
+palette = 3=#666666
+palette = 11=#333333
+palette = 4=#666666
+palette = 12=#333333
+palette = 5=#666666
+palette = 13=#333333
+palette = 6=#666666
+palette = 14=#333333
+palette = 7=#7f7f7f
+palette = 15=#000000

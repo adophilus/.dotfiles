@@ -9,7 +9,7 @@ font-family = Monofur Nerd Font Mono
 font-family-bold = Monofur Nerd Font Mono
 font-family-italic = Monofur Nerd Font Mono
 font-family-bold-italic = Monofur Nerd Font Mono
-font-size = 20
+font-size = 12
 
 # ── Theme ──
 # Follow macOS light/dark. Pin one instead: theme = charcoal (or charcoal-light).

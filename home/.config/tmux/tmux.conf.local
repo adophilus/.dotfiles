@@ -451,13 +451,15 @@ set -g @plugin 'wfxr/tmux-power'
 # set -g @plugin 'wfxr/tmux-web-reachable'
 
 # set -g @tmux_power_theme 'violet'
-# Charcoal theme — monochrome, matches opencode/kitty charcoal palette
-set -g @tmux_power_theme '#b4b4b4'
-set -g @tmux_power_g0 '#0d0d0d'
-set -g @tmux_power_g1 '#141414'
-set -g @tmux_power_g2 '#1e1e1e'
-set -g @tmux_power_g3 '#333333'
-set -g @tmux_power_g4 '#555555'
+# Charcoal-light theme — pinned deliberately (does not follow OS appearance).
+# Mirrors ghostty themes/charcoal-light; dark variant lives in git history.
+# tmux-power derives all segment fg colors from these, so this is the whole theme.
+set -g @tmux_power_theme '#4b4b4b'
+set -g @tmux_power_g0 '#f2f2f2'
+set -g @tmux_power_g1 '#ebebeb'
+set -g @tmux_power_g2 '#e1e1e1'
+set -g @tmux_power_g3 '#cccccc'
+set -g @tmux_power_g4 '#aaaaaa'
 # battery segment (reads oh-my-tmux's live-polled user option; hides on battery-less hosts)
 set -g @tmux_power_right_x "#{?@battery_percentage,🔋 #{@battery_percentage},}"
 # set -g @tmux_power_show_upload_speed   true

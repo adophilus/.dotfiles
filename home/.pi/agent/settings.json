@@ -1,5 +1,5 @@
 {
-	"theme": "mono-white",
+	"theme": "charcoal",
 	"tuiMode": "regular",
 	"extensions": ["-builtin:mcp"],
 	"defaultProvider": "zai",

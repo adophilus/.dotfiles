@@ -1,6 +1,6 @@
 # Charcoal monochrome. Ghostty is the only terminal now — palette source of
-# truth lives in ./themes (charcoal, charcoal-light, mono-black, mono-white),
-# applied via Ghostty's theme feature: light/dark follows the OS appearance.
+# truth lives in ./themes (charcoal, charcoal-light, mono-black, mono-white).
+# Charcoal is PINNED: it shows regardless of OS light/dark appearance.
 #
 # Syntax notes: kebab-case keys, `=` assignments, keybind = chord=action.
 
@@ -12,9 +12,8 @@ font-family-bold-italic = Monofur Nerd Font Mono
 font-size = 12
 
 # ── Theme ──
-# Follow macOS light/dark. Pin one instead: theme = charcoal (or charcoal-light).
-# Any color set in THIS file would override the theme, so none are set here.
-theme = light:mono-white,dark:mono-black
+# Pinned — use light:charcoal-light,dark:charcoal if OS-following is wanted again.
+theme = charcoal
 
 # ── Behavior ──
 # kitty: confirm_os_window_close 0

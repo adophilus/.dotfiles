@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  ".config/rofi".source = ../../home/.config/rofi;
+  home.file.".config/rofi".source = ../../../home/.config/rofi;
 }

@@ -569,9 +569,9 @@ in
     # Profile name (9z2hgjka) is assigned by the nixpkgs wrapper on first
     # launch — if it ever changes, update the path. nadir's entry below
     # shares the same source file.
-    ".tor project/firefox/9z2hgjka.default/user.js" =
-      lib.mkIf pkgs.stdenv.isLinux
-        { source = ../../home/.config/tor-browser/user.js; };
+    ".tor project/firefox/9z2hgjka.default/user.js" = lib.mkIf pkgs.stdenv.isLinux {
+      source = ../../home/.config/tor-browser/user.js;
+    };
 
     # nadir's WireGuard conf — the imperative half of the launchd daemon
     # org.nixos.wireguard-vps (darwin-configuration.nix): daemon is
@@ -594,7 +594,6 @@ in
     ".config/zellij".source = ../../home/.config/zellij;
     ".config/ghostty".source = ../../home/.config/ghostty;
     ".config/swaync".source = ../../home/.config/swaync;
-    ".config/rofi".source = ../../home/.config/rofi;
     ".config/rust-analyzer".source = ../../home/.config/rust-analyzer;
 
     # end-4/dots-hyprland configs (pinned flake input)
@@ -807,12 +806,14 @@ in
     # 0.0.0.0 rather than the tunnel IP: survives the launchd/wireguard boot
     # race; still gated by the server password + home NAT. zenith keeps the
     # loopback default.
-    web.extraArgs = lib.mkIf pkgs.stdenv.isDarwin (lib.mkForce [
-      "--hostname"
-      "0.0.0.0"
-      "--port"
-      "4096"
-    ]);
+    web.extraArgs = lib.mkIf pkgs.stdenv.isDarwin (
+      lib.mkForce [
+        "--hostname"
+        "0.0.0.0"
+        "--port"
+        "4096"
+      ]
+    );
   };
   services.opencode-a2a.enable = true; # zenith + nadir only
 

@@ -141,6 +141,7 @@ in
       tldr
       zip
       unzip
+      unar
       file
       nixfmt
       manix

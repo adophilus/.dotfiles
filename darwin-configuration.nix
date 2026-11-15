@@ -190,7 +190,6 @@
       "legcord"
       "whatsapp"
       "telegram" # native Swift client (not telegram-desktop, the Qt one)
-      "telegram-desktop" # Qt/tdesktop client — separate "Telegram Desktop.app"; supports tdata sessions + multiple -workdir instances
       "figma"
       # penpot — no cask upstream (unofficial Electron wrapper, Linux-only in
       # nixpkgs); self-hosted cask from the personal tap (nix-homebrew.taps)

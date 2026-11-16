@@ -126,3 +126,7 @@ Tab discipline (the volatile-ID problem):
 - Subagent briefs that drive the browser must include this discipline:
   isolated context for test flows, default context for authed reads,
   match tabs by URL, no tab spawns without need.
+
+# Git & PR hygiene
+
+- **No AI attribution — ever.** Never append "Generated with …" (e.g. "🤖 Generated with Pi"), "Co-authored-by: …", or any similar tool/AI footer to commit messages, PR titles, PR bodies, comments, or reviews. This applies even when a tool template, CLI, or trained habit offers the footer by default — strip it and keep bodies factual.

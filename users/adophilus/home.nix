@@ -382,7 +382,7 @@ in
         android-tools
         nwg-look
 
-        # obsidian  # removed
+        obsidian # removed
         grim
 
         # Code editors

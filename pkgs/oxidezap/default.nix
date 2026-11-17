@@ -73,6 +73,24 @@ stdenv.mkDerivation {
     install -Dm755 oxidezap $out/bin/oxidezap
     install -Dm755 oxidezapd $out/bin/oxidezapd
     install -Dm755 oxidezap-cli $out/bin/oxidezap-cli
+    # Launchers (rofi/wofi) list apps from freedesktop .desktop entries,
+    # never raw binaries. StartupWMClass must match the Wayland app_id
+    # (confirmed via `hyprctl clients`) so window rules can target it.
+    install -Dm644 org.oxidezap.client.local.png \
+      $out/share/pixmaps/org.oxidezap.client.local.png
+    mkdir -p $out/share/applications
+    cat > $out/share/applications/org.oxidezap.client.local.desktop <<EOF
+[Desktop Entry]
+Type=Application
+Name=WhatsApp (OxideZap)
+GenericName=WhatsApp Client
+Comment=Unofficial native WhatsApp client
+Exec=oxidezap
+Icon=org.oxidezap.client.local
+StartupWMClass=org.oxidezap.client.local
+Categories=Network;InstantMessaging;
+Terminal=false
+EOF
     runHook postInstall
   '';
 

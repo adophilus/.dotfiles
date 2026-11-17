@@ -474,12 +474,6 @@ in
         # Discord (Legcord — lightweight moddable client, wrapped with VA-API)
         # legcord-vapi  # removed — using legcord via Homebrew on Mac, evaluating on zenith
 
-        # WhatsApp
-        zapzap
-
-        # WhatsApp (native GTK4 client)
-        karere
-
         # WhatsApp (terminal client with vim motions)
         wstui-pkg
 

@@ -124,6 +124,29 @@
     };
   };
 
+  # Postgres — mirror of zenith's (configuration.nix); keep the two in step.
+  # nix-darwin's module differs: it's a launchd user agent running as
+  # adophilus (no postgres OS user, so no `sudo -u postgres`), and it doesn't
+  # create dataDir — /var/lib isn't user-writable, hence $HOME. The identMap
+  # stands in for zenith's postgres-peer line: `psql -U postgres` as me.
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    enableTCPIP = true;
+    dataDir = "/Users/adophilus/.local/share/postgresql/16";
+    identMap = ''
+      # map    os-user    pg-role
+      superuser adophilus  postgres
+    '';
+    authentication = pkgs.lib.mkOverride 10 ''
+      # type db   user       address       method
+      local  all  postgres                 peer map=superuser # superuser: psql -U postgres
+      local  all  all                      peer          # dev via socket: OS user -> role
+      host   all  all       127.0.0.1/32   scram-sha-256 # TCP loopback: password required
+      host   all  all       ::1/128        scram-sha-256
+    '';
+  };
+
   # home-manager CANNOT set the login shell on macOS — only nix-darwin (or
   # manual `chsh`) can. This makes fish the login shell for adophilus.
   environment.shells = [ "${pkgs.fish}/bin/fish" ];

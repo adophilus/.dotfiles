@@ -644,8 +644,12 @@
     package = pkgs.mullvad-vpn;
   };
 
+  # Mirrored on nadir (darwin-configuration.nix) — keep the two in step.
   services.postgresql = {
-    # enable = true;
+    enable = true;
+    # Pinned so both hosts run the same major (defaults differ: stateVersion
+    # 23.11 -> 15 here, 14 on nix-darwin).
+    package = pkgs.postgresql_16;
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       # type db   user       address       method

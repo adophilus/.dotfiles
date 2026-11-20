@@ -32,6 +32,15 @@
     # stale under this fast-moving package. Repo moved sst→anomalyco.
     opencode.url = "github:anomalyco/opencode";
 
+    # Orca (stablyai/orca) — parallel-agent IDE (claude/pi/codex CLIs in
+    # isolated git worktrees + orchestration layer). Not packaged in
+    # nixpkgs (its `orca` is the GNOME screen reader; the `orca-ide`
+    # package PR is still open), so it comes from numtide's curated
+    # llm-agents.nix. Deliberately NO nixpkgs follows (same reasoning as
+    # opencode): upstream re-locks nixpkgs ~daily to keep this
+    # fast-moving package building; ours is frozen at 26.05.
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";

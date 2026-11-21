@@ -136,6 +136,7 @@
         "sioyek"
         "claude-code"
         "gpg"
+        "orca"
       ];
     in
     {

@@ -137,6 +137,7 @@
         "claude-code"
         "gpg"
         "orca"
+        "rhystic-tracker"
       ];
     in
     {

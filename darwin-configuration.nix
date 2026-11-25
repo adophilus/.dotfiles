@@ -248,6 +248,7 @@
       "raycast"
       # work
       "lark"
+      "visual-studio-code" # Mercor "Application Users - VS Code on macOS" gig requires the real cask .app
       # tiling window manager (i3-style, no SIP changes)
       "nikitabobko/homebrew-tap/aerospace"
       "ghostty" # cask, not nixpkgs — Intel-Mac nix build source-builds Zig+GTK forever (see home.nix)

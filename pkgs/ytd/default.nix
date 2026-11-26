@@ -5,8 +5,8 @@ let
   program = pkgs.writeShellApplication {
     name = "ytd";
 
+    # yt-dlp deliberately NOT pinned: fast-moving tool, resolves from shell PATH
     runtimeInputs = with pkgs; [
-      yt-dlp
       ffmpeg
     ];
 

@@ -238,6 +238,7 @@
       # other
       "transmission"
       "gnucash"
+      "claude" # Claude Desktop
       # todo/time-tracker — exists in nixpkgs, but cask keeps the .app
       # Spotlight-indexed (same reasoning as thunderbird above)
       "super-productivity"

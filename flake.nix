@@ -65,16 +65,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Claude Desktop — no official Nix packaging (and none in nixpkgs; the
-    # packaging PR was closed as not-planned). aaddrick/claude-desktop-debian
-    # repackages Anthropic's official Linux .deb with a NixOS-friendly
-    # launcher. nixpkgs follows ours so the unfree predicate + closure match
-    # what home-manager (useGlobalPkgs) evaluates against.
-    claude-desktop = {
-      url = "github:aaddrick/claude-desktop-debian";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows =

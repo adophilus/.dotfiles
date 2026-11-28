@@ -58,10 +58,6 @@
         "@bnomei/tmux-mcp-rs@0.6.0"
       ]
     },
-    "chrome-devtools": {
-      "type": "stdio",
-      "command": "chrome-devtools-mcp"
-    },
     "scrcpy": {
       "type": "stdio",
       "command": "pnpx",

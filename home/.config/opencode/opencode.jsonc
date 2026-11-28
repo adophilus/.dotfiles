@@ -70,13 +70,6 @@
 			],
 			"enabled": true
 		},
-		"chrome-devtools": {
-			"type": "local",
-			"command": [
-				"chrome-devtools-mcp"
-			],
-			"enabled": true
-		},
 		"scrcpy": {
 			"type": "local",
 			"command": [

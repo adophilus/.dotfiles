@@ -58,14 +58,6 @@
         "@bnomei/tmux-mcp-rs@0.6.0"
       ]
     },
-    "open-computer-use": {
-      "type": "stdio",
-      "command": "pnpx",
-      "args": [
-        "@qwen-code/open-computer-use@0.2.3",
-        "mcp"
-      ]
-    },
     "chrome-devtools": {
       "type": "stdio",
       "command": "chrome-devtools-mcp"
